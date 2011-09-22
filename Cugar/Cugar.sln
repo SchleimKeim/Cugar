@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C# Express 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cugar", "Cugar\Cugar.csproj", "{1EFA3FFD-3806-4500-A6B9-9B01ED2628CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1EFA3FFD-3806-4500-A6B9-9B01ED2628CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EFA3FFD-3806-4500-A6B9-9B01ED2628CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EFA3FFD-3806-4500-A6B9-9B01ED2628CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EFA3FFD-3806-4500-A6B9-9B01ED2628CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
