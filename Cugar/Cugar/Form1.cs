@@ -18,7 +18,15 @@ namespace Cugar
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            string foo = "asdf";
+            Properties.Settings.Default.sugarhost = foo;
+            MessageBox.Show(Properties.Settings.Default.sugarhost);
+            this.Close();
+        }
+
+        private void bindingNavigator1_RefreshItems(object sender, EventArgs e)
+        {
+
         }
     }
 }
