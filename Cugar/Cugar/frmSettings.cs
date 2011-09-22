@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Cugar
 {
-    public partial class frmSettings : Form
+    public partial class grpSettingsCao : Form
     {
-        public frmSettings()
+        public grpSettingsCao()
         {
             InitializeComponent();
         }
