@@ -162,17 +162,6 @@ in Beiden DBS</panel_attributes>
     <additional_attributes>130;30;30;130</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Actor</type>
-    <coordinates>
-      <x>160</x>
-      <y>170</y>
-      <w>80</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>Actor</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>240</x>
@@ -253,5 +242,16 @@ prüfen</panel_attributes>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>130;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Actor</type>
+    <coordinates>
+      <x>160</x>
+      <y>170</y>
+      <w>80</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Actor</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
