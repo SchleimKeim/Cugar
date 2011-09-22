@@ -19,24 +19,19 @@ namespace Cugar
         private void Form1_Load(object sender, EventArgs e)
         {
            
-            MessageBox.Show(Cugar.Properties.Settings.Default.sugarhost);
+            //MessageBox.Show(Cugar.Properties.Settings.Default.sugarhost);
             
-            string foo = "asdf2";
+            //string foo = "asdf2";
             
-            Cugar.Properties.Settings.Default.sugarhost = foo;
+            //Cugar.Properties.Settings.Default.sugarhost = foo;
 
             
-            MessageBox.Show(Cugar.Properties.Settings.Default.sugarhost);
-            Cugar.Properties.Settings.Default.Save();
+            //MessageBox.Show(Cugar.Properties.Settings.Default.sugarhost);
+            //Cugar.Properties.Settings.Default.Save();
             
-            MessageBox.Show(Cugar.Properties.Settings.Default.sugarhost);
+            //MessageBox.Show(Cugar.Properties.Settings.Default.sugarhost);
 
-            this.Close();
-        }
-
-        private void bindingNavigator1_RefreshItems(object sender, EventArgs e)
-        {
-
+            //this.Close();
         }
     }
 }
