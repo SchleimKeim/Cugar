@@ -11,6 +11,10 @@ namespace Cugar
 {
     public partial class frmMain : Form
     {
+        //Form mySettings = new frmSettings();
+       
+        
+
         public frmMain()
         {
             InitializeComponent();
@@ -32,6 +36,17 @@ namespace Cugar
             //MessageBox.Show(Cugar.Properties.Settings.Default.sugarhost);
 
             //this.Close();
+        }
+
+        private void connectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Form mySettings = new 
+            
+        }
+
+        private void beendenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

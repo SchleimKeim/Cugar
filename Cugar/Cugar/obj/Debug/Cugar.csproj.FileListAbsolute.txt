@@ -11,3 +11,4 @@ C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Semesterarbeit\Project\Cugar
 C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Semesterarbeit\Project\Cugar\Cugar\bin\Debug\Cugar.application
 C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Semesterarbeit\Project\Cugar\Cugar\obj\Debug\Cugar.exe.manifest
 C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Semesterarbeit\Project\Cugar\Cugar\obj\Debug\Cugar.application
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Semesterarbeit\Project\Cugar\Cugar\obj\Debug\Cugar.grpSettingsCao.resources
