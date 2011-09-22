@@ -18,9 +18,19 @@ namespace Cugar
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string foo = "asdf";
-            Properties.Settings.Default.sugarhost = foo;
-            MessageBox.Show(Properties.Settings.Default.sugarhost);
+           
+            MessageBox.Show(Cugar.Properties.Settings.Default.sugarhost);
+            
+            string foo = "asdf2";
+            
+            Cugar.Properties.Settings.Default.sugarhost = foo;
+
+            
+            MessageBox.Show(Cugar.Properties.Settings.Default.sugarhost);
+            Cugar.Properties.Settings.Default.Save();
+            
+            MessageBox.Show(Cugar.Properties.Settings.Default.sugarhost);
+
             this.Close();
         }
 
