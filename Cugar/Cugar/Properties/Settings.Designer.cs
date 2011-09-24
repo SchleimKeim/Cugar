@@ -70,5 +70,65 @@ namespace Cugar.Properties {
                 this["caoip"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("root")]
+        public string caouser {
+            get {
+                return ((string)(this["caouser"]));
+            }
+            set {
+                this["caouser"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("00mysql00")]
+        public string caopw {
+            get {
+                return ((string)(this["caopw"]));
+            }
+            set {
+                this["caopw"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("sugarcrm")]
+        public string sugaruser {
+            get {
+                return ((string)(this["sugaruser"]));
+            }
+            set {
+                this["sugaruser"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("00sugar00")]
+        public string sugarpw {
+            get {
+                return ((string)(this["sugarpw"]));
+            }
+            set {
+                this["sugarpw"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool first_start {
+            get {
+                return ((bool)(this["first_start"]));
+            }
+            set {
+                this["first_start"] = value;
+            }
+        }
     }
 }

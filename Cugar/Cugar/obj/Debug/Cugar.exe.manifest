@@ -52,24 +52,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cugar.exe" size="13824">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cugar.exe" size="15872">
       <assemblyIdentity name="Cugar" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>JyPFo5gyJGfsjwAxMvN+sUz4umE=</dsig:DigestValue>
+        <dsig:DigestValue>RDkqMypUj5G834dKwLV+rZxadyc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Cugar.exe.config" size="1200">
+  <file name="Cugar.exe.config" size="1818">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>K1z4ra6OtqlWNVXEreaNSqKiS5Y=</dsig:DigestValue>
+      <dsig:DigestValue>byetFXeTKBy3ZqqZDTblSMl30Ow=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

@@ -14,5 +14,20 @@
     <Setting Name="caoip" Type="System.String" Scope="User">
       <Value Profile="(Default)">127.0.0.1</Value>
     </Setting>
+    <Setting Name="caouser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">root</Value>
+    </Setting>
+    <Setting Name="caopw" Type="System.String" Scope="User">
+      <Value Profile="(Default)">00mysql00</Value>
+    </Setting>
+    <Setting Name="sugaruser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sugarcrm</Value>
+    </Setting>
+    <Setting Name="sugarpw" Type="System.String" Scope="User">
+      <Value Profile="(Default)">00sugar00</Value>
+    </Setting>
+    <Setting Name="first_start" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

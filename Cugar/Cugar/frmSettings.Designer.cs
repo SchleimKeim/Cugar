@@ -1,6 +1,6 @@
 ﻿namespace Cugar
 {
-    partial class grpSettingsCao
+    partial class frmSettings
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -28,113 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtSugarHost = new System.Windows.Forms.TextBox();
-            this.grpSettingsSugar = new System.Windows.Forms.GroupBox();
-            this.txtSugarUser = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtSugarPW = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtCaoPW = new System.Windows.Forms.TextBox();
             this.txtCaoUser = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.txtCaoHost = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cmdSave = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.grpSettingsSugar.SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSugarPW = new System.Windows.Forms.TextBox();
+            this.txtSugarUser = new System.Windows.Forms.TextBox();
+            this.txtSugarHost = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.grpSettingsSugar = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
+            this.grpSettingsSugar.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Host:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Username:";
-            // 
-            // txtSugarHost
-            // 
-            this.txtSugarHost.Location = new System.Drawing.Point(76, 19);
-            this.txtSugarHost.Name = "txtSugarHost";
-            this.txtSugarHost.Size = new System.Drawing.Size(121, 20);
-            this.txtSugarHost.TabIndex = 1;
-            // 
-            // grpSettingsSugar
-            // 
-            this.grpSettingsSugar.Controls.Add(this.label1);
-            this.grpSettingsSugar.Controls.Add(this.txtSugarPW);
-            this.grpSettingsSugar.Controls.Add(this.txtSugarUser);
-            this.grpSettingsSugar.Controls.Add(this.txtSugarHost);
-            this.grpSettingsSugar.Controls.Add(this.label5);
-            this.grpSettingsSugar.Controls.Add(this.label2);
-            this.grpSettingsSugar.Location = new System.Drawing.Point(12, 11);
-            this.grpSettingsSugar.Name = "grpSettingsSugar";
-            this.grpSettingsSugar.Size = new System.Drawing.Size(207, 101);
-            this.grpSettingsSugar.TabIndex = 2;
-            this.grpSettingsSugar.TabStop = false;
-            this.grpSettingsSugar.Text = "Sugar Settings";
-            // 
-            // txtSugarUser
-            // 
-            this.txtSugarUser.Location = new System.Drawing.Point(76, 45);
-            this.txtSugarUser.Name = "txtSugarUser";
-            this.txtSugarUser.Size = new System.Drawing.Size(121, 20);
-            this.txtSugarUser.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 74);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Passwort:";
-            // 
-            // txtSugarPW
-            // 
-            this.txtSugarPW.Location = new System.Drawing.Point(76, 71);
-            this.txtSugarPW.Name = "txtSugarPW";
-            this.txtSugarPW.Size = new System.Drawing.Size(121, 20);
-            this.txtSugarPW.TabIndex = 1;
-            this.txtSugarPW.UseSystemPasswordChar = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtCaoPW);
-            this.groupBox1.Controls.Add(this.txtCaoUser);
-            this.groupBox1.Controls.Add(this.txtCaoHost);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(225, 11);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(207, 101);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "CAO Settings";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Host:";
             // 
             // txtCaoPW
             // 
@@ -150,6 +62,16 @@
             this.txtCaoUser.Name = "txtCaoUser";
             this.txtCaoUser.Size = new System.Drawing.Size(121, 20);
             this.txtCaoUser.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(277, 121);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "&Abbrechen";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtCaoHost
             // 
@@ -179,60 +101,139 @@
             // cmdSave
             // 
             this.cmdSave.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdSave.Location = new System.Drawing.Point(357, 118);
+            this.cmdSave.Location = new System.Drawing.Point(358, 121);
             this.cmdSave.Name = "cmdSave";
             this.cmdSave.Size = new System.Drawing.Size(75, 23);
-            this.cmdSave.TabIndex = 3;
+            this.cmdSave.TabIndex = 7;
             this.cmdSave.Text = "&Speichern";
             this.cmdSave.UseVisualStyleBackColor = true;
+            this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
             // 
-            // button1
+            // label1
             // 
-            this.button1.Location = new System.Drawing.Point(276, 118);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "&Abbrechen";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Host:";
             // 
-            // grpSettingsCao
+            // label3
             // 
-            this.AcceptButton = this.cmdSave;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Host:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtCaoPW);
+            this.groupBox1.Controls.Add(this.txtCaoUser);
+            this.groupBox1.Controls.Add(this.txtCaoHost);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Location = new System.Drawing.Point(226, 14);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(207, 101);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "CAO Settings";
+            // 
+            // txtSugarPW
+            // 
+            this.txtSugarPW.Location = new System.Drawing.Point(76, 71);
+            this.txtSugarPW.Name = "txtSugarPW";
+            this.txtSugarPW.Size = new System.Drawing.Size(121, 20);
+            this.txtSugarPW.TabIndex = 1;
+            this.txtSugarPW.UseSystemPasswordChar = true;
+            // 
+            // txtSugarUser
+            // 
+            this.txtSugarUser.Location = new System.Drawing.Point(76, 45);
+            this.txtSugarUser.Name = "txtSugarUser";
+            this.txtSugarUser.Size = new System.Drawing.Size(121, 20);
+            this.txtSugarUser.TabIndex = 1;
+            // 
+            // txtSugarHost
+            // 
+            this.txtSugarHost.Location = new System.Drawing.Point(76, 19);
+            this.txtSugarHost.Name = "txtSugarHost";
+            this.txtSugarHost.Size = new System.Drawing.Size(121, 20);
+            this.txtSugarHost.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 74);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Passwort:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Username:";
+            // 
+            // grpSettingsSugar
+            // 
+            this.grpSettingsSugar.Controls.Add(this.label1);
+            this.grpSettingsSugar.Controls.Add(this.txtSugarPW);
+            this.grpSettingsSugar.Controls.Add(this.txtSugarUser);
+            this.grpSettingsSugar.Controls.Add(this.txtSugarHost);
+            this.grpSettingsSugar.Controls.Add(this.label5);
+            this.grpSettingsSugar.Controls.Add(this.label2);
+            this.grpSettingsSugar.Location = new System.Drawing.Point(13, 14);
+            this.grpSettingsSugar.Name = "grpSettingsSugar";
+            this.grpSettingsSugar.Size = new System.Drawing.Size(207, 101);
+            this.grpSettingsSugar.TabIndex = 6;
+            this.grpSettingsSugar.TabStop = false;
+            this.grpSettingsSugar.Text = "Sugar Settings";
+            // 
+            // frmSettings_new
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.cmdSave;
-            this.ClientSize = new System.Drawing.Size(445, 146);
+            this.ClientSize = new System.Drawing.Size(442, 153);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cmdSave);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpSettingsSugar);
-            this.Name = "grpSettingsCao";
-            this.Text = "Settings";
-            this.grpSettingsSugar.ResumeLayout(false);
-            this.grpSettingsSugar.PerformLayout();
+            this.Name = "frmSettings_new";
+            this.Text = "frmSettings_new";
+            this.Load += new System.EventHandler(this.frmSettings_new_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.grpSettingsSugar.ResumeLayout(false);
+            this.grpSettingsSugar.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtSugarHost;
-        private System.Windows.Forms.GroupBox grpSettingsSugar;
-        private System.Windows.Forms.TextBox txtSugarPW;
-        private System.Windows.Forms.TextBox txtSugarUser;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCaoPW;
         private System.Windows.Forms.TextBox txtCaoUser;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtCaoHost;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button cmdSave;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtSugarPW;
+        private System.Windows.Forms.TextBox txtSugarUser;
+        private System.Windows.Forms.TextBox txtSugarHost;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox grpSettingsSugar;
     }
 }
