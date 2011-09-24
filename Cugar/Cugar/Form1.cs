@@ -34,7 +34,6 @@ namespace Cugar
                 m_SubForm_Settings.ShowDialog();
                 Cugar.Properties.Settings.Default.first_start = false;
                 Cugar.Properties.Settings.Default.Save();
-
             }
            
             //MessageBox.Show(Cugar.Properties.Settings.Default.sugarhost);
@@ -51,7 +50,10 @@ namespace Cugar
 
             //this.Close();
             
-            CDatabasecon myConSugar = new CDatabasecon(m_sugaruser, m_sugarpw, m_sugarhost);
+            CDatabasecon myConCao = new CDatabasecon();
+            myConCao.ConnectCao(m_caouser, m_caopw, m_caohost);
+            CDatabasecon myConSugar = new CDatabasecon();
+            myConSugar.ConnectSugar(m_sugaruser, m_sugarpw, m_sugarhost);
 
         }
 
