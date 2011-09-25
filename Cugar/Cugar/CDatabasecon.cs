@@ -5,6 +5,8 @@ using System.Text;
 using System.Data.OleDb;
 using System.Data;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+
 
 namespace Cugar
 {
@@ -20,52 +22,76 @@ namespace Cugar
         //private string m_constring_sugar;
         //private string m_constring_cao;
 
-        private const string csSugar = "Driver={MySQL ODBC 5.1 Driver};";
-        private const string csCao = "Driver={MySQL ODBC 5.1 Driver};";
+        //private const string csSugar = "Driver={MySQL ODBC 5.1 Driver};";
+        //private const string csCao = "Driver={MySQL ODBC 5.1 Driver};";
         private const string csQuerySugar = "qrySugar";
         private const string csQueryCao = "qryCao";
 
-        private OleDbConnection m_SugarConnection;
-        private OleDbConnection m_CaoConnection;
+        private MySqlConnection m_conSugarConnection;
+        private MySqlConnection m_conCaoConnection;
         
+
 
         //Provider MySQLProv; Data Source =mydb; User Id =myUsername; Password =myPassword; 
         //Driver={MySQL ODBC 5.1 Driver}; Server =localhost; Database =myDataBase; User =myUsername; Password =myPassword; Option =3; 
+
+
+
 
         public CDatabasecon()
         {
 
         }
 
-        public void ConnectSugar(string user, string pw, string server)
+        public void ConnectSugar(string user, string pw, string server, string dbname)
         {
-            StringBuilder m_SugarConnect_string = new StringBuilder();
-            m_SugarConnect_string.Append(csSugar);
-            m_SugarConnect_string.Append("Server=");
-            m_SugarConnect_string.Append(server);
-            m_SugarConnect_string.Append(";");
-            m_SugarConnect_string.Append("Databbase=sugarcrm;");
-            m_SugarConnect_string.Append("User=");
-            m_SugarConnect_string.Append(user);            
-            m_SugarConnect_string.Append(";");
-            m_SugarConnect_string.Append("Password=");
-            m_SugarConnect_string.Append(pw);
-            //result: Driver={MySQL ODBC 5.1 Driver};Server=sugarcrm.lan.darktemple.ch;Databbase=sugarcrm;User=sugarcrm;Password=00sugar00
+            StringBuilder m_sSugarConnect = new StringBuilder();
+            m_sSugarConnect.Append("SERVER=" + server + ";");
+            m_sSugarConnect.Append("DATABASE=" + dbname + ";");
+            m_sSugarConnect.Append("UID=" + user + ";");
+            m_sSugarConnect.Append("PASSWORD=" + pw + ";");
+
+            //Result:
+            //string myConnectionString = "SERVER=localhost;" +
+            //"DATABASE=mydatabase;" +
+            //"UID=user;" +
+            //"PASSWORD=mypassword;";
+            
+            try
+            {
+                MySqlConnection m_conSugarConnection = new MySqlConnection(m_sSugarConnect.ToString());
+            }
+            catch (Exception asdf)
+            {
+                MessageBox.Show(asdf.ToString());
+                throw;
+            }
         }
-        public void ConnectCao(string user, string pw, string server)
+        public void ConnectCao(string user, string pw, string server, string dbname)
         {
-            StringBuilder m_CaoConnect = new StringBuilder();
-            m_CaoConnect.Append(csCao);
-            m_CaoConnect.Append("Server=");
-            m_CaoConnect.Append(server);
-            m_CaoConnect.Append(";");
-            m_CaoConnect.Append("Databbase=caofaktura;");
-            m_CaoConnect.Append("User=");
-            m_CaoConnect.Append(user);            
-            m_CaoConnect.Append(";");
-            m_CaoConnect.Append("Password=");
-            m_CaoConnect.Append(pw);
-            //result:{Driver={MySQL ODBC 5.1 Driver};Server=localhost;Databbase=caofaktura;User=root;Password=00mysql00
+            StringBuilder m_sCaoConnect = new StringBuilder();
+            m_sCaoConnect.Append("SERVER=" + server + ";");
+            m_sCaoConnect.Append("DATABASE=" + dbname + ";");
+            m_sCaoConnect.Append("UID=" + user + ";");
+            m_sCaoConnect.Append("PASSWORD=" + pw + ";");
+
+            //Result:
+            //string myConnectionString = "SERVER=localhost;" +
+            //"DATABASE=mydatabase;" +
+            //"UID=user;" +
+            //"PASSWORD=mypassword;";
+
+
+            try
+            {
+                MySqlConnection m_conCaoConnection = new MySqlConnection(m_sCaoConnect.ToString());
+                
+            }
+            catch (Exception asdf2)
+            {
+                MessageBox.Show(asdf2.ToString());
+                throw;
+            }
 
         }
 

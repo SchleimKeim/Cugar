@@ -29,5 +29,11 @@
     <Setting Name="first_start" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="caodb" Type="System.String" Scope="User">
+      <Value Profile="(Default)">caofaktura</Value>
+    </Setting>
+    <Setting Name="sugardb" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sugarcrm</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

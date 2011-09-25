@@ -44,6 +44,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.grpSettingsSugar = new System.Windows.Forms.GroupBox();
+            this.txtCaoDBName = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtSugarDBName = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.grpSettingsSugar.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +69,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(277, 121);
+            this.button1.Location = new System.Drawing.Point(277, 146);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 8;
@@ -101,7 +105,7 @@
             // cmdSave
             // 
             this.cmdSave.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdSave.Location = new System.Drawing.Point(358, 121);
+            this.cmdSave.Location = new System.Drawing.Point(358, 146);
             this.cmdSave.Name = "cmdSave";
             this.cmdSave.Size = new System.Drawing.Size(75, 23);
             this.cmdSave.TabIndex = 7;
@@ -130,14 +134,16 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtCaoDBName);
             this.groupBox1.Controls.Add(this.txtCaoPW);
             this.groupBox1.Controls.Add(this.txtCaoUser);
             this.groupBox1.Controls.Add(this.txtCaoHost);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Location = new System.Drawing.Point(226, 14);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(207, 101);
+            this.groupBox1.Size = new System.Drawing.Size(207, 126);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CAO Settings";
@@ -185,28 +191,62 @@
             // grpSettingsSugar
             // 
             this.grpSettingsSugar.Controls.Add(this.label1);
+            this.grpSettingsSugar.Controls.Add(this.txtSugarDBName);
             this.grpSettingsSugar.Controls.Add(this.txtSugarPW);
             this.grpSettingsSugar.Controls.Add(this.txtSugarUser);
             this.grpSettingsSugar.Controls.Add(this.txtSugarHost);
             this.grpSettingsSugar.Controls.Add(this.label5);
+            this.grpSettingsSugar.Controls.Add(this.label8);
             this.grpSettingsSugar.Controls.Add(this.label2);
             this.grpSettingsSugar.Location = new System.Drawing.Point(13, 14);
             this.grpSettingsSugar.Name = "grpSettingsSugar";
-            this.grpSettingsSugar.Size = new System.Drawing.Size(207, 101);
+            this.grpSettingsSugar.Size = new System.Drawing.Size(207, 126);
             this.grpSettingsSugar.TabIndex = 6;
             this.grpSettingsSugar.TabStop = false;
             this.grpSettingsSugar.Text = "Sugar Settings";
             // 
-            // frmSettings_new
+            // txtCaoDBName
+            // 
+            this.txtCaoDBName.Location = new System.Drawing.Point(76, 97);
+            this.txtCaoDBName.Name = "txtCaoDBName";
+            this.txtCaoDBName.Size = new System.Drawing.Size(121, 20);
+            this.txtCaoDBName.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 100);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "DB Name:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 100);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(56, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "DB Name:";
+            // 
+            // txtSugarDBName
+            // 
+            this.txtSugarDBName.Location = new System.Drawing.Point(76, 97);
+            this.txtSugarDBName.Name = "txtSugarDBName";
+            this.txtSugarDBName.Size = new System.Drawing.Size(121, 20);
+            this.txtSugarDBName.TabIndex = 1;
+            // 
+            // frmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(442, 153);
+            this.ClientSize = new System.Drawing.Size(442, 181);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cmdSave);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpSettingsSugar);
-            this.Name = "frmSettings_new";
+            this.Name = "frmSettings";
             this.Text = "frmSettings_new";
             this.Load += new System.EventHandler(this.frmSettings_new_Load);
             this.groupBox1.ResumeLayout(false);
@@ -235,5 +275,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox grpSettingsSugar;
+        private System.Windows.Forms.TextBox txtCaoDBName;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtSugarDBName;
+        private System.Windows.Forms.Label label8;
     }
 }

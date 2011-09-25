@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -15,10 +16,12 @@ namespace Cugar
         private string m_caouser = Cugar.Properties.Settings.Default.caouser;
         private string m_caopw = Cugar.Properties.Settings.Default.caopw;
         private string m_caohost = Cugar.Properties.Settings.Default.caohost;
+        private string m_caodb = Cugar.Properties.Settings.Default.caodb;
 
         private string m_sugaruser = Cugar.Properties.Settings.Default.sugaruser;
         private string m_sugarpw = Cugar.Properties.Settings.Default.sugarpw;
         private string m_sugarhost = Cugar.Properties.Settings.Default.sugarhost;
+        private string m_sugardb = Cugar.Properties.Settings.Default.sugardb;
         
 
         public frmMain()
@@ -32,28 +35,14 @@ namespace Cugar
             {                
                 frmSettings m_SubForm_Settings = new frmSettings();
                 m_SubForm_Settings.ShowDialog();
-                Cugar.Properties.Settings.Default.first_start = false;
-                Cugar.Properties.Settings.Default.Save();
+                MessageBox.Show("Restarting Application to reload Settings.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                RestartApplication();
             }
            
-            //MessageBox.Show(Cugar.Properties.Settings.Default.sugarhost);
-            
-            //string foo = "asdf2";
-            
-            //Cugar.Properties.Settings.Default.sugarhost = foo;
-
-            
-            //MessageBox.Show(Cugar.Properties.Settings.Default.sugarhost);
-            //Cugar.Properties.Settings.Default.Save();
-            
-            //MessageBox.Show(Cugar.Properties.Settings.Default.sugarhost);
-
-            //this.Close();
-            
             CDatabasecon myConCao = new CDatabasecon();
-            myConCao.ConnectCao(m_caouser, m_caopw, m_caohost);
+            myConCao.ConnectCao(m_caouser, m_caopw, m_caohost, m_caodb);
             CDatabasecon myConSugar = new CDatabasecon();
-            myConSugar.ConnectSugar(m_sugaruser, m_sugarpw, m_sugarhost);
+            myConSugar.ConnectSugar(m_sugaruser, m_sugarpw, m_sugarhost, m_sugardb);
 
         }
 
@@ -67,5 +56,15 @@ namespace Cugar
         {
             this.Close();
         }
+
+        private static void RestartApplication()
+        {
+            // log exception somewhere, EventLog is one option
+            // MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            Process.Start(Application.ExecutablePath);
+            Application.Exit();
+        }
+
+
     }
 }

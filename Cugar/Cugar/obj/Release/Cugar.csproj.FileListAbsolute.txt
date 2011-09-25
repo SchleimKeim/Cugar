@@ -11,4 +11,4 @@ C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Semesterarbeit\Project\Cugar
 C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Semesterarbeit\Project\Cugar\Cugar\obj\Release\Cugar.application
 C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Semesterarbeit\Project\Cugar\Cugar\obj\Release\Cugar.exe
 C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Semesterarbeit\Project\Cugar\Cugar\obj\Release\Cugar.pdb
-C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Semesterarbeit\Project\Cugar\Cugar\obj\Release\Cugar.grpSettingsCao.resources
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Semesterarbeit\Project\Cugar\Cugar\obj\Release\Cugar.frmSettings.resources

@@ -130,5 +130,29 @@ namespace Cugar.Properties {
                 this["first_start"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("caofaktura")]
+        public string caodb {
+            get {
+                return ((string)(this["caodb"]));
+            }
+            set {
+                this["caodb"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("sugarcrm")]
+        public string sugardb {
+            get {
+                return ((string)(this["sugardb"]));
+            }
+            set {
+                this["sugardb"] = value;
+            }
+        }
     }
 }

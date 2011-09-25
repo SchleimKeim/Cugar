@@ -43,6 +43,11 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="MySql.Data" version="6.4.3.0" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
       <assemblyIdentity name="System.Core" version="3.5.0.0" publicKeyToken="b77a5c561934e089" language="neutral" processorArchitecture="msil" />
     </dependentAssembly>
   </dependency>
@@ -52,24 +57,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cugar.exe" size="13312">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cugar.exe" size="17408">
       <assemblyIdentity name="Cugar" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>KkF9wEHaJZDCqN0o2ffmJ4O0akA=</dsig:DigestValue>
+        <dsig:DigestValue>ZYczdumNCmy9BKyLBiL22CrfoCI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Cugar.exe.config" size="1200">
+  <file name="Cugar.exe.config" size="2066">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>K1z4ra6OtqlWNVXEreaNSqKiS5Y=</dsig:DigestValue>
+      <dsig:DigestValue>ZBHVomIinM+S4aLL6VMBeAbBpxM=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

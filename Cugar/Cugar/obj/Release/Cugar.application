@@ -4,14 +4,14 @@
   <description asmv2:publisher="Mathias Mader" asmv2:product="Cugar" asmv2:supportUrl="http://www.darktemple.ch/wiki/doku.php?id=projects:cugar" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" />
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Cugar.exe.manifest" size="3986">
+    <dependentAssembly dependencyType="install" codebase="Cugar.exe.manifest" size="4273">
       <assemblyIdentity name="Cugar.exe" version="0.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>wQyAJACJyYPla7CO2WyAy+IkXX0=</dsig:DigestValue>
+        <dsig:DigestValue>KsKNT1eag6AeEU/LnN3RPPlvlv8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
