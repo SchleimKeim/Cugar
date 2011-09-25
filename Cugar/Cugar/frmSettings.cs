@@ -46,6 +46,8 @@ namespace Cugar
 
             Cugar.Properties.Settings.Default.first_start = false;
             Cugar.Properties.Settings.Default.Save();
+            Cugar.Properties.Settings.Default.Upgrade();
+
             //RestartApplication();            
         }
 

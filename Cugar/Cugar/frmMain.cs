@@ -35,8 +35,9 @@ namespace Cugar
             {                
                 frmSettings m_SubForm_Settings = new frmSettings();
                 m_SubForm_Settings.ShowDialog();
-                MessageBox.Show("Restarting Application to reload Settings.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                RestartApplication();
+                MessageBox.Show("Please Restart Cugar to load the mew settings.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //CToolbox m_Toolbox = new CToolbox();
+                //m_Toolbox.RestartApplication();               
             }
            
             CDatabasecon myConCao = new CDatabasecon();
@@ -56,15 +57,5 @@ namespace Cugar
         {
             this.Close();
         }
-
-        private static void RestartApplication()
-        {
-            // log exception somewhere, EventLog is one option
-            // MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            Process.Start(Application.ExecutablePath);
-            Application.Exit();
-        }
-
-
     }
 }

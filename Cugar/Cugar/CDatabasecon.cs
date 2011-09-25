@@ -27,8 +27,8 @@ namespace Cugar
         private const string csQuerySugar = "qrySugar";
         private const string csQueryCao = "qryCao";
 
-        private MySqlConnection m_conSugarConnection;
-        private MySqlConnection m_conCaoConnection;
+        //private MySqlConnection m_conSugarConnection;
+        //private MySqlConnection m_conCaoConnection;
         
 
 
