@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.mnuFrmMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.beendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,58 +38,57 @@
             this.grpGenerell = new System.Windows.Forms.GroupBox();
             this.grpCAO = new System.Windows.Forms.GroupBox();
             this.grpSugar = new System.Windows.Forms.GroupBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtVorname = new System.Windows.Forms.TextBox();
+            this.cboAnrede = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtStrasse1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtStrasse2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtStrasse3 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.txtPLZ = new System.Windows.Forms.TextBox();
+            this.txtOrt = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtPhone1 = new System.Windows.Forms.TextBox();
+            this.txtPhon2 = new System.Windows.Forms.TextBox();
+            this.txtMobile = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txtFax = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.txtWebpage = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.txtCaoBriefanrede = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.txtCaoGeb = new System.Windows.Forms.TextBox();
+            this.txtCaoCustomerSince = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.txtCaoZahlungsziel = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.txtCaoVersand = new System.Windows.Forms.ComboBox();
+            this.txtCaoZahlart = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.txtSugarTitle = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.txtSugarReportsTo = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.txtSugarLeadSource = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.txtSugarZugewiesenAn = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.textBox22 = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
@@ -159,31 +157,31 @@
             // 
             // grpGenerell
             // 
-            this.grpGenerell.Controls.Add(this.comboBox1);
+            this.grpGenerell.Controls.Add(this.cboAnrede);
             this.grpGenerell.Controls.Add(this.textBox8);
             this.grpGenerell.Controls.Add(this.textBox7);
-            this.grpGenerell.Controls.Add(this.textBox6);
+            this.grpGenerell.Controls.Add(this.txtPLZ);
             this.grpGenerell.Controls.Add(this.label9);
-            this.grpGenerell.Controls.Add(this.label8);
-            this.grpGenerell.Controls.Add(this.textBox5);
+            this.grpGenerell.Controls.Add(this.txtOrt);
+            this.grpGenerell.Controls.Add(this.txtStrasse3);
             this.grpGenerell.Controls.Add(this.label7);
-            this.grpGenerell.Controls.Add(this.textBox4);
+            this.grpGenerell.Controls.Add(this.txtStrasse2);
             this.grpGenerell.Controls.Add(this.label6);
-            this.grpGenerell.Controls.Add(this.textBox14);
-            this.grpGenerell.Controls.Add(this.textBox13);
-            this.grpGenerell.Controls.Add(this.textBox12);
-            this.grpGenerell.Controls.Add(this.textBox11);
-            this.grpGenerell.Controls.Add(this.textBox3);
+            this.grpGenerell.Controls.Add(this.txtWebpage);
+            this.grpGenerell.Controls.Add(this.txtEmail);
+            this.grpGenerell.Controls.Add(this.txtFax);
+            this.grpGenerell.Controls.Add(this.txtMobile);
+            this.grpGenerell.Controls.Add(this.txtStrasse1);
             this.grpGenerell.Controls.Add(this.label5);
             this.grpGenerell.Controls.Add(this.label15);
-            this.grpGenerell.Controls.Add(this.textBox10);
+            this.grpGenerell.Controls.Add(this.txtPhon2);
             this.grpGenerell.Controls.Add(this.label14);
-            this.grpGenerell.Controls.Add(this.textBox2);
+            this.grpGenerell.Controls.Add(this.txtName);
             this.grpGenerell.Controls.Add(this.label13);
             this.grpGenerell.Controls.Add(this.label12);
             this.grpGenerell.Controls.Add(this.label4);
-            this.grpGenerell.Controls.Add(this.textBox9);
-            this.grpGenerell.Controls.Add(this.textBox1);
+            this.grpGenerell.Controls.Add(this.txtPhone1);
+            this.grpGenerell.Controls.Add(this.txtVorname);
             this.grpGenerell.Controls.Add(this.label11);
             this.grpGenerell.Controls.Add(this.label3);
             this.grpGenerell.Controls.Add(this.label10);
@@ -198,19 +196,19 @@
             // 
             // grpCAO
             // 
-            this.grpCAO.Controls.Add(this.comboBox4);
-            this.grpCAO.Controls.Add(this.comboBox3);
-            this.grpCAO.Controls.Add(this.comboBox2);
+            this.grpCAO.Controls.Add(this.txtCaoZahlart);
+            this.grpCAO.Controls.Add(this.txtCaoVersand);
+            this.grpCAO.Controls.Add(this.txtCaoBriefanrede);
             this.grpCAO.Controls.Add(this.label16);
             this.grpCAO.Controls.Add(this.label20);
             this.grpCAO.Controls.Add(this.label19);
-            this.grpCAO.Controls.Add(this.textBox17);
+            this.grpCAO.Controls.Add(this.txtCaoZahlungsziel);
             this.grpCAO.Controls.Add(this.label22);
             this.grpCAO.Controls.Add(this.label21);
             this.grpCAO.Controls.Add(this.label18);
-            this.grpCAO.Controls.Add(this.textBox16);
+            this.grpCAO.Controls.Add(this.txtCaoCustomerSince);
             this.grpCAO.Controls.Add(this.label17);
-            this.grpCAO.Controls.Add(this.textBox15);
+            this.grpCAO.Controls.Add(this.txtCaoGeb);
             this.grpCAO.Location = new System.Drawing.Point(636, 41);
             this.grpCAO.Name = "grpCAO";
             this.grpCAO.Size = new System.Drawing.Size(316, 174);
@@ -224,13 +222,13 @@
             this.grpSugar.Controls.Add(this.label28);
             this.grpSugar.Controls.Add(this.textBox22);
             this.grpSugar.Controls.Add(this.label27);
-            this.grpSugar.Controls.Add(this.textBox21);
+            this.grpSugar.Controls.Add(this.txtSugarZugewiesenAn);
             this.grpSugar.Controls.Add(this.label26);
-            this.grpSugar.Controls.Add(this.textBox20);
+            this.grpSugar.Controls.Add(this.txtSugarLeadSource);
             this.grpSugar.Controls.Add(this.label25);
-            this.grpSugar.Controls.Add(this.textBox19);
+            this.grpSugar.Controls.Add(this.txtSugarReportsTo);
             this.grpSugar.Controls.Add(this.label24);
-            this.grpSugar.Controls.Add(this.textBox18);
+            this.grpSugar.Controls.Add(this.txtSugarTitle);
             this.grpSugar.Controls.Add(this.label23);
             this.grpSugar.Location = new System.Drawing.Point(636, 224);
             this.grpSugar.Name = "grpSugar";
@@ -238,12 +236,6 @@
             this.grpSugar.TabIndex = 2;
             this.grpSugar.TabStop = false;
             this.grpSugar.Text = "Sugar options";
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // label1
             // 
@@ -263,21 +255,21 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Vorname:";
             // 
-            // textBox1
+            // txtVorname
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(70, 50);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(219, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtVorname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtVorname.Location = new System.Drawing.Point(70, 50);
+            this.txtVorname.Name = "txtVorname";
+            this.txtVorname.Size = new System.Drawing.Size(219, 20);
+            this.txtVorname.TabIndex = 1;
             // 
-            // comboBox1
+            // cboAnrede
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(70, 23);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(117, 21);
-            this.comboBox1.TabIndex = 2;
+            this.cboAnrede.FormattingEnabled = true;
+            this.cboAnrede.Location = new System.Drawing.Point(70, 23);
+            this.cboAnrede.Name = "cboAnrede";
+            this.cboAnrede.Size = new System.Drawing.Size(117, 21);
+            this.cboAnrede.TabIndex = 2;
             // 
             // label3
             // 
@@ -288,13 +280,13 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Name:";
             // 
-            // textBox2
+            // txtName
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Location = new System.Drawing.Point(70, 76);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(219, 20);
-            this.textBox2.TabIndex = 1;
+            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtName.Location = new System.Drawing.Point(70, 76);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(219, 20);
+            this.txtName.TabIndex = 1;
             // 
             // label4
             // 
@@ -305,13 +297,13 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Strasse 1:";
             // 
-            // textBox3
+            // txtStrasse1
             // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Location = new System.Drawing.Point(70, 102);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(219, 20);
-            this.textBox3.TabIndex = 1;
+            this.txtStrasse1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtStrasse1.Location = new System.Drawing.Point(70, 102);
+            this.txtStrasse1.Name = "txtStrasse1";
+            this.txtStrasse1.Size = new System.Drawing.Size(219, 20);
+            this.txtStrasse1.TabIndex = 1;
             // 
             // label5
             // 
@@ -322,13 +314,13 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Strasse 2:";
             // 
-            // textBox4
+            // txtStrasse2
             // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Location = new System.Drawing.Point(70, 128);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(219, 20);
-            this.textBox4.TabIndex = 1;
+            this.txtStrasse2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtStrasse2.Location = new System.Drawing.Point(70, 128);
+            this.txtStrasse2.Name = "txtStrasse2";
+            this.txtStrasse2.Size = new System.Drawing.Size(219, 20);
+            this.txtStrasse2.TabIndex = 1;
             // 
             // label6
             // 
@@ -339,13 +331,13 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Strasse 3:";
             // 
-            // textBox5
+            // txtStrasse3
             // 
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.Location = new System.Drawing.Point(70, 154);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(219, 20);
-            this.textBox5.TabIndex = 1;
+            this.txtStrasse3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtStrasse3.Location = new System.Drawing.Point(70, 154);
+            this.txtStrasse3.Name = "txtStrasse3";
+            this.txtStrasse3.Size = new System.Drawing.Size(219, 20);
+            this.txtStrasse3.TabIndex = 1;
             // 
             // label7
             // 
@@ -356,22 +348,22 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "PLZ:";
             // 
-            // textBox6
+            // txtPLZ
             // 
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox6.Location = new System.Drawing.Point(70, 180);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(219, 20);
-            this.textBox6.TabIndex = 1;
+            this.txtPLZ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPLZ.Location = new System.Drawing.Point(70, 180);
+            this.txtPLZ.Name = "txtPLZ";
+            this.txtPLZ.Size = new System.Drawing.Size(219, 20);
+            this.txtPLZ.TabIndex = 1;
             // 
-            // label8
+            // txtOrt
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 209);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 13);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Vorname";
+            this.txtOrt.AutoSize = true;
+            this.txtOrt.Location = new System.Drawing.Point(6, 209);
+            this.txtOrt.Name = "txtOrt";
+            this.txtOrt.Size = new System.Drawing.Size(49, 13);
+            this.txtOrt.TabIndex = 0;
+            this.txtOrt.Text = "Vorname";
             // 
             // textBox7
             // 
@@ -427,29 +419,29 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Mobile:";
             // 
-            // textBox9
+            // txtPhone1
             // 
-            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox9.Location = new System.Drawing.Point(383, 51);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(225, 20);
-            this.textBox9.TabIndex = 1;
+            this.txtPhone1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPhone1.Location = new System.Drawing.Point(383, 51);
+            this.txtPhone1.Name = "txtPhone1";
+            this.txtPhone1.Size = new System.Drawing.Size(225, 20);
+            this.txtPhone1.TabIndex = 1;
             // 
-            // textBox10
+            // txtPhon2
             // 
-            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox10.Location = new System.Drawing.Point(383, 77);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(225, 20);
-            this.textBox10.TabIndex = 1;
+            this.txtPhon2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPhon2.Location = new System.Drawing.Point(383, 77);
+            this.txtPhon2.Name = "txtPhon2";
+            this.txtPhon2.Size = new System.Drawing.Size(225, 20);
+            this.txtPhon2.TabIndex = 1;
             // 
-            // textBox11
+            // txtMobile
             // 
-            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox11.Location = new System.Drawing.Point(383, 103);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(225, 20);
-            this.textBox11.TabIndex = 1;
+            this.txtMobile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMobile.Location = new System.Drawing.Point(383, 103);
+            this.txtMobile.Name = "txtMobile";
+            this.txtMobile.Size = new System.Drawing.Size(225, 20);
+            this.txtMobile.TabIndex = 1;
             // 
             // label13
             // 
@@ -460,13 +452,13 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Fax:";
             // 
-            // textBox12
+            // txtFax
             // 
-            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox12.Location = new System.Drawing.Point(383, 128);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(225, 20);
-            this.textBox12.TabIndex = 1;
+            this.txtFax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFax.Location = new System.Drawing.Point(383, 128);
+            this.txtFax.Name = "txtFax";
+            this.txtFax.Size = new System.Drawing.Size(225, 20);
+            this.txtFax.TabIndex = 1;
             // 
             // label14
             // 
@@ -477,13 +469,13 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "Email:";
             // 
-            // textBox13
+            // txtEmail
             // 
-            this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox13.Location = new System.Drawing.Point(383, 154);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(225, 20);
-            this.textBox13.TabIndex = 1;
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEmail.Location = new System.Drawing.Point(383, 154);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(225, 20);
+            this.txtEmail.TabIndex = 1;
             // 
             // label15
             // 
@@ -494,13 +486,13 @@
             this.label15.TabIndex = 0;
             this.label15.Text = "Internet:";
             // 
-            // textBox14
+            // txtWebpage
             // 
-            this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox14.Location = new System.Drawing.Point(383, 181);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(225, 20);
-            this.textBox14.TabIndex = 1;
+            this.txtWebpage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtWebpage.Location = new System.Drawing.Point(383, 181);
+            this.txtWebpage.Name = "txtWebpage";
+            this.txtWebpage.Size = new System.Drawing.Size(225, 20);
+            this.txtWebpage.TabIndex = 1;
             // 
             // label16
             // 
@@ -511,13 +503,13 @@
             this.label16.TabIndex = 0;
             this.label16.Text = "Briefanrede:";
             // 
-            // comboBox2
+            // txtCaoBriefanrede
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(91, 23);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(215, 21);
-            this.comboBox2.TabIndex = 2;
+            this.txtCaoBriefanrede.FormattingEnabled = true;
+            this.txtCaoBriefanrede.Location = new System.Drawing.Point(91, 23);
+            this.txtCaoBriefanrede.Name = "txtCaoBriefanrede";
+            this.txtCaoBriefanrede.Size = new System.Drawing.Size(215, 21);
+            this.txtCaoBriefanrede.TabIndex = 2;
             // 
             // label17
             // 
@@ -528,21 +520,21 @@
             this.label17.TabIndex = 0;
             this.label17.Text = "Geburtstdatum:";
             // 
-            // textBox15
+            // txtCaoGeb
             // 
-            this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox15.Location = new System.Drawing.Point(91, 50);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(215, 20);
-            this.textBox15.TabIndex = 1;
+            this.txtCaoGeb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCaoGeb.Location = new System.Drawing.Point(91, 50);
+            this.txtCaoGeb.Name = "txtCaoGeb";
+            this.txtCaoGeb.Size = new System.Drawing.Size(215, 20);
+            this.txtCaoGeb.TabIndex = 1;
             // 
-            // textBox16
+            // txtCaoCustomerSince
             // 
-            this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox16.Location = new System.Drawing.Point(91, 74);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(215, 20);
-            this.textBox16.TabIndex = 1;
+            this.txtCaoCustomerSince.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCaoCustomerSince.Location = new System.Drawing.Point(91, 74);
+            this.txtCaoCustomerSince.Name = "txtCaoCustomerSince";
+            this.txtCaoCustomerSince.Size = new System.Drawing.Size(215, 20);
+            this.txtCaoCustomerSince.TabIndex = 1;
             // 
             // label18
             // 
@@ -553,15 +545,15 @@
             this.label18.TabIndex = 0;
             this.label18.Text = "Kunde seit:";
             // 
-            // textBox17
+            // txtCaoZahlungsziel
             // 
-            this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox17.Location = new System.Drawing.Point(91, 98);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(34, 20);
-            this.textBox17.TabIndex = 1;
-            this.textBox17.Text = "30";
-            this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCaoZahlungsziel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCaoZahlungsziel.Location = new System.Drawing.Point(91, 98);
+            this.txtCaoZahlungsziel.Name = "txtCaoZahlungsziel";
+            this.txtCaoZahlungsziel.Size = new System.Drawing.Size(34, 20);
+            this.txtCaoZahlungsziel.TabIndex = 1;
+            this.txtCaoZahlungsziel.Text = "30";
+            this.txtCaoZahlungsziel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label19
             // 
@@ -590,21 +582,21 @@
             this.label21.TabIndex = 0;
             this.label21.Text = "Versand:";
             // 
-            // comboBox3
+            // txtCaoVersand
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(93, 122);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(215, 21);
-            this.comboBox3.TabIndex = 2;
+            this.txtCaoVersand.FormattingEnabled = true;
+            this.txtCaoVersand.Location = new System.Drawing.Point(93, 122);
+            this.txtCaoVersand.Name = "txtCaoVersand";
+            this.txtCaoVersand.Size = new System.Drawing.Size(215, 21);
+            this.txtCaoVersand.TabIndex = 2;
             // 
-            // comboBox4
+            // txtCaoZahlart
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(93, 149);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(215, 21);
-            this.comboBox4.TabIndex = 2;
+            this.txtCaoZahlart.FormattingEnabled = true;
+            this.txtCaoZahlart.Location = new System.Drawing.Point(93, 149);
+            this.txtCaoZahlart.Name = "txtCaoZahlart";
+            this.txtCaoZahlart.Size = new System.Drawing.Size(215, 21);
+            this.txtCaoZahlart.TabIndex = 2;
             // 
             // label22
             // 
@@ -615,13 +607,13 @@
             this.label22.TabIndex = 0;
             this.label22.Text = "Zahlart:";
             // 
-            // textBox18
+            // txtSugarTitle
             // 
-            this.textBox18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox18.Location = new System.Drawing.Point(93, 19);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(215, 20);
-            this.textBox18.TabIndex = 1;
+            this.txtSugarTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSugarTitle.Location = new System.Drawing.Point(93, 19);
+            this.txtSugarTitle.Name = "txtSugarTitle";
+            this.txtSugarTitle.Size = new System.Drawing.Size(215, 20);
+            this.txtSugarTitle.TabIndex = 1;
             // 
             // label23
             // 
@@ -641,13 +633,14 @@
             this.label24.TabIndex = 0;
             this.label24.Text = "Reports to:";
             // 
-            // textBox19
+            // txtSugarReportsTo
             // 
-            this.textBox19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox19.Location = new System.Drawing.Point(93, 45);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(215, 20);
-            this.textBox19.TabIndex = 1;
+            this.txtSugarReportsTo.AcceptsReturn = true;
+            this.txtSugarReportsTo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSugarReportsTo.Location = new System.Drawing.Point(93, 45);
+            this.txtSugarReportsTo.Name = "txtSugarReportsTo";
+            this.txtSugarReportsTo.Size = new System.Drawing.Size(215, 20);
+            this.txtSugarReportsTo.TabIndex = 1;
             // 
             // label25
             // 
@@ -658,13 +651,13 @@
             this.label25.TabIndex = 0;
             this.label25.Text = "Lead Source:";
             // 
-            // textBox20
+            // txtSugarLeadSource
             // 
-            this.textBox20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox20.Location = new System.Drawing.Point(93, 71);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(215, 20);
-            this.textBox20.TabIndex = 1;
+            this.txtSugarLeadSource.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSugarLeadSource.Location = new System.Drawing.Point(93, 71);
+            this.txtSugarLeadSource.Name = "txtSugarLeadSource";
+            this.txtSugarLeadSource.Size = new System.Drawing.Size(215, 20);
+            this.txtSugarLeadSource.TabIndex = 1;
             // 
             // label26
             // 
@@ -675,22 +668,22 @@
             this.label26.TabIndex = 0;
             this.label26.Text = "Zugewiesen an:";
             // 
-            // textBox21
+            // txtSugarZugewiesenAn
             // 
-            this.textBox21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox21.Location = new System.Drawing.Point(93, 97);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(215, 20);
-            this.textBox21.TabIndex = 1;
+            this.txtSugarZugewiesenAn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSugarZugewiesenAn.Location = new System.Drawing.Point(93, 97);
+            this.txtSugarZugewiesenAn.Name = "txtSugarZugewiesenAn";
+            this.txtSugarZugewiesenAn.Size = new System.Drawing.Size(215, 20);
+            this.txtSugarZugewiesenAn.TabIndex = 1;
             // 
             // label27
             // 
             this.label27.AutoSize = true;
             this.label27.Location = new System.Drawing.Point(8, 126);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(30, 13);
+            this.label27.Size = new System.Drawing.Size(56, 13);
             this.label27.TabIndex = 0;
-            this.label27.Text = "Titel:";
+            this.label27.Text = "Reserve 1";
             // 
             // textBox22
             // 
@@ -705,9 +698,9 @@
             this.label28.AutoSize = true;
             this.label28.Location = new System.Drawing.Point(8, 152);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(30, 13);
+            this.label28.Size = new System.Drawing.Size(56, 13);
             this.label28.TabIndex = 0;
-            this.label28.Text = "Titel:";
+            this.label28.Text = "Reserve 2";
             // 
             // textBox23
             // 
@@ -755,61 +748,60 @@
         private System.Windows.Forms.GroupBox grpGenerell;
         private System.Windows.Forms.GroupBox grpCAO;
         private System.Windows.Forms.GroupBox grpSugar;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboAnrede;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtPLZ;
+        private System.Windows.Forms.Label txtOrt;
+        private System.Windows.Forms.TextBox txtStrasse3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtStrasse2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtStrasse1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtVorname;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txtWebpage;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtFax;
+        private System.Windows.Forms.TextBox txtMobile;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtPhon2;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtPhone1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox txtCaoBriefanrede;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox txtCaoZahlungsziel;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox txtCaoCustomerSince;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.TextBox txtCaoGeb;
+        private System.Windows.Forms.ComboBox txtCaoZahlart;
+        private System.Windows.Forms.ComboBox txtCaoVersand;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textBox23;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox textBox22;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox txtSugarZugewiesenAn;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox txtSugarLeadSource;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox txtSugarReportsTo;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox txtSugarTitle;
         private System.Windows.Forms.Label label23;
 
 
