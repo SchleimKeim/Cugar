@@ -64,17 +64,17 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>U1wI7p6m3QIOK87fCP6g3TEqdYM=</dsig:DigestValue>
+        <dsig:DigestValue>yudrgkc9e9MzQRbf1rsefY09dSc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Cugar.exe.config" size="2066">
+  <file name="Cugar.exe.config" size="2062">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>ZBHVomIinM+S4aLL6VMBeAbBpxM=</dsig:DigestValue>
+      <dsig:DigestValue>/GDEaFZOgEe5DgVUHXr8gjwCUco=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

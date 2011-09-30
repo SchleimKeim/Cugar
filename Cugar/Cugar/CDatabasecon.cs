@@ -45,25 +45,22 @@ namespace Cugar
         public void ConnectSugar(string user, string pw, string server, string dbname)
         {
             StringBuilder m_sSugarConnect = new StringBuilder();
-            
-//MyConnection = New OleDbConnection("Provider=MySQLProv;server=xxx.xxx.xxx.xxx;uid=xxx; pwdxxx=;database=xxx")
-            //m_sSugarConnect.Append();
-            //m_sSugarConnect.Append("DRIVER={MySQL ODBC 5.1 Driver};");
-            //m_sSugarConnect.Append("SERVER=" + server + ";");
-            //m_sSugarConnect.Append("DATABASE=" + dbname + ";");
-            //m_sSugarConnect.Append("UID=" + user + ";");
-            //m_sSugarConnect.Append("PASSWORD=" + pw + ";");
-
-            //Result:
-            //string myConnectionString = "SERVER=localhost;" +
-            //"DATABASE=mydatabase;" +
-            //"UID=user;" +
-            //"PASSWORD=mypassword;";
+            /* Original
+            m_sSugarConnect.Append("Provider=MySQL Provider; Data Source=localhost; User ID=root; Password=00mysql00; Initial Catalog=caofaktura; Activation=Q34J-8GXH-X3T9-DURZ;");
+            */
+            m_sSugarConnect.Append("Provider=MySQL Provider; ");
+            m_sSugarConnect.Append("Data Source=" + server + "; ");
+            m_sSugarConnect.Append("User ID=" + user + "; ");
+            m_sSugarConnect.Append("Password=" + pw + "; ");
+            m_sSugarConnect.Append("Initial Catalog=" + dbname + "; ");
+            m_sSugarConnect.Append("Activation=Q34J-8GXH-X3T9-DURZ;");
             
             try
             {
                 //MySqlConnection m_conSugarConnection = new MySqlConnection(m_sSugarConnect.ToString());
                 OleDbConnection m_conSugarConnection = new OleDbConnection(m_sSugarConnect.ToString());
+                m_conSugarConnection.Open();
+                m_conSugarConnection.Close();
             }
             catch (Exception asdf)
             {
@@ -74,29 +71,39 @@ namespace Cugar
         public void ConnectCao(string user, string pw, string server, string dbname)
         {
             StringBuilder m_sCaoConnect = new StringBuilder();
+            /* Original
             m_sCaoConnect.Append("Provider=MySQL Provider; Data Source=localhost; User ID=root; Password=00mysql00; Initial Catalog=caofaktura; Activation=Q34J-8GXH-X3T9-DURZ;");
-            //m_sCaoConnect.Append("Driver={MySQL ODBC 5.1 Driver}; Server =localhost; Database =caofaktura; User =root; Password =00mysql00; Option =3;");
-            //m_sCaoConnect.Append("DRIVER={MySQL ODBC 5.1 Driver};");
-            //m_sCaoConnect.Append("SERVER=" + server + ";");
-            //m_sCaoConnect.Append("DATABASE=" + dbname + ";");
-            //m_sCaoConnect.Append("UID=" + user + ";");
-            //m_sCaoConnect.Append("PASSWORD=" + pw + ";");
-            
+            */
+            m_sCaoConnect.Append("Provider=MySQL Provider; ");
+            m_sCaoConnect.Append("Data Source=" + server + "; ");
+            m_sCaoConnect.Append("User ID=" + user + "; ");
+            m_sCaoConnect.Append("Password=" + pw + "; ");
+            m_sCaoConnect.Append("Initial Catalog=" + dbname + "; ");
+            m_sCaoConnect.Append("Activation=Q34J-8GXH-X3T9-DURZ;");
 
+            #region debug zeug
+            //MessageBox.Show(m_sCaoConnect.ToString());
 
+            //StringBuilder m_sCaoTemp = new StringBuilder();
+            //m_sCaoTemp.Append("Provider=MySQL Provider; Data Source=localhost; User ID=root; Password=00mysql00; Initial Catalog=caofaktura; Activation=Q34J-8GXH-X3T9-DURZ;");
+            //MessageBox.Show(m_sCaoTemp.ToString());
             //Result:
             //string myConnectionString = "SERVER=localhost;" +
             //"DATABASE=mydatabase;" +
             //"UID=user;" +
             //"PASSWORD=mypassword;";
-
+            #endregion
 
             try
-            {
-                //MySqlConnection m_conCaoConnection = new MySqlConnection(m_sCaoConnect.ToString());
-                
+            {                
+                /* Alte Variante
+                MySqlConnection m_conCaoConnection = new MySqlConnection(m_sCaoConnect.ToString());
+                */
+
                 OleDbConnection m_conCaoConnection = new OleDbConnection(m_sCaoConnect.ToString());
                 m_conCaoConnection.Open();
+                m_conCaoConnection.Close();
+
             }
             catch (Exception asdf2)
             {

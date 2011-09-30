@@ -97,7 +97,7 @@ namespace Cugar.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sugarcrm")]
+        [global::System.Configuration.DefaultSettingValueAttribute("root")]
         public string sugaruser {
             get {
                 return ((string)(this["sugaruser"]));
@@ -109,7 +109,7 @@ namespace Cugar.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("00sugar00")]
+        [global::System.Configuration.DefaultSettingValueAttribute("00mysql00")]
         public string sugarpw {
             get {
                 return ((string)(this["sugarpw"]));
