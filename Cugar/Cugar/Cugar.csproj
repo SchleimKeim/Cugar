@@ -114,6 +114,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
     <None Include="Cugar_TemporaryKey.pfx" />
@@ -159,6 +160,18 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\create_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\png\16\Modern3D\office\pencil_magenta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\png\16\Modern3D\computers\floppy_35inch_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\png\16\Modern3D\geometry\triangle_red.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

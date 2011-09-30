@@ -714,7 +714,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(967, 423);
+            this.ClientSize = new System.Drawing.Size(967, 449);
             this.Controls.Add(this.grpSugar);
             this.Controls.Add(this.grpCAO);
             this.Controls.Add(this.grpGenerell);
