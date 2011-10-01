@@ -78,6 +78,7 @@ namespace Cugar
             m_daCao = new OleDbDataAdapter("SELECT * FROM adressen", m_cnCaoConnection);
 
             //OleDbCommand myUpdateCommand = new OleDbCommand("UPDATE qryNotenStudent SET fldStudentNr = ?, fldName = ?, fldVorname = ?, fldKlassenNr = ?, fldKlassenBez = ?, fldNotenNr = ?, fldNote = ?, fldFachNr = ?, fldBezeichnung = ? WHERE fldStudentNr = ?", myConnection);
+            //OleDbCommand myUpdateCommand = new OleDbCommand("UPDATE ADRESSEN SET NAME1 ='Hans Müller' where REC_ID=3", m_cnCaoConnection);
             //myUpdateCommand.Parameters.Add("@fldStudentNr", OleDbType.Integer, 2, "fldStudentNr");
             //myUpdateCommand.Parameters.Add("@fldName", OleDbType.VarChar, 255, "fldName");
             //myUpdateCommand.Parameters.Add("@fldVorname", OleDbType.VarChar, 255, "fldVorname");
@@ -90,9 +91,12 @@ namespace Cugar
             //m_daCao.UpdateCommand = myUpdateCommand;
 
             //delete
-            //OleDbCommand myDeleteCommand = new OleDbCommand("DELETE FROM qryNotenStudent WHERE fldStudentNr = ?", myConnection);
+//            OleDbCommand myDeleteCommand = new OleDbCommand("delete from ADRESSEN_LIEF Where ADDR_ID=3;delete from ADRESSEN_TO_MERK Where ADDR_ID=3;DELETE FROM ADRESSEN WHERE REC_ID=3.DeleteCommand = myDeleteCommand;", myConnection);
             //myDeleteCommand.Parameters.Add("@fldStudentNr", OleDbType.Integer, 2, "fldStudentNr");
-            //m_daCao.DeleteCommand = myDeleteCommand;
+            //m_daCaodelete from ADRESSEN_ASP Where ADDR_ID=3
+delete from ADRESSEN_LIEF Where ADDR_ID=3
+delete from ADRESSEN_TO_MERK Where ADDR_ID=3
+DELETE FROM ADRESSEN WHERE REC_ID=3.DeleteCommand = myDeleteCommand;
 
             //m_daCao.Fill(m_dsCao, csQueryTempName);
             //m_dvCao = m_dsCao.Tables[csQueryTempName].DefaultView;            
