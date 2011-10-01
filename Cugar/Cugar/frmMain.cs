@@ -12,6 +12,7 @@ namespace Cugar
 {
     public partial class frmMain : Form
     {
+        #region loading settings into private members
         //Form mySettings = new frmSettings();
         private string m_caouser = Cugar.Properties.Settings.Default.caouser;
         private string m_caopw = Cugar.Properties.Settings.Default.caopw;
@@ -22,7 +23,10 @@ namespace Cugar
         private string m_sugarpw = Cugar.Properties.Settings.Default.sugarpw;
         private string m_sugarhost = Cugar.Properties.Settings.Default.sugarhost;
         private string m_sugardb = Cugar.Properties.Settings.Default.sugardb;
-        
+        #endregion
+
+        private DataSet m_dsMainCao;
+
 
         public frmMain()
         {
@@ -41,7 +45,7 @@ namespace Cugar
             }
 
             CaoConnector myConCao = new CaoConnector(m_caohost, m_caouser, m_caopw, m_caodb);
-            myConCao.CaoConnect();
+            
 
 //            myConCao.ConnectCao(m_caouser, m_caopw, m_caohost, m_caodb);
 //            CDatabasecon myConSugar = new CDatabasecon();
