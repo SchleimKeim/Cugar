@@ -39,11 +39,13 @@ namespace Cugar
                 //CToolbox m_Toolbox = new CToolbox();
                 //m_Toolbox.RestartApplication();               
             }
-           
-            CDatabasecon myConCao = new CDatabasecon();
-            myConCao.ConnectCao(m_caouser, m_caopw, m_caohost, m_caodb);
-            CDatabasecon myConSugar = new CDatabasecon();
-            myConSugar.ConnectSugar(m_sugaruser, m_sugarpw, m_sugarhost, m_sugardb);
+
+            CaoConnector myConCao = new CaoConnector(m_caohost, m_caouser, m_caopw, m_caodb);
+            myConCao.CaoConnect();
+
+//            myConCao.ConnectCao(m_caouser, m_caopw, m_caohost, m_caodb);
+//            CDatabasecon myConSugar = new CDatabasecon();
+            //myConSugar.ConnectSugar(m_sugaruser, m_sugarpw, m_sugarhost, m_sugardb);
 
         }
 

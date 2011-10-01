@@ -13,12 +13,17 @@ namespace Cugar
         {
         }
 
+
         public void RestartApplication()
         {
             // log exception somewhere, EventLog is one option
             // MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Stop);
             Process.Start(Application.ExecutablePath);
             Application.Exit();
+        }
+
+        public void FindDifference()
+        {
         }
     }
 }
