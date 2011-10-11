@@ -35,6 +35,8 @@ namespace Cugar
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            tabDGVCao.BringToFront();
+
             if (Cugar.Properties.Settings.Default.first_start == true)
             {                
                 frmSettings m_SubForm_Settings = new frmSettings();
@@ -45,7 +47,13 @@ namespace Cugar
             }
 
             CaoConnector myConCao = new CaoConnector(m_caohost, m_caouser, m_caopw, m_caodb);
-            
+            dgvCao.DataSource = myConCao.dvCaoFirsRecord;
+
+            SugarConnector myConSugar = new SugarConnector(m_sugarhost, m_sugaruser, m_sugarpw, m_sugardb);
+            dgvSugar.DataSource = myConSugar.dvSugarFirsRecord;
+
+
+            //SugarConnector myConSugar = new SugarConnector(m_sugarhost, m_sugaruser, m_sugarpw, m_sugardb);
 
 //            myConCao.ConnectCao(m_caouser, m_caopw, m_caohost, m_caodb);
 //            CDatabasecon myConSugar = new CDatabasecon();

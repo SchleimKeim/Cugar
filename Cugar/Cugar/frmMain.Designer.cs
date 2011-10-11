@@ -169,6 +169,10 @@
             this.textBox26 = new System.Windows.Forms.TextBox();
             this.label55 = new System.Windows.Forms.Label();
             this.textBox27 = new System.Windows.Forms.TextBox();
+            this.tabDGVCao = new System.Windows.Forms.TabPage();
+            this.dgvCao = new System.Windows.Forms.DataGridView();
+            this.tabDGVSugar = new System.Windows.Forms.TabPage();
+            this.dgvSugar = new System.Windows.Forms.DataGridView();
             this.mnuFrmMain.SuspendLayout();
             this.grpGenerell.SuspendLayout();
             this.grpCAO.SuspendLayout();
@@ -180,6 +184,10 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.tabDGVCao.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCao)).BeginInit();
+            this.tabDGVSugar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSugar)).BeginInit();
             this.SuspendLayout();
             // 
             // mnuFrmMain
@@ -921,6 +929,8 @@
             // 
             this.tabPrivat.Controls.Add(this.tabPage1);
             this.tabPrivat.Controls.Add(this.tabPage2);
+            this.tabPrivat.Controls.Add(this.tabDGVCao);
+            this.tabPrivat.Controls.Add(this.tabDGVSugar);
             this.tabPrivat.Location = new System.Drawing.Point(0, 52);
             this.tabPrivat.Name = "tabPrivat";
             this.tabPrivat.SelectedIndex = 0;
@@ -948,7 +958,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(959, 437);
+            this.tabPage2.Size = new System.Drawing.Size(951, 377);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Firmenkunden";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1508,6 +1518,43 @@
             this.textBox27.Size = new System.Drawing.Size(215, 20);
             this.textBox27.TabIndex = 1;
             // 
+            // tabDGVCao
+            // 
+            this.tabDGVCao.Controls.Add(this.dgvCao);
+            this.tabDGVCao.Location = new System.Drawing.Point(4, 22);
+            this.tabDGVCao.Name = "tabDGVCao";
+            this.tabDGVCao.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDGVCao.Size = new System.Drawing.Size(951, 377);
+            this.tabDGVCao.TabIndex = 2;
+            this.tabDGVCao.Text = "dgvCao";
+            this.tabDGVCao.UseVisualStyleBackColor = true;
+            // 
+            // dgvCao
+            // 
+            this.dgvCao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCao.Location = new System.Drawing.Point(9, 7);
+            this.dgvCao.Name = "dgvCao";
+            this.dgvCao.Size = new System.Drawing.Size(934, 363);
+            this.dgvCao.TabIndex = 0;
+            // 
+            // tabDGVSugar
+            // 
+            this.tabDGVSugar.Controls.Add(this.dgvSugar);
+            this.tabDGVSugar.Location = new System.Drawing.Point(4, 22);
+            this.tabDGVSugar.Name = "tabDGVSugar";
+            this.tabDGVSugar.Size = new System.Drawing.Size(951, 377);
+            this.tabDGVSugar.TabIndex = 3;
+            this.tabDGVSugar.Text = "dgvSugar";
+            this.tabDGVSugar.UseVisualStyleBackColor = true;
+            // 
+            // dgvSugar
+            // 
+            this.dgvSugar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSugar.Location = new System.Drawing.Point(8, 7);
+            this.dgvSugar.Name = "dgvSugar";
+            this.dgvSugar.Size = new System.Drawing.Size(934, 363);
+            this.dgvSugar.TabIndex = 1;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1539,6 +1586,10 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.tabDGVCao.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCao)).EndInit();
+            this.tabDGVSugar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSugar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1686,6 +1737,10 @@
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.TextBox textBox27;
         private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabDGVCao;
+        private System.Windows.Forms.DataGridView dgvCao;
+        private System.Windows.Forms.TabPage tabDGVSugar;
+        private System.Windows.Forms.DataGridView dgvSugar;
 
 
 
