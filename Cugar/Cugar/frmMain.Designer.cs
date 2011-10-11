@@ -173,6 +173,7 @@
             this.dgvCao = new System.Windows.Forms.DataGridView();
             this.tabDGVSugar = new System.Windows.Forms.TabPage();
             this.dgvSugar = new System.Windows.Forms.DataGridView();
+            this.tsCmdSearch = new System.Windows.Forms.ToolStripButton();
             this.mnuFrmMain.SuspendLayout();
             this.grpGenerell.SuspendLayout();
             this.grpCAO.SuspendLayout();
@@ -304,6 +305,11 @@
             // cboAnrede
             // 
             this.cboAnrede.FormattingEnabled = true;
+            this.cboAnrede.Items.AddRange(new object[] {
+            "Herr",
+            "Frau",
+            "Firma",
+            "Doktor"});
             this.cboAnrede.Location = new System.Drawing.Point(70, 23);
             this.cboAnrede.Name = "cboAnrede";
             this.cboAnrede.Size = new System.Drawing.Size(117, 21);
@@ -822,6 +828,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.neuToolStripButton,
             this.tstxtSuche,
+            this.tsCmdSearch,
             this.öffnenToolStripButton,
             this.speichernToolStripButton,
             this.druckenToolStripButton,
@@ -851,6 +858,7 @@
             this.tstxtSuche.Name = "tstxtSuche";
             this.tstxtSuche.Size = new System.Drawing.Size(100, 25);
             this.tstxtSuche.Text = "Search...";
+            this.tstxtSuche.Click += new System.EventHandler(this.tstxtSuche_Click);
             // 
             // öffnenToolStripButton
             // 
@@ -1555,6 +1563,16 @@
             this.dgvSugar.Size = new System.Drawing.Size(934, 363);
             this.dgvSugar.TabIndex = 1;
             // 
+            // tsCmdSearch
+            // 
+            this.tsCmdSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsCmdSearch.Image = ((System.Drawing.Image)(resources.GetObject("tsCmdSearch.Image")));
+            this.tsCmdSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsCmdSearch.Name = "tsCmdSearch";
+            this.tsCmdSearch.Size = new System.Drawing.Size(23, 22);
+            this.tsCmdSearch.Text = "toolStripButton1";
+            this.tsCmdSearch.Click += new System.EventHandler(this.tsCmdSearch_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1741,6 +1759,7 @@
         private System.Windows.Forms.DataGridView dgvCao;
         private System.Windows.Forms.TabPage tabDGVSugar;
         private System.Windows.Forms.DataGridView dgvSugar;
+        private System.Windows.Forms.ToolStripButton tsCmdSearch;
 
 
 

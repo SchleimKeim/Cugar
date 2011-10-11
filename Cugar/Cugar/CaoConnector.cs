@@ -172,7 +172,7 @@ namespace Cugar
         #endregion
 
         #region public propertys
-        public DataView dvCaoFirsRecord
+        public DataView dvCao
         {
             get
             {

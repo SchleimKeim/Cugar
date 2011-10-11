@@ -26,9 +26,13 @@ namespace Cugar
         #endregion
 
         #region members
-        private DataSet m_dsMainCao;
-        private int m_intCaoRow;
-        private int m_intSugarRow;
+        //private DataSet m_dsMainCao;
+        private int m_intCaoRows;
+        private int m_intSugarRows;
+        //private DataSet m_dsCao;
+        //private DataSet m_dsSugar;
+        //private DataView m_dvCao;
+        //private DataView m_dvSugar;
         private CaoConnector myConCao;
         private SugarConnector myConSugar;
         #endregion
@@ -55,21 +59,26 @@ namespace Cugar
 
             ConnectSugar();
 
-            //m_intCaoRow =             
-            //txtName.Text = dgvCao[7, 0].Value;
-            //txtStrasse1.Text = dgvCao["STRASSE", 0].Value.ToString();
+            m_intCaoRows = myConCao.dvCao.Count - 1;
+            m_intSugarRows = myConSugar.dvSugar.Count - 1;
+            
+
+            txtName.Text = dgvCao[7, 0].Value.ToString();
+            txtStrasse1.Text = dgvCao["STRASSE", 0].Value.ToString();
         }
 
         private void ConnectSugar()
         {
             myConSugar = new SugarConnector(m_sugarhost, m_sugaruser, m_sugarpw, m_sugardb);
-            dgvSugar.DataSource = myConSugar.dvSugarFirsRecord;
+            //m_dvSugar = myConSugar.dvSugar;
+            dgvSugar.DataSource = myConSugar.dvSugar;            
         }
 
         private void ConnectCao()
         {
             myConCao = new CaoConnector(m_caohost, m_caouser, m_caopw, m_caodb);
-            dgvCao.DataSource = myConCao.dvCaoFirsRecord;
+            //m_dvCao = myConCao.dvCao;
+            dgvCao.DataSource = myConCao.dvCao;
         }
 
         private void connectionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -87,5 +96,20 @@ namespace Cugar
         {
 
         }
+
+        private void tstxtSuche_Click(object sender, EventArgs e)
+        {
+            tstxtSuche.Clear();
+        }
+
+        private void tsCmdSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //private void tstxtSuche_TextChanged(object sender, EventArgs e)
+        //{
+
+        //}
     }
 }

@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+
+
 
 
 namespace Cugar
@@ -17,9 +20,9 @@ namespace Cugar
         private String m_user;
         private String m_pw;
         private String m_dbname;
-        private MySql.Data.MySqlClient.MySqlConnection m_cnSugarConnection;
+        private MySqlConnection m_cnSugarConnection;
         private DataSet m_dsSugar = new DataSet();
-        private MySql.Data.MySqlClient.MySqlDataAdapter m_daSugar;
+        private MySqlDataAdapter m_daSugar;
         private DataView m_dvSugar;
         #endregion
 
@@ -81,24 +84,16 @@ namespace Cugar
             m_sSugarConnect.Append("database=" + m_dbname + ";");
             #endregion
 
-            m_cnSugarConnection = new MySql.Data.MySqlClient.MySqlConnection(m_sSugarConnect.ToString());
-            
-            
-
-            m_cnSugarConnection.Open();
-            m_cnSugarConnection.Close();
+            m_cnSugarConnection = new MySqlConnection(m_sSugarConnect.ToString());
         }
 
         public void LoadFirstRecord()
         {
-            MySql.Data.MySqlClient.MySqlCommand m_cmdSugarSelect = new MySql.Data.MySqlClient.MySqlCommand("select * FROM contacts;", m_cnSugarConnection);
-            
-            
-            m_daSugar = new MySql.Data.MySqlClient.MySqlDataAdapter(m_cmdSugarSelect);
+            MySqlCommand m_cmdSugarSelect = new MySqlCommand("select * from contacts where deleted=0;", m_cnSugarConnection);
+            m_daSugar = new MySqlDataAdapter(m_cmdSugarSelect);
             m_daSugar.FillSchema(m_dsSugar, SchemaType.Source, "tblContacts");
             m_daSugar.Fill(m_dsSugar, "tblContacts");
             m_dvSugar = m_dsSugar.Tables["tblContacts"].DefaultView;
-
 
             #region w00p
             //OleDbCommand myUpdateCommand = new OleDbCommand("UPDATE qryNotenStudent SET fldStudentNr = ?, fldName = ?, fldVorname = ?, fldKlassenNr = ?, fldKlassenBez = ?, fldNotenNr = ?, fldNote = ?, fldFachNr = ?, fldBezeichnung = ? WHERE fldStudentNr = ?", myConnection);
@@ -161,7 +156,7 @@ namespace Cugar
         #endregion
 
         #region public propertys
-        public DataView dvSugarFirsRecord
+        public DataView dvSugar
         {
             get
             {
