@@ -61,15 +61,6 @@ namespace Cugar
         {
             StringBuilder m_sCaoConnect = new StringBuilder();
 
-            #region connection string for oledb addon - currently not in use!
-            //m_sCaoConnect.Append("Provider=MySQL Provider; ");
-            //m_sCaoConnect.Append("Data Source=" + m_server + "; ");
-            //m_sCaoConnect.Append("User ID=" + m_user + "; ");
-            //m_sCaoConnect.Append("Password=" + m_pw + "; ");
-            //m_sCaoConnect.Append("Initial Catalog=" + m_dbname + "; ");
-            //m_sCaoConnect.Append("Activation=Q34J-8GXH-X3T9-DURZ;");
-            #endregion
-
             #region connection string for odbc
             m_sCaoConnect.Append("Driver={MySQL ODBC 5.1 Driver};");
             m_sCaoConnect.Append("Server=" + m_server + ";");
@@ -79,25 +70,27 @@ namespace Cugar
             m_sCaoConnect.Append("Option=3");
             #endregion
 
-            //string w00p = "Driver={MySQL ODBC 5.1 Driver};Server=localhost;Database=caofaktura; User=root;Password=00mysql00;Option=3;";
-
-            #region current connection string using official mysql.data connector
+            #region connection string for oledb addon - currently not in use!
+            //m_sCaoConnect.Append("Provider=MySQL Provider; ");
+            //m_sCaoConnect.Append("Data Source=" + m_server + "; ");
+            //m_sCaoConnect.Append("User ID=" + m_user + "; ");
+            //m_sCaoConnect.Append("Password=" + m_pw + "; ");
+            //m_sCaoConnect.Append("Initial Catalog=" + m_dbname + "; ");
+            //m_sCaoConnect.Append("Activation=Q34J-8GXH-X3T9-DURZ;");
+            #endregion
+            #region current connection string using official mysql.data connector - not in use!
             /* myConnectionString = "server=127.0.0.1;" _
             & "uid=root;" _
             & "pwd=12345;" _
             & "database=test;"  */
-          
+
             //m_sCaoConnect.Append("server=" + m_server + ";");
             //m_sCaoConnect.Append("uid=" + m_user + ";");
             //m_sCaoConnect.Append("pwd=" + m_pw + ";");
             //m_sCaoConnect.Append("database=" + m_dbname + ";");
-            #endregion
+            #endregion    
 
             m_cnCaoConnection = new OdbcConnection(m_sCaoConnect.ToString());
-            
-
-            //m_cnCaoConnection.Open();
-            //m_cnCaoConnection.Close();
         }
         
         public void LoadFirstRecord()
@@ -134,9 +127,7 @@ namespace Cugar
 //delete from ADRESSEN_TO_MERK Where ADDR_ID=3
             //DELETE FROM ADRESSEN WHERE REC_ID=3.DeleteCommand = myDeleteCommand;
             #endregion
-
-            m_daCao = new OdbcDataAdapter(m_cmdCaoSelect);
-            
+            m_daCao = new OdbcDataAdapter(m_cmdCaoSelect);            
             m_daCao.FillSchema(m_dsCao, SchemaType.Source, "tblAdressen");
             m_daCao.Fill(m_dsCao, "tblAdressen");
             m_dvCao = m_dsCao.Tables["tblAdressen"].DefaultView;            
@@ -153,7 +144,11 @@ namespace Cugar
         public void DeleteRecord()
         {
         }
-
+        public int GetMaxRecord()
+        {
+            return m_dsCao.Tables[0].Rows.Count;
+        }
+        
         public void CreateView()
         {
 
@@ -185,7 +180,8 @@ namespace Cugar
                 {
                     LoadFirstRecord();
                 }
-                return m_dvCao;
+                return m_dvCao;                    
+
             }
         }
 

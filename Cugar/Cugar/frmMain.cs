@@ -25,7 +25,13 @@ namespace Cugar
         private string m_sugardb = Cugar.Properties.Settings.Default.sugardb;
         #endregion
 
+        #region members
         private DataSet m_dsMainCao;
+        private int m_intCaoRow;
+        private int m_intSugarRow;
+        private CaoConnector myConCao;
+        private SugarConnector myConSugar;
+        #endregion
 
 
         public frmMain()
@@ -35,8 +41,7 @@ namespace Cugar
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            tabDGVCao.BringToFront();
-
+            
             if (Cugar.Properties.Settings.Default.first_start == true)
             {                
                 frmSettings m_SubForm_Settings = new frmSettings();
@@ -46,19 +51,25 @@ namespace Cugar
                 //m_Toolbox.RestartApplication();               
             }
 
-            CaoConnector myConCao = new CaoConnector(m_caohost, m_caouser, m_caopw, m_caodb);
-            dgvCao.DataSource = myConCao.dvCaoFirsRecord;
+            ConnectCao();
 
-            SugarConnector myConSugar = new SugarConnector(m_sugarhost, m_sugaruser, m_sugarpw, m_sugardb);
+            ConnectSugar();
+
+            //m_intCaoRow =             
+            //txtName.Text = dgvCao[7, 0].Value;
+            //txtStrasse1.Text = dgvCao["STRASSE", 0].Value.ToString();
+        }
+
+        private void ConnectSugar()
+        {
+            myConSugar = new SugarConnector(m_sugarhost, m_sugaruser, m_sugarpw, m_sugardb);
             dgvSugar.DataSource = myConSugar.dvSugarFirsRecord;
+        }
 
-
-            //SugarConnector myConSugar = new SugarConnector(m_sugarhost, m_sugaruser, m_sugarpw, m_sugardb);
-
-//            myConCao.ConnectCao(m_caouser, m_caopw, m_caohost, m_caodb);
-//            CDatabasecon myConSugar = new CDatabasecon();
-            //myConSugar.ConnectSugar(m_sugaruser, m_sugarpw, m_sugarhost, m_sugardb);
-
+        private void ConnectCao()
+        {
+            myConCao = new CaoConnector(m_caohost, m_caouser, m_caopw, m_caodb);
+            dgvCao.DataSource = myConCao.dvCaoFirsRecord;
         }
 
         private void connectionToolStripMenuItem_Click(object sender, EventArgs e)
