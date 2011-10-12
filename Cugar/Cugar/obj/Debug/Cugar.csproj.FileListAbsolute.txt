@@ -13,3 +13,4 @@ C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Semesterarbeit\Project\Cugar
 C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Semesterarbeit\Project\Cugar\Cugar\obj\Debug\Cugar.application
 C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Semesterarbeit\Project\Cugar\Cugar\obj\Debug\Cugar.frmSettings.resources
 C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Semesterarbeit\Project\Cugar\Cugar\obj\Debug\Cugar.frmNeu.resources
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Semesterarbeit\Project\Cugar\Cugar\obj\Debug\Cugar.frmSuche.resources

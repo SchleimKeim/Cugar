@@ -112,6 +112,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSuche.resx">
+      <DependentUpon>frmSuche.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -129,6 +132,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="frmSuche.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSuche.Designer.cs">
+      <DependentUpon>frmSuche.cs</DependentUpon>
+    </Compile>
     <Compile Include="SugarConnector.cs" />
   </ItemGroup>
   <ItemGroup>

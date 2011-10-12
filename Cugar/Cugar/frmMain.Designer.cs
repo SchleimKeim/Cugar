@@ -99,6 +99,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.neuToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tstxtSuche = new System.Windows.Forms.ToolStripTextBox();
+            this.tsCmdSearch = new System.Windows.Forms.ToolStripButton();
             this.öffnenToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.speichernToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.druckenToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -173,7 +174,7 @@
             this.dgvCao = new System.Windows.Forms.DataGridView();
             this.tabDGVSugar = new System.Windows.Forms.TabPage();
             this.dgvSugar = new System.Windows.Forms.DataGridView();
-            this.tsCmdSearch = new System.Windows.Forms.ToolStripButton();
+            this.tabSuche = new System.Windows.Forms.TabPage();
             this.mnuFrmMain.SuspendLayout();
             this.grpGenerell.SuspendLayout();
             this.grpCAO.SuspendLayout();
@@ -860,6 +861,16 @@
             this.tstxtSuche.Text = "Search...";
             this.tstxtSuche.Click += new System.EventHandler(this.tstxtSuche_Click);
             // 
+            // tsCmdSearch
+            // 
+            this.tsCmdSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsCmdSearch.Image = ((System.Drawing.Image)(resources.GetObject("tsCmdSearch.Image")));
+            this.tsCmdSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsCmdSearch.Name = "tsCmdSearch";
+            this.tsCmdSearch.Size = new System.Drawing.Size(23, 22);
+            this.tsCmdSearch.Text = "toolStripButton1";
+            this.tsCmdSearch.Click += new System.EventHandler(this.tsCmdSearch_Click);
+            // 
             // öffnenToolStripButton
             // 
             this.öffnenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -939,6 +950,7 @@
             this.tabPrivat.Controls.Add(this.tabPage2);
             this.tabPrivat.Controls.Add(this.tabDGVCao);
             this.tabPrivat.Controls.Add(this.tabDGVSugar);
+            this.tabPrivat.Controls.Add(this.tabSuche);
             this.tabPrivat.Location = new System.Drawing.Point(0, 52);
             this.tabPrivat.Name = "tabPrivat";
             this.tabPrivat.SelectedIndex = 0;
@@ -1563,15 +1575,15 @@
             this.dgvSugar.Size = new System.Drawing.Size(934, 363);
             this.dgvSugar.TabIndex = 1;
             // 
-            // tsCmdSearch
+            // tabSuche
             // 
-            this.tsCmdSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsCmdSearch.Image = ((System.Drawing.Image)(resources.GetObject("tsCmdSearch.Image")));
-            this.tsCmdSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsCmdSearch.Name = "tsCmdSearch";
-            this.tsCmdSearch.Size = new System.Drawing.Size(23, 22);
-            this.tsCmdSearch.Text = "toolStripButton1";
-            this.tsCmdSearch.Click += new System.EventHandler(this.tsCmdSearch_Click);
+            this.tabSuche.Location = new System.Drawing.Point(4, 22);
+            this.tabSuche.Name = "tabSuche";
+            this.tabSuche.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSuche.Size = new System.Drawing.Size(951, 377);
+            this.tabSuche.TabIndex = 4;
+            this.tabSuche.Text = "Suche";
+            this.tabSuche.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
@@ -1760,6 +1772,7 @@
         private System.Windows.Forms.TabPage tabDGVSugar;
         private System.Windows.Forms.DataGridView dgvSugar;
         private System.Windows.Forms.ToolStripButton tsCmdSearch;
+        private System.Windows.Forms.TabPage tabSuche;
 
 
 
