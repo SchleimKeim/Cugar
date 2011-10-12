@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSuche = new System.Windows.Forms.TextBox();
             this.rbName = new System.Windows.Forms.RadioButton();
             this.rbStrasse = new System.Windows.Forms.RadioButton();
             this.rbTelefon = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.grpSuche = new System.Windows.Forms.GroupBox();
-            this.dgvCaoSuche = new System.Windows.Forms.DataGridView();
             this.dgvSugarSuche = new System.Windows.Forms.DataGridView();
+            this.dgvCaoSuche = new System.Windows.Forms.DataGridView();
             this.cmdSuche = new System.Windows.Forms.Button();
             this.cmdClear = new System.Windows.Forms.Button();
             this.cmdLoad = new System.Windows.Forms.Button();
             this.cmdExit = new System.Windows.Forms.Button();
             this.grpSuche.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCaoSuche)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSugarSuche)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCaoSuche)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtSuche
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(178, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtSuche.Location = new System.Drawing.Point(12, 25);
+            this.txtSuche.Name = "txtSuche";
+            this.txtSuche.Size = new System.Drawing.Size(178, 20);
+            this.txtSuche.TabIndex = 0;
             // 
             // rbName
             // 
@@ -105,14 +105,6 @@
             this.grpSuche.TabStop = false;
             this.grpSuche.Text = "Resultate:";
             // 
-            // dgvCaoSuche
-            // 
-            this.dgvCaoSuche.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCaoSuche.Location = new System.Drawing.Point(6, 19);
-            this.dgvCaoSuche.Name = "dgvCaoSuche";
-            this.dgvCaoSuche.Size = new System.Drawing.Size(611, 137);
-            this.dgvCaoSuche.TabIndex = 0;
-            // 
             // dgvSugarSuche
             // 
             this.dgvSugarSuche.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -120,6 +112,14 @@
             this.dgvSugarSuche.Name = "dgvSugarSuche";
             this.dgvSugarSuche.Size = new System.Drawing.Size(611, 137);
             this.dgvSugarSuche.TabIndex = 0;
+            // 
+            // dgvCaoSuche
+            // 
+            this.dgvCaoSuche.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCaoSuche.Location = new System.Drawing.Point(6, 19);
+            this.dgvCaoSuche.Name = "dgvCaoSuche";
+            this.dgvCaoSuche.Size = new System.Drawing.Size(611, 137);
+            this.dgvCaoSuche.TabIndex = 0;
             // 
             // cmdSuche
             // 
@@ -129,6 +129,7 @@
             this.cmdSuche.TabIndex = 6;
             this.cmdSuche.Text = "&Suche...";
             this.cmdSuche.UseVisualStyleBackColor = true;
+            this.cmdSuche.Click += new System.EventHandler(this.cmdSuche_Click);
             // 
             // cmdClear
             // 
@@ -138,6 +139,7 @@
             this.cmdClear.TabIndex = 6;
             this.cmdClear.Text = "&Clear";
             this.cmdClear.UseVisualStyleBackColor = true;
+            this.cmdClear.Click += new System.EventHandler(this.cmdClear_Click);
             // 
             // cmdLoad
             // 
@@ -156,6 +158,7 @@
             this.cmdExit.TabIndex = 6;
             this.cmdExit.Text = "&Abbrechen";
             this.cmdExit.UseVisualStyleBackColor = true;
+            this.cmdExit.Click += new System.EventHandler(this.cmdExit_Click);
             // 
             // frmSuche
             // 
@@ -171,13 +174,13 @@
             this.Controls.Add(this.rbTelefon);
             this.Controls.Add(this.rbStrasse);
             this.Controls.Add(this.rbName);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSuche);
             this.Name = "frmSuche";
             this.Text = "Suche...";
             this.Load += new System.EventHandler(this.frmSuche_Load);
             this.grpSuche.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCaoSuche)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSugarSuche)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCaoSuche)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,7 +188,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSuche;
         private System.Windows.Forms.RadioButton rbName;
         private System.Windows.Forms.RadioButton rbStrasse;
         private System.Windows.Forms.RadioButton rbTelefon;

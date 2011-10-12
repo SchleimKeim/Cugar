@@ -63,21 +63,27 @@ namespace Cugar
             m_intSugarRows = myConSugar.dvSugar.Count - 1;
             
 
-            txtName.Text = dgvCao[7, 0].Value.ToString();
-            txtStrasse1.Text = dgvCao["STRASSE", 0].Value.ToString();
+            //txtName.Text = dgvCao[7, 0].Value.ToString();
+            //txtStrasse1.Text = dgvCao["STRASSE", 0].Value.ToString();
         }
 
         private void ConnectSugar()
         {
             myConSugar = new SugarConnector(m_sugarhost, m_sugaruser, m_sugarpw, m_sugardb);
-            //m_dvSugar = myConSugar.dvSugar;
-            dgvSugar.DataSource = myConSugar.dvSugar;            
+        }
+
+        private void loaddgvSugar()
+        {
+            dgvSugar.DataSource = myConSugar.dvSugar;
         }
 
         private void ConnectCao()
         {
             myConCao = new CaoConnector(m_caohost, m_caouser, m_caopw, m_caodb);
-            //m_dvCao = myConCao.dvCao;
+        }
+
+        private void loaddgvCao()
+        {
             dgvCao.DataSource = myConCao.dvCao;
         }
 
@@ -104,7 +110,8 @@ namespace Cugar
 
         private void tsCmdSearch_Click(object sender, EventArgs e)
         {
-
+            frmSuche m_mySearch = new frmSuche(tstxtSuche.Text);
+            m_mySearch.ShowDialog();
         }
 
         //private void tstxtSuche_TextChanged(object sender, EventArgs e)

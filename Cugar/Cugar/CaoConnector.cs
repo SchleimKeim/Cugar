@@ -19,9 +19,12 @@ namespace Cugar
         private String m_user;
         private String m_pw;
         private String m_dbname;
-        private OdbcConnection m_cnCaoConnection;
+
+        private int m_intSearchCaoResult;
         
-        private DataSet m_dsCao = new DataSet();        
+        private OdbcConnection m_cnCaoConnection;        
+        private DataSet m_dsCao = new DataSet();
+        private DataSet m_dsSearchCao = new DataSet();
         private OdbcDataAdapter m_daCao;
         private DataView m_dvCao;
         private DataView m_dvSearchCao;
@@ -79,7 +82,7 @@ namespace Cugar
             //m_sCaoConnect.Append("Initial Catalog=" + m_dbname + "; ");
             //m_sCaoConnect.Append("Activation=Q34J-8GXH-X3T9-DURZ;");
             #endregion
-            #region current connection string using official mysql.data connector - not in use!
+            #region connection string using official mysql.data connector - not in use!
             /* myConnectionString = "server=127.0.0.1;" _
             & "uid=root;" _
             & "pwd=12345;" _
@@ -157,16 +160,18 @@ namespace Cugar
         public DataView SearchCao(string searchstring)
         {
             StringBuilder m_strCommand = new StringBuilder();
-            m_strCommand.Append("select * from adressen where NAME1 = ");
-            m_strCommand.Append("'%");
+            m_strCommand.Append(@"select * from adressen where NAME1 like ");
+            m_strCommand.Append(@"'%");
             m_strCommand.Append(searchstring);
-            m_strCommand.Append("%'");
+            m_strCommand.Append(@"%'");
+            //m_strCommand.Append(@"select  * from adressen where NAME1 like 'Meier'");
+
             OdbcCommand m_cmdSearchCommand = new OdbcCommand(m_strCommand.ToString());
             OdbcDataAdapter m_daSearchCao = new OdbcDataAdapter(m_cmdSearchCommand.CommandText, m_cnCaoConnection);
-            m_daSearchCao.FillSchema(m_dsCao, SchemaType.Source, "tblCaoSuche");
-            m_daSearchCao.Fill(m_dsCao, "tblCaoSuche");
-            m_dvSearchCao = m_dsCao.Tables["tblCaoSuche"].DefaultView;             
-            return m_dvSearchCao;
+            m_daSearchCao.FillSchema(m_dsSearchCao, SchemaType.Source, "tblCaoSuche");
+            m_daSearchCao.Fill(m_dsSearchCao, "tblCaoSuche");
+            m_dvSearchCao = m_dsSearchCao.Tables["tblCaoSuche"].DefaultView;             
+            return m_dvSearchCao;            
         }
 
 
@@ -197,10 +202,11 @@ namespace Cugar
                 {
                     LoadFirstRecord();
                 }
-                return m_dvCao;                    
+                return m_dvCao;
 
             }
         }
+
 
         public DataSet dsCaoDataSet
         {
@@ -211,6 +217,22 @@ namespace Cugar
                     LoadFirstRecord();
                 }
                 return m_dsCao;
+            }
+        }
+
+        public int CaoSearchRestults
+        {
+            get
+            {
+                if (m_dsCao.Tables["tblCaoSuche"].Rows.Count > 0)
+                {
+                    m_intSearchCaoResult = m_dsSearchCao.Tables["tblCaoSuche"].Rows.Count;
+                    return m_intSearchCaoResult;
+                }
+                else
+                {
+                    return 0;
+                } 
             }
         }
         #endregion

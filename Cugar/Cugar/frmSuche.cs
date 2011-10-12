@@ -11,11 +11,24 @@ namespace Cugar
 {
     public partial class frmSuche : Form
     {
+        #region loading settings into private members
+        //Form mySettings = new frmSettings();
+        private string m_caouser = Cugar.Properties.Settings.Default.caouser;
+        private string m_caopw = Cugar.Properties.Settings.Default.caopw;
+        private string m_caohost = Cugar.Properties.Settings.Default.caohost;
+        private string m_caodb = Cugar.Properties.Settings.Default.caodb;
+
+        private string m_sugaruser = Cugar.Properties.Settings.Default.sugaruser;
+        private string m_sugarpw = Cugar.Properties.Settings.Default.sugarpw;
+        private string m_sugarhost = Cugar.Properties.Settings.Default.sugarhost;
+        private string m_sugardb = Cugar.Properties.Settings.Default.sugardb;
+        #endregion
         private string m_strSuchstring;
 
-        public frmSuche()
+        public frmSuche(string suchstring)
         {
             InitializeComponent();
+            m_strSuchstring = suchstring;
         }
 
         private void frmSuche_Load(object sender, EventArgs e)
@@ -23,6 +36,33 @@ namespace Cugar
             rbName.Checked = true;
             rbStrasse.Checked = false;
             rbTelefon.Checked = false;
+            txtSuche.Text = m_strSuchstring;
+        }
+
+        private void cmdSuche_Click(object sender, EventArgs e)
+        {
+            CaoConnector m_myCaoSearch = new CaoConnector(m_caohost, m_caouser, m_caopw, m_caodb);            
+            dgvCaoSuche.DataSource = m_myCaoSearch.SearchCao(m_strSuchstring);
+
+            SugarConnector m_mySugarSearch = new SugarConnector(m_sugarhost, m_sugaruser, m_sugarpw, m_sugardb);            
+            dgvSugarSuche.DataSource = m_mySugarSearch.SearchSugar(m_strSuchstring);
+        }
+
+        private void cmdClear_Click(object sender, EventArgs e)
+        {
+            if (dgvCaoSuche.ColumnCount > 1)
+            {
+                dgvCaoSuche.DataSource = null;                
+            }
+            if (dgvSugarSuche.ColumnCount > 1)
+            {
+                dgvSugarSuche.DataSource = null;
+            }
+        }
+
+        private void cmdExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -23,8 +23,12 @@ namespace Cugar
         private MySqlConnection m_cnSugarConnection;
         private DataSet m_dsSugar = new DataSet();
         private MySqlDataAdapter m_daSugar;
+        private MySqlDataAdapter m_daSearchSugar;
         private DataView m_dvSugar;
+        private DataView m_dvSearchSugar;
+        private int m_intSugarSearchResult;
         #endregion
+
 
                 //Constructor
         public SugarConnector(string server, string user, string pw, string dbname)
@@ -137,6 +141,22 @@ namespace Cugar
         {
 
         }
+
+        public DataView SearchSugar(string searchstring)
+        {
+            StringBuilder m_strCommand = new StringBuilder();
+            m_strCommand.Append("select * from contacts where last_name like ");
+            m_strCommand.Append("'%");
+            m_strCommand.Append(searchstring);
+            m_strCommand.Append("%'");
+
+            MySqlCommand m_cmdSearchCommand = new MySqlCommand(m_strCommand.ToString());
+            m_daSearchSugar = new MySqlDataAdapter(m_cmdSearchCommand.CommandText, m_cnSugarConnection);
+            m_daSearchSugar.FillSchema(m_dsSugar, SchemaType.Source, "tblSugarSuche");
+            m_daSearchSugar.Fill(m_dsSugar, "tblSugarSuche");
+            m_dvSearchSugar = m_dsSugar.Tables["tblSugarSuche"].DefaultView;
+            return m_dvSearchSugar;
+        }
         #endregion
 
 
@@ -177,6 +197,22 @@ namespace Cugar
                     LoadFirstRecord();
                 }
                 return m_dsSugar;
+            }
+        }
+
+        public int CaoSearchRestults
+        {
+            get
+            {
+                if (m_dsSugar.Tables["tblSugarSuche"].Rows.Count > 0)
+                {
+                    m_intSugarSearchResult = m_dsSugar.Tables["tblSugarSuche"].Rows.Count;
+                    return m_intSugarSearchResult;
+                }
+                else
+                {
+                    return 0;
+                }
             }
         }
         #endregion
