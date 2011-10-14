@@ -100,7 +100,7 @@
             this.grpSuche.Controls.Add(this.dgvCaoSuche);
             this.grpSuche.Location = new System.Drawing.Point(12, 80);
             this.grpSuche.Name = "grpSuche";
-            this.grpSuche.Size = new System.Drawing.Size(624, 307);
+            this.grpSuche.Size = new System.Drawing.Size(879, 307);
             this.grpSuche.TabIndex = 5;
             this.grpSuche.TabStop = false;
             this.grpSuche.Text = "Resultate:";
@@ -110,7 +110,7 @@
             this.dgvSugarSuche.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSugarSuche.Location = new System.Drawing.Point(6, 162);
             this.dgvSugarSuche.Name = "dgvSugarSuche";
-            this.dgvSugarSuche.Size = new System.Drawing.Size(611, 137);
+            this.dgvSugarSuche.Size = new System.Drawing.Size(867, 137);
             this.dgvSugarSuche.TabIndex = 0;
             // 
             // dgvCaoSuche
@@ -118,7 +118,7 @@
             this.dgvCaoSuche.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCaoSuche.Location = new System.Drawing.Point(6, 19);
             this.dgvCaoSuche.Name = "dgvCaoSuche";
-            this.dgvCaoSuche.Size = new System.Drawing.Size(611, 137);
+            this.dgvCaoSuche.Size = new System.Drawing.Size(867, 137);
             this.dgvCaoSuche.TabIndex = 0;
             // 
             // cmdSuche
@@ -164,7 +164,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(644, 393);
+            this.ClientSize = new System.Drawing.Size(903, 393);
             this.Controls.Add(this.cmdExit);
             this.Controls.Add(this.cmdLoad);
             this.Controls.Add(this.cmdClear);

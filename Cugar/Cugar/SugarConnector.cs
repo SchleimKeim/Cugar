@@ -142,13 +142,29 @@ namespace Cugar
 
         }
 
-        public DataView SearchSugar(string searchstring)
+        public DataView generate_dv_all(string searchstring)
         {
             StringBuilder m_strCommand = new StringBuilder();
             m_strCommand.Append("select * from contacts where last_name like ");
             m_strCommand.Append("'%");
             m_strCommand.Append(searchstring);
-            m_strCommand.Append("%'");
+            m_strCommand.Append("%' and deleted = 0;");
+
+            MySqlCommand m_cmdSearchCommand = new MySqlCommand(m_strCommand.ToString());
+            m_daSearchSugar = new MySqlDataAdapter(m_cmdSearchCommand.CommandText, m_cnSugarConnection);
+            m_daSearchSugar.FillSchema(m_dsSugar, SchemaType.Source, "tblSugarSuche");
+            m_daSearchSugar.Fill(m_dsSugar, "tblSugarSuche");
+            m_dvSearchSugar = m_dsSugar.Tables["tblSugarSuche"].DefaultView;
+            return m_dvSearchSugar;
+        }
+        public DataView generate_dv_human(string searchstring)
+        {
+            StringBuilder m_strCommand = new StringBuilder();
+            //SELECT `id`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, LEFT(`description`, 256), `deleted`, `assigned_user_id`, `salutation`, `first_name`, `last_name`, `title`, `department`, `do_not_call`, `phone_home`, `phone_mobile`, `phone_work`, `phone_other`, `phone_fax`, `primary_address_street`, `primary_address_city`, `primary_address_state`, `primary_address_postalcode`, `primary_address_country`, `alt_address_street`, `alt_address_city`, `alt_address_state`, `alt_address_postalcode`, `alt_address_country`, `assistant`, `assistant_phone`, `lead_source`, `reports_to_id`, `birthdate`, `campaign_id` FROM `sugarcrm`.`contacts` LIMIT 0, 1000;
+            m_strCommand.Append("select salutation as Anrede, first_name as Vorname, last_name as Nachname, primary_address_street as Strasse, primary_address_postalcode as PLZ, primary_address_city as Ort, phone_home as Telefon, phone_mobile as Mobile from contacts where last_name like ");
+            m_strCommand.Append("'%");
+            m_strCommand.Append(searchstring);
+            m_strCommand.Append("%' and deleted = 0;");
 
             MySqlCommand m_cmdSearchCommand = new MySqlCommand(m_strCommand.ToString());
             m_daSearchSugar = new MySqlDataAdapter(m_cmdSearchCommand.CommandText, m_cnSugarConnection);

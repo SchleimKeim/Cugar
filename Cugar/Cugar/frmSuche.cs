@@ -41,11 +41,14 @@ namespace Cugar
 
         private void cmdSuche_Click(object sender, EventArgs e)
         {
+            m_strSuchstring = txtSuche.Text;
+
             CaoConnector m_myCaoSearch = new CaoConnector(m_caohost, m_caouser, m_caopw, m_caodb);            
-            dgvCaoSuche.DataSource = m_myCaoSearch.SearchCao(m_strSuchstring);
+            dgvCaoSuche.DataSource = m_myCaoSearch.generate_dv_human(m_strSuchstring);
+            
 
             SugarConnector m_mySugarSearch = new SugarConnector(m_sugarhost, m_sugaruser, m_sugarpw, m_sugardb);            
-            dgvSugarSuche.DataSource = m_mySugarSearch.SearchSugar(m_strSuchstring);
+            dgvSugarSuche.DataSource = m_mySugarSearch.generate_dv_human(m_strSuchstring);
         }
 
         private void cmdClear_Click(object sender, EventArgs e)
