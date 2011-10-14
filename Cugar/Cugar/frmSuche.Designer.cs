@@ -149,6 +149,7 @@
             this.cmdLoad.TabIndex = 6;
             this.cmdLoad.Text = "&Laden";
             this.cmdLoad.UseVisualStyleBackColor = true;
+            this.cmdLoad.Click += new System.EventHandler(this.cmdLoad_Click);
             // 
             // cmdExit
             // 

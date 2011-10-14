@@ -11,7 +11,10 @@ using MySql.Data.MySqlClient;
 
 namespace Cugar
 {
-    class SugarConnector
+    /// <summary>
+    ///  Alle relevanten Sugar Funktionen.
+    /// </summary>
+    public class SugarConnector
     {
         #region private members
         //Private Members
@@ -30,7 +33,7 @@ namespace Cugar
         #endregion
 
 
-                //Constructor
+        //constructor
         public SugarConnector(string server, string user, string pw, string dbname)
         {
             m_server = server;

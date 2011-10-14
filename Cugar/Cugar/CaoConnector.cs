@@ -10,11 +10,14 @@ using System.Data.Odbc;
 
 namespace Cugar
 {
-    class CaoConnector
+    /// <summary>
+    ///  Alle relevanten CAO Funktionen.
+    /// </summary>
+    public class CaoConnector
     {
         #region private members
         //Private Members
-        private const string csQueryTempName = "qryCao";
+        //private const string csQueryTempName = "qryCao";
         private String m_server;
         private String m_user;
         private String m_pw;
@@ -30,7 +33,8 @@ namespace Cugar
         private DataView m_dvSearchCao;
         #endregion
 
-        //Constructor
+        /// <summary>
+        /// Please enter host, user, pw and databasename</summary>
         public CaoConnector(string server, string user, string pw, string dbname)
         {
             m_server = server;
@@ -60,8 +64,9 @@ namespace Cugar
          * - DeleteRecord(): Deletes a Record
          * */
 
-        /* Connects to CAO */
-        public void CaoConnect()
+        /// <summary>
+        /// Connects to the Database</summary>
+        private void CaoConnect()
         {
             StringBuilder m_sCaoConnect = new StringBuilder();
 
@@ -96,8 +101,9 @@ namespace Cugar
 
             m_cnCaoConnection = new OdbcConnection(m_sCaoConnect.ToString());
         }
-        
-        public void LoadFirstRecord()
+        /// <summary>
+        /// Loads all address records</summary>
+        private void LoadFirstRecord()
         {
             OdbcCommand m_cmdCaoSelect = new OdbcCommand("select ADRESSEN.* FROM ADRESSEN WHERE KUNDENGRUPPE=1 ORDER BY REC_ID;", m_cnCaoConnection);
             //von Silvio:
@@ -155,8 +161,11 @@ namespace Cugar
         
         public void CreateView()
         {
-
+            
         }
+        /// <summary>
+        ///Searches the table adressen and returns a DataView with all columns</summary>
+        /// <param name="searchstring">the search string</param>
         public DataView generate_dv_all(string searchstring)
         {
             StringBuilder m_strCommand = new StringBuilder();
@@ -173,6 +182,9 @@ namespace Cugar
             m_dvSearchCao = m_dsSearchCao.Tables["tblCaoSuche"].DefaultView;             
             return m_dvSearchCao;            
         }
+        /// <summary>
+        ///Searches the table adressen and returns a DataView with a selection of columns.</summary>
+        /// <param name="searchstring">the search string</param>
         public DataView generate_dv_human(string searchstring)
         {
             StringBuilder m_strCommand = new StringBuilder();
@@ -210,6 +222,8 @@ namespace Cugar
         #endregion
 
         #region public propertys
+        /// <summary>
+        ///Returns the a DataView with all Private Customers</summary>
         public DataView dvCao
         {
             get
@@ -223,7 +237,8 @@ namespace Cugar
             }
         }
 
-
+        /// <summary>
+        ///Returns the a DataSet with all Private Customers</summary>
         public DataSet dsCaoDataSet
         {
             get
@@ -235,8 +250,9 @@ namespace Cugar
                 return m_dsCao;
             }
         }
-
-        public int CaoSearchRestults
+        /// <summary>
+        ///Returns the number of search results</summary>
+        public int CaoSearchResults
         {
             get
             {

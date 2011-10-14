@@ -45,7 +45,6 @@ namespace Cugar
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
             if (Cugar.Properties.Settings.Default.first_start == true)
             {                
                 frmSettings m_SubForm_Settings = new frmSettings();
@@ -61,10 +60,14 @@ namespace Cugar
 
             m_intCaoRows = myConCao.dvCao.Count - 1;
             m_intSugarRows = myConSugar.dvSugar.Count - 1;
-            
 
             //txtName.Text = dgvCao[7, 0].Value.ToString();
             //txtStrasse1.Text = dgvCao["STRASSE", 0].Value.ToString();
+            
+            /* String Split Methode, enthalten in CToolbox */
+            //string[] sh00p;
+            //CToolbox myToolbox = new CToolbox();
+            //sh00p = myToolbox.VornameNachname("Hans Meier");   
         }
 
         private void ConnectSugar()

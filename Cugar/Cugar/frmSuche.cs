@@ -67,5 +67,10 @@ namespace Cugar
         {
             this.Close();
         }
+
+        private void cmdLoad_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
