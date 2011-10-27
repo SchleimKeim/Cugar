@@ -37,22 +37,42 @@ namespace Cugar
             rbStrasse.Checked = false;
             rbTelefon.Checked = false;
             txtSuche.Text = m_strSuchstring;
+            try
+            {
+                StartSearch();
+            }
+            catch (Exception adsf)
+            {
+                MessageBox.Show(adsf.ToString());
+                throw;
+            }
         }
 
         private void cmdSuche_Click(object sender, EventArgs e)
         {
+            StartSearch();
+        }
+
+        private void StartSearch()
+        {
             m_strSuchstring = txtSuche.Text;
 
-            CaoConnector m_myCaoSearch = new CaoConnector(m_caohost, m_caouser, m_caopw, m_caodb);            
+            //start a new cao connector object and generate a dataview with the given searchstring
+            CaoConnector m_myCaoSearch = new CaoConnector(m_caohost, m_caouser, m_caopw, m_caodb);
             dgvCaoSuche.DataSource = m_myCaoSearch.generate_dv_human(m_strSuchstring);
-            
 
-            SugarConnector m_mySugarSearch = new SugarConnector(m_sugarhost, m_sugaruser, m_sugarpw, m_sugardb);            
+            //start a new sugarconnector object and generate a dataview with the given searchstring
+            SugarConnector m_mySugarSearch = new SugarConnector(m_sugarhost, m_sugaruser, m_sugarpw, m_sugardb);
             dgvSugarSuche.DataSource = m_mySugarSearch.generate_dv_human(m_strSuchstring);
         }
 
         private void cmdClear_Click(object sender, EventArgs e)
         {
+            /* if the DatagridView is empty do nothing
+             * else set the source to null to clear the DataGridView
+             * at last clear the search field and set the Focus to it.
+             */
+
             if (dgvCaoSuche.ColumnCount > 1)
             {
                 dgvCaoSuche.DataSource = null;                
@@ -61,6 +81,8 @@ namespace Cugar
             {
                 dgvSugarSuche.DataSource = null;
             }
+            txtSuche.Text = "";
+            txtSuche.Focus();
         }
 
         private void cmdExit_Click(object sender, EventArgs e)

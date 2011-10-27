@@ -38,16 +38,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCaoDBName = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtSugarPW = new System.Windows.Forms.TextBox();
             this.txtSugarUser = new System.Windows.Forms.TextBox();
             this.txtSugarHost = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.grpSettingsSugar = new System.Windows.Forms.GroupBox();
-            this.txtCaoDBName = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.txtSugarDBName = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.grpSettingsSugar.SuspendLayout();
             this.SuspendLayout();
@@ -148,6 +148,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CAO Settings";
             // 
+            // txtCaoDBName
+            // 
+            this.txtCaoDBName.Location = new System.Drawing.Point(76, 97);
+            this.txtCaoDBName.Name = "txtCaoDBName";
+            this.txtCaoDBName.Size = new System.Drawing.Size(121, 20);
+            this.txtCaoDBName.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 100);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "DB Name:";
+            // 
             // txtSugarPW
             // 
             this.txtSugarPW.Location = new System.Drawing.Point(76, 71);
@@ -205,21 +221,12 @@
             this.grpSettingsSugar.TabStop = false;
             this.grpSettingsSugar.Text = "Sugar Settings";
             // 
-            // txtCaoDBName
+            // txtSugarDBName
             // 
-            this.txtCaoDBName.Location = new System.Drawing.Point(76, 97);
-            this.txtCaoDBName.Name = "txtCaoDBName";
-            this.txtCaoDBName.Size = new System.Drawing.Size(121, 20);
-            this.txtCaoDBName.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 100);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "DB Name:";
+            this.txtSugarDBName.Location = new System.Drawing.Point(76, 97);
+            this.txtSugarDBName.Name = "txtSugarDBName";
+            this.txtSugarDBName.Size = new System.Drawing.Size(121, 20);
+            this.txtSugarDBName.TabIndex = 1;
             // 
             // label8
             // 
@@ -229,13 +236,6 @@
             this.label8.Size = new System.Drawing.Size(56, 13);
             this.label8.TabIndex = 0;
             this.label8.Text = "DB Name:";
-            // 
-            // txtSugarDBName
-            // 
-            this.txtSugarDBName.Location = new System.Drawing.Point(76, 97);
-            this.txtSugarDBName.Name = "txtSugarDBName";
-            this.txtSugarDBName.Size = new System.Drawing.Size(121, 20);
-            this.txtSugarDBName.TabIndex = 1;
             // 
             // frmSettings
             // 
@@ -247,7 +247,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpSettingsSugar);
             this.Name = "frmSettings";
-            this.Text = "frmSettings_new";
+            this.Text = "Einstellungen";
             this.Load += new System.EventHandler(this.frmSettings_new_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

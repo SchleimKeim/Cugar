@@ -10,6 +10,33 @@ using System.Windows.Forms;
 
 namespace Cugar
 {
+    /* To Do HIGH PRIO:
+     * - Find out how to "Load" from frmSuche.cs
+     * that means: find a solution to combine two datasets into one and seperate them later
+     * 
+     * - Implement searching by street or p phone number
+     * - Implement search for Companys
+     * note: cao = select * from Adressen where Kundengruppe=2;
+     * note: sugar = select * from accounts;
+     * 
+     * distinguish between company and private accounts
+     * - Create Property in both connectors: bool Firma, Privat
+     * - Create property in main.cs: bool Firma, Privat
+     * - in main.cs set the property depending on active tab (Privat, Firma)
+     * - implement main.cs cao sector
+     * - implement main.cs sugar sector
+     * 
+     * To Do low prio: 
+     * - implement Print function
+     * - clean up main.cs (remove the two dgv tabs)
+     * - set correct tabIndexes for usability
+     * - clean up main.cs in general, menus etc...
+     * 
+     * To do very low prio:
+     * complete xml documentation on all classes
+     * 
+     */
+
     public partial class frmMain : Form
     {
         #region loading settings into private members
@@ -113,9 +140,28 @@ namespace Cugar
 
         private void tsCmdSearch_Click(object sender, EventArgs e)
         {
+            Search();
+        }
+
+        private void Search()
+        {
             frmSuche m_mySearch = new frmSuche(tstxtSuche.Text);
             m_mySearch.ShowDialog();
         }
+
+        private void tstxtSuche_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Search();
+            }
+
+        }
+
+        //private void tstxtSuche_Enter(object sender, EventArgs e)
+        //{
+        //    Search();
+        //}
 
         //private void tstxtSuche_TextChanged(object sender, EventArgs e)
         //{

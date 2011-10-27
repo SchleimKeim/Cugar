@@ -859,6 +859,7 @@
             this.tstxtSuche.Name = "tstxtSuche";
             this.tstxtSuche.Size = new System.Drawing.Size(100, 25);
             this.tstxtSuche.Text = "Search...";
+            this.tstxtSuche.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tstxtSuche_KeyDown);
             this.tstxtSuche.Click += new System.EventHandler(this.tstxtSuche_Click);
             // 
             // tsCmdSearch
@@ -868,7 +869,7 @@
             this.tsCmdSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsCmdSearch.Name = "tsCmdSearch";
             this.tsCmdSearch.Size = new System.Drawing.Size(23, 22);
-            this.tsCmdSearch.Text = "toolStripButton1";
+            this.tsCmdSearch.Text = "Suchen...";
             this.tsCmdSearch.Click += new System.EventHandler(this.tsCmdSearch_Click);
             // 
             // öffnenToolStripButton
