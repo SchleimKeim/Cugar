@@ -76,7 +76,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CaoConnector.cs" />
+    <Compile Include="cCao.cs" />
     <Compile Include="CDatabasecon.cs" />
+    <Compile Include="cSugar.cs" />
     <Compile Include="CToolbox.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -182,6 +184,7 @@
     <None Include="Icons\png\16\Modern3D\computers\floppy_35inch_blue.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Icons\png\16\Modern3D\geometry\triangle_red.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

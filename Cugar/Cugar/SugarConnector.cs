@@ -18,7 +18,7 @@ namespace Cugar
     {
         #region private members
         //Private Members
-        private const string csQueryTempName = "qrySugar";
+        //private const string csQueryTempName = "qrySugar";
         private String m_server;
         private String m_user;
         private String m_pw;
@@ -52,6 +52,15 @@ namespace Cugar
                 throw;
             }
 
+        }
+
+        public SugarConnector(DataSet ds)
+        {
+            m_dsSugar = ds;
+            m_server = Cugar.Properties.Settings.Default.sugarhost;
+            m_user = Cugar.Properties.Settings.Default.sugaruser;
+            m_pw = Cugar.Properties.Settings.Default.sugarpw;
+            m_dbname = Cugar.Properties.Settings.Default.sugardb;
         }
 
         #region public methods
@@ -97,7 +106,8 @@ namespace Cugar
         public void LoadFirstRecord()
         {
             MySqlCommand m_cmdSugarSelect = new MySqlCommand("select * from contacts where deleted=0;", m_cnSugarConnection);
-            m_daSugar = new MySqlDataAdapter(m_cmdSugarSelect);
+            //m_daSugar = new MySqlDataAdapter(m_cmdSugarSelect);
+            m_daSugar = new MySqlDataAdapter(m_cmdSugarSelect.ToString(), m_cnSugarConnection);            
             m_daSugar.FillSchema(m_dsSugar, SchemaType.Source, "tblContacts");
             m_daSugar.Fill(m_dsSugar, "tblContacts");
             m_dvSugar = m_dsSugar.Tables["tblContacts"].DefaultView;
@@ -219,7 +229,7 @@ namespace Cugar
             }
         }
 
-        public int CaoSearchRestults
+        public int SugarSearchRestults
         {
             get
             {

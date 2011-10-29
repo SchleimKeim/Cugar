@@ -49,11 +49,15 @@ namespace Cugar
         public void Merge()
         {
         }
-        public string[] VornameNachname(string name)
+
+        /// <summary>
+        /// Splits a given String and givs back the Result as String[]</summary>
+        /// <param name="foo"> Parameter description for s goes here</param>
+        public string[] VornameNachname(string foo)
         {
-            string[] w00p;
-            w00p = name.Split();
-            return w00p;
+            string[] result;
+            result = foo.Split();
+            return result;
         }
         #endregion
 

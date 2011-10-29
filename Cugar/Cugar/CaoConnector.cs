@@ -54,6 +54,28 @@ namespace Cugar
             }
 
         }
+        
+        /// <summary>
+        /// Second Constructor: Enter a DataSet</summary>
+        public CaoConnector(DataSet ds)
+        {
+            m_dsCao = ds;
+            m_server = Cugar.Properties.Settings.Default.caohost;
+            m_user = Cugar.Properties.Settings.Default.caouser;
+            m_pw = Cugar.Properties.Settings.Default.caopw;
+            m_dbname = Cugar.Properties.Settings.Default.caodb;
+
+            try
+            {
+                CaoConnect();
+            }
+            catch (Exception asdf)
+            {
+                //MessageBox.Show("Beim Verbinden mit CAO-Faktura ist ein Fehler aufgetreten. \nBitte überprüfen Sie Ihre Einstellungen.");
+                MessageBox.Show(asdf.ToString());
+                throw;
+            }
+        }
 
         #region public methods
         /* Public Functons
@@ -140,7 +162,13 @@ namespace Cugar
             m_daCao = new OdbcDataAdapter(m_cmdCaoSelect);            
             m_daCao.FillSchema(m_dsCao, SchemaType.Source, "tblAdressen");
             m_daCao.Fill(m_dsCao, "tblAdressen");
-            m_dvCao = m_dsCao.Tables["tblAdressen"].DefaultView;            
+            m_dvCao = m_dsCao.Tables["tblAdressen"].DefaultView;     
+ 
+        }
+        public void foo(DataSet asdf, DataTable asdf2)
+        {
+            m_daCao.Update(asdf, "tblCao");
+
         }
         public void GetRecord()
         {
@@ -201,6 +229,8 @@ namespace Cugar
             m_daSearchCao.Fill(m_dsSearchCao, "tblCaoSuche");
             m_dvSearchCao = m_dsSearchCao.Tables["tblCaoSuche"].DefaultView;
             return m_dvSearchCao;
+
+            //m_daCao.Update();
         }
 
         #endregion

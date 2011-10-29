@@ -11,24 +11,40 @@ namespace Cugar
 {
     public partial class frmSuche : Form
     {
-        #region loading settings into private members
-        //Form mySettings = new frmSettings();
-        private string m_caouser = Cugar.Properties.Settings.Default.caouser;
-        private string m_caopw = Cugar.Properties.Settings.Default.caopw;
-        private string m_caohost = Cugar.Properties.Settings.Default.caohost;
-        private string m_caodb = Cugar.Properties.Settings.Default.caodb;
+        /// <summary>
+        ///  The Search Form
+        /// </summary>
 
-        private string m_sugaruser = Cugar.Properties.Settings.Default.sugaruser;
-        private string m_sugarpw = Cugar.Properties.Settings.Default.sugarpw;
-        private string m_sugarhost = Cugar.Properties.Settings.Default.sugarhost;
-        private string m_sugardb = Cugar.Properties.Settings.Default.sugardb;
-        #endregion
+        #region private members
         private string m_strSuchstring;
+        private cCao m_objCao;
+        private cSugar m_objSugar;
+        private DataSet m_DS;
+        private DataView m_DV;
+        private DataView m_DV_Search_Cao;
+        private DataView m_DV_Search_Cao_human;
+        private DataView m_DV_Search_Sugar;
+        private DataView m_DV_Search_Sugar_human;
+        #endregion
 
-        public frmSuche(string suchstring)
+        /// <summary>
+        /// The Constructor requires two connector objects</summary>
+        /// <param name="ds">a DataSet</param>
+        /// <param name="searchstring">the search string</param>  
+        public frmSuche(DataSet ds, string searchstring)
         {
             InitializeComponent();
-            m_strSuchstring = suchstring;
+            m_strSuchstring = searchstring;
+            m_DS = ds;
+        }
+
+        public frmSuche(DataSet ds, string searchstring, cCao obj_cao, cSugar obj_sugar)
+        {
+            InitializeComponent();
+            m_strSuchstring = searchstring;
+            m_DS = ds;
+            m_objCao = obj_cao;
+            m_objSugar = obj_sugar;
         }
 
         private void frmSuche_Load(object sender, EventArgs e)
@@ -37,9 +53,10 @@ namespace Cugar
             rbStrasse.Checked = false;
             rbTelefon.Checked = false;
             txtSuche.Text = m_strSuchstring;
+
             try
             {
-                StartSearch();
+                StartSearch(m_strSuchstring);
             }
             catch (Exception adsf)
             {
@@ -50,20 +67,22 @@ namespace Cugar
 
         private void cmdSuche_Click(object sender, EventArgs e)
         {
-            StartSearch();
+            StartSearch(txtSuche.Text);
         }
 
-        private void StartSearch()
+        private void StartSearch(string searchstring)
         {
-            m_strSuchstring = txtSuche.Text;
+            m_objCao = new cCao(m_DS);
+            m_objCao.search_ds_human(searchstring);            
+            m_DV_Search_Cao_human = m_DS.Tables["tblCaoSearchHuman"].DefaultView;
+            dgvCaoSuche.DataSource = m_DV_Search_Cao_human;
+            
+            m_objSugar = new cSugar(m_DS);
+            m_objSugar.search_ds_human(searchstring);            
+            m_DV_Search_Sugar_human = m_DS.Tables["tblSugarSearchHuman"].DefaultView;
+            dgvSugarSuche.DataSource = m_DV_Search_Sugar_human;
 
-            //start a new cao connector object and generate a dataview with the given searchstring
-            CaoConnector m_myCaoSearch = new CaoConnector(m_caohost, m_caouser, m_caopw, m_caodb);
-            dgvCaoSuche.DataSource = m_myCaoSearch.generate_dv_human(m_strSuchstring);
-
-            //start a new sugarconnector object and generate a dataview with the given searchstring
-            SugarConnector m_mySugarSearch = new SugarConnector(m_sugarhost, m_sugaruser, m_sugarpw, m_sugardb);
-            dgvSugarSuche.DataSource = m_mySugarSearch.generate_dv_human(m_strSuchstring);
+            //MessageBox.Show(m_DS.Tables.Count.ToString());
         }
 
         private void cmdClear_Click(object sender, EventArgs e)

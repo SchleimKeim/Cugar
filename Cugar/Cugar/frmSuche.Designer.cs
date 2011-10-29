@@ -145,15 +145,15 @@
             // 
             this.cmdLoad.Location = new System.Drawing.Point(174, 51);
             this.cmdLoad.Name = "cmdLoad";
-            this.cmdLoad.Size = new System.Drawing.Size(75, 23);
+            this.cmdLoad.Size = new System.Drawing.Size(92, 23);
             this.cmdLoad.TabIndex = 6;
-            this.cmdLoad.Text = "&Laden";
+            this.cmdLoad.Text = "&Laden / Merge";
             this.cmdLoad.UseVisualStyleBackColor = true;
             this.cmdLoad.Click += new System.EventHandler(this.cmdLoad_Click);
             // 
             // cmdExit
             // 
-            this.cmdExit.Location = new System.Drawing.Point(255, 51);
+            this.cmdExit.Location = new System.Drawing.Point(272, 51);
             this.cmdExit.Name = "cmdExit";
             this.cmdExit.Size = new System.Drawing.Size(75, 23);
             this.cmdExit.TabIndex = 6;
