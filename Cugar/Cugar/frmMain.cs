@@ -12,7 +12,19 @@ namespace Cugar
 {
     /* To Do HIGH PRIO:
      * - Find out how to "Load" from frmSuche.cs
-     * that means: find a solution to combine two datasets into one and seperate them later
+     * current status of this issue:
+     * every search result gets loadet into the dataset under "tbl$DBNAMESearchAll" or "tbl$DBNAMESearchHuman"
+     * when using the update command i just have to pass the DataSet from main.cf with the corresponding Table Name!
+     * That means Updating the Databases shoudln't be a Problem anymore.
+     * Now i have to find out the following:
+     * What happens when the user loads two Corresponding Datasets into the main.cf?
+     *
+     *first: there should be a comparison and if to many attributes are different then there is an error.
+     * -> compare name AND Street, this should be save enough. -> CompareRows()
+     * -> 1. load the corresponding cao (or sugar, depends on the settings) dataset into main.cf -> LoadMainTexts
+     * -> 2. fill out cao section -> fillCao();
+     * -> 3. fill out Sugar section -> fillSugar();
+     * 
      * 
      * - Implement searching by street or p phone number
      * - Implement search for Companys
@@ -50,19 +62,6 @@ namespace Cugar
 
     public partial class frmMain : Form
     {
-        #region loading settings into private members, probaply obsolete
-        //Form mySettings = new frmSettings();
-        //private string m_caouser = Cugar.Properties.Settings.Default.caouser;
-        //private string m_caopw = Cugar.Properties.Settings.Default.caopw;
-        //private string m_caohost = Cugar.Properties.Settings.Default.caohost;
-        //private string m_caodb = Cugar.Properties.Settings.Default.caodb;
-
-        //private string m_sugaruser = Cugar.Properties.Settings.Default.sugaruser;
-        //private string m_sugarpw = Cugar.Properties.Settings.Default.sugarpw;
-        //private string m_sugarhost = Cugar.Properties.Settings.Default.sugarhost;
-        //private string m_sugardb = Cugar.Properties.Settings.Default.sugardb;
-        #endregion
-
         #region members
         //private DataSet m_dsMainCao;
         //private int m_intCaoRows;
@@ -71,11 +70,12 @@ namespace Cugar
         //private DataSet m_dsSugar;
         private DataView m_dvCao = new DataView();
         private DataView m_dvSugar;
-        private CaoConnector myConCao;
-        private SugarConnector myConSugar;
         private DataSet m_DS = new DataSet();
         private cCao m_objCao;
         private cSugar m_objSugar;
+        private const string m_const_strSugarTable = "tblSugar";
+        private const string m_const_strCaoTable = "tblCao";
+
         #endregion
 
 
@@ -106,7 +106,7 @@ namespace Cugar
 
                 m_objCao = new cCao(m_DS);
                 m_objCao.LoadDataSet();
-                m_dvCao = m_DS.Tables["tblCao"].DefaultView;
+                m_dvCao = m_DS.Tables[m_const_strCaoTable].DefaultView;
                 dgvCao.DataSource = m_dvCao;
             }
             catch (Exception asdf)
@@ -120,7 +120,7 @@ namespace Cugar
             {
                 m_objSugar = new cSugar(m_DS);
                 m_objSugar.LoadDataSet();
-                m_dvSugar = m_DS.Tables["tblSugar"].DefaultView;
+                m_dvSugar = m_DS.Tables[m_const_strSugarTable].DefaultView;
                 dgvSugar.DataSource = m_dvSugar;
             }
             catch (Exception asdf)
@@ -128,60 +128,8 @@ namespace Cugar
                 MessageBox.Show(asdf.ToString());
                 Application.Exit();
             }
+
         }
-
-        #region old connect sugar, obsolete!
-        //private void ConnectSugar()
-        //{
-        //    #region old
-        //    //myConSugar = new SugarConnector(m_sugarhost, m_sugaruser, m_sugarpw, m_sugardb);
-        //    #endregion
-        //    myConSugar = new SugarConnector(m_DS);
-        //}
-        #endregion
-
-        #region old LoaddgvSugar, obsolete!
-        private void loaddgvSugar()
-        {
-            dgvSugar.DataSource = myConSugar.dvSugar;
-        }
-        #endregion
-
-        #region old connect cao, obsolete!
-        //private void ConnectCao()
-        //{
-        //    myConCao = new CaoConnector(m_caohost, m_caouser, m_caopw, m_caodb);
-        //    myConCao = new CaoConnector(m_myDS);
-        //    m_objCao = new cCao(m_DS);
-
-        //    try
-        //    {
-        //        loaddgvCao();
-        //    }
-        //    catch (Exception asdf)
-        //    {
-        //        MessageBox.Show(asdf.ToString());
-        //        Application.Exit();
-        //    }
-        //}
-        #endregion
-
-        //private void loaddgvCao()
-        //{
-        //    dgvCao.DataSource = myConCao.dvCao;
-        //}
-
-        #region old LoadDGVCao(), obsolete!!
-        //private void loaddgvCao()
-        //{
-
-        //    m_DS = m_objCao.ds;
-        //    m_dvCao = m_DS.Tables["tblCao"].DefaultView;
-        //    dgvCao.DataSource = m_dvCao;
-        //    //m_dvCao = m_myDS.Tables["tblCao"].DefaultView;   
-        //    //dgvCao.DataSource = myConCao.dvCao;
-        //}
-        #endregion
 
         private void connectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -232,6 +180,7 @@ namespace Cugar
             StringBuilder foo = new StringBuilder();
             foo.Append("Aktuelle Anzahl Tabellen im DataSet m_DS: ");
             foo.Append(m_DS.Tables.Count.ToString());
+            foo.Append(" DataTables");
             MessageBox.Show(foo.ToString());
         }
 

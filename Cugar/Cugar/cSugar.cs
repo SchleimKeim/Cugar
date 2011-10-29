@@ -14,6 +14,9 @@ namespace Cugar
     public class cSugar
     {
         #region private members
+        private const string m_const_strSugarTable = "tblSugar";
+        private const string m_const_strSugarTableSearchAll = "tblSugarSearchAll";
+        private const string m_const_strSugarTableSearchHuman = "tblSugarSearchHuman";
         private String m_server;
         private String m_user;
         private String m_pw;
@@ -51,7 +54,7 @@ namespace Cugar
         ///  Builds a Connection to the given SugarHost
         ///  using the User Settings.
         /// </summary>
-        public void SugarConnect()
+        private void SugarConnect()
         {
             StringBuilder m_sSugarConnect = new StringBuilder();
 
@@ -78,7 +81,7 @@ namespace Cugar
         {
             MySqlCommand m_cmdCaoSelect = new MySqlCommand("select * from contacts where deleted=0", m_cnSugar);
             m_daSugar = new MySqlDataAdapter(m_cmdCaoSelect);
-            m_daSugar.Fill(m_dsSugar, "tblSugar");
+            m_daSugar.Fill(m_dsSugar, m_const_strSugarTable);
             //return m_dsSugar;
         }
 
@@ -96,7 +99,7 @@ namespace Cugar
 
             MySqlCommand m_cmdSearchCommand = new MySqlCommand(m_strCommand.ToString());
             m_daSugar = new MySqlDataAdapter(m_cmdSearchCommand.CommandText, m_cnSugar);
-            m_daSugar.FillSchema(m_dsSugar, SchemaType.Source, "tblSugarSearchAll");
+            m_daSugar.FillSchema(m_dsSugar, SchemaType.Source, m_const_strSugarTableSearchAll);
             m_daSugar.Fill(m_dsSugar, "tblSugarSearchAll");            
         }
         /// <summary>
@@ -114,8 +117,8 @@ namespace Cugar
 
             MySqlCommand m_cmdSearchCommand = new MySqlCommand(m_strCommand.ToString());
             m_daSugar = new MySqlDataAdapter(m_cmdSearchCommand.CommandText, m_cnSugar);
-            m_daSugar.FillSchema(m_dsSugar, SchemaType.Source, "tblSugarSearchHuman");
-            m_daSugar.Fill(m_dsSugar, "tblSugarSearchHuman");
+            m_daSugar.FillSchema(m_dsSugar, SchemaType.Source, m_const_strSugarTableSearchHuman);
+            m_daSugar.Fill(m_dsSugar, m_const_strSugarTableSearchHuman);
             
             //return m_dsSugar;
         }

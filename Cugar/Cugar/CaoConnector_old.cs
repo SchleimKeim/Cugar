@@ -13,7 +13,7 @@ namespace Cugar
     /// <summary>
     ///  Alle relevanten CAO Funktionen.
     /// </summary>
-    public class CaoConnector
+    public class CaoConnector_old
     {
         #region private members
         //Private Members
@@ -35,7 +35,7 @@ namespace Cugar
 
         /// <summary>
         /// Please enter host, user, pw and databasename</summary>
-        public CaoConnector(string server, string user, string pw, string dbname)
+        public CaoConnector_old(string server, string user, string pw, string dbname)
         {
             m_server = server;
             m_user = user;
@@ -57,7 +57,7 @@ namespace Cugar
         
         /// <summary>
         /// Second Constructor: Enter a DataSet</summary>
-        public CaoConnector(DataSet ds)
+        public CaoConnector_old(DataSet ds)
         {
             m_dsCao = ds;
             m_server = Cugar.Properties.Settings.Default.caohost;

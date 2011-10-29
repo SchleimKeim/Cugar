@@ -14,6 +14,9 @@ namespace Cugar
     public class cCao
     {
         #region private members
+        private const string m_const_strCaoTable = "tblCao";
+        private const string m_const_strCaoTableSearchAll = "tblCaoSearchAll";
+        private const string m_const_strCaoTableSearchHuman = "tblCaoSearchHuman";
         private String m_server;
         private String m_user;
         private String m_pw;
@@ -71,20 +74,11 @@ namespace Cugar
         ///  Loads the whole Database into the referenced DataSet.
         ///  Using a Tablename "tblCao"
         /// </summary>
-        #region obsolete
-        //public DataSet LoadDataSet()
-        //{
-        //    OdbcCommand m_cmdCaoSelect = new OdbcCommand("select * FROM ADRESSEN WHERE KUNDENGRUPPE=1 ORDER BY REC_ID;", m_cnCao);
-        //    m_daCao = new OdbcDataAdapter(m_cmdCaoSelect);
-        //    m_daCao.Fill(m_dsCao, "tblCao");   
-        //    return m_dsCao;
-        //}
-        #endregion obsolete
         public void LoadDataSet()
         {
             OdbcCommand m_cmdCaoSelect = new OdbcCommand("select * FROM ADRESSEN WHERE KUNDENGRUPPE=1 ORDER BY REC_ID;", m_cnCao);
             m_daCao = new OdbcDataAdapter(m_cmdCaoSelect);
-            m_daCao.Fill(m_dsCao, "tblCao");
+            m_daCao.Fill(m_dsCao, m_const_strCaoTable);
             //return m_dsCao;
         }
 
@@ -103,8 +97,8 @@ namespace Cugar
 
             OdbcCommand m_cmdSearchCommand = new OdbcCommand(m_strCommand.ToString());
             m_daCao = new OdbcDataAdapter(m_cmdSearchCommand.CommandText, m_cnCao);
-            m_daCao.FillSchema(m_dsCao, SchemaType.Source, "tblCaoSearchAll");
-            m_daCao.Fill(m_dsCao, "tblCaoSearchAll");
+            m_daCao.FillSchema(m_dsCao, SchemaType.Source, m_const_strCaoTableSearchAll);
+            m_daCao.Fill(m_dsCao, m_const_strCaoTableSearchAll);
         }
 
         /// <summary>
@@ -121,11 +115,9 @@ namespace Cugar
             m_strCommand.Append(@"%'");
             //m_strCommand.Append(@"select  * from adressen where NAME1 like 'Meier'");
             OdbcCommand m_cmdSearchCommand = new OdbcCommand(m_strCommand.ToString());
-            //OdbcDataAdapter m_daSearchCao = new OdbcDataAdapter(m_cmdSearchCommand.CommandText, m_cnCao);
             m_daCao = new OdbcDataAdapter(m_cmdSearchCommand.CommandText, m_cnCao);
-            m_daCao.FillSchema(m_dsCao, SchemaType.Source, "tblCaoSearchHuman");
-            m_daCao.Fill(m_dsCao, "tblCaoSearchHuman");            
-            //return m_dsCao;            
+            m_daCao.FillSchema(m_dsCao, SchemaType.Source, m_const_strCaoTableSearchHuman);
+            m_daCao.Fill(m_dsCao, m_const_strCaoTableSearchHuman);            
         }
         #endregion
 

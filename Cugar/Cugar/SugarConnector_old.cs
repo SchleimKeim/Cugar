@@ -14,7 +14,7 @@ namespace Cugar
     /// <summary>
     ///  Alle relevanten Sugar Funktionen.
     /// </summary>
-    public class SugarConnector
+    public class SugarConnector_old
     {
         #region private members
         //Private Members
@@ -34,7 +34,7 @@ namespace Cugar
 
 
         //constructor
-        public SugarConnector(string server, string user, string pw, string dbname)
+        public SugarConnector_old(string server, string user, string pw, string dbname)
         {
             m_server = server;
             m_user = user;
@@ -54,7 +54,7 @@ namespace Cugar
 
         }
 
-        public SugarConnector(DataSet ds)
+        public SugarConnector_old(DataSet ds)
         {
             m_dsSugar = ds;
             m_server = Cugar.Properties.Settings.Default.sugarhost;

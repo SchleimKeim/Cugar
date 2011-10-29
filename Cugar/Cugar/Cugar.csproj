@@ -75,7 +75,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CaoConnector.cs" />
+    <Compile Include="CaoConnector_old.cs" />
     <Compile Include="cCao.cs" />
     <Compile Include="CDatabasecon.cs" />
     <Compile Include="cSugar.cs" />
@@ -140,7 +140,7 @@
     <Compile Include="frmSuche.Designer.cs">
       <DependentUpon>frmSuche.cs</DependentUpon>
     </Compile>
-    <Compile Include="SugarConnector.cs" />
+    <Compile Include="SugarConnector_old.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

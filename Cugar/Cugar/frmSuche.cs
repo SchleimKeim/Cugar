@@ -16,15 +16,22 @@ namespace Cugar
         /// </summary>
 
         #region private members
+
+        private const string m_const_strCaoTableSearchAll = "tblCaoSearchAll";
+        private const string m_const_strSugarTableSearchAll = "tblSugarSearchAll";
+        private const string m_const_strCaoTableSearchHuman = "tblCaoSearchHuman";
+        private const string m_const_strSugarTableSearchHuman = "tblSugarSearchHuman";
+
+
         private string m_strSuchstring;
         private cCao m_objCao;
         private cSugar m_objSugar;
         private DataSet m_DS;
         private DataView m_DV;
         private DataView m_DV_Search_Cao;
-        private DataView m_DV_Search_Cao_human;
+        private DataView m_DV_Search_Cao_human = new DataView();
         private DataView m_DV_Search_Sugar;
-        private DataView m_DV_Search_Sugar_human;
+        private DataView m_DV_Search_Sugar_human = new DataView();
         #endregion
 
         /// <summary>
@@ -72,20 +79,27 @@ namespace Cugar
 
         private void StartSearch(string searchstring)
         {
+            ClearBothDgvs();
             m_objCao = new cCao(m_DS);
-            m_objCao.search_ds_human(searchstring);            
-            m_DV_Search_Cao_human = m_DS.Tables["tblCaoSearchHuman"].DefaultView;
+            m_objCao.search_ds_human(searchstring);
+            m_DV_Search_Cao_human = m_DS.Tables[m_const_strCaoTableSearchHuman].DefaultView;
             dgvCaoSuche.DataSource = m_DV_Search_Cao_human;
-            
-            m_objSugar = new cSugar(m_DS);
-            m_objSugar.search_ds_human(searchstring);            
-            m_DV_Search_Sugar_human = m_DS.Tables["tblSugarSearchHuman"].DefaultView;
-            dgvSugarSuche.DataSource = m_DV_Search_Sugar_human;
 
-            //MessageBox.Show(m_DS.Tables.Count.ToString());
+            m_objSugar = new cSugar(m_DS);
+            m_objSugar.search_ds_human(searchstring);
+            m_DV_Search_Sugar_human = m_DS.Tables[m_const_strSugarTableSearchHuman].DefaultView;
+            dgvSugarSuche.DataSource = m_DV_Search_Sugar_human;
         }
 
         private void cmdClear_Click(object sender, EventArgs e)
+        {
+            ClearBothDgvs();
+            txtSuche.Text = "";
+            txtSuche.Focus();
+
+        }
+
+        private void ClearBothDgvs()
         {
             /* if the DatagridView is empty do nothing
              * else set the source to null to clear the DataGridView
@@ -94,14 +108,16 @@ namespace Cugar
 
             if (dgvCaoSuche.ColumnCount > 1)
             {
-                dgvCaoSuche.DataSource = null;                
+                dgvCaoSuche.DataSource = null;
+                m_DV_Search_Cao_human = null;
+                m_DS.Tables[m_const_strCaoTableSearchHuman].Clear();
             }
             if (dgvSugarSuche.ColumnCount > 1)
             {
                 dgvSugarSuche.DataSource = null;
+                m_DV_Search_Sugar_human = null;
+                m_DS.Tables[m_const_strSugarTableSearchHuman].Clear();
             }
-            txtSuche.Text = "";
-            txtSuche.Focus();
         }
 
         private void cmdExit_Click(object sender, EventArgs e)
