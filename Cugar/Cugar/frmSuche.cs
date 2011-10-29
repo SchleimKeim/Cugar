@@ -153,7 +153,7 @@ namespace Cugar
         private void cmdLoad_Click(object sender, EventArgs e)
         {
             frmMain m_objFrmMain = new frmMain();
-            m_objFrmMain.Datensatz = null;
+            m_objFrmMain.Datensatz = m_DS.Tables[m_const_strCaoTableSearchHuman].load
             m_objFrmMain.Show();
             this.Close();
         }
