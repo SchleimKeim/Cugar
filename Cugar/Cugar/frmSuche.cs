@@ -27,11 +27,15 @@ namespace Cugar
         private cCao m_objCao;
         private cSugar m_objSugar;
         private DataSet m_DS;
-        private DataView m_DV;
-        private DataView m_DV_Search_Cao;
+        //private DataView m_DV;
+        //private DataView m_DV_Search_Cao_all;
         private DataView m_DV_Search_Cao_human = new DataView();
-        private DataView m_DV_Search_Sugar;
+        //private DataView m_DV_Search_Sugar_all;
         private DataView m_DV_Search_Sugar_human = new DataView();
+
+        /* Reference to frmMain */
+        private frmMain frmMain = null;
+
         #endregion
 
         /// <summary>
@@ -40,18 +44,39 @@ namespace Cugar
         /// <param name="searchstring">the search string</param>  
         public frmSuche(DataSet ds, string searchstring)
         {
-            InitializeComponent();
             m_strSuchstring = searchstring;
             m_DS = ds;
+            InitializeComponent();
         }
 
-        public frmSuche(DataSet ds, string searchstring, cCao obj_cao, cSugar obj_sugar)
+        /// <summary>
+        /// The Constructor requires two connector objects</summary>
+        /// <param name="ds">a DataSet</param>
+        /// <param name="searchstring">the search string</param>  
+        /// <param name="mainform">reference to the frmMain</param>
+        public frmSuche(DataSet ds, string searchstring, frmMain mainform)
         {
+            m_strSuchstring = searchstring;
+            m_DS = ds;
+            this.frmMain = mainform;
             InitializeComponent();
+        }
+        /// <summary>
+        /// The Constructor requires two connector objects</summary>
+        /// <param name="ds">a DataSet</param>
+        /// <param name="searchstring">the search string</param>  
+        /// <param name="obj_cao">the cCao Object from frmMain</param>
+        /// <param name="obj_sugar">the cSugar Object from frmMain</param>
+        /// <param name="mainform">reference to the frmMain</param>
+        public frmSuche(DataSet ds, string searchstring, cCao obj_cao, cSugar obj_sugar, frmMain mainform)
+        {
             m_strSuchstring = searchstring;
             m_DS = ds;
             m_objCao = obj_cao;
             m_objSugar = obj_sugar;
+            this.frmMain = mainform;
+            InitializeComponent();
+
         }
 
         private void frmSuche_Load(object sender, EventArgs e)
@@ -81,12 +106,12 @@ namespace Cugar
         {
             ClearBothDgvs();
             m_objCao = new cCao(m_DS);
-            m_objCao.search_ds_human(searchstring);
+            m_objCao.search_ds_human_persons(searchstring);
             m_DV_Search_Cao_human = m_DS.Tables[m_const_strCaoTableSearchHuman].DefaultView;
             dgvCaoSuche.DataSource = m_DV_Search_Cao_human;
 
             m_objSugar = new cSugar(m_DS);
-            m_objSugar.search_ds_human(searchstring);
+            m_objSugar.search_ds_human_persons(searchstring);
             m_DV_Search_Sugar_human = m_DS.Tables[m_const_strSugarTableSearchHuman].DefaultView;
             dgvSugarSuche.DataSource = m_DV_Search_Sugar_human;
         }
@@ -127,7 +152,10 @@ namespace Cugar
 
         private void cmdLoad_Click(object sender, EventArgs e)
         {
-
+            frmMain m_objFrmMain = new frmMain();
+            m_objFrmMain.Datensatz = null;
+            m_objFrmMain.Show();
+            this.Close();
         }
     }
 }

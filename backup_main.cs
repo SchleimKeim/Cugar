@@ -12,7 +12,44 @@ namespace Cugar
 {
     /* To Do HIGH PRIO:
      * - Find out how to "Load" from frmSuche.cs
-     * that means: find a solution to combine two datasets into one and seperate them later
+     * current status of this issue:
+     * every search result gets loadet into the dataset m_DS under "tbl$DBNAMESearchAll" or "tbl$DBNAMESearchHuman"
+     * when using the update command i just have to pass the DataSet from main.cf with the corresponding Table Name!
+     * That means Updating the Databases shoudln't be a Problem anymore.
+     * Now i have to find out the following: 
+     * 
+     * ********************************
+     * cmdLoad in frmSearch:
+     * ********************************
+     * * What happens when the user loads two Corresponding Datasets into the main.cf?     *
+     *first: there should be a comparison and if to many attributes are different then there is an error.
+     * -> compare name AND Street, this should be save enough. -> CompareRows()
+     * -> 1. load the corresponding cao (or sugar, depends on the settings) dataset into main.cf -> LoadMainTexts()
+     * -> 2. fill out cao section -> fillCao();
+     * -> 3. fill out Sugar section -> fillSugar();
+     * 
+     * use onChange() events to recognise the changes
+     * When the user saves the record there has got to be a cCao.UpdateRecord() and a cSugar.UpdateRecord()
+     * 
+     * 
+     * *******************************
+     * Creating a new record
+     * *******************************
+     * -> user clicks toolStrip New()
+     * -> frmNeu Appears
+     * -> User edits the textfields and clicks "Save"
+     * -> use (and first: create) a cCao.Insert() and a cSugar.Inser() routine.
+     * 
+     * 
+     * ******************************
+     * Deleting a record
+     * ******************************
+     * This has the least priority due to the fact that practically no Record gets deleted at CalandaComp
+     * -> cCao.Delete() and cSugar.Delete()
+     * 
+     * 
+     * 
+     * 
      * 
      * - Implement searching by street or p phone number
      * - Implement search for Companys
@@ -50,32 +87,14 @@ namespace Cugar
 
     public partial class frmMain : Form
     {
-        #region loading settings into private members, probaply obsolete
-        //Form mySettings = new frmSettings();
-        private string m_caouser = Cugar.Properties.Settings.Default.caouser;
-        private string m_caopw = Cugar.Properties.Settings.Default.caopw;
-        private string m_caohost = Cugar.Properties.Settings.Default.caohost;
-        private string m_caodb = Cugar.Properties.Settings.Default.caodb;
-
-        private string m_sugaruser = Cugar.Properties.Settings.Default.sugaruser;
-        private string m_sugarpw = Cugar.Properties.Settings.Default.sugarpw;
-        private string m_sugarhost = Cugar.Properties.Settings.Default.sugarhost;
-        private string m_sugardb = Cugar.Properties.Settings.Default.sugardb;
-        #endregion
-
         #region members
-        //private DataSet m_dsMainCao;
-        private int m_intCaoRows;
-        private int m_intSugarRows;
-        //private DataSet m_dsCao;
-        //private DataSet m_dsSugar;
-        private DataView m_dvCao;
-        //private DataView m_dvSugar;
-        private CaoConnector myConCao;
-        private SugarConnector myConSugar;
-        private DataSet m_myDS = new DataSet();
+        private DataView m_dvCao = new DataView();
+        private DataView m_dvSugar;
+        private DataSet m_DS = new DataSet();
         private cCao m_objCao;
-
+        private cSugar m_objSugar;
+        private const string m_const_strSugarTable = "tblSugar";
+        private const string m_const_strCaoTable = "tblCao";
         #endregion
 
 
@@ -90,68 +109,46 @@ namespace Cugar
             {                
                 frmSettings m_SubForm_Settings = new frmSettings();
                 m_SubForm_Settings.ShowDialog();
-                MessageBox.Show("Please Restart Cugar to load the mew settings.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //CToolbox m_Toolbox = new CToolbox();
-                //m_Toolbox.RestartApplication();               
-            }            
+                MessageBox.Show("Please Restart Cugar to load the mew settings.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);             
+            }
 
-            ConnectCao();
-            loaddgvCao();
-
-            //ConnectSugar();
-
-            //m_intCaoRows = myConCao.dvCao.Count - 1;
-            //m_intSugarRows = myConSugar.dvSugar.Count - 1;
-
-            //txtName.Text = dgvCao[7, 0].Value.ToString();
-            //txtStrasse1.Text = dgvCao["STRASSE", 0].Value.ToString();
-            
-            /* String Split Methode, enthalten in CToolbox */
-            //string[] sh00p;
-            //CToolbox myToolbox = new CToolbox();
-            //sh00p = myToolbox.VornameNachname("Hans Meier");   
-        }
-
-        private void ConnectSugar()
-        {
-            //myConSugar = new SugarConnector(m_sugarhost, m_sugaruser, m_sugarpw, m_sugardb);
-            myConSugar = new SugarConnector(m_myDS);
-        }
-
-        private void loaddgvSugar()
-        {
-            dgvSugar.DataSource = myConSugar.dvSugar;          
-        }
-
-        private void ConnectCao()
-        {
-            //myConCao = new CaoConnector(m_caohost, m_caouser, m_caopw, m_caodb);
-            //myConCao = new CaoConnector(m_myDS);
-            m_objCao = new cCao(m_myDS);
-
-            #region temporary!!
+            /* Fills out dgvCao */
             try
             {
-                loaddgvCao();
+                /* vorgang:
+                 * neues cao objekt wird erstellt mit dem DataSet der main.cf
+                 * die methode LoadDataSet() fllt das DataSet mit informationen 
+                 * aus der Cao Datenbank
+                 * das DataView der main.cf wird mit den tables aus dem DataSet der main.cf gefllt
+                 * dgv kriegt als source das DataView der main.cf
+                 */
+
+                m_objCao = new cCao(m_DS);
+                m_objCao.LoadDataSet();
+                m_dvCao = m_DS.Tables[m_const_strCaoTable].DefaultView;
+                dgvCao.DataSource = m_dvCao;
             }
             catch (Exception asdf)
             {
                 MessageBox.Show(asdf.ToString());
-                throw;
+                Application.Exit();
             }
-            #endregion
-        }
 
-        //private void loaddgvCao()
-        //{
-        //    dgvCao.DataSource = myConCao.dvCao;
-        //}
-        private void loaddgvCao()
-        {
-            m_myDS = m_objCao.ds;
+            /* Fills out dgvSugar */
+            try
+            {
+                m_objSugar = new cSugar(m_DS);
+                m_objSugar.LoadDataSet();
+                m_dvSugar = m_DS.Tables[m_const_strSugarTable].DefaultView;
+                dgvSugar.DataSource = m_dvSugar;
+            }
+            catch (Exception asdf)
+            {
+                MessageBox.Show("Ein Fehler ist aufgetreten!\n Bitte berprfen Sie die Einstellungen!");
+                MessageBox.Show(asdf.ToString());
+                Application.Exit();
+            }
 
-            //m_dvCao = m_myDS.Tables["tblCao"].DefaultView;   
-            //dgvCao.DataSource = myConCao.dvCao;
         }
 
         private void connectionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -170,6 +167,7 @@ namespace Cugar
 
         }
 
+        
         private void tstxtSuche_Click(object sender, EventArgs e)
         {
             tstxtSuche.Clear();
@@ -182,8 +180,10 @@ namespace Cugar
 
         private void Search()
         {
-            frmSuche m_mySearch = new frmSuche(myConCao, myConSugar, tstxtSuche.Text);
-            m_mySearch.ShowDialog();
+            //frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text);
+            frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text, m_objCao, m_objSugar);            
+            //frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text, m_objCao, m_objSugar);
+            m_objSuche.ShowDialog();
         }
 
         private void tstxtSuche_KeyDown(object sender, KeyEventArgs e)
@@ -193,6 +193,15 @@ namespace Cugar
                 Search();
             }
 
+        }
+
+        private void hilfeToolStripButton_Click(object sender, EventArgs e)
+        {
+            StringBuilder foo = new StringBuilder();
+            foo.Append("Aktuelle Anzahl Tabellen im DataSet m_DS: ");
+            foo.Append(m_DS.Tables.Count.ToString());
+            foo.Append(" DataTables");
+            MessageBox.Show(foo.ToString());
         }
 
         //private void tstxtSuche_Enter(object sender, EventArgs e)

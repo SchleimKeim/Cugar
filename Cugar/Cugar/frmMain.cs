@@ -13,17 +13,42 @@ namespace Cugar
     /* To Do HIGH PRIO:
      * - Find out how to "Load" from frmSuche.cs
      * current status of this issue:
-     * every search result gets loadet into the dataset under "tbl$DBNAMESearchAll" or "tbl$DBNAMESearchHuman"
+     * every search result gets loadet into the dataset m_DS under "tbl$DBNAMESearchAll" or "tbl$DBNAMESearchHuman"
      * when using the update command i just have to pass the DataSet from main.cf with the corresponding Table Name!
      * That means Updating the Databases shoudln't be a Problem anymore.
-     * Now i have to find out the following:
-     * What happens when the user loads two Corresponding Datasets into the main.cf?
-     *
+     * Now i have to find out the following: 
+     * 
+     * ********************************
+     * cmdLoad in frmSearch:
+     * ********************************
+     * * What happens when the user loads two Corresponding Datasets into the main.cf?     *
      *first: there should be a comparison and if to many attributes are different then there is an error.
      * -> compare name AND Street, this should be save enough. -> CompareRows()
-     * -> 1. load the corresponding cao (or sugar, depends on the settings) dataset into main.cf -> LoadMainTexts
+     * -> 1. load the corresponding cao (or sugar, depends on the settings) dataset into main.cf -> LoadMainTexts()
      * -> 2. fill out cao section -> fillCao();
      * -> 3. fill out Sugar section -> fillSugar();
+     * 
+     * use onChange() events to recognise the changes
+     * When the user saves the record there has got to be a cCao.UpdateRecord() and a cSugar.UpdateRecord()
+     * 
+     * 
+     * *******************************
+     * Creating a new record
+     * *******************************
+     * -> user clicks toolStrip New()
+     * -> frmNeu Appears
+     * -> User edits the textfields and clicks "Save"
+     * -> use (and first: create) a cCao.Insert() and a cSugar.Inser() routine.
+     * 
+     * 
+     * ******************************
+     * Deleting a record
+     * ******************************
+     * This has the least priority due to the fact that practically no Record gets deleted at CalandaComp
+     * -> cCao.Delete() and cSugar.Delete()
+     * 
+     * 
+     * 
      * 
      * 
      * - Implement searching by street or p phone number
@@ -63,11 +88,6 @@ namespace Cugar
     public partial class frmMain : Form
     {
         #region members
-        //private DataSet m_dsMainCao;
-        //private int m_intCaoRows;
-        //private int m_intSugarRows;
-        //private DataSet m_dsCao;
-        //private DataSet m_dsSugar;
         private DataView m_dvCao = new DataView();
         private DataView m_dvSugar;
         private DataSet m_DS = new DataSet();
@@ -75,7 +95,9 @@ namespace Cugar
         private cSugar m_objSugar;
         private const string m_const_strSugarTable = "tblSugar";
         private const string m_const_strCaoTable = "tblCao";
+        private frmMain m_objMainform;
 
+        private string[] m_Datensatz;
         #endregion
 
 
@@ -83,6 +105,10 @@ namespace Cugar
         {
             InitializeComponent();
         }
+
+
+
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -125,6 +151,7 @@ namespace Cugar
             }
             catch (Exception asdf)
             {
+                MessageBox.Show("Ein Fehler ist aufgetreten!\n Bitte überprüfen Sie die Einstellungen!");
                 MessageBox.Show(asdf.ToString());
                 Application.Exit();
             }
@@ -161,9 +188,10 @@ namespace Cugar
         private void Search()
         {
             //frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text);
-            frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text, m_objCao, m_objSugar);
+            frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text, m_objCao, m_objSugar, this);
             //frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text, m_objCao, m_objSugar);
-            m_objSuche.ShowDialog();
+            this.Hide();
+            m_objSuche.Show();      
         }
 
         private void tstxtSuche_KeyDown(object sender, KeyEventArgs e)
@@ -193,5 +221,19 @@ namespace Cugar
         //{
 
         //}
+
+        public string[] Datensatz
+        {
+            get
+            {
+                return m_Datensatz;
+            }
+            set
+            {
+                m_Datensatz = value;
+            }
+        }
+
+        
     }
 }

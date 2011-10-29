@@ -86,13 +86,14 @@ namespace Cugar
         ///Searches the table adressen for a given Searchstring
         ///and inserts a "tblCaoSearchAll" into the DataSet.</summary>
         /// <param name="searchstring">the search string</param>
-        public void search_ds_all(string searchstring)
+        public void search_ds_all_persons(string searchstring)
         {
             StringBuilder m_strCommand = new StringBuilder();
             m_strCommand.Append(@"select * from adressen where NAME1 like ");
             m_strCommand.Append(@"'%");
             m_strCommand.Append(searchstring);
             m_strCommand.Append(@"%'");
+            m_strCommand.Append(" AND KUNDENGRUPPE=1;");
             //m_strCommand.Append(@"select  * from adressen where NAME1 like 'Meier'");
 
             OdbcCommand m_cmdSearchCommand = new OdbcCommand(m_strCommand.ToString());
@@ -105,7 +106,7 @@ namespace Cugar
         ///Searches the table adressen for a given Searchstring
         ///and inserts a "tblCaoSearchHuman" into the DataSet.</summary>
         /// <param name="searchstring">the search string</param>
-        public void search_ds_human(string searchstring)
+        public void search_ds_human_persons(string searchstring)
         {
             StringBuilder m_strCommand = new StringBuilder();
             //SELECT `REC_ID`, `MATCHCODE`, `KUNDENGRUPPE`, `SPRACH_ID`, `GESCHLECHT`, `KUNNUM1`, `KUNNUM2`, `NAME1`, `PLZ`, `ORT`, `LAND`, `NAME2`, `NAME3`, `ABTEILUNG`, `ANREDE`, `STRASSE`, `POSTFACH`, `PF_PLZ`, `DEFAULT_LIEFANSCHRIFT_ID`, `GRUPPE`, `TELE1`, `TELE2`, `FAX`, `FUNK`, `EMAIL`, `EMAIL2`, `INTERNET`, `DIVERSES`, `BRIEFANREDE`, `BLZ`, `KTO`, `BANK`, `IBAN`, `SWIFT`, `KTO_INHABER`, `DEB_NUM`, `KRD_NUM`, `STATUS`, `NET_SKONTO`, `NET_TAGE`, `BRT_TAGE`, `WAEHRUNG`, `UST_NUM`, `VERTRETER_ID`, `PROVIS_PROZ`, LEFT(`INFO`, 256), `GRABATT`, `KUN_KRDLIMIT`, `KUN_LIEFART`, `KUN_ZAHLART`, `KUN_PRLISTE`, `KUN_LIEFSPERRE`, `LIEF_LIEFART`, `LIEF_ZAHLART`, `LIEF_PRLISTE`, `LIEF_TKOSTEN`, `LIEF_MBWERT`, `PR_EBENE`, `BRUTTO_FLAG`, `MWST_FREI_FLAG`, `KUNPREIS_AUTO`, `KUN_SEIT`, `KUN_GEBDATUM`, `ENTFERNUNG`, `ERSTELLT`, `ERST_NAME`, `GEAEND`, `GEAEND_NAME`, `SHOP_KUNDE`, `SHOP_ID`, `SHOP_NEWSLETTER`, `SHOP_KUNDE_ID`, `SHOP_CHANGE_FLAG`, `SHOP_DEL_FLAG`, `SHOP_PASSWORD`, `USERFELD_01`, `USERFELD_02`, `USERFELD_03`, `USERFELD_04`, `USERFELD_05`, `USERFELD_06`, `USERFELD_07`, `USERFELD_08`, `USERFELD_09`, `USERFELD_10` FROM `caofaktura`.`adressen` LIMIT 0, 1000;
@@ -113,6 +114,7 @@ namespace Cugar
             m_strCommand.Append(@"'%");
             m_strCommand.Append(searchstring);
             m_strCommand.Append(@"%'");
+            m_strCommand.Append(" AND KUNDENGRUPPE=1");
             //m_strCommand.Append(@"select  * from adressen where NAME1 like 'Meier'");
             OdbcCommand m_cmdSearchCommand = new OdbcCommand(m_strCommand.ToString());
             m_daCao = new OdbcDataAdapter(m_cmdSearchCommand.CommandText, m_cnCao);
