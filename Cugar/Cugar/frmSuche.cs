@@ -22,6 +22,9 @@ namespace Cugar
         private const string m_const_strCaoTableSearchHuman = "tblCaoSearchHuman";
         private const string m_const_strSugarTableSearchHuman = "tblSugarSearchHuman";
 
+        private const string m_const_strAktuellerCaoDatensatz = "tblCaoSelected";
+        private const string m_const_strAktuellerSugarDatensatz = "tblSugarSelected";
+
 
         private string m_strSuchstring;
         private cCao m_objCao;
@@ -107,11 +110,13 @@ namespace Cugar
             ClearBothDgvs();
             m_objCao = new cCao(m_DS);
             m_objCao.search_ds_human_persons(searchstring);
+            m_objCao.search_ds_all_persons(searchstring);
             m_DV_Search_Cao_human = m_DS.Tables[m_const_strCaoTableSearchHuman].DefaultView;
             dgvCaoSuche.DataSource = m_DV_Search_Cao_human;
 
             m_objSugar = new cSugar(m_DS);
             m_objSugar.search_ds_human_persons(searchstring);
+            m_objSugar.search_ds_all_persons(searchstring);
             m_DV_Search_Sugar_human = m_DS.Tables[m_const_strSugarTableSearchHuman].DefaultView;
             dgvSugarSuche.DataSource = m_DV_Search_Sugar_human;
         }
@@ -152,9 +157,9 @@ namespace Cugar
 
         private void cmdLoad_Click(object sender, EventArgs e)
         {
-            frmMain m_objFrmMain = new frmMain();
-            m_objFrmMain.Datensatz = m_DS.Tables[m_const_strCaoTableSearchHuman].load
-            m_objFrmMain.Show();
+            /* temporary solution, find somethingg to bind the textfields to the actual m_DS */
+            this.frmMain.dtDatensatzCao = m_DS.Tables[m_const_strCaoTableSearchHuman];
+            this.frmMain.DatensatzLaden();
             this.Close();
         }
     }

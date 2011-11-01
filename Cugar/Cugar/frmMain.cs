@@ -83,6 +83,23 @@ namespace Cugar
      * CLEAN UP:
      * **************
      * - loading settings into members of main.cs because they are accessible by all classes in the project
+     * 
+     * 
+     * *******************
+     * READ ME ON SUNDAY!
+     * *******************
+     * - get loading out of frm search working!
+     * 
+     * 
+     * 
+     * 
+     * ********************
+     * QUESTIONS
+     * ********************
+     * how to public void DatensatzLaden()
+     * :(
+     * 
+     * 
      */
 
     public partial class frmMain : Form
@@ -93,11 +110,23 @@ namespace Cugar
         private DataSet m_DS = new DataSet();
         private cCao m_objCao;
         private cSugar m_objSugar;
+
+        private DataTable m_dtDatensatzCao;
+        private DataTable m_dtDatensatzSugar;
+
         private const string m_const_strSugarTable = "tblSugar";
         private const string m_const_strCaoTable = "tblCao";
-        private frmMain m_objMainform;
 
-        private string[] m_Datensatz;
+        /* Added on 1.11. just for testing */
+        private const string m_const_strCaoTableSearchAll = "tblCaoSearchAll";
+        private const string m_const_strSugarTableSearchAll = "tblSugarSearchAll";
+        private const string m_const_strCaoTableSearchHuman = "tblCaoSearchHuman";
+        private const string m_const_strSugarTableSearchHuman = "tblSugarSearchHuman";
+
+        private const string m_const_strAktuellerCaoDatensatz = "tblCaoSelected";
+        private const string m_const_strAktuellerSugarDatensatz = "tblSugarSelected";
+
+
         #endregion
 
 
@@ -112,6 +141,7 @@ namespace Cugar
 
         private void Form1_Load(object sender, EventArgs e)
         {
+          
             if (Cugar.Properties.Settings.Default.first_start == true)
             {                
                 frmSettings m_SubForm_Settings = new frmSettings();
@@ -120,40 +150,48 @@ namespace Cugar
             }
 
             /* Fills out dgvCao */
-            try
-            {
-                /* vorgang:
-                 * neues cao objekt wird erstellt mit dem DataSet der main.cf
-                 * die methode LoadDataSet() füllt das DataSet mit informationen 
-                 * aus der Cao Datenbank
-                 * das DataView der main.cf wird mit den tables aus dem DataSet der main.cf gefüllt
-                 * dgv kriegt als source das DataView der main.cf
-                 */
 
-                m_objCao = new cCao(m_DS);
-                m_objCao.LoadDataSet();
-                m_dvCao = m_DS.Tables[m_const_strCaoTable].DefaultView;
-                dgvCao.DataSource = m_dvCao;
-            }
-            catch (Exception asdf)
+            if (m_DS.Tables.Count == 0)
             {
-                MessageBox.Show(asdf.ToString());
-                Application.Exit();
-            }
+                try
+                {
+                    /* vorgang:
+                     * neues cao objekt wird erstellt mit dem DataSet der main.cf
+                     * die methode LoadDataSet() fllt das DataSet mit informationen 
+                     * aus der Cao Datenbank
+                     * das DataView der main.cf wird mit den tables aus dem DataSet der main.cf gefllt
+                     * dgv kriegt als source das DataView der main.cf
+                     */
 
-            /* Fills out dgvSugar */
-            try
-            {
-                m_objSugar = new cSugar(m_DS);
-                m_objSugar.LoadDataSet();
-                m_dvSugar = m_DS.Tables[m_const_strSugarTable].DefaultView;
-                dgvSugar.DataSource = m_dvSugar;
+                    m_objCao = new cCao(m_DS);
+                    m_objCao.LoadDataSet();
+                    m_dvCao = m_DS.Tables[m_const_strCaoTable].DefaultView;
+                    dgvCao.DataSource = m_dvCao;
+                }
+                catch (Exception asdf)
+                {
+                    MessageBox.Show(asdf.ToString());
+                    Application.Exit();
+                }
+
+                /* Fills out dgvSugar */
+                try
+                {
+                    m_objSugar = new cSugar(m_DS);
+                    m_objSugar.LoadDataSet();
+                    m_dvSugar = m_DS.Tables[m_const_strSugarTable].DefaultView;
+                    dgvSugar.DataSource = m_dvSugar;
+                }
+                catch (Exception asdf)
+                {
+                    MessageBox.Show("Ein Fehler ist aufgetreten!\n Bitte berprfen Sie die Einstellungen!");
+                    MessageBox.Show(asdf.ToString());
+                    Application.Exit();
+                }
             }
-            catch (Exception asdf)
-            {
-                MessageBox.Show("Ein Fehler ist aufgetreten!\n Bitte überprüfen Sie die Einstellungen!");
-                MessageBox.Show(asdf.ToString());
-                Application.Exit();
+            else
+            { 
+                //txtStrasse1.Text = m_DS.Tables[m_const_strCaoTable].
             }
 
         }
@@ -189,9 +227,8 @@ namespace Cugar
         {
             //frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text);
             frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text, m_objCao, m_objSugar, this);
-            //frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text, m_objCao, m_objSugar);
-            this.Hide();
-            m_objSuche.Show();      
+            //frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text, m_objCao, m_objSugar);            
+            m_objSuche.ShowDialog();      
         }
 
         private void tstxtSuche_KeyDown(object sender, KeyEventArgs e)
@@ -205,11 +242,32 @@ namespace Cugar
 
         private void hilfeToolStripButton_Click(object sender, EventArgs e)
         {
-            StringBuilder foo = new StringBuilder();
-            foo.Append("Aktuelle Anzahl Tabellen im DataSet m_DS: ");
-            foo.Append(m_DS.Tables.Count.ToString());
-            foo.Append(" DataTables");
-            MessageBox.Show(foo.ToString());
+            if (m_dtDatensatzCao == null)
+            {
+                StringBuilder foo = new StringBuilder();
+                foo.Append("Aktuelle Anzahl Tabellen im DataSet m_DS: ");
+                foo.Append(m_DS.Tables.Count.ToString());
+                foo.Append(" DataTables\n");                
+                MessageBox.Show(foo.ToString());
+            }
+            else
+            {
+                StringBuilder foo = new StringBuilder();
+                foo.Append("Aktuelle Anzahl Tabellen im DataSet m_DS: ");
+                foo.Append(m_DS.Tables.Count.ToString());
+                foo.Append(" DataTables\n");
+                foo.Append("Geladene Datensätze in m_Datensatz: ");
+                foo.Append(m_dtDatensatzCao.Rows.Count.ToString());
+                MessageBox.Show(foo.ToString());
+            }
+        }
+
+        public void DatensatzLaden()
+        {
+            /* snippet:
+             * textBox.DataBindings.Add("Text", ds.Tables["Products"], "ProductName"); */
+
+            txtName.Text = m_DS.Tables[m_const_strCaoTableSearchAll].Rows[0][1].ToString();
         }
 
         //private void tstxtSuche_Enter(object sender, EventArgs e)
@@ -221,19 +279,50 @@ namespace Cugar
         //{
 
         //}
+        #region propertys
 
-        public string[] Datensatz
+        /* both dtDatensatz* propertys aren't finished! */
+        public DataTable dtDatensatzCao
         {
             get
             {
-                return m_Datensatz;
+                return m_dtDatensatzCao;
             }
             set
             {
-                m_Datensatz = value;
+                m_dtDatensatzCao = value;
+            }
+        }
+        public DataTable dtDatensatzSugar
+        {
+            get
+            {
+                return m_dtDatensatzSugar;
+            }
+            set
+            {
+                m_dtDatensatzSugar = value;
             }
         }
 
-        
+        /* reserved for string[] */
+        //public DataTable dtDatensatzSugar
+        //{
+        //    get
+        //    {
+        //        return m_dtDatensatzSugar;
+        //    }
+        //    set
+        //    {
+        //        m_dtDatensatzSugar = value;
+        //    }
+        //}
+
+
+
+        #endregion
+
+
+
     }
 }
