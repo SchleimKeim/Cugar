@@ -21,10 +21,12 @@ namespace Cugar
         private String m_user;
         private String m_pw;
         private String m_dbname;
+        private BindingSource m_BS;
 
         private DataSet m_dsCao;
         private OdbcConnection m_cnCao;
-        private OdbcDataAdapter m_daCao;        
+        private OdbcDataAdapter m_daCao;
+
         #endregion
 
         /// <summary>
@@ -37,6 +39,36 @@ namespace Cugar
             m_user = Cugar.Properties.Settings.Default.caouser;
             m_pw = Cugar.Properties.Settings.Default.caopw;
             m_dbname = Cugar.Properties.Settings.Default.caodb;
+            /*
+            binding1.DataSource = fonts;
+            listBox1.DataSource = binding1;
+             */
+
+            
+            try
+            {
+                CaoConnect();
+            }
+            catch (Exception asdf)
+            {
+                MessageBox.Show(asdf.ToString());
+                throw;
+            }
+        }
+
+
+        public cCao(DataSet ds, BindingSource bs)
+        {
+            m_dsCao = ds;
+            m_server = Cugar.Properties.Settings.Default.caohost;
+            m_user = Cugar.Properties.Settings.Default.caouser;
+            m_pw = Cugar.Properties.Settings.Default.caopw;
+            m_dbname = Cugar.Properties.Settings.Default.caodb;
+            /*
+            binding1.DataSource = fonts;
+            listBox1.DataSource = binding1;
+             */
+            m_BS = bs;           
 
             try
             {
@@ -100,6 +132,9 @@ namespace Cugar
             m_daCao = new OdbcDataAdapter(m_cmdSearchCommand.CommandText, m_cnCao);
             m_daCao.FillSchema(m_dsCao, SchemaType.Source, m_const_strCaoTableSearchAll);
             m_daCao.Fill(m_dsCao, m_const_strCaoTableSearchAll);
+
+            //added 03.11.2011
+            
         }
 
         /// <summary>

@@ -40,11 +40,11 @@
             this.gridViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grpGenerell = new System.Windows.Forms.GroupBox();
             this.cboAnrede = new System.Windows.Forms.ComboBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtBemerkung = new System.Windows.Forms.TextBox();
+            this.txtOrt = new System.Windows.Forms.TextBox();
             this.txtPLZ = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtOrt = new System.Windows.Forms.Label();
+            this.lblComment = new System.Windows.Forms.Label();
+            this.lblOrt = new System.Windows.Forms.Label();
             this.txtStrasse3 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtStrasse2 = new System.Windows.Forms.TextBox();
@@ -209,20 +209,20 @@
             this.neuToolStripMenuItem,
             this.beendenToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.fileToolStripMenuItem.Text = "&Datei";
             // 
             // neuToolStripMenuItem
             // 
             this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.neuToolStripMenuItem.Text = "Neu...";
             this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
             // 
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.beendenToolStripMenuItem.Text = "&Beenden";
             this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
@@ -232,13 +232,13 @@
             this.connectionToolStripMenuItem,
             this.toolStripMenuItem2});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.settingsToolStripMenuItem.Text = "&Bearbeiten";
             // 
             // connectionToolStripMenuItem
             // 
             this.connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
-            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.connectionToolStripMenuItem.Text = "&Einstellungen...";
             this.connectionToolStripMenuItem.Click += new System.EventHandler(this.connectionToolStripMenuItem_Click);
             // 
@@ -248,30 +248,30 @@
             this.standardToolStripMenuItem,
             this.gridViewToolStripMenuItem});
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(154, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(160, 22);
             this.toolStripMenuItem2.Text = "&Ansicht";
             // 
             // standardToolStripMenuItem
             // 
             this.standardToolStripMenuItem.Name = "standardToolStripMenuItem";
-            this.standardToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.standardToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.standardToolStripMenuItem.Text = "Standard";
             // 
             // gridViewToolStripMenuItem
             // 
             this.gridViewToolStripMenuItem.Enabled = false;
             this.gridViewToolStripMenuItem.Name = "gridViewToolStripMenuItem";
-            this.gridViewToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.gridViewToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.gridViewToolStripMenuItem.Text = "Grid View";
             // 
             // grpGenerell
             // 
             this.grpGenerell.Controls.Add(this.cboAnrede);
-            this.grpGenerell.Controls.Add(this.textBox8);
-            this.grpGenerell.Controls.Add(this.textBox7);
-            this.grpGenerell.Controls.Add(this.txtPLZ);
-            this.grpGenerell.Controls.Add(this.label9);
+            this.grpGenerell.Controls.Add(this.txtBemerkung);
             this.grpGenerell.Controls.Add(this.txtOrt);
+            this.grpGenerell.Controls.Add(this.txtPLZ);
+            this.grpGenerell.Controls.Add(this.lblComment);
+            this.grpGenerell.Controls.Add(this.lblOrt);
             this.grpGenerell.Controls.Add(this.txtStrasse3);
             this.grpGenerell.Controls.Add(this.label7);
             this.grpGenerell.Controls.Add(this.txtStrasse2);
@@ -316,23 +316,23 @@
             this.cboAnrede.Size = new System.Drawing.Size(117, 21);
             this.cboAnrede.TabIndex = 2;
             // 
-            // textBox8
+            // txtBemerkung
             // 
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox8.Location = new System.Drawing.Point(70, 232);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox8.Size = new System.Drawing.Size(538, 120);
-            this.textBox8.TabIndex = 1;
+            this.txtBemerkung.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBemerkung.Location = new System.Drawing.Point(70, 232);
+            this.txtBemerkung.Multiline = true;
+            this.txtBemerkung.Name = "txtBemerkung";
+            this.txtBemerkung.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtBemerkung.Size = new System.Drawing.Size(538, 120);
+            this.txtBemerkung.TabIndex = 1;
             // 
-            // textBox7
+            // txtOrt
             // 
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox7.Location = new System.Drawing.Point(70, 206);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(219, 20);
-            this.textBox7.TabIndex = 1;
+            this.txtOrt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtOrt.Location = new System.Drawing.Point(70, 206);
+            this.txtOrt.Name = "txtOrt";
+            this.txtOrt.Size = new System.Drawing.Size(219, 20);
+            this.txtOrt.TabIndex = 1;
             // 
             // txtPLZ
             // 
@@ -342,23 +342,23 @@
             this.txtPLZ.Size = new System.Drawing.Size(219, 20);
             this.txtPLZ.TabIndex = 1;
             // 
-            // label9
+            // lblComment
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 235);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 13);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Vorname";
+            this.lblComment.AutoSize = true;
+            this.lblComment.Location = new System.Drawing.Point(6, 235);
+            this.lblComment.Name = "lblComment";
+            this.lblComment.Size = new System.Drawing.Size(54, 13);
+            this.lblComment.TabIndex = 0;
+            this.lblComment.Text = "Comment:";
             // 
-            // txtOrt
+            // lblOrt
             // 
-            this.txtOrt.AutoSize = true;
-            this.txtOrt.Location = new System.Drawing.Point(6, 209);
-            this.txtOrt.Name = "txtOrt";
-            this.txtOrt.Size = new System.Drawing.Size(49, 13);
-            this.txtOrt.TabIndex = 0;
-            this.txtOrt.Text = "Vorname";
+            this.lblOrt.AutoSize = true;
+            this.lblOrt.Location = new System.Drawing.Point(6, 209);
+            this.lblOrt.Name = "lblOrt";
+            this.lblOrt.Size = new System.Drawing.Size(24, 13);
+            this.lblOrt.TabIndex = 0;
+            this.lblOrt.Text = "Ort:";
             // 
             // txtStrasse3
             // 
@@ -1643,9 +1643,9 @@
         private System.Windows.Forms.GroupBox grpCAO;
         private System.Windows.Forms.GroupBox grpSugar;
         private System.Windows.Forms.ComboBox cboAnrede;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtOrt;
         private System.Windows.Forms.TextBox txtPLZ;
-        private System.Windows.Forms.Label txtOrt;
+        private System.Windows.Forms.Label lblOrt;
         private System.Windows.Forms.TextBox txtStrasse3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtStrasse2;
@@ -1658,8 +1658,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtBemerkung;
+        private System.Windows.Forms.Label lblComment;
         private System.Windows.Forms.TextBox txtWebpage;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtFax;

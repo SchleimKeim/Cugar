@@ -10,7 +10,14 @@ using System.Windows.Forms;
 
 namespace Cugar
 {
-    /* To Do HIGH PRIO:
+    /* *********************
+     * 3.11.2011
+     * *********************
+     * REMOVE TXTSTRASSE 2 UND 3
+     * add name 2 und 3
+     * clean up vorname, nachname!!
+     * 
+     * To Do HIGH PRIO:
      * - Find out how to "Load" from frmSuche.cs
      * current status of this issue:
      * every search result gets loadet into the dataset m_DS under "tbl$DBNAMESearchAll" or "tbl$DBNAMESearchHuman"
@@ -113,7 +120,7 @@ namespace Cugar
 
         private DataTable m_dtDatensatzCao;
         private DataTable m_dtDatensatzSugar;
-
+        
         private const string m_const_strSugarTable = "tblSugar";
         private const string m_const_strCaoTable = "tblCao";
 
@@ -126,6 +133,7 @@ namespace Cugar
         private const string m_const_strAktuellerCaoDatensatz = "tblCaoSelected";
         private const string m_const_strAktuellerSugarDatensatz = "tblSugarSelected";
 
+        private BindingSource m_BS = new BindingSource();
 
         #endregion
 
@@ -163,7 +171,10 @@ namespace Cugar
                      * dgv kriegt als source das DataView der main.cf
                      */
 
-                    m_objCao = new cCao(m_DS);
+                    //m_objCao = new cCao(m_DS);
+
+                    // added on 03.11.
+                    m_objCao = new cCao(m_DS, m_BS);
                     m_objCao.LoadDataSet();
                     m_dvCao = m_DS.Tables[m_const_strCaoTable].DefaultView;
                     dgvCao.DataSource = m_dvCao;
@@ -177,7 +188,9 @@ namespace Cugar
                 /* Fills out dgvSugar */
                 try
                 {
-                    m_objSugar = new cSugar(m_DS);
+                    //m_objSugar = new cSugar(m_DS);
+                    // added on 03.11.
+                    m_objSugar = new cSugar(m_DS, m_BS);
                     m_objSugar.LoadDataSet();
                     m_dvSugar = m_DS.Tables[m_const_strSugarTable].DefaultView;
                     dgvSugar.DataSource = m_dvSugar;
@@ -226,7 +239,7 @@ namespace Cugar
         private void Search()
         {
             //frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text);
-            frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text, m_objCao, m_objSugar, this);
+            frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text, m_objCao, m_objSugar, this, m_BS);
             //frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text, m_objCao, m_objSugar);            
             m_objSuche.ShowDialog();      
         }
@@ -266,8 +279,48 @@ namespace Cugar
         {
             /* snippet:
              * textBox.DataBindings.Add("Text", ds.Tables["Products"], "ProductName"); */
+            //txtName.DataBindings.Add(
+            //m_DS.Tables[m_const_strCaoTableSearchHuman].Rows[0];
+            //txtName.Text = m_DS.Tables[m_const_strCaoTableSearchAll].Rows[0][1].ToString
+            //txtName.DataBindings.Add(m_BS);
+            //MessageBox.Show(m_BS.Position.ToString());
+            //MessageBox.Show(m_DS.Tables[m_const_strCaoTableSearchAll].Rows[m_BS.Position]["Name1"].ToString());
+            //if (m_BS.Current != null)
+            //    MessageBox.Show( ((DataRowView)m_BS.Current)["Name1"].ToString());
+            if (m_BS.Current != null)
+            {
+                txtName.Text = ((DataRowView)m_BS.Current)["NAME1"].ToString();
+                txtStrasse1.Text = ((DataRowView)m_BS.Current)["STRASSE"].ToString();
+                txtPLZ.Text = ((DataRowView)m_BS.Current)["PLZ"].ToString();
+                txtOrt.Text = ((DataRowView)m_BS.Current)["ORT"].ToString();
+                //txtVorname.Text = ((DataRowView)m_BS.Current)[].ToString();
+                txtWebpage.Text = ((DataRowView)m_BS.Current)["INTERNET"].ToString();
+                txtEmail.Text = ((DataRowView)m_BS.Current)["EMAIL"].ToString();
+                txtFax.Text = ((DataRowView)m_BS.Current)["FAX"].ToString();
+                txtMobile.Text = ((DataRowView)m_BS.Current)["FUNK"].ToString();
+                txtPhon2.Text = ((DataRowView)m_BS.Current)["TELE2"].ToString();
+                txtPhone1.Text = ((DataRowView)m_BS.Current)["TELE1"].ToString();
+                txtCaoBriefanrede.Text = ((DataRowView)m_BS.Current)["BRIEFANREDE"].ToString();
+                txtCaoZahlungsziel.Text = ((DataRowView)m_BS.Current)["BRT_TAGE"].ToString();
+                txtCaoCustomerSince.Text = ((DataRowView)m_BS.Current)["KUN_SEIT"].ToString();
+                txtCaoGeb.Text = ((DataRowView)m_BS.Current)["KUN_GEBDATUM"].ToString();
+                txtCaoZahlart.Text = ((DataRowView)m_BS.Current)["KUN_ZAHLART"].ToString();
+                txtCaoVersand.Text = ((DataRowView)m_BS.Current)["KUN_LIEFART"].ToString();
 
-            txtName.Text = m_DS.Tables[m_const_strCaoTableSearchAll].Rows[0][1].ToString();
+                //txtSugarZugewiesenAn.Text = ((DataRowView)m_BS.Current)[].ToString();
+                //txtSugarLeadSource.Text = ((DataRowView)m_BS.Current)[].ToString();
+
+                //txtSugarReportsTo.Text = ((DataRowView)m_BS.Current)[].ToString();
+                //txtSugarTitle.Text = ((DataRowView)m_BS.Current)[].ToString();
+
+            }
+            //txtName.Text = ((DataRowView)m_BS.Current)["NAME1"].ToString();
+
+            //((DataRowView)m_BS.Current)["NAME1"] = txtName.Text;
+
+            //((DataRowView)m_BS_Sugar.Current)["last_name"] = 
+            //m_BS.Current
+            
         }
 
         //private void tstxtSuche_Enter(object sender, EventArgs e)

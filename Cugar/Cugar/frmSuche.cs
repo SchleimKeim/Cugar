@@ -39,6 +39,8 @@ namespace Cugar
         /* Reference to frmMain */
         private frmMain frmMain = null;
 
+        private BindingSource m_BS;
+
         #endregion
 
         /// <summary>
@@ -52,6 +54,14 @@ namespace Cugar
             InitializeComponent();
         }
 
+        public frmSuche(DataSet ds, string searchstring, BindingSource bs)
+        {
+            m_strSuchstring = searchstring;
+            m_DS = ds;
+            m_BS = bs;
+            InitializeComponent();
+        }
+        /*
         /// <summary>
         /// The Constructor requires two connector objects</summary>
         /// <param name="ds">a DataSet</param>
@@ -64,6 +74,18 @@ namespace Cugar
             this.frmMain = mainform;
             InitializeComponent();
         }
+        */
+        /*
+        public frmSuche(DataSet ds, string searchstring, frmMain mainform, BindingSource bs)
+        {
+            m_strSuchstring = searchstring;
+            m_DS = ds;
+            this.frmMain = mainform;
+            m_BS = bs;
+            InitializeComponent();
+        }
+        */
+
         /// <summary>
         /// The Constructor requires two connector objects</summary>
         /// <param name="ds">a DataSet</param>
@@ -71,13 +93,14 @@ namespace Cugar
         /// <param name="obj_cao">the cCao Object from frmMain</param>
         /// <param name="obj_sugar">the cSugar Object from frmMain</param>
         /// <param name="mainform">reference to the frmMain</param>
-        public frmSuche(DataSet ds, string searchstring, cCao obj_cao, cSugar obj_sugar, frmMain mainform)
+        public frmSuche(DataSet ds, string searchstring, cCao obj_cao, cSugar obj_sugar, frmMain mainform, BindingSource bs)
         {
             m_strSuchstring = searchstring;
             m_DS = ds;
             m_objCao = obj_cao;
             m_objSugar = obj_sugar;
             this.frmMain = mainform;
+            m_BS = bs;
             InitializeComponent();
 
         }
@@ -108,17 +131,21 @@ namespace Cugar
         private void StartSearch(string searchstring)
         {
             ClearBothDgvs();
-            m_objCao = new cCao(m_DS);
-            m_objCao.search_ds_human_persons(searchstring);
+            m_objCao = new cCao(m_DS, m_BS);
+            //m_objCao.search_ds_human_persons(searchstring);
             m_objCao.search_ds_all_persons(searchstring);
-            m_DV_Search_Cao_human = m_DS.Tables[m_const_strCaoTableSearchHuman].DefaultView;
-            dgvCaoSuche.DataSource = m_DV_Search_Cao_human;
+            //m_DV_Search_Cao_human = m_DS.Tables[m_const_strCaoTableSearchAll].DefaultView;
+            m_BS.DataSource = m_DS.Tables[m_const_strCaoTableSearchAll];
 
-            m_objSugar = new cSugar(m_DS);
-            m_objSugar.search_ds_human_persons(searchstring);
+            dgvCaoSuche.DataSource = m_BS;
+
+            m_objSugar = new cSugar(m_DS, m_BS);
+            //m_objSugar.search_ds_human_persons(searchstring);
             m_objSugar.search_ds_all_persons(searchstring);
-            m_DV_Search_Sugar_human = m_DS.Tables[m_const_strSugarTableSearchHuman].DefaultView;
+            m_DV_Search_Sugar_human = m_DS.Tables[m_const_strSugarTableSearchAll].DefaultView;
+            //m_BS.DataSource = m_DS.Tables[m_const_strSugarTableSearchAll];
             dgvSugarSuche.DataSource = m_DV_Search_Sugar_human;
+            //dgvSugarSuche.DataSource = m_BS;
         }
 
         private void cmdClear_Click(object sender, EventArgs e)
@@ -140,13 +167,15 @@ namespace Cugar
             {
                 dgvCaoSuche.DataSource = null;
                 m_DV_Search_Cao_human = null;
-                m_DS.Tables[m_const_strCaoTableSearchHuman].Clear();
+                //m_DS.Tables[m_const_strCaoTableSearchHuman].Clear();
+                m_DS.Tables.Remove(m_const_strCaoTableSearchHuman);
             }
             if (dgvSugarSuche.ColumnCount > 1)
             {
                 dgvSugarSuche.DataSource = null;
                 m_DV_Search_Sugar_human = null;
-                m_DS.Tables[m_const_strSugarTableSearchHuman].Clear();
+                //m_DS.Tables[m_const_strSugarTableSearchHuman].Clear();
+                m_DS.Tables.Remove(m_const_strSugarTableSearchHuman);
             }
         }
 
@@ -159,6 +188,8 @@ namespace Cugar
         {
             /* temporary solution, find somethingg to bind the textfields to the actual m_DS */
             this.frmMain.dtDatensatzCao = m_DS.Tables[m_const_strCaoTableSearchHuman];
+            //dgvCaoSuche.SelectedRows[0].Selected
+            
             this.frmMain.DatensatzLaden();
             this.Close();
         }

@@ -23,6 +23,8 @@ namespace Cugar
         private String m_dbname;
 
         private DataSet m_dsSugar;
+        private BindingSource m_BS;
+
         private MySqlConnection m_cnSugar;
         private MySqlDataAdapter m_daSugar;
         #endregion
@@ -38,6 +40,26 @@ namespace Cugar
             m_pw = Cugar.Properties.Settings.Default.sugarpw;
             m_dbname = Cugar.Properties.Settings.Default.sugardb;
 
+            try
+            {
+                SugarConnect();
+            }
+            catch (Exception asdf)
+            {
+                MessageBox.Show(asdf.ToString());
+                throw;
+            }
+        }
+
+        public cSugar(DataSet ds, BindingSource bs)
+        {
+            m_dsSugar = ds;
+            m_server = Cugar.Properties.Settings.Default.sugarhost;
+            m_user = Cugar.Properties.Settings.Default.sugaruser;
+            m_pw = Cugar.Properties.Settings.Default.sugarpw;
+            m_dbname = Cugar.Properties.Settings.Default.sugardb;
+
+            m_BS = bs;
             try
             {
                 SugarConnect();
