@@ -14,9 +14,12 @@ namespace Cugar
     public class cCao
     {
         #region private members
-        private const string m_const_strCaoTable = "tblCao";
+        private const string m_const_strCaoTablePrivate = "tblCaoPrivate";
         private const string m_const_strCaoTableSearchAll = "tblCaoSearchAll";
         private const string m_const_strCaoTableSearchHuman = "tblCaoSearchHuman";
+        private const string m_const_strCaoVersandarten = "tblCaoVersandarten";
+        private const string m_const_strCaoZahlarten = "tblcaoversandarten";
+
         private String m_server;
         private String m_user;
         private String m_pw;
@@ -26,6 +29,8 @@ namespace Cugar
         private DataSet m_dsCao;
         private OdbcConnection m_cnCao;
         private OdbcDataAdapter m_daCao;
+
+        private string[] m_strVersandarten;
 
         #endregion
 
@@ -103,16 +108,35 @@ namespace Cugar
         }
 
         /// <summary>
-        ///  Loads the whole Database into the referenced DataSet.
-        ///  Using a Tablename "tblCao"
+        ///  Loads all private Customers into the referenced DataSet.
+        ///  Using a Tablename "tblCaoPrivate"
         /// </summary>
-        public void LoadDataSet()
+        public void LoadPrivateCustomers()
         {
             OdbcCommand m_cmdCaoSelect = new OdbcCommand("select * FROM ADRESSEN WHERE KUNDENGRUPPE=1 ORDER BY REC_ID;", m_cnCao);
             m_daCao = new OdbcDataAdapter(m_cmdCaoSelect);
-            m_daCao.Fill(m_dsCao, m_const_strCaoTable);
+            m_daCao.Fill(m_dsCao, m_const_strCaoTablePrivate);
             //return m_dsCao;
         }
+
+        /// <summary>
+        ///  Loads the "Cao Versandarten" into the property caoVersandarten    
+        /// </summary>
+        public void LoadCaoVersandarten()
+        {
+            OdbcCommand m_cmdCaoVersandarten = new OdbcCommand(@"select NAME from registry where MAINKEY='MAIN\\LIEFART';", m_cnCao);
+            m_daCao = new OdbcDataAdapter(m_cmdCaoVersandarten);
+            m_daCao.Fill(m_dsCao, m_const_strCaoVersandarten);
+            m_BS.DataSource = m_dsCao.Tables[m_const_strCaoVersandarten];
+        }
+
+        public void LoadCaoZahlarten()
+        {
+            OdbcCommand m_cmdCaoZahlungsarten = new OdbcCommand(@"select NAME from ZAHLUNGSARTEN;", m_cnCao);
+            m_daCao = new OdbcDataAdapter(m_cmdCaoZahlungsarten);
+            m_daCao.Fill(m_dsCao, m_const_strCaoZahlarten);
+        }
+
 
         /// <summary>
         ///Searches the table adressen for a given Searchstring
@@ -170,6 +194,19 @@ namespace Cugar
         //        return m_dsCao;
         //    }
         //}
+
+        /// <summary>
+        ///  Read only
+        ///  Returns a string[] containing the entrys for "cao Versandart"
+        ///  </summary>
+        public string[] Versandarten
+        {
+            get
+            {
+                LoadCaoVersandarten();
+                return m_strVersandarten;
+            }
+        }
         #endregion
     }
 }

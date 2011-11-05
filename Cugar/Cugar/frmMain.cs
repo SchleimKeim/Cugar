@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.Odbc; //remove afterwards!
 
 namespace Cugar
 {
@@ -112,10 +113,14 @@ namespace Cugar
     public partial class frmMain : Form
     {
         #region members
-        private DataView m_dvCao = new DataView();
+
+        private DataView m_dvCao;
         private DataView m_dvSugar;
+
         private DataSet m_DS = new DataSet();
         private cCao m_objCao;
+        //private cCao m_objCaoVersand;
+
         private cSugar m_objSugar;
 
         private DataTable m_dtDatensatzCao;
@@ -125,16 +130,21 @@ namespace Cugar
         private const string m_const_strCaoTable = "tblCao";
 
         /* Added on 1.11. just for testing */
-        private const string m_const_strCaoTableSearchAll = "tblCaoSearchAll";
+        private const string m_const_strCaoTablePrivate = "tblCaoPrivate";
         private const string m_const_strSugarTableSearchAll = "tblSugarSearchAll";
         private const string m_const_strCaoTableSearchHuman = "tblCaoSearchHuman";
         private const string m_const_strSugarTableSearchHuman = "tblSugarSearchHuman";
 
+        private const string m_const_strCaoVersandarten = "tblCaoVersandarten";
+        private const string m_const_strCaoZahlarten = "tblCaoZahlarten";
+
         private const string m_const_strAktuellerCaoDatensatz = "tblCaoSelected";
         private const string m_const_strAktuellerSugarDatensatz = "tblSugarSelected";
 
-        private BindingSource m_BS = new BindingSource();
-
+        /* binding sources */
+        private BindingSource m_BS_CaoSearchContacts = new BindingSource();
+        private BindingSource m_BS_CaoZahlarten = new BindingSource();
+        private BindingSource m_BS_CaoVersandarten = new BindingSource();
         #endregion
 
 
@@ -161,6 +171,8 @@ namespace Cugar
 
             if (m_DS.Tables.Count == 0)
             {
+
+                #region fill dgvCao
                 try
                 {
                     /* vorgang:
@@ -174,23 +186,29 @@ namespace Cugar
                     //m_objCao = new cCao(m_DS);
 
                     // added on 03.11.
-                    m_objCao = new cCao(m_DS, m_BS);
-                    m_objCao.LoadDataSet();
-                    m_dvCao = m_DS.Tables[m_const_strCaoTable].DefaultView;
+                    m_objCao = new cCao(m_DS, m_BS_CaoSearchContacts);
+
+                    //load all private customers, propably obsolete but good
+                    m_objCao.LoadPrivateCustomers();                    
+                    m_dvCao = m_DS.Tables[m_const_strCaoTablePrivate].DefaultView;
                     dgvCao.DataSource = m_dvCao;
+
+                    //load cbo Versandarten, currently not working :(
                 }
                 catch (Exception asdf)
                 {
                     MessageBox.Show(asdf.ToString());
                     Application.Exit();
                 }
+                #endregion
 
+                #region fill dgvSugar
                 /* Fills out dgvSugar */
                 try
                 {
                     //m_objSugar = new cSugar(m_DS);
                     // added on 03.11.
-                    m_objSugar = new cSugar(m_DS, m_BS);
+                    m_objSugar = new cSugar(m_DS, m_BS_CaoSearchContacts);
                     m_objSugar.LoadDataSet();
                     m_dvSugar = m_DS.Tables[m_const_strSugarTable].DefaultView;
                     dgvSugar.DataSource = m_dvSugar;
@@ -201,12 +219,112 @@ namespace Cugar
                     MessageBox.Show(asdf.ToString());
                     Application.Exit();
                 }
+                #endregion
+
+                /* Versandarten ausfüllen */
+                LoadCaoVersandArten();
+                //m_objCao.LoadCaoVersandarten();
+                cboCaoVersand.SelectedIndex = 0;
+
+                /* zahlunggsarten ausfüllen */
+                LoadCaoZahlungsarten();
+                m_objCao.LoadCaoZahlarten();
+                cboCaoZahlart.SelectedIndex = 0;                
+
             }
             else
             { 
                 //txtStrasse1.Text = m_DS.Tables[m_const_strCaoTable].
             }
 
+        }
+        /// <summary>
+        ///  Loads all cao Versandarten into cboVersand
+        ///  and initialises an object m_objCaoVersand which
+        ///  has a BindingSource named m_BS_CaoVersandarten
+        ///  Using a Tablename "tblCaoPrivate"
+        /// </summary>
+        private void LoadCaoVersandArten()
+        {
+            #region old
+            //int foo = 0;
+
+            //if (m_objCao.Versandarten == null)
+            //{
+            //    m_objCao.LoadCaoVersandarten();
+            //}
+
+            //string[] bla;
+            //bla = m_objCao.Versandarten;
+
+
+            //foreach (string x in bla)
+            //{
+            //    cboCaoVersand.Items.Add(m_objCao.Versandarten[foo]);
+            //    foo++;
+            //}
+            #endregion
+
+            #region testing to fill it without cCao, works but its not beautiful :(            
+            StringBuilder m_sCaoConnect = new StringBuilder();
+            #region connection string for odbc
+            m_sCaoConnect.Append("Driver={MySQL ODBC 5.1 Driver};");
+            m_sCaoConnect.Append("Server=" + Cugar.Properties.Settings.Default.caohost + ";");
+            m_sCaoConnect.Append("Database=" + Cugar.Properties.Settings.Default.caodb + ";");
+            m_sCaoConnect.Append("User=" + Cugar.Properties.Settings.Default.caouser + ";");
+            m_sCaoConnect.Append("Password=" + Cugar.Properties.Settings.Default.caopw + ";");
+            m_sCaoConnect.Append("Option=3");
+            #endregion
+            OdbcConnection m_cnFoo = new OdbcConnection(m_sCaoConnect.ToString());            
+
+
+            int spalten_nr = 0; //Nummer der Spalte, in der das gewnschte Element steht
+            OdbcCommand cmd = new OdbcCommand(@"select NAME from registry where MAINKEY='MAIN\\LIEFART' order by VAL_INT;", m_cnFoo);
+            
+            cmd.Connection = m_cnFoo;
+            m_cnFoo.Open();
+            cboCaoVersand.Items.Clear();
+            
+            OdbcDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                cboCaoVersand.Items.Add(dr.GetValue(spalten_nr).ToString());
+            }
+            dr.Close();
+            m_cnFoo.Close();
+            #endregion
+        }
+
+        private void LoadCaoZahlungsarten()
+        {
+            #region testing to fill it without cCao, works but its not beautiful :(
+            StringBuilder m_sCaoConnect = new StringBuilder();
+            #region connection string for odbc
+            m_sCaoConnect.Append("Driver={MySQL ODBC 5.1 Driver};");
+            m_sCaoConnect.Append("Server=" + Cugar.Properties.Settings.Default.caohost + ";");
+            m_sCaoConnect.Append("Database=" + Cugar.Properties.Settings.Default.caodb + ";");
+            m_sCaoConnect.Append("User=" + Cugar.Properties.Settings.Default.caouser + ";");
+            m_sCaoConnect.Append("Password=" + Cugar.Properties.Settings.Default.caopw + ";");
+            m_sCaoConnect.Append("Option=3");
+            #endregion
+            OdbcConnection m_cnFoo = new OdbcConnection(m_sCaoConnect.ToString());
+
+
+            int spalten_nr = 0; //Nummer der Spalte, in der das gewnschte Element steht
+            OdbcCommand cmd = new OdbcCommand(@"select NAME from ZAHLUNGSARTEN;", m_cnFoo);
+
+            cmd.Connection = m_cnFoo;
+            m_cnFoo.Open();
+            
+            cboCaoZahlart.Items.Clear();
+            OdbcDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                cboCaoZahlart.Items.Add(dr.GetValue(spalten_nr).ToString());                
+            }
+            dr.Close();
+            m_cnFoo.Close();
+            #endregion
         }
 
         private void connectionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -228,7 +346,7 @@ namespace Cugar
         
         private void tstxtSuche_Click(object sender, EventArgs e)
         {
-            tstxtSuche.Clear();
+            tstxtSuchePrivat.Clear();
         }
 
         private void tsCmdSearch_Click(object sender, EventArgs e)
@@ -239,7 +357,7 @@ namespace Cugar
         private void Search()
         {
             //frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text);
-            frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text, m_objCao, m_objSugar, this, m_BS);
+            frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuchePrivat.Text, m_objCao, m_objSugar, this, m_BS_CaoSearchContacts);
             //frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text, m_objCao, m_objSugar);            
             m_objSuche.ShowDialog();      
         }
@@ -277,6 +395,7 @@ namespace Cugar
 
         public void DatensatzLaden()
         {
+            #region snippet, obsolete
             /* snippet:
              * textBox.DataBindings.Add("Text", ds.Tables["Products"], "ProductName"); */
             //txtName.DataBindings.Add(
@@ -287,25 +406,50 @@ namespace Cugar
             //MessageBox.Show(m_DS.Tables[m_const_strCaoTableSearchAll].Rows[m_BS.Position]["Name1"].ToString());
             //if (m_BS.Current != null)
             //    MessageBox.Show( ((DataRowView)m_BS.Current)["Name1"].ToString());
-            if (m_BS.Current != null)
+            #endregion 
+            if (m_BS_CaoSearchContacts.Current != null)
             {
-                txtName.Text = ((DataRowView)m_BS.Current)["NAME1"].ToString();
-                txtStrasse1.Text = ((DataRowView)m_BS.Current)["STRASSE"].ToString();
-                txtPLZ.Text = ((DataRowView)m_BS.Current)["PLZ"].ToString();
-                txtOrt.Text = ((DataRowView)m_BS.Current)["ORT"].ToString();
+                #region Convert the name filed into two fields using CToolbox
+                CToolbox m_objTool = new CToolbox();                
+                string[] foo2;                
+                foo2 = m_objTool.VornameNachname(((DataRowView)m_BS_CaoSearchContacts.Current)["NAME1"].ToString());
+                txtVorname.Text = foo2[0];
+                txtName.Text = foo2[1];
+                #endregion
+
+                #region fill cbos and set them to the right index
+                // set cboCaoVersand to the right index
+                int VerdsandId = 0;
+                VerdsandId = Convert.ToInt32(((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_LIEFART"]);
+                cboCaoVersand.SelectedIndex = VerdsandId - 1;
+
+                //set cboCaoZahlart to the right index
+                int ZahlartId = 0;
+                ZahlartId = Convert.ToInt32(((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_ZAHLART"]);
+                cboCaoZahlart.SelectedIndex = ZahlartId - 1;
+                #endregion
+
+
+                /* Fills in all the textfield using databinding object casted into a datarowview */
+
+                cboAnrede.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["ANREDE"].ToString();
+                //cboCaoVersand.SelectedIndex = ((DataRowView)
+                //txtName.Text = ((DataRowView)m_BS.Current)["NAME1"].ToString();
+                txtStrasse1.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["STRASSE"].ToString();
+                txtPLZ.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["PLZ"].ToString();
+                txtOrt.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["ORT"].ToString();
                 //txtVorname.Text = ((DataRowView)m_BS.Current)[].ToString();
-                txtWebpage.Text = ((DataRowView)m_BS.Current)["INTERNET"].ToString();
-                txtEmail.Text = ((DataRowView)m_BS.Current)["EMAIL"].ToString();
-                txtFax.Text = ((DataRowView)m_BS.Current)["FAX"].ToString();
-                txtMobile.Text = ((DataRowView)m_BS.Current)["FUNK"].ToString();
-                txtPhon2.Text = ((DataRowView)m_BS.Current)["TELE2"].ToString();
-                txtPhone1.Text = ((DataRowView)m_BS.Current)["TELE1"].ToString();
-                txtCaoBriefanrede.Text = ((DataRowView)m_BS.Current)["BRIEFANREDE"].ToString();
-                txtCaoZahlungsziel.Text = ((DataRowView)m_BS.Current)["BRT_TAGE"].ToString();
-                txtCaoCustomerSince.Text = ((DataRowView)m_BS.Current)["KUN_SEIT"].ToString();
-                txtCaoGeb.Text = ((DataRowView)m_BS.Current)["KUN_GEBDATUM"].ToString();
-                txtCaoZahlart.Text = ((DataRowView)m_BS.Current)["KUN_ZAHLART"].ToString();
-                txtCaoVersand.Text = ((DataRowView)m_BS.Current)["KUN_LIEFART"].ToString();
+                txtWebpage.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["INTERNET"].ToString();
+                txtEmail.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["EMAIL"].ToString();
+                txtFax.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["FAX"].ToString();
+                txtMobile.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["FUNK"].ToString();
+                txtPhon2.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["TELE2"].ToString();
+                txtPhone1.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["TELE1"].ToString();
+                txtCaoBriefanrede.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["BRIEFANREDE"].ToString();
+                txtCaoZahlungsziel.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["BRT_TAGE"].ToString();
+                txtCaoCustomerSince.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_SEIT"].ToString();
+                txtCaoGeb.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_GEBDATUM"].ToString();
+                
 
                 //txtSugarZugewiesenAn.Text = ((DataRowView)m_BS.Current)[].ToString();
                 //txtSugarLeadSource.Text = ((DataRowView)m_BS.Current)[].ToString();
@@ -356,6 +500,11 @@ namespace Cugar
             {
                 m_dtDatensatzSugar = value;
             }
+        }
+
+        private void txtCaoVersand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         /* reserved for string[] */

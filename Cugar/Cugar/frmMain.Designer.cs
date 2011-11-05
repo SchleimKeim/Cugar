@@ -70,8 +70,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grpCAO = new System.Windows.Forms.GroupBox();
-            this.txtCaoZahlart = new System.Windows.Forms.ComboBox();
-            this.txtCaoVersand = new System.Windows.Forms.ComboBox();
+            this.cboCaoZahlart = new System.Windows.Forms.ComboBox();
+            this.cboCaoVersand = new System.Windows.Forms.ComboBox();
             this.txtCaoBriefanrede = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -98,7 +98,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.tsToolStipMain = new System.Windows.Forms.ToolStrip();
             this.neuToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.tstxtSuche = new System.Windows.Forms.ToolStripTextBox();
+            this.tstxtSuchePrivat = new System.Windows.Forms.ToolStripTextBox();
             this.tsCmdSearch = new System.Windows.Forms.ToolStripButton();
             this.öffnenToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.speichernToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -175,6 +175,7 @@
             this.tabDGVSugar = new System.Windows.Forms.TabPage();
             this.dgvSugar = new System.Windows.Forms.DataGridView();
             this.tabSuche = new System.Windows.Forms.TabPage();
+            this.tstxtSucheFirma = new System.Windows.Forms.ToolStripTextBox();
             this.mnuFrmMain.SuspendLayout();
             this.grpGenerell.SuspendLayout();
             this.grpCAO.SuspendLayout();
@@ -209,20 +210,20 @@
             this.neuToolStripMenuItem,
             this.beendenToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.fileToolStripMenuItem.Text = "&Datei";
             // 
             // neuToolStripMenuItem
             // 
             this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.neuToolStripMenuItem.Text = "Neu...";
             this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
             // 
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.beendenToolStripMenuItem.Text = "&Beenden";
             this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
@@ -232,13 +233,13 @@
             this.connectionToolStripMenuItem,
             this.toolStripMenuItem2});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.settingsToolStripMenuItem.Text = "&Bearbeiten";
             // 
             // connectionToolStripMenuItem
             // 
             this.connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
-            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.connectionToolStripMenuItem.Text = "&Einstellungen...";
             this.connectionToolStripMenuItem.Click += new System.EventHandler(this.connectionToolStripMenuItem_Click);
             // 
@@ -248,20 +249,20 @@
             this.standardToolStripMenuItem,
             this.gridViewToolStripMenuItem});
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(154, 22);
             this.toolStripMenuItem2.Text = "&Ansicht";
             // 
             // standardToolStripMenuItem
             // 
             this.standardToolStripMenuItem.Name = "standardToolStripMenuItem";
-            this.standardToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.standardToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.standardToolStripMenuItem.Text = "Standard";
             // 
             // gridViewToolStripMenuItem
             // 
             this.gridViewToolStripMenuItem.Enabled = false;
             this.gridViewToolStripMenuItem.Name = "gridViewToolStripMenuItem";
-            this.gridViewToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.gridViewToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.gridViewToolStripMenuItem.Text = "Grid View";
             // 
             // grpGenerell
@@ -567,8 +568,8 @@
             // 
             // grpCAO
             // 
-            this.grpCAO.Controls.Add(this.txtCaoZahlart);
-            this.grpCAO.Controls.Add(this.txtCaoVersand);
+            this.grpCAO.Controls.Add(this.cboCaoZahlart);
+            this.grpCAO.Controls.Add(this.cboCaoVersand);
             this.grpCAO.Controls.Add(this.txtCaoBriefanrede);
             this.grpCAO.Controls.Add(this.label16);
             this.grpCAO.Controls.Add(this.label20);
@@ -587,21 +588,22 @@
             this.grpCAO.TabStop = false;
             this.grpCAO.Text = "CAO options";
             // 
-            // txtCaoZahlart
+            // cboCaoZahlart
             // 
-            this.txtCaoZahlart.FormattingEnabled = true;
-            this.txtCaoZahlart.Location = new System.Drawing.Point(93, 149);
-            this.txtCaoZahlart.Name = "txtCaoZahlart";
-            this.txtCaoZahlart.Size = new System.Drawing.Size(215, 21);
-            this.txtCaoZahlart.TabIndex = 2;
+            this.cboCaoZahlart.FormattingEnabled = true;
+            this.cboCaoZahlart.Location = new System.Drawing.Point(93, 149);
+            this.cboCaoZahlart.Name = "cboCaoZahlart";
+            this.cboCaoZahlart.Size = new System.Drawing.Size(215, 21);
+            this.cboCaoZahlart.TabIndex = 2;
             // 
-            // txtCaoVersand
+            // cboCaoVersand
             // 
-            this.txtCaoVersand.FormattingEnabled = true;
-            this.txtCaoVersand.Location = new System.Drawing.Point(93, 122);
-            this.txtCaoVersand.Name = "txtCaoVersand";
-            this.txtCaoVersand.Size = new System.Drawing.Size(215, 21);
-            this.txtCaoVersand.TabIndex = 2;
+            this.cboCaoVersand.FormattingEnabled = true;
+            this.cboCaoVersand.Location = new System.Drawing.Point(93, 122);
+            this.cboCaoVersand.Name = "cboCaoVersand";
+            this.cboCaoVersand.Size = new System.Drawing.Size(215, 21);
+            this.cboCaoVersand.TabIndex = 2;
+            this.cboCaoVersand.SelectedIndexChanged += new System.EventHandler(this.txtCaoVersand_SelectedIndexChanged);
             // 
             // txtCaoBriefanrede
             // 
@@ -828,7 +830,8 @@
             // 
             this.tsToolStipMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.neuToolStripButton,
-            this.tstxtSuche,
+            this.tstxtSuchePrivat,
+            this.tstxtSucheFirma,
             this.tsCmdSearch,
             this.öffnenToolStripButton,
             this.speichernToolStripButton,
@@ -854,13 +857,13 @@
             this.neuToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.neuToolStripButton.Text = "&Neu";
             // 
-            // tstxtSuche
+            // tstxtSuchePrivat
             // 
-            this.tstxtSuche.Name = "tstxtSuche";
-            this.tstxtSuche.Size = new System.Drawing.Size(100, 25);
-            this.tstxtSuche.Text = "Search...";
-            this.tstxtSuche.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tstxtSuche_KeyDown);
-            this.tstxtSuche.Click += new System.EventHandler(this.tstxtSuche_Click);
+            this.tstxtSuchePrivat.Name = "tstxtSuchePrivat";
+            this.tstxtSuchePrivat.Size = new System.Drawing.Size(100, 25);
+            this.tstxtSuchePrivat.Text = "Personen...";
+            this.tstxtSuchePrivat.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tstxtSuche_KeyDown);
+            this.tstxtSuchePrivat.Click += new System.EventHandler(this.tstxtSuche_Click);
             // 
             // tsCmdSearch
             // 
@@ -1590,6 +1593,12 @@
             this.tabSuche.Text = "Suche";
             this.tabSuche.UseVisualStyleBackColor = true;
             // 
+            // tstxtSucheFirma
+            // 
+            this.tstxtSucheFirma.Name = "tstxtSucheFirma";
+            this.tstxtSucheFirma.Size = new System.Drawing.Size(100, 25);
+            this.tstxtSucheFirma.Text = "Firmen...";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1681,8 +1690,8 @@
         private System.Windows.Forms.TextBox txtCaoCustomerSince;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtCaoGeb;
-        private System.Windows.Forms.ComboBox txtCaoZahlart;
-        private System.Windows.Forms.ComboBox txtCaoVersand;
+        private System.Windows.Forms.ComboBox cboCaoZahlart;
+        private System.Windows.Forms.ComboBox cboCaoVersand;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textBox23;
@@ -1708,7 +1717,7 @@
         private System.Windows.Forms.ToolStripButton einfügenToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton hilfeToolStripButton;
-        private System.Windows.Forms.ToolStripTextBox tstxtSuche;
+        private System.Windows.Forms.ToolStripTextBox tstxtSuchePrivat;
         private System.Windows.Forms.ToolStripMenuItem standardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gridViewToolStripMenuItem;
         private System.Windows.Forms.TabControl tabPrivat;
@@ -1778,6 +1787,7 @@
         private System.Windows.Forms.DataGridView dgvSugar;
         private System.Windows.Forms.ToolStripButton tsCmdSearch;
         private System.Windows.Forms.TabPage tabSuche;
+        private System.Windows.Forms.ToolStripTextBox tstxtSucheFirma;
 
 
 

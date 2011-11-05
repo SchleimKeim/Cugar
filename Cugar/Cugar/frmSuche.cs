@@ -163,19 +163,19 @@ namespace Cugar
              * at last clear the search field and set the Focus to it.
              */
 
-            if (dgvCaoSuche.ColumnCount > 1)
+            if (dgvCaoSuche.ColumnCount > 0)
             {
                 dgvCaoSuche.DataSource = null;
                 m_DV_Search_Cao_human = null;
                 //m_DS.Tables[m_const_strCaoTableSearchHuman].Clear();
-                m_DS.Tables.Remove(m_const_strCaoTableSearchHuman);
+                m_DS.Tables.Remove(m_const_strCaoTableSearchAll);
             }
-            if (dgvSugarSuche.ColumnCount > 1)
+            if (dgvSugarSuche.ColumnCount > 0)
             {
                 dgvSugarSuche.DataSource = null;
                 m_DV_Search_Sugar_human = null;
                 //m_DS.Tables[m_const_strSugarTableSearchHuman].Clear();
-                m_DS.Tables.Remove(m_const_strSugarTableSearchHuman);
+                m_DS.Tables.Remove(m_const_strSugarTableSearchAll);
             }
         }
 
@@ -187,7 +187,7 @@ namespace Cugar
         private void cmdLoad_Click(object sender, EventArgs e)
         {
             /* temporary solution, find somethingg to bind the textfields to the actual m_DS */
-            this.frmMain.dtDatensatzCao = m_DS.Tables[m_const_strCaoTableSearchHuman];
+            this.frmMain.dtDatensatzCao = m_DS.Tables[m_const_strCaoTableSearchAll];
             //dgvCaoSuche.SelectedRows[0].Selected
             
             this.frmMain.DatensatzLaden();

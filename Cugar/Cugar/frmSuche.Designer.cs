@@ -166,7 +166,7 @@
             this.AcceptButton = this.cmdSuche;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(903, 393);
+            this.ClientSize = new System.Drawing.Size(903, 398);
             this.Controls.Add(this.cmdExit);
             this.Controls.Add(this.cmdLoad);
             this.Controls.Add(this.cmdClear);
