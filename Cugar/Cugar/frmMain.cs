@@ -506,8 +506,15 @@ namespace Cugar
 
         }
 
+        /// <summary>
+        ///Enables the Save Button on the "Privat" tab</summary>
+        public void EnableSave()
+        {
+            cmdPrivatSave.Enabled = true;
+        }
 
-        /* reserved for string[] */
+
+        
         //public DataTable dtDatensatzSugar
         //{
         //    get
@@ -520,6 +527,17 @@ namespace Cugar
         //    }
         //}
 
+        //public DataTable dtDatensatzSugar
+        //{
+        //    get
+        //    {
+        //        return m_dtDatensatzSugar;
+        //    }
+        //    set
+        //    {
+        //        m_dtDatensatzSugar = value;
+        //    }
+        //}
 
 
         #endregion

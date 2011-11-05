@@ -62,6 +62,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPhone1 = new System.Windows.Forms.TextBox();
+            this.txtAnrede = new System.Windows.Forms.TextBox();
             this.txtVorname = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -175,7 +176,8 @@
             this.tabDGVSugar = new System.Windows.Forms.TabPage();
             this.dgvSugar = new System.Windows.Forms.DataGridView();
             this.tabSuche = new System.Windows.Forms.TabPage();
-            this.txtAnrede = new System.Windows.Forms.TextBox();
+            this.cmdPrivatSave = new System.Windows.Forms.Button();
+            this.cmdPrivatExit = new System.Windows.Forms.Button();
             this.mnuFrmMain.SuspendLayout();
             this.grpGenerell.SuspendLayout();
             this.grpCAO.SuspendLayout();
@@ -499,6 +501,14 @@
             this.txtPhone1.Name = "txtPhone1";
             this.txtPhone1.Size = new System.Drawing.Size(225, 20);
             this.txtPhone1.TabIndex = 1;
+            // 
+            // txtAnrede
+            // 
+            this.txtAnrede.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAnrede.Location = new System.Drawing.Point(70, 24);
+            this.txtAnrede.Name = "txtAnrede";
+            this.txtAnrede.Size = new System.Drawing.Size(219, 20);
+            this.txtAnrede.TabIndex = 1;
             // 
             // txtVorname
             // 
@@ -955,18 +965,20 @@
             this.tabPrivat.Location = new System.Drawing.Point(0, 52);
             this.tabPrivat.Name = "tabPrivat";
             this.tabPrivat.SelectedIndex = 0;
-            this.tabPrivat.Size = new System.Drawing.Size(959, 403);
+            this.tabPrivat.Size = new System.Drawing.Size(959, 430);
             this.tabPrivat.TabIndex = 4;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.cmdPrivatExit);
+            this.tabPage1.Controls.Add(this.cmdPrivatSave);
             this.tabPage1.Controls.Add(this.grpGenerell);
             this.tabPage1.Controls.Add(this.grpSugar);
             this.tabPage1.Controls.Add(this.grpCAO);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(951, 377);
+            this.tabPage1.Size = new System.Drawing.Size(951, 404);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Privatkunden";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1586,19 +1598,32 @@
             this.tabSuche.Text = "Suche";
             this.tabSuche.UseVisualStyleBackColor = true;
             // 
-            // txtAnrede
+            // cmdPrivatSave
             // 
-            this.txtAnrede.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAnrede.Location = new System.Drawing.Point(70, 24);
-            this.txtAnrede.Name = "txtAnrede";
-            this.txtAnrede.Size = new System.Drawing.Size(219, 20);
-            this.txtAnrede.TabIndex = 1;
+            this.cmdPrivatSave.Enabled = false;
+            this.cmdPrivatSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdPrivatSave.Location = new System.Drawing.Point(867, 374);
+            this.cmdPrivatSave.Name = "cmdPrivatSave";
+            this.cmdPrivatSave.Size = new System.Drawing.Size(75, 23);
+            this.cmdPrivatSave.TabIndex = 3;
+            this.cmdPrivatSave.Text = "&Save";
+            this.cmdPrivatSave.UseVisualStyleBackColor = true;
+            // 
+            // cmdPrivatExit
+            // 
+            this.cmdPrivatExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdPrivatExit.Location = new System.Drawing.Point(786, 375);
+            this.cmdPrivatExit.Name = "cmdPrivatExit";
+            this.cmdPrivatExit.Size = new System.Drawing.Size(75, 23);
+            this.cmdPrivatExit.TabIndex = 3;
+            this.cmdPrivatExit.Text = "&Exit";
+            this.cmdPrivatExit.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 456);
+            this.ClientSize = new System.Drawing.Size(959, 483);
             this.Controls.Add(this.tsToolStipMain);
             this.Controls.Add(this.mnuFrmMain);
             this.Controls.Add(this.tabPrivat);
@@ -1783,6 +1808,8 @@
         private System.Windows.Forms.TabPage tabSuche;
         private System.Windows.Forms.ToolStripTextBox tstxtSucheFirma;
         private System.Windows.Forms.TextBox txtAnrede;
+        private System.Windows.Forms.Button cmdPrivatExit;
+        private System.Windows.Forms.Button cmdPrivatSave;
 
 
 

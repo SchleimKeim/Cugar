@@ -148,25 +148,25 @@ namespace Cugar
         }
 
         //experimental
-        public void Update()
-        {
-            OleDbCommand myUpdateCommand = new OleDbCommand();
+        //public void Update()
+        //{
+        //    OleDbCommand myUpdateCommand = new OleDbCommand();
 
-            myUpdateCommand.Parameters.Add("@REC_ID", OleDbType.Decimal, , "@REC_ID");
-            OleDbParameter myPara = new OleDbParameter();
-            myPara.ParameterName = "@REC_ID";
-            myPara.OleDbType = OleDbType.Decimal;
-            myPara.Direction = ParameterDirection.Input;
-            myPara.SourceColumn = "@REC_ID";
+        //    myUpdateCommand.Parameters.Add("@REC_ID", OleDbType.Decimal, , "@REC_ID");
+        //    OleDbParameter myPara = new OleDbParameter();
+        //    myPara.ParameterName = "@REC_ID";
+        //    myPara.OleDbType = OleDbType.Decimal;
+        //    myPara.Direction = ParameterDirection.Input;
+        //    myPara.SourceColumn = "@REC_ID";
             
 
 
 
 
 
-            //myUpdateCommand.Parameters.Add("@REC_ID", MySqlDbType.Decimal, 
-            //myUpdateCommand.Parameters.Add("@REC_ID", OdbcType.Int, 2, "@REC_ID");
-        }
+        //    //myUpdateCommand.Parameters.Add("@REC_ID", MySqlDbType.Decimal, 
+        //    //myUpdateCommand.Parameters.Add("@REC_ID", OdbcType.Int, 2, "@REC_ID");
+        //}
         #endregion
 
         #region propertys

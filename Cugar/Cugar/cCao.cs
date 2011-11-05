@@ -237,30 +237,30 @@ namespace Cugar
             sbUpdate.Append("KUN_KRDLIMIT = ?, ");
             sbUpdate.Append("KUN_LIEFART = ?, ");
             sbUpdate.Append("KUN_ZAHLART = ?, ");
-            sbUpdate.Append("KUN_PRLISTE = ?, ");
-            sbUpdate.Append("KUN_LIEFSPERRE = ?, ");
+            //sbUpdate.Append("KUN_PRLISTE = ?, ");
+            //sbUpdate.Append("KUN_LIEFSPERRE = ?, ");
             sbUpdate.Append("LIEF_LIEFART = ?, ");
             sbUpdate.Append("LIEF_ZAHLART = ?, ");
-            sbUpdate.Append("LIEF_PRLISTE = ?, ");
+            //sbUpdate.Append("LIEF_PRLISTE = ?, ");
             sbUpdate.Append("LIEF_TKOSTEN = ?, ");
             sbUpdate.Append("LIEF_MBWERT = ?, ");
             sbUpdate.Append("PR_EBENE = ?, ");
-            sbUpdate.Append("BRUTTO_FLAG = ?, ");
-            sbUpdate.Append("MWST_FREI_FLAG = ?, ");
-            sbUpdate.Append("KUNPREIS_AUTO = ?, ");
+            //sbUpdate.Append("BRUTTO_FLAG = ?, ");
+            //sbUpdate.Append("MWST_FREI_FLAG = ?, ");
+            //sbUpdate.Append("KUNPREIS_AUTO = ?, ");
             sbUpdate.Append("KUN_SEIT = ?, ");
             sbUpdate.Append("KUN_GEBDATUM = ?, ");
             sbUpdate.Append("ENTFERNUNG = ?, ");
             sbUpdate.Append("ERSTELLT = ?, ");
             sbUpdate.Append("ERST_NAME = ?, ");
-            sbUpdate.Append("GEAEND = ?, ");
-            sbUpdate.Append("GEAEND_NAME = ?, ");
-            sbUpdate.Append("SHOP_KUNDE = ?, ");
+            //sbUpdate.Append("GEAEND = ?, ");
+            //sbUpdate.Append("GEAEND_NAME = ?, ");
+            //sbUpdate.Append("SHOP_KUNDE = ?, ");
             sbUpdate.Append("SHOP_ID = ?, ");
-            sbUpdate.Append("SHOP_NEWSLETTER = ?, ");
+            //sbUpdate.Append("SHOP_NEWSLETTER = ?, ");
             sbUpdate.Append("SHOP_KUNDE_ID = ?, ");
             sbUpdate.Append("SHOP_CHANGE_FLAG = ?, ");
-            sbUpdate.Append("SHOP_DEL_FLAG = ?, ");
+            //sbUpdate.Append("SHOP_DEL_FLAG = ?, ");
             sbUpdate.Append("SHOP_PASSWORD = ?, ");
             sbUpdate.Append("USERFELD_01 = ?, ");
             sbUpdate.Append("USERFELD_02 = ?, ");
@@ -315,17 +315,55 @@ namespace Cugar
             myUpdateCommand.Parameters.Add("@KTO_INHABER", OdbcType.VarChar, 40, "@KTO_INHABER");
             myUpdateCommand.Parameters.Add("@DEB_NUM", OdbcType.Int, 11, "@DEB_NUM");
             myUpdateCommand.Parameters.Add("@KRD_NUM", OdbcType.Int, 11, "@KRD_NUM");
-            myUpdateCommand.Parameters.Add("@STATUS", OdbcType.Int, 11, "@STATUS");
-            myUpdateCommand.Parameters.Add("@NET_SKONTO", OdbcType.Decimal, 5, "@NET_SKONTO");
+            myUpdateCommand.Parameters.Add("@STATUS", OdbcType.Int, 11, "@STATUS");            
+
+            //myUpdateCommand.Parameters.Add("@NET_SKONTO", OdbcType.Decimal, 5, "@NET_SKONTO");
+            OdbcParameter myParam1 = new OdbcParameter();
+            myParam1.ParameterName = "@NET_SKONTO";
+            myParam1.SourceColumn = "@NET_SKONTO";
+            myParam1.DbType = DbType.Decimal;
+            myParam1.Precision = 5;
+            myParam1.Scale = 2;
+            myUpdateCommand.Parameters.Add(myParam1);
+
             myUpdateCommand.Parameters.Add("@NET_TAGE", OdbcType.TinyInt, 4, "@NET_TAGE");
             myUpdateCommand.Parameters.Add("@BRT_TAGE", OdbcType.TinyInt, 4, "@BRT_TAGE");
             myUpdateCommand.Parameters.Add("@WAEHRUNG", OdbcType.VarChar, 5, "@WAEHRUNG");
             myUpdateCommand.Parameters.Add("@UST_NUM", OdbcType.VarChar, 25, "@UST_NUM");
             myUpdateCommand.Parameters.Add("@VERTRETER_ID", OdbcType.Int, 11, "@VERTRETER_ID");
-            myUpdateCommand.Parameters.Add("@PROVIS_PROZ", OdbcType.Decimal, 5,, "@PROVIS_PROZ");
+
+            //myUpdateCommand.Parameters.Add("@PROVIS_PROZ", OdbcType.Decimal, 5,, "@PROVIS_PROZ");
+            OdbcParameter myParam2 = new OdbcParameter();
+            myParam2.ParameterName = "@PROVIS_PROZ";
+            myParam2.SourceColumn = "@PROVIS_PROZ";
+            myParam2.DbType = DbType.Decimal;
+            myParam2.Precision = 5;
+            myParam2.Scale = 2;
+            myUpdateCommand.Parameters.Add(myParam2);
+
             myUpdateCommand.Parameters.Add("@INFO", OdbcType.Text, 65537, "@INFO");
-            myUpdateCommand.Parameters.Add("@GRABATT", OdbcType.Decimal, 5, "@GRABATT");
-            myUpdateCommand.Parameters.Add("@KUN_KRDLIMIT", OdbcType.Decimal, 10, "@KUN_KRDLIMIT");
+            
+
+
+            //myUpdateCommand.Parameters.Add("@GRABATT", OdbcType.Decimal, 5, "@GRABATT");
+            OdbcParameter myParam3 = new OdbcParameter();
+            myParam3.ParameterName = "@GRABATT";
+            myParam3.SourceColumn = "@GRABATT";
+            myParam3.DbType = DbType.Decimal;
+            myParam3.Precision = 5;
+            myParam3.Scale = 2;
+            myUpdateCommand.Parameters.Add(myParam3);
+
+            //myUpdateCommand.Parameters.Add("@KUN_KRDLIMIT", OdbcType.Decimal, 10, "@KUN_KRDLIMIT");
+            OdbcParameter myParam4 = new OdbcParameter();
+            myParam4.ParameterName = "@KUN_KRDLIMIT";
+            myParam4.SourceColumn = "@KUN_KRDLIMIT";
+            myParam4.DbType = DbType.Decimal;
+            myParam4.Precision = 10;
+            myParam4.Scale = 2;
+            myUpdateCommand.Parameters.Add(myParam4);
+
+
             myUpdateCommand.Parameters.Add("@KUN_LIEFART", OdbcType.Int, 11, "@KUN_LIEFART");
             myUpdateCommand.Parameters.Add("@KUN_ZAHLART", OdbcType.Int, 11, "@KUN_ZAHLART");
             //myUpdateCommand.Parameters.Add("@KUN_PRLISTE", OdbcType.enum('N','Y'), "@KUN_PRLISTE");
@@ -333,15 +371,54 @@ namespace Cugar
             myUpdateCommand.Parameters.Add("@LIEF_LIEFART", OdbcType.Int, 11, "@LIEF_LIEFART");
             myUpdateCommand.Parameters.Add("@LIEF_ZAHLART", OdbcType.Int, 11, "@LIEF_ZAHLART");
             //myUpdateCommand.Parameters.Add("@LIEF_PRLISTE", OdbcType.enum('N','Y'), , "@LIEF_PRLISTE");
-            myUpdateCommand.Parameters.Add("@LIEF_TKOSTEN", OdbcType.Decimal, 10, "@LIEF_TKOSTEN");
-            myUpdateCommand.Parameters.Add("@LIEF_MBWERT", OdbcType.Decimal, 10, "@LIEF_MBWERT");
+
+
+            //myUpdateCommand.Parameters.Add("@LIEF_TKOSTEN", OdbcType.Decimal, 10, "@LIEF_TKOSTEN");
+            OdbcParameter myParam5 = new OdbcParameter();
+            myParam5.ParameterName = "@LIEF_TKOSTEN";
+            myParam5.SourceColumn = "@LIEF_TKOSTEN";
+            myParam5.DbType = DbType.Decimal;
+            myParam5.Precision = 10;
+            myParam5.Scale = 2;
+            myUpdateCommand.Parameters.Add(myParam5);
+
+            //myUpdateCommand.Parameters.Add("@LIEF_MBWERT", OdbcType.Decimal, 10, "@LIEF_MBWERT");
+            OdbcParameter myParam6 = new OdbcParameter();
+            myParam6.ParameterName = "@LIEF_MBWERT";
+            myParam6.SourceColumn = "@LIEF_MBWERT";
+            myParam6.DbType = DbType.Decimal;
+            myParam6.Precision = 10;
+            myParam6.Scale = 2;
+            myUpdateCommand.Parameters.Add(myParam6);
+
+
             myUpdateCommand.Parameters.Add("@PR_EBENE", OdbcType.TinyInt, 1, "@PR_EBENE");
             //myUpdateCommand.Parameters.Add("@BRUTTO_FLAG", OdbcType.enum('N','Y'), , "@BRUTTO_FLAG");
             //myUpdateCommand.Parameters.Add("@MWST_FREI_FLAG", OdbcType.enum('N','Y') , , "@MWST_FREI_FLAG");
             //myUpdateCommand.Parameters.Add("@KUNPREIS_AUTO", OdbcType.enum('N','Y') , , "@KUNPREIS_AUTO");
-            myUpdateCommand.Parameters.Add("@KUN_SEIT", OdbcType.Date, , "@KUN_SEIT");
-            myUpdateCommand.Parameters.Add("@KUN_GEBDATUM", OdbcType.Date, , "@KUN_GEBDATUM");
-            myUpdateCommand.Parameters.Add("@ERSTELLT", OdbcType.Date, , "@ERSTELLT");
+
+            //myUpdateCommand.Parameters.Add("@KUN_SEIT", OdbcType.Date, , "@KUN_SEIT");
+            OdbcParameter myParam7 = new OdbcParameter();
+            myParam7.ParameterName = "@KUN_SEIT";
+            myParam7.SourceColumn = "@KUN_SEIT";
+            myParam7.DbType = DbType.Date;            
+            myUpdateCommand.Parameters.Add(myParam7);
+
+            //myUpdateCommand.Parameters.Add("@KUN_GEBDATUM", OdbcType.Date, , "@KUN_GEBDATUM");
+            OdbcParameter myParam8 = new OdbcParameter();
+            myParam8.ParameterName = "@KUN_GEBDATUM";
+            myParam8.SourceColumn = "@KUN_GEBDATUM";
+            myParam8.DbType = DbType.Date;            
+            myUpdateCommand.Parameters.Add(myParam8);
+
+            //myUpdateCommand.Parameters.Add("@ERSTELLT", OdbcType.Date, , "@ERSTELLT");
+            OdbcParameter myParam9 = new OdbcParameter();
+            myParam9.ParameterName = "@ERSTELLT";
+            myParam9.SourceColumn = "@ERSTELLT";
+            myParam9.DbType = DbType.Date;
+            myUpdateCommand.Parameters.Add(myParam9);
+
+
             myUpdateCommand.Parameters.Add("@ERST_NAME", OdbcType.VarChar, 20, "@ERST_NAME"); 
             //myUpdateCommand.Parameters.Add("@GEAEND", OdbcType.Date, , "@GEAND");
             //myUpdateCommand.Parameters.Add("@GEAEND_NAME", OdbcType.VarChar, 20, "@GEAEND_NAME");
@@ -364,21 +441,7 @@ namespace Cugar
             myUpdateCommand.Parameters.Add("@USERFELD_10", OdbcType.VarChar, 255, "@USERFELD_10");
             #endregion
 
-
-            /* Try this if size fails
-            OdbcParameter myParam = new OdbcParameter();
-            myParam.ParameterName = "@REC_ID";
-            myParam.OdbcType = OdbcType.Int;
-            myParam.SourceColumn = "@REC_ID";
-             */
-
-
-
-
-
-
-
-
+            m_daCao.UpdateCommand = myUpdateCommand;
 
 
             /*
