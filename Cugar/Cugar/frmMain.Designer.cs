@@ -39,7 +39,6 @@
             this.standardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grpGenerell = new System.Windows.Forms.GroupBox();
-            this.cboAnrede = new System.Windows.Forms.ComboBox();
             this.txtBemerkung = new System.Windows.Forms.TextBox();
             this.txtOrt = new System.Windows.Forms.TextBox();
             this.txtPLZ = new System.Windows.Forms.TextBox();
@@ -99,6 +98,7 @@
             this.tsToolStipMain = new System.Windows.Forms.ToolStrip();
             this.neuToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tstxtSuchePrivat = new System.Windows.Forms.ToolStripTextBox();
+            this.tstxtSucheFirma = new System.Windows.Forms.ToolStripTextBox();
             this.tsCmdSearch = new System.Windows.Forms.ToolStripButton();
             this.öffnenToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.speichernToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -175,7 +175,7 @@
             this.tabDGVSugar = new System.Windows.Forms.TabPage();
             this.dgvSugar = new System.Windows.Forms.DataGridView();
             this.tabSuche = new System.Windows.Forms.TabPage();
-            this.tstxtSucheFirma = new System.Windows.Forms.ToolStripTextBox();
+            this.txtAnrede = new System.Windows.Forms.TextBox();
             this.mnuFrmMain.SuspendLayout();
             this.grpGenerell.SuspendLayout();
             this.grpCAO.SuspendLayout();
@@ -267,7 +267,6 @@
             // 
             // grpGenerell
             // 
-            this.grpGenerell.Controls.Add(this.cboAnrede);
             this.grpGenerell.Controls.Add(this.txtBemerkung);
             this.grpGenerell.Controls.Add(this.txtOrt);
             this.grpGenerell.Controls.Add(this.txtPLZ);
@@ -291,6 +290,7 @@
             this.grpGenerell.Controls.Add(this.label12);
             this.grpGenerell.Controls.Add(this.label4);
             this.grpGenerell.Controls.Add(this.txtPhone1);
+            this.grpGenerell.Controls.Add(this.txtAnrede);
             this.grpGenerell.Controls.Add(this.txtVorname);
             this.grpGenerell.Controls.Add(this.label11);
             this.grpGenerell.Controls.Add(this.label3);
@@ -304,27 +304,14 @@
             this.grpGenerell.TabStop = false;
             this.grpGenerell.Text = "Generell";
             // 
-            // cboAnrede
-            // 
-            this.cboAnrede.FormattingEnabled = true;
-            this.cboAnrede.Items.AddRange(new object[] {
-            "Herr",
-            "Frau",
-            "Firma",
-            "Doktor"});
-            this.cboAnrede.Location = new System.Drawing.Point(70, 23);
-            this.cboAnrede.Name = "cboAnrede";
-            this.cboAnrede.Size = new System.Drawing.Size(117, 21);
-            this.cboAnrede.TabIndex = 2;
-            // 
             // txtBemerkung
             // 
             this.txtBemerkung.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBemerkung.Location = new System.Drawing.Point(70, 232);
+            this.txtBemerkung.Location = new System.Drawing.Point(374, 232);
             this.txtBemerkung.Multiline = true;
             this.txtBemerkung.Name = "txtBemerkung";
             this.txtBemerkung.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtBemerkung.Size = new System.Drawing.Size(538, 120);
+            this.txtBemerkung.Size = new System.Drawing.Size(234, 120);
             this.txtBemerkung.TabIndex = 1;
             // 
             // txtOrt
@@ -864,6 +851,12 @@
             this.tstxtSuchePrivat.Text = "Personen...";
             this.tstxtSuchePrivat.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tstxtSuche_KeyDown);
             this.tstxtSuchePrivat.Click += new System.EventHandler(this.tstxtSuche_Click);
+            // 
+            // tstxtSucheFirma
+            // 
+            this.tstxtSucheFirma.Name = "tstxtSucheFirma";
+            this.tstxtSucheFirma.Size = new System.Drawing.Size(100, 25);
+            this.tstxtSucheFirma.Text = "Firmen...";
             // 
             // tsCmdSearch
             // 
@@ -1593,11 +1586,13 @@
             this.tabSuche.Text = "Suche";
             this.tabSuche.UseVisualStyleBackColor = true;
             // 
-            // tstxtSucheFirma
+            // txtAnrede
             // 
-            this.tstxtSucheFirma.Name = "tstxtSucheFirma";
-            this.tstxtSucheFirma.Size = new System.Drawing.Size(100, 25);
-            this.tstxtSucheFirma.Text = "Firmen...";
+            this.txtAnrede.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAnrede.Location = new System.Drawing.Point(70, 24);
+            this.txtAnrede.Name = "txtAnrede";
+            this.txtAnrede.Size = new System.Drawing.Size(219, 20);
+            this.txtAnrede.TabIndex = 1;
             // 
             // frmMain
             // 
@@ -1651,7 +1646,6 @@
         private System.Windows.Forms.GroupBox grpGenerell;
         private System.Windows.Forms.GroupBox grpCAO;
         private System.Windows.Forms.GroupBox grpSugar;
-        private System.Windows.Forms.ComboBox cboAnrede;
         private System.Windows.Forms.TextBox txtOrt;
         private System.Windows.Forms.TextBox txtPLZ;
         private System.Windows.Forms.Label lblOrt;
@@ -1788,6 +1782,7 @@
         private System.Windows.Forms.ToolStripButton tsCmdSearch;
         private System.Windows.Forms.TabPage tabSuche;
         private System.Windows.Forms.ToolStripTextBox tstxtSucheFirma;
+        private System.Windows.Forms.TextBox txtAnrede;
 
 
 

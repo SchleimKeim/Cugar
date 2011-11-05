@@ -5,6 +5,7 @@ using System.Text;
 using System.Data;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Data.OleDb;
 
 namespace Cugar
 {
@@ -58,6 +59,7 @@ namespace Cugar
             m_user = Cugar.Properties.Settings.Default.sugaruser;
             m_pw = Cugar.Properties.Settings.Default.sugarpw;
             m_dbname = Cugar.Properties.Settings.Default.sugardb;
+            
 
             m_BS = bs;
             try
@@ -143,6 +145,27 @@ namespace Cugar
             m_daSugar.Fill(m_dsSugar, m_const_strSugarTableSearchHuman);
             
             //return m_dsSugar;
+        }
+
+        //experimental
+        public void Update()
+        {
+            OleDbCommand myUpdateCommand = new OleDbCommand();
+
+            myUpdateCommand.Parameters.Add("@REC_ID", OleDbType.Decimal, , "@REC_ID");
+            OleDbParameter myPara = new OleDbParameter();
+            myPara.ParameterName = "@REC_ID";
+            myPara.OleDbType = OleDbType.Decimal;
+            myPara.Direction = ParameterDirection.Input;
+            myPara.SourceColumn = "@REC_ID";
+            
+
+
+
+
+
+            //myUpdateCommand.Parameters.Add("@REC_ID", MySqlDbType.Decimal, 
+            //myUpdateCommand.Parameters.Add("@REC_ID", OdbcType.Int, 2, "@REC_ID");
         }
         #endregion
 

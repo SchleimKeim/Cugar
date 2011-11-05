@@ -409,6 +409,9 @@ namespace Cugar
             #endregion 
             if (m_BS_CaoSearchContacts.Current != null)
             {
+                //set searchtext to personen
+                tstxtSuchePrivat.Text = "Personen...";
+
                 #region Convert the name filed into two fields using CToolbox
                 CToolbox m_objTool = new CToolbox();                
                 string[] foo2;                
@@ -432,13 +435,10 @@ namespace Cugar
 
                 /* Fills in all the textfield using databinding object casted into a datarowview */
 
-                cboAnrede.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["ANREDE"].ToString();
-                //cboCaoVersand.SelectedIndex = ((DataRowView)
-                //txtName.Text = ((DataRowView)m_BS.Current)["NAME1"].ToString();
+                txtAnrede.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["ANREDE"].ToString();         
                 txtStrasse1.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["STRASSE"].ToString();
                 txtPLZ.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["PLZ"].ToString();
-                txtOrt.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["ORT"].ToString();
-                //txtVorname.Text = ((DataRowView)m_BS.Current)[].ToString();
+                txtOrt.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["ORT"].ToString();                
                 txtWebpage.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["INTERNET"].ToString();
                 txtEmail.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["EMAIL"].ToString();
                 txtFax.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["FAX"].ToString();
@@ -449,6 +449,7 @@ namespace Cugar
                 txtCaoZahlungsziel.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["BRT_TAGE"].ToString();
                 txtCaoCustomerSince.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_SEIT"].ToString();
                 txtCaoGeb.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_GEBDATUM"].ToString();
+                txtBemerkung.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["INFO"].ToString();
                 
 
                 //txtSugarZugewiesenAn.Text = ((DataRowView)m_BS.Current)[].ToString();
@@ -457,11 +458,9 @@ namespace Cugar
                 //txtSugarReportsTo.Text = ((DataRowView)m_BS.Current)[].ToString();
                 //txtSugarTitle.Text = ((DataRowView)m_BS.Current)[].ToString();
 
-            }
-            //txtName.Text = ((DataRowView)m_BS.Current)["NAME1"].ToString();
+            }            
 
             //((DataRowView)m_BS.Current)["NAME1"] = txtName.Text;
-
             //((DataRowView)m_BS_Sugar.Current)["last_name"] = 
             //m_BS.Current
             
@@ -506,6 +505,7 @@ namespace Cugar
         {
 
         }
+
 
         /* reserved for string[] */
         //public DataTable dtDatensatzSugar

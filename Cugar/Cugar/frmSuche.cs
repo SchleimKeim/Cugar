@@ -114,6 +114,7 @@ namespace Cugar
 
             try
             {
+                ClearBothDgvsNew();
                 StartSearch(m_strSuchstring);
             }
             catch (Exception adsf)
@@ -130,7 +131,6 @@ namespace Cugar
 
         private void StartSearch(string searchstring)
         {
-            ClearBothDgvs();
             m_objCao = new cCao(m_DS, m_BS);
             //m_objCao.search_ds_human_persons(searchstring);
             m_objCao.search_ds_all_persons(searchstring);
@@ -167,16 +167,37 @@ namespace Cugar
             {
                 dgvCaoSuche.DataSource = null;
                 m_DV_Search_Cao_human = null;
-                //m_DS.Tables[m_const_strCaoTableSearchHuman].Clear();
                 m_DS.Tables.Remove(m_const_strCaoTableSearchAll);
             }
             if (dgvSugarSuche.ColumnCount > 0)
             {
                 dgvSugarSuche.DataSource = null;
                 m_DV_Search_Sugar_human = null;
-                //m_DS.Tables[m_const_strSugarTableSearchHuman].Clear();
                 m_DS.Tables.Remove(m_const_strSugarTableSearchAll);
             }
+        }
+
+        private void ClearBothDgvsNew()
+        {
+
+            /* if the DatagridView is empty do nothing
+             * else set the source to null to clear the DataGridView
+             * at last clear the search field and set the Focus to it.
+             */
+            dgvCaoSuche.DataSource = null;
+            m_DV_Search_Cao_human = null;
+            if (m_DS.Tables[m_const_strCaoTableSearchAll] != null)
+            {
+                m_DS.Tables.Remove(m_const_strCaoTableSearchAll);
+            }                
+      
+            dgvSugarSuche.DataSource = null;
+            m_DV_Search_Sugar_human = null;
+            if (m_DS.Tables[m_const_strSugarTableSearchAll] != null)
+            {
+                m_DS.Tables.Remove(m_const_strSugarTableSearchAll);
+            }           
+            
         }
 
         private void cmdExit_Click(object sender, EventArgs e)
@@ -188,9 +209,8 @@ namespace Cugar
         {
             /* temporary solution, find somethingg to bind the textfields to the actual m_DS */
             this.frmMain.dtDatensatzCao = m_DS.Tables[m_const_strCaoTableSearchAll];
-            //dgvCaoSuche.SelectedRows[0].Selected
             
-            this.frmMain.DatensatzLaden();
+            this.frmMain.DatensatzLaden();            
             this.Close();
         }
     }
