@@ -112,6 +112,8 @@
             this.hilfeToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tabPrivat = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cmdPrivatExit = new System.Windows.Forms.Button();
+            this.cmdPrivatSave = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -176,8 +178,6 @@
             this.tabDGVSugar = new System.Windows.Forms.TabPage();
             this.dgvSugar = new System.Windows.Forms.DataGridView();
             this.tabSuche = new System.Windows.Forms.TabPage();
-            this.cmdPrivatSave = new System.Windows.Forms.Button();
-            this.cmdPrivatExit = new System.Windows.Forms.Button();
             this.mnuFrmMain.SuspendLayout();
             this.grpGenerell.SuspendLayout();
             this.grpCAO.SuspendLayout();
@@ -309,11 +309,11 @@
             // txtBemerkung
             // 
             this.txtBemerkung.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBemerkung.Location = new System.Drawing.Point(374, 232);
+            this.txtBemerkung.Location = new System.Drawing.Point(70, 232);
             this.txtBemerkung.Multiline = true;
             this.txtBemerkung.Name = "txtBemerkung";
             this.txtBemerkung.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtBemerkung.Size = new System.Drawing.Size(234, 120);
+            this.txtBemerkung.Size = new System.Drawing.Size(538, 120);
             this.txtBemerkung.TabIndex = 1;
             // 
             // txtOrt
@@ -983,6 +983,29 @@
             this.tabPage1.Text = "Privatkunden";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // cmdPrivatExit
+            // 
+            this.cmdPrivatExit.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmdPrivatExit.Location = new System.Drawing.Point(786, 375);
+            this.cmdPrivatExit.Name = "cmdPrivatExit";
+            this.cmdPrivatExit.Size = new System.Drawing.Size(75, 23);
+            this.cmdPrivatExit.TabIndex = 3;
+            this.cmdPrivatExit.Text = "&Exit";
+            this.cmdPrivatExit.UseVisualStyleBackColor = true;
+            this.cmdPrivatExit.Click += new System.EventHandler(this.cmdPrivatExit_Click);
+            // 
+            // cmdPrivatSave
+            // 
+            this.cmdPrivatSave.Enabled = false;
+            this.cmdPrivatSave.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmdPrivatSave.Location = new System.Drawing.Point(867, 374);
+            this.cmdPrivatSave.Name = "cmdPrivatSave";
+            this.cmdPrivatSave.Size = new System.Drawing.Size(75, 23);
+            this.cmdPrivatSave.TabIndex = 3;
+            this.cmdPrivatSave.Text = "&Save";
+            this.cmdPrivatSave.UseVisualStyleBackColor = true;
+            this.cmdPrivatSave.Click += new System.EventHandler(this.cmdPrivatSave_Click);
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.groupBox1);
@@ -991,7 +1014,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(951, 377);
+            this.tabPage2.Size = new System.Drawing.Size(951, 404);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Firmenkunden";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1557,7 +1580,7 @@
             this.tabDGVCao.Location = new System.Drawing.Point(4, 22);
             this.tabDGVCao.Name = "tabDGVCao";
             this.tabDGVCao.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDGVCao.Size = new System.Drawing.Size(951, 377);
+            this.tabDGVCao.Size = new System.Drawing.Size(951, 404);
             this.tabDGVCao.TabIndex = 2;
             this.tabDGVCao.Text = "dgvCao";
             this.tabDGVCao.UseVisualStyleBackColor = true;
@@ -1575,7 +1598,7 @@
             this.tabDGVSugar.Controls.Add(this.dgvSugar);
             this.tabDGVSugar.Location = new System.Drawing.Point(4, 22);
             this.tabDGVSugar.Name = "tabDGVSugar";
-            this.tabDGVSugar.Size = new System.Drawing.Size(951, 377);
+            this.tabDGVSugar.Size = new System.Drawing.Size(951, 404);
             this.tabDGVSugar.TabIndex = 3;
             this.tabDGVSugar.Text = "dgvSugar";
             this.tabDGVSugar.UseVisualStyleBackColor = true;
@@ -1593,31 +1616,10 @@
             this.tabSuche.Location = new System.Drawing.Point(4, 22);
             this.tabSuche.Name = "tabSuche";
             this.tabSuche.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSuche.Size = new System.Drawing.Size(951, 377);
+            this.tabSuche.Size = new System.Drawing.Size(951, 404);
             this.tabSuche.TabIndex = 4;
             this.tabSuche.Text = "Suche";
             this.tabSuche.UseVisualStyleBackColor = true;
-            // 
-            // cmdPrivatSave
-            // 
-            this.cmdPrivatSave.Enabled = false;
-            this.cmdPrivatSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdPrivatSave.Location = new System.Drawing.Point(867, 374);
-            this.cmdPrivatSave.Name = "cmdPrivatSave";
-            this.cmdPrivatSave.Size = new System.Drawing.Size(75, 23);
-            this.cmdPrivatSave.TabIndex = 3;
-            this.cmdPrivatSave.Text = "&Save";
-            this.cmdPrivatSave.UseVisualStyleBackColor = true;
-            // 
-            // cmdPrivatExit
-            // 
-            this.cmdPrivatExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdPrivatExit.Location = new System.Drawing.Point(786, 375);
-            this.cmdPrivatExit.Name = "cmdPrivatExit";
-            this.cmdPrivatExit.Size = new System.Drawing.Size(75, 23);
-            this.cmdPrivatExit.TabIndex = 3;
-            this.cmdPrivatExit.Text = "&Exit";
-            this.cmdPrivatExit.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 

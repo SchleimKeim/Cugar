@@ -208,9 +208,10 @@ namespace Cugar
         private void cmdLoad_Click(object sender, EventArgs e)
         {
             /* temporary solution, find somethingg to bind the textfields to the actual m_DS */
-            this.frmMain.dtDatensatzCao = m_DS.Tables[m_const_strCaoTableSearchAll];
+            //this.frmMain.dtDatensatzCao = m_DS.Tables[m_const_strCaoTableSearchAll];
             
-            this.frmMain.DatensatzLaden();            
+            this.frmMain.DatensatzLaden();
+            this.frmMain.SaveButtonEnabled = true;
             this.Close();
         }
     }

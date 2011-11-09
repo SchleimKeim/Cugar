@@ -159,7 +159,7 @@ namespace Cugar
 
         private void Form1_Load(object sender, EventArgs e)
         {
-          
+            
             if (Cugar.Properties.Settings.Default.first_start == true)
             {                
                 frmSettings m_SubForm_Settings = new frmSettings();
@@ -222,13 +222,15 @@ namespace Cugar
                 #endregion
 
                 /* Versandarten ausfüllen */
-                LoadCaoVersandArten();
-                //m_objCao.LoadCaoVersandarten();
+                //LoadCaoVersandArten();
+                m_objCao.LoadCaoVersandarten();
+                LoadCaoVersandArten();                
                 cboCaoVersand.SelectedIndex = 0;
 
                 /* zahlunggsarten ausfüllen */
-                LoadCaoZahlungsarten();
+                //LoadCaoZahlungsarten();
                 m_objCao.LoadCaoZahlarten();
+                LoadCaoZahlungsarten();                
                 cboCaoZahlart.SelectedIndex = 0;                
 
             }
@@ -432,7 +434,6 @@ namespace Cugar
                 cboCaoZahlart.SelectedIndex = ZahlartId - 1;
                 #endregion
 
-
                 /* Fills in all the textfield using databinding object casted into a datarowview */
 
                 txtAnrede.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["ANREDE"].ToString();         
@@ -450,14 +451,12 @@ namespace Cugar
                 txtCaoCustomerSince.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_SEIT"].ToString();
                 txtCaoGeb.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_GEBDATUM"].ToString();
                 txtBemerkung.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["INFO"].ToString();
-                
 
                 //txtSugarZugewiesenAn.Text = ((DataRowView)m_BS.Current)[].ToString();
                 //txtSugarLeadSource.Text = ((DataRowView)m_BS.Current)[].ToString();
 
                 //txtSugarReportsTo.Text = ((DataRowView)m_BS.Current)[].ToString();
                 //txtSugarTitle.Text = ((DataRowView)m_BS.Current)[].ToString();
-
             }            
 
             //((DataRowView)m_BS.Current)["NAME1"] = txtName.Text;
@@ -508,9 +507,14 @@ namespace Cugar
 
         /// <summary>
         ///Enables the Save Button on the "Privat" tab</summary>
-        public void EnableSave()
+        public void EnableSave(object sender, EventArgs e)
         {
-            cmdPrivatSave.Enabled = true;
+
+        }
+
+        private void cmdPrivatExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
 
@@ -539,8 +543,34 @@ namespace Cugar
         //    }
         //}
 
+        public bool SaveButtonEnabled
+        {
+            get
+            {
+                return cmdPrivatSave.Enabled;
+            }
+            set
+            {
+                cmdPrivatSave.Enabled = value;
+            }
+        }
 
         #endregion
+
+        private void cmdPrivatSave_Click(object sender, EventArgs e)
+        {
+            m_DS.AcceptChanges();
+            if (m_DS.HasChanges())
+            {
+                MessageBox.Show("Änderungen :D");
+            }
+            else
+            {
+                MessageBox.Show("Keine Änderungen :(");
+            }
+            //cCao m_objCao = new cCao(m_DS, m_BS_CaoSearchContacts);
+            //m_objCao.UpdateAll();
+        }
 
 
 
