@@ -167,6 +167,14 @@ namespace Cugar
         //    //myUpdateCommand.Parameters.Add("@REC_ID", MySqlDbType.Decimal, 
         //    //myUpdateCommand.Parameters.Add("@REC_ID", OdbcType.Int, 2, "@REC_ID");
         //}
+
+        /// <summary>
+        ///  Creates a New Contact
+        /// </summary>
+        public void CreateNew()
+        {
+
+        }
         #endregion
 
         #region propertys

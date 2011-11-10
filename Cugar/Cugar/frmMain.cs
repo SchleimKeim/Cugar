@@ -451,7 +451,7 @@ namespace Cugar
                 txtCaoCustomerSince.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_SEIT"].ToString();
                 txtCaoGeb.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_GEBDATUM"].ToString();
                 txtBemerkung.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["INFO"].ToString();
-
+                
                 //txtSugarZugewiesenAn.Text = ((DataRowView)m_BS.Current)[].ToString();
                 //txtSugarLeadSource.Text = ((DataRowView)m_BS.Current)[].ToString();
 
@@ -570,6 +570,38 @@ namespace Cugar
             }
             //cCao m_objCao = new cCao(m_DS, m_BS_CaoSearchContacts);
             //m_objCao.UpdateAll();
+        }
+
+        private void neuToolStripButton_Click(object sender, EventArgs e)
+        {
+            #region 1. clear all textfields
+            txtVorname.Clear();
+            txtName.Clear();
+            txtAnrede.Clear();
+            txtStrasse1.Clear();
+            txtPLZ.Clear();
+            txtOrt.Clear();
+            txtWebpage.Clear();
+            txtEmail.Clear();
+            txtFax.Clear();
+            txtMobile.Clear();
+            txtPhon2.Clear();
+            txtPhone1.Clear();
+            txtCaoBriefanrede.Clear();
+            txtCaoZahlungsziel.Clear();
+            txtCaoCustomerSince.Clear();
+            txtCaoGeb.Clear();
+            txtBemerkung.Clear();
+            #endregion
+
+            #region collect data
+
+            #endregion
+
+            m_objCao.CreateNew();
+            m_objSugar.CreateNew();
+
+
         }
 
 

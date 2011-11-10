@@ -72,7 +72,6 @@
             this.grpCAO = new System.Windows.Forms.GroupBox();
             this.cboCaoZahlart = new System.Windows.Forms.ComboBox();
             this.cboCaoVersand = new System.Windows.Forms.ComboBox();
-            this.txtCaoBriefanrede = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -178,6 +177,7 @@
             this.tabDGVSugar = new System.Windows.Forms.TabPage();
             this.dgvSugar = new System.Windows.Forms.DataGridView();
             this.tabSuche = new System.Windows.Forms.TabPage();
+            this.txtCaoBriefanrede = new System.Windows.Forms.TextBox();
             this.mnuFrmMain.SuspendLayout();
             this.grpGenerell.SuspendLayout();
             this.grpCAO.SuspendLayout();
@@ -212,20 +212,20 @@
             this.neuToolStripMenuItem,
             this.beendenToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.fileToolStripMenuItem.Text = "&Datei";
             // 
             // neuToolStripMenuItem
             // 
             this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.neuToolStripMenuItem.Text = "Neu...";
             this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
             // 
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.beendenToolStripMenuItem.Text = "&Beenden";
             this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
@@ -235,13 +235,13 @@
             this.connectionToolStripMenuItem,
             this.toolStripMenuItem2});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.settingsToolStripMenuItem.Text = "&Bearbeiten";
             // 
             // connectionToolStripMenuItem
             // 
             this.connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
-            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.connectionToolStripMenuItem.Text = "&Einstellungen...";
             this.connectionToolStripMenuItem.Click += new System.EventHandler(this.connectionToolStripMenuItem_Click);
             // 
@@ -251,20 +251,20 @@
             this.standardToolStripMenuItem,
             this.gridViewToolStripMenuItem});
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(154, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(160, 22);
             this.toolStripMenuItem2.Text = "&Ansicht";
             // 
             // standardToolStripMenuItem
             // 
             this.standardToolStripMenuItem.Name = "standardToolStripMenuItem";
-            this.standardToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.standardToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.standardToolStripMenuItem.Text = "Standard";
             // 
             // gridViewToolStripMenuItem
             // 
             this.gridViewToolStripMenuItem.Enabled = false;
             this.gridViewToolStripMenuItem.Name = "gridViewToolStripMenuItem";
-            this.gridViewToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.gridViewToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.gridViewToolStripMenuItem.Text = "Grid View";
             // 
             // grpGenerell
@@ -567,7 +567,6 @@
             // 
             this.grpCAO.Controls.Add(this.cboCaoZahlart);
             this.grpCAO.Controls.Add(this.cboCaoVersand);
-            this.grpCAO.Controls.Add(this.txtCaoBriefanrede);
             this.grpCAO.Controls.Add(this.label16);
             this.grpCAO.Controls.Add(this.label20);
             this.grpCAO.Controls.Add(this.label19);
@@ -577,6 +576,7 @@
             this.grpCAO.Controls.Add(this.label18);
             this.grpCAO.Controls.Add(this.txtCaoCustomerSince);
             this.grpCAO.Controls.Add(this.label17);
+            this.grpCAO.Controls.Add(this.txtCaoBriefanrede);
             this.grpCAO.Controls.Add(this.txtCaoGeb);
             this.grpCAO.Location = new System.Drawing.Point(626, 6);
             this.grpCAO.Name = "grpCAO";
@@ -601,14 +601,6 @@
             this.cboCaoVersand.Size = new System.Drawing.Size(215, 21);
             this.cboCaoVersand.TabIndex = 2;
             this.cboCaoVersand.SelectedIndexChanged += new System.EventHandler(this.txtCaoVersand_SelectedIndexChanged);
-            // 
-            // txtCaoBriefanrede
-            // 
-            this.txtCaoBriefanrede.FormattingEnabled = true;
-            this.txtCaoBriefanrede.Location = new System.Drawing.Point(91, 23);
-            this.txtCaoBriefanrede.Name = "txtCaoBriefanrede";
-            this.txtCaoBriefanrede.Size = new System.Drawing.Size(215, 21);
-            this.txtCaoBriefanrede.TabIndex = 2;
             // 
             // label16
             // 
@@ -853,6 +845,7 @@
             this.neuToolStripButton.Name = "neuToolStripButton";
             this.neuToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.neuToolStripButton.Text = "&Neu";
+            this.neuToolStripButton.Click += new System.EventHandler(this.neuToolStripButton_Click);
             // 
             // tstxtSuchePrivat
             // 
@@ -1621,6 +1614,14 @@
             this.tabSuche.Text = "Suche";
             this.tabSuche.UseVisualStyleBackColor = true;
             // 
+            // txtCaoBriefanrede
+            // 
+            this.txtCaoBriefanrede.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCaoBriefanrede.Location = new System.Drawing.Point(91, 24);
+            this.txtCaoBriefanrede.Name = "txtCaoBriefanrede";
+            this.txtCaoBriefanrede.Size = new System.Drawing.Size(215, 20);
+            this.txtCaoBriefanrede.TabIndex = 1;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1702,7 +1703,6 @@
         private System.Windows.Forms.TextBox txtPhone1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox txtCaoBriefanrede;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
@@ -1812,6 +1812,7 @@
         private System.Windows.Forms.TextBox txtAnrede;
         private System.Windows.Forms.Button cmdPrivatExit;
         private System.Windows.Forms.Button cmdPrivatSave;
+        private System.Windows.Forms.TextBox txtCaoBriefanrede;
 
 
 

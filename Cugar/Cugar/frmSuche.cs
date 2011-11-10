@@ -52,6 +52,7 @@ namespace Cugar
             m_strSuchstring = searchstring;
             m_DS = ds;
             InitializeComponent();
+            
         }
 
         public frmSuche(DataSet ds, string searchstring, BindingSource bs)
@@ -102,6 +103,7 @@ namespace Cugar
             this.frmMain = mainform;
             m_BS = bs;
             InitializeComponent();
+           
 
         }
 

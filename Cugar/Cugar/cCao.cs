@@ -37,6 +37,7 @@ namespace Cugar
         /// <summary>
         ///  Constructor expecting a DataSet
         /// </summary>
+        /// <param name="ds">DataSet für Referenzierung</param>
         public cCao(DataSet ds)
         {
             m_dsCao = ds;
@@ -61,7 +62,11 @@ namespace Cugar
             }
         }
 
-
+        /// <summary>
+        ///  Constructor expecting a DataSet
+        /// </summary>
+        /// <param name="bs">Binding Source to reference</param>
+        /// <param name="ds">DataSet to reference</param>
         public cCao(DataSet ds, BindingSource bs)
         {
             m_dsCao = ds;
@@ -576,6 +581,14 @@ namespace Cugar
             //myDeleteCommand.Parameters.Add("@fldStudentNr", OleDbType.Integer, 2, "fldStudentNr");
             m_daCao.Update(m_dsCao, m_const_strCaoTableSearchAll);         
             
+        }
+
+
+        /// <summary>
+        ///  Creates a New Contact
+        /// </summary>
+        public void CreateNew()
+        {
         }
         #endregion
 
