@@ -171,9 +171,11 @@ namespace Cugar
         /// <summary>
         ///  Creates a New Contact
         /// </summary>
-        public void CreateNew()
+        /// <param name="commandstring">a string containing an sql command</param>
+        public void CreateNew(string commandstring)
         {
-
+            MySqlCommand m_cmdSugarInsert = new MySqlCommand(commandstring, m_cnSugar);
+            m_cmdSugarInsert.ExecuteNonQuery();
         }
         #endregion
 
@@ -189,6 +191,17 @@ namespace Cugar
         //        return LoadDataSet();
         //    }
         //}
+
+        /// <summary>
+        /// Returns the SugarConnection
+        /// </summary>
+        public MySqlConnection SugarConnection
+        {
+            get
+            {
+                return m_cnSugar;
+            }
+        }
         #endregion
     }
 }

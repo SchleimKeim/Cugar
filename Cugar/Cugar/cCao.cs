@@ -587,8 +587,38 @@ namespace Cugar
         /// <summary>
         ///  Creates a New Contact
         /// </summary>
-        public void CreateNew()
+        /// <param name="command">a complete odbccommand with parameters</param>
+        public void CreateNew(OdbcCommand command)
         {
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception asdf)
+            {
+                MessageBox.Show(asdf.ToString()); 
+                throw;
+            }
+
+            
+        }
+
+        private int GetLatestRecId()
+        {
+            OdbcCommand cmDB = new OdbcCommand("SELECT Max(REC_ID) as REC_ID FROM adressen;", m_cnCao);
+            if (m_cnCao.State == ConnectionState.Closed)
+            {
+                m_cnCao.Open();
+            }   
+
+            OdbcDataReader dr = cmDB.ExecuteReader();
+            int m_int_REC_ID = 1;
+            if (dr.Read() == true)
+            {
+                m_int_REC_ID = Convert.ToInt32(dr.GetValue(0)) + 1;
+            }
+            dr.Close();
+            return m_int_REC_ID;
         }
         #endregion
 
@@ -604,6 +634,26 @@ namespace Cugar
         //        return m_dsCao;
         //    }
         //}
+        /// <summary>
+        /// Returns the latest REC_ID from cao.adressen
+        /// </summary>
+        public int LatestRecId
+        {
+            get
+            {
+                return GetLatestRecId();
+            }
+        }
+        /// <summary>
+        /// Returns the CaoConnection
+        /// </summary>
+        public OdbcConnection CaoConnection
+        {
+            get
+            {
+                return m_cnCao;
+            }
+        }
         #endregion
     }
 }

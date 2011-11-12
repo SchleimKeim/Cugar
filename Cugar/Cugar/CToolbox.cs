@@ -46,18 +46,26 @@ namespace Cugar
         public void FindDifference()
         {
         }
-        public void Merge()
-        {
-        }
 
         /// <summary>
         /// Splits a given String and givs back the Result as String[]</summary>
         /// <param name="foo"> Parameter description for s goes here</param>
-        public string[] VornameNachname(string foo)
+        public string[] SplitName(string foo)
         {
             string[] result;
             result = foo.Split();
             return result;
+        }
+        /// <summary>
+        /// Combines two given strings.
+        /// Used to Make a string with surname + lastname
+        /// </summary>
+        /// <param name="surname">the surname</param>
+        /// <param name="lastname">the lastname</param>
+        public string UniteName(string surname, string lastname)
+        {
+            string name = surname + " " + lastname;
+            return name;
         }
         #endregion
 

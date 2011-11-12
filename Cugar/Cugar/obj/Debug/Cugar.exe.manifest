@@ -57,17 +57,35 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cugar.exe" size="96768">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cugar.exe" size="103936">
       <assemblyIdentity name="Cugar" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>cOMNq/Aohp6urY6sxpdl5lWBvF0=</dsig:DigestValue>
+        <dsig:DigestValue>NkNOFlgsLmfFRMt/Ijv5mFkBeZw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
+  <file name="all_cao_params.txt" size="13715">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>3PmxBGZKVe823rA+lk2bpZ1mIJ8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="all_sugar_params.txt" size="6950">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>lrVMlmrzEPEaFPEHHnNC3ppOx3c=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Cugar.exe.config" size="2062">
     <hash>
       <dsig:Transforms>
@@ -75,6 +93,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>/GDEaFZOgEe5DgVUHXr8gjwCUco=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Notes.txt" size="396">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>ThOY2aD7npcaF5uPY7k6wO0VwWI=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

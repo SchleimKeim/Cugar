@@ -1,0 +1,218 @@
+﻿                //#region parameters
+                //caoInsert.Parameters.Add("@REC_ID", OdbcType.Int, 11, "@REC_ID");
+                //caoInsert.Parameters["@REC_ID"].Value = m_objCao.LatestRecId;
+                //#region not in use
+                ////caoInsert.Parameters.Add("@MATCHCODE", OdbcType.VarChar, 255, "@MATCHCODE");
+                ////caoInsert.Parameters.Add("@KUNDENGRUPPE", OdbcType.Int, 11, "@KUNDENGRUPPE");
+                ////caoInsert.Parameters.Add("@SPRACH_ID", OdbcType.Int, 11, "@SPRACH_ID");
+                ////caoInsert.Parameters.Add("@GESCHLECHT", OdbcType.Char, 1, "@GESCHLECHT");
+                ////caoInsert.Parameters.Add("@KUNNUM1", OdbcType.VarChar, 20, "@KUNNUM1");
+                ////caoInsert.Parameters.Add("@KUNNUM2", OdbcType.VarChar, 20, "@KUNNUM2");
+                //#endregion
+    
+                //caoInsert.Parameters.Add("@NAME1", OdbcType.VarChar, 40, "@NAME1");
+                //CToolbox tool = new CToolbox();
+                //caoInsert.Parameters["@NAME1"].Value = tool.UniteName(txtVorname.Text, txtName.Text);
+
+                //caoInsert.Parameters.Add("@PLZ", OdbcType.VarChar, 10, "@PLZ");
+                //caoInsert.Parameters["@PLZ"].Value = txtPLZ.Text;
+
+                //caoInsert.Parameters.Add("@ORT", OdbcType.VarChar, 40, "@ORT");
+                //caoInsert.Parameters["@ORT"].Value =
+    
+                //#region not in use
+                ////caoInsert.Parameters.Add("@LAND", OdbcType.VarChar, 5, "@LAND");
+                ////caoInsert.Parameters.Add("@NAME2", OdbcType.VarChar, 40, "@NAME2");
+                ////caoInsert.Parameters.Add("@NAME3", OdbcType.VarChar, 40, "@NAME3");
+                ////caoInsert.Parameters.Add("@ABTEILUNG", OdbcType.VarChar, 40, "@ABTEILUNG");
+                //#endregion
+    
+                //caoInsert.Parameters.Add("@ANREDE", OdbcType.VarChar, 40, "@ANREDE");
+                //caoInsert.Parameters["@ANREDE"].Value = txtAnrede.Text;
+
+
+                //caoInsert.Parameters.Add("@STRASSE", OdbcType.VarChar, 40, "@STRASSE");
+                //caoInsert.Parameters["@STRASSE"].Value = txtStrasse1.Text;
+    
+                //#region not in use
+                ////caoInsert.Parameters.Add("@POSTFACH", OdbcType.VarChar, 40, "@POSTFACH");
+                ////caoInsert.Parameters.Add("@PF_PLZ", OdbcType.VarChar, 10, "@PF_PLZ");
+                ////caoInsert.Parameters.Add("@DEFAULT_LIEFANSCHRIFT_ID", OdbcType.Int, 11, "@DEFAULT_LIEFANSCHRIFT_ID");
+                ////caoInsert.Parameters.Add("@GRUPPE", OdbcType.VarChar, 4, "@GRUPPE");
+                //#endregion
+                //caoInsert.Parameters.Add("@TELE1", OdbcType.VarChar, 100, "@TELE1");
+                //caoInsert.Parameters["@TELE1"].Value = txtPhone1.Text;
+
+                //caoInsert.Parameters.Add("@TELE2", OdbcType.VarChar, 100, "@TELE2");
+                //caoInsert.Parameters["@TELE2"].Value = txtPhon2.Text;
+
+                //caoInsert.Parameters.Add("@FAX", OdbcType.VarChar, 100, "@FAX");
+                //caoInsert.Parameters["@FAX"].Value = txtFax.Text;
+
+                //caoInsert.Parameters.Add("@FUNK", OdbcType.VarChar, 100, "@FUNK");
+                //caoInsert.Parameters["@FUNK"].Value = txtMobile.Text;
+
+                //caoInsert.Parameters.Add("@EMAIL", OdbcType.VarChar, 100, "@EMAIL");
+                //caoInsert.Parameters["@EMAIL"].Value = txtEmail.Text;
+
+                ////caoInsert.Parameters.Add("@EMAIL2", OdbcType.VarChar, 100, "@EMAIL2");
+                //caoInsert.Parameters.Add("@INTERNET", OdbcType.VarChar, 100, "@INTERNET");
+                //caoInsert.Parameters["@INTERNET"].Value = txtWebpage.Text;
+
+                ////caoInsert.Parameters.Add("@DIVERSES", OdbcType.VarChar, 100, "@DIVERSES");
+                //caoInsert.Parameters.Add("@BRIEFANREDE", OdbcType.VarChar, 100, "@BRIEFANREDE");
+                //caoInsert.Parameters["@BRIEFANREDE"].Value = txtCaoBriefanrede.Text;
+
+                //#region not in use
+                ////caoInsert.Parameters.Add("@BLZ", OdbcType.VarChar, 20, "@BLZ");
+                ////caoInsert.Parameters.Add("@KTO", OdbcType.VarChar, 20, "@KTO");
+                ////caoInsert.Parameters.Add("@BANK", OdbcType.VarChar, 40, "@BANK");
+                ////caoInsert.Parameters.Add("@IBAN", OdbcType.VarChar, 100, "@IBAN");
+                ////caoInsert.Parameters.Add("@SWIFT", OdbcType.VarChar, 100, "@SWIFT");
+                ////caoInsert.Parameters.Add("@KTO_INHABER", OdbcType.VarChar, 40, "@KTO_INHABER");
+                ////caoInsert.Parameters.Add("@DEB_NUM", OdbcType.Int, 11, "@DEB_NUM");
+                ////caoInsert.Parameters.Add("@KRD_NUM", OdbcType.Int, 11, "@KRD_NUM");
+                ////caoInsert.Parameters.Add("@STATUS", OdbcType.Int, 11, "@STATUS");            
+    
+                //////caoInsert.Parameters.Add("@NET_SKONTO", OdbcType.Decimal, 5, "@NET_SKONTO");
+                ////OdbcParameter myParam1 = new OdbcParameter();
+                ////myParam1.ParameterName = "@NET_SKONTO";
+                ////myParam1.SourceColumn = "@NET_SKONTO";
+                ////myParam1.DbType = DbType.Decimal;
+                ////myParam1.Precision = 5;
+                ////myParam1.Scale = 2;
+                ////caoInsert.Parameters.Add(myParam1);
+    
+                ////caoInsert.Parameters.Add("@NET_TAGE", OdbcType.TinyInt, 4, "@NET_TAGE");
+                //#endregion
+                //caoInsert.Parameters.Add("@BRT_TAGE", OdbcType.TinyInt, 4, "@BRT_TAGE");
+                //caoInsert.Parameters["@BRT_TAGE"].Value = txtCaoZahlungsziel.Text;
+    
+                //#region not in use
+                ////caoInsert.Parameters.Add("@WAEHRUNG", OdbcType.VarChar, 5, "@WAEHRUNG");
+                ////caoInsert.Parameters.Add("@UST_NUM", OdbcType.VarChar, 25, "@UST_NUM");
+                ////caoInsert.Parameters.Add("@VERTRETER_ID", OdbcType.Int, 11, "@VERTRETER_ID");
+    
+                //////caoInsert.Parameters.Add("@PROVIS_PROZ", OdbcType.Decimal, 5,, "@PROVIS_PROZ");
+                ////OdbcParameter myParam2 = new OdbcParameter();
+                ////myParam2.ParameterName = "@PROVIS_PROZ";
+                ////myParam2.SourceColumn = "@PROVIS_PROZ";
+                ////myParam2.DbType = DbType.Decimal;
+                ////myParam2.Precision = 5;
+                ////myParam2.Scale = 2;
+                ////caoInsert.Parameters.Add(myParam2);
+                //#endregion
+    
+                //caoInsert.Parameters.Add("@INFO", OdbcType.Text, 65537, "@INFO");
+                //caoInsert.Parameters["@INFO"].Value = txtBemerkung.Text;
+                
+                //#region not in use
+                //////caoInsert.Parameters.Add("@GRABATT", OdbcType.Decimal, 5, "@GRABATT");
+                ////OdbcParameter myParam3 = new OdbcParameter();
+                ////myParam3.ParameterName = "@GRABATT";
+                ////myParam3.SourceColumn = "@GRABATT";
+                ////myParam3.DbType = DbType.Decimal;
+                ////myParam3.Precision = 5;
+                ////myParam3.Scale = 2;
+                ////caoInsert.Parameters.Add(myParam3);
+    
+                //////caoInsert.Parameters.Add("@KUN_KRDLIMIT", OdbcType.Decimal, 10, "@KUN_KRDLIMIT");
+                ////OdbcParameter myParam4 = new OdbcParameter();
+                ////myParam4.ParameterName = "@KUN_KRDLIMIT";
+                ////myParam4.SourceColumn = "@KUN_KRDLIMIT";
+                ////myParam4.DbType = DbType.Decimal;
+                ////myParam4.Precision = 10;
+                ////myParam4.Scale = 2;
+                ////caoInsert.Parameters.Add(myParam4);
+                //#endregion
+    
+                //caoInsert.Parameters.Add("@KUN_LIEFART", OdbcType.Int, 11, "@KUN_LIEFART");
+                //caoInsert.Parameters["@KUN_LIEFART"].Value = cboCaoVersand.SelectedIndex + 1;
+
+
+                //caoInsert.Parameters.Add("@KUN_ZAHLART", OdbcType.Int, 11, "@KUN_ZAHLART");
+                //caoInsert.Parameters["@KUN_ZAHLART"].Value = cboCaoZahlart.SelectedIndex + 1;
+            
+                //#region not in use
+                //////caoInsert.Parameters.Add("@KUN_PRLISTE", OdbcType.enum('N','Y'), "@KUN_PRLISTE");
+                //////caoInsert.Parameters.Add("@KUN_LIEFSPERRE", OdbcType.enum('N','Y'), , "@KUN_LIEFFSPERRE");
+                ////caoInsert.Parameters.Add("@LIEF_LIEFART", OdbcType.Int, 11, "@LIEF_LIEFART");
+                ////caoInsert.Parameters.Add("@LIEF_ZAHLART", OdbcType.Int, 11, "@LIEF_ZAHLART");
+                //////caoInsert.Parameters.Add("@LIEF_PRLISTE", OdbcType.enum('N','Y'), , "@LIEF_PRLISTE");
+                //#endregion
+
+                //#region not in use
+                //////caoInsert.Parameters.Add("@LIEF_TKOSTEN", OdbcType.Decimal, 10, "@LIEF_TKOSTEN");
+                ////OdbcParameter myParam5 = new OdbcParameter();
+                ////myParam5.ParameterName = "@LIEF_TKOSTEN";
+                ////myParam5.SourceColumn = "@LIEF_TKOSTEN";
+                ////myParam5.DbType = DbType.Decimal;
+                ////myParam5.Precision = 10;
+                ////myParam5.Scale = 2;
+                ////caoInsert.Parameters.Add(myParam5);
+    
+                //////caoInsert.Parameters.Add("@LIEF_MBWERT", OdbcType.Decimal, 10, "@LIEF_MBWERT");
+                ////OdbcParameter myParam6 = new OdbcParameter();
+                ////myParam6.ParameterName = "@LIEF_MBWERT";
+                ////myParam6.SourceColumn = "@LIEF_MBWERT";
+                ////myParam6.DbType = DbType.Decimal;
+                ////myParam6.Precision = 10;
+                ////myParam6.Scale = 2;
+                ////caoInsert.Parameters.Add(myParam6);
+    
+    
+                ////caoInsert.Parameters.Add("@PR_EBENE", OdbcType.TinyInt, 1, "@PR_EBENE");
+                //////caoInsert.Parameters.Add("@BRUTTO_FLAG", OdbcType.enum('N','Y'), , "@BRUTTO_FLAG");
+                //////caoInsert.Parameters.Add("@MWST_FREI_FLAG", OdbcType.enum('N','Y') , , "@MWST_FREI_FLAG");
+                //////caoInsert.Parameters.Add("@KUNPREIS_AUTO", OdbcType.enum('N','Y') , , "@KUNPREIS_AUTO");
+                //#endregion
+
+                //#region commented for testing
+                ////caoInsert.Parameters.Add("@KUN_SEIT", OdbcType.Date, , "@KUN_SEIT");
+                ////OdbcParameter myParam7 = new OdbcParameter();
+                ////myParam7.ParameterName = "@KUN_SEIT";
+                ////myParam7.SourceColumn = "@KUN_SEIT";
+                ////myParam7.DbType = DbType.Date;            
+                ////caoInsert.Parameters.Add(myParam7);
+    
+                //////caoInsert.Parameters.Add("@KUN_GEBDATUM", OdbcType.Date, , "@KUN_GEBDATUM");
+                ////OdbcParameter myParam8 = new OdbcParameter();
+                ////myParam8.ParameterName = "@KUN_GEBDATUM";
+                ////myParam8.SourceColumn = "@KUN_GEBDATUM";
+                ////myParam8.DbType = DbType.Date;            
+                ////caoInsert.Parameters.Add(myParam8);
+                //#endregion
+
+                //#region not in use
+                //////caoInsert.Parameters.Add("@ERSTELLT", OdbcType.Date, , "@ERSTELLT");
+                ////OdbcParameter myParam9 = new OdbcParameter();
+                ////myParam9.ParameterName = "@ERSTELLT";
+                ////myParam9.SourceColumn = "@ERSTELLT";
+                ////myParam9.DbType = DbType.Date;
+                ////caoInsert.Parameters.Add(myParam9);
+                
+    
+                ////caoInsert.Parameters.Add("@ERST_NAME", OdbcType.VarChar, 20, "@ERST_NAME"); 
+                //////caoInsert.Parameters.Add("@GEAEND", OdbcType.Date, , "@GEAND");
+                //////caoInsert.Parameters.Add("@GEAEND_NAME", OdbcType.VarChar, 20, "@GEAEND_NAME");
+                //////caoInsert.Parameters.Add("@SHOP_KUNDE", enum('N','Y'), , "@SHOP_KUNDE");
+                ////caoInsert.Parameters.Add("@SHOP_ID", OdbcType.TinyInt, 3, "@SHOP_ID");
+                //////caoInsert.Parameters.Add("@SHOP_NEWSLETTER", enum('N','Y'), , "@SHOP_NEWSLETTER");
+                ////caoInsert.Parameters.Add("@SHOP_KUNDE_ID", OdbcType.Int, 11, "@SHOP_KUNDE_ID");
+                ////caoInsert.Parameters.Add("@SHOP_CHANGE_FLAG", OdbcType.TinyInt, 1, "@SHOP_CHANGE_FLAG");
+                //////caoInsert.Parameters.Add("@SHOP_DEL_FLAG", enum('N','Y'), , "@SHOP_DEL_FLAG");
+                ////caoInsert.Parameters.Add("@SHOP_PASSWORD", OdbcType.VarChar, 20, "@SHOP_PASSWORD");
+                ////caoInsert.Parameters.Add("@USERFELD_01", OdbcType.VarChar, 255, "@USERFELD_01");
+                ////caoInsert.Parameters.Add("@USERFELD_02", OdbcType.VarChar, 255, "@USERFELD_02");
+                ////caoInsert.Parameters.Add("@USERFELD_03", OdbcType.VarChar, 255, "@USERFELD_03");
+                ////caoInsert.Parameters.Add("@USERFELD_04", OdbcType.VarChar, 255, "@USERFELD_04");
+                ////caoInsert.Parameters.Add("@USERFELD_05", OdbcType.VarChar, 255, "@USERFELD_05");
+                ////caoInsert.Parameters.Add("@USERFELD_06", OdbcType.VarChar, 255, "@USERFELD_06");
+                ////caoInsert.Parameters.Add("@USERFELD_07", OdbcType.VarChar, 255, "@USERFELD_07");
+                ////caoInsert.Parameters.Add("@USERFELD_08", OdbcType.VarChar, 255, "@USERFELD_08");
+                ////caoInsert.Parameters.Add("@USERFELD_09", OdbcType.VarChar, 255, "@USERFELD_09");
+                ////caoInsert.Parameters.Add("@USERFELD_10", OdbcType.VarChar, 255, "@USERFELD_10");
+                //#endregion
+                //#endregion
+
+                m_objCao.CreateNew(caoInsert);

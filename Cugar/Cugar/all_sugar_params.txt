@@ -1,0 +1,93 @@
+﻿
+                MySqlCommand cmSugarInsert = new MySqlCommand(sb_SugarInsert.ToString(), m_objSugar.SugarConnection);
+                cmSugarInsert.Parameters.Add("@id", MySqlDbType.VarChar, 36, "@id");
+                cmSugarInsert.Parameters["@id"].Value = System.Guid.NewGuid().ToString();
+
+                cmSugarInsert.Parameters.Add("@date_entered", MySqlDbType.Datetime);
+                cmSugarInsert.Parameters["@date_entered"].Value = DateTime.Today.ToString();
+                
+                cmSugarInsert.Parameters.Add("@date_modified", MySqlDbType.Datetime);
+                cmSugarInsert.Parameters["@date_modified"].Value = DateTime.Today.ToString();
+
+                cmSugarInsert.Parameters.Add("@modified_user_id", MySqlDbType.VarChar, 36, "@modified_user_id");
+                cmSugarInsert.Parameters["@modified_user_id"].Value = "ed2d04a5-8264-45e7-fbdb-4ebebdf8375a";
+
+                cmSugarInsert.Parameters.Add("@created_by", MySqlDbType.VarChar, 36, "@created_by");
+                cmSugarInsert.Parameters["@created_by"].Value = "ed2d04a5-8264-45e7-fbdb-4ebebdf8375a";
+                cmSugarInsert.Parameters.Add("@description", MySqlDbType.Text);
+                cmSugarInsert.Parameters["@description"].Value = txtBemerkung.Text;
+                
+                cmSugarInsert.Parameters.Add("@deleted", MySqlDbType.Int16, 1, "@deleted");
+                cmSugarInsert.Parameters["@deleted"].Value = 0;
+
+                cmSugarInsert.Parameters.Add("@assigned_user_id", MySqlDbType.VarChar, 36, "@assigned_user_id");
+                cmSugarInsert.Parameters["@assigned_user_id"].Value = "ed2d04a5-8264-45e7-fbdb-4ebebdf8375a";
+
+                cmSugarInsert.Parameters.Add("@salutation", MySqlDbType.VarChar, 255, "@salutation");
+                cmSugarInsert.Parameters["@salutation"].Value = txtAnrede.Text;
+                cmSugarInsert.Parameters.Add("@first_name", MySqlDbType.VarChar, 100, "@first_name");
+                cmSugarInsert.Parameters["@first_name"].Value = txtVorname.Text;
+                cmSugarInsert.Parameters.Add("@last_name", MySqlDbType.VarChar, 100, "@last_name");
+                cmSugarInsert.Parameters["@last_name"].Value = txtName.Text;
+                cmSugarInsert.Parameters.Add("@title", MySqlDbType.VarChar, 100, "@title");
+                cmSugarInsert.Parameters["@title"].Value = txtSugarTitle.Text;
+                cmSugarInsert.Parameters.Add("@department", MySqlDbType.VarChar, 255, "@department");
+                cmSugarInsert.Parameters["@department"].Value = txtSugarAbteilung.Text;
+
+                //cmSugarInsert.Parameters.Add("@do_not_call", MySqlDbType.Int16, 1, "@do_not_call");
+
+                cmSugarInsert.Parameters.Add("@phone_home", MySqlDbType.VarChar, 100, "@phone_home");
+                cmSugarInsert.Parameters["@phone_home"].Value = txtPhone1.Text; 
+                cmSugarInsert.Parameters.Add("@phone_mobile", MySqlDbType.VarChar, 100, "@phone_mobile");
+                cmSugarInsert.Parameters["@phone_mobile"].Value = txtMobile.Text;
+                cmSugarInsert.Parameters.Add("@phone_work", MySqlDbType.VarChar, 100, "@phone_work");
+                cmSugarInsert.Parameters["@phone_work"].Value = txtPhon2.Text;
+
+                //cmSugarInsert.Parameters.Add("@phone_other", MySqlDbType.VarChar, 100, "@phone_other");
+                //cmSugarInsert.Parameters["@phone_other"].Value = 
+
+                cmSugarInsert.Parameters.Add("@phone_fax", MySqlDbType.VarChar, 100, "@phone_fax");
+                cmSugarInsert.Parameters["@phone_fax"].Value = txtFax.Text;
+                cmSugarInsert.Parameters.Add("@primary_address_street", MySqlDbType.VarChar, 150, "@primary_address_street");
+                cmSugarInsert.Parameters["@primary_address_street"].Value = txtStrasse1.Text;
+                cmSugarInsert.Parameters.Add("@primary_address_city", MySqlDbType.VarChar, 100, "@primary_address_city");
+                cmSugarInsert.Parameters["@primary_address_city"].Value = txtOrt.Text;
+
+                //cmSugarInsert.Parameters.Add("@primary_address_state", MySqlDbType.VarChar, 100, "@primary_address_state");
+                //cmSugarInsert.Parameters["@primary_address_state"].Value =  
+
+                cmSugarInsert.Parameters.Add("@primary_address_postalcode", MySqlDbType.VarChar, 20, "@primary_address_postalcode");
+                cmSugarInsert.Parameters["@primary_address_postalcode"].Value =  txtPLZ.Text; 
+                cmSugarInsert.Parameters.Add("@primary_address_country", MySqlDbType.VarChar, 255, "@primary_address_country");
+                cmSugarInsert.Parameters["@primary_address_country"].Value = txtSugarLand.Text;
+
+                //cmSugarInsert.Parameters.Add("@alt_address_street", MySqlDbType.VarChar, 150, "@alt_address_street");
+                //cmSugarInsert.Parameters["@alt_address_street"].Value =   
+                //cmSugarInsert.Parameters.Add("@alt_address_city", MySqlDbType.VarChar, 100, "@alt_address_city");
+                //cmSugarInsert.Parameters["@alt_address_city"].Value =   
+                //cmSugarInsert.Parameters.Add("@alt_address_state", MySqlDbType.VarChar, 100, "@alt_address_state");
+                //cmSugarInsert.Parameters["@alt_address_state"].Value =   
+                //cmSugarInsert.Parameters.Add("@alt_address_postalcode", MySqlDbType.VarChar, 20, "@alt_address_postalcode");
+                //cmSugarInsert.Parameters["@alt_address_postalcode"].Value =   
+                //cmSugarInsert.Parameters.Add("@alt_address_country", MySqlDbType.VarChar, 255, "@alt_address_country");
+                //cmSugarInsert.Parameters["@alt_address_country"].Value =   
+                //cmSugarInsert.Parameters.Add("@assistant", MySqlDbType.VarChar, 75, "@assistant");
+                //cmSugarInsert.Parameters["@assistant"].Value =   
+                //cmSugarInsert.Parameters.Add("@assistant_phone", MySqlDbType.VarChar, 100, "@assistant_phone");
+                //cmSugarInsert.Parameters["@assistant_phone"].Value =   
+
+                cmSugarInsert.Parameters.Add("@lead_source", MySqlDbType.VarChar, 255, "@lead_source");
+                cmSugarInsert.Parameters["@lead_source"].Value = txtSugarLeadSource.Text;
+
+                //cmSugarInsert.Parameters.Add("@reports_to_id", MySqlDbType.VarChar, 36, "@reports_to_id");
+                //cmSugarInsert.Parameters["@reports_to_id"].Value = 
+
+                MySqlParameter myparam = new MySqlParameter();
+                myparam.ParameterName = "@birthdate";
+                myparam.SourceColumn = "@birthdate";
+                myparam.DbType = (DbType)MySqlDbType.Date;
+                myparam.Value = Convert.ToDateTime(txtCaoGeb.Text);
+                cmSugarInsert.Parameters.Add(myparam);
+
+                //cmSugarInsert.Parameters.Add("@campaign_id", MySqlDbType.VarChar, 36, "@campaign_id");
+            

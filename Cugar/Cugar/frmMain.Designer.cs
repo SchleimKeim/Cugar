@@ -81,12 +81,13 @@
             this.label18 = new System.Windows.Forms.Label();
             this.txtCaoCustomerSince = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.txtCaoBriefanrede = new System.Windows.Forms.TextBox();
             this.txtCaoGeb = new System.Windows.Forms.TextBox();
             this.grpSugar = new System.Windows.Forms.GroupBox();
-            this.textBox23 = new System.Windows.Forms.TextBox();
+            this.txtSugarLand = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
+            this.txtSugarAbteilung = new System.Windows.Forms.TextBox();
+            this.lblSugarAbteilung = new System.Windows.Forms.Label();
             this.txtSugarZugewiesenAn = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.txtSugarLeadSource = new System.Windows.Forms.TextBox();
@@ -177,7 +178,6 @@
             this.tabDGVSugar = new System.Windows.Forms.TabPage();
             this.dgvSugar = new System.Windows.Forms.DataGridView();
             this.tabSuche = new System.Windows.Forms.TabPage();
-            this.txtCaoBriefanrede = new System.Windows.Forms.TextBox();
             this.mnuFrmMain.SuspendLayout();
             this.grpGenerell.SuspendLayout();
             this.grpCAO.SuspendLayout();
@@ -212,20 +212,20 @@
             this.neuToolStripMenuItem,
             this.beendenToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.fileToolStripMenuItem.Text = "&Datei";
             // 
             // neuToolStripMenuItem
             // 
             this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.neuToolStripMenuItem.Text = "Neu...";
             this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
             // 
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.beendenToolStripMenuItem.Text = "&Beenden";
             this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
@@ -235,13 +235,13 @@
             this.connectionToolStripMenuItem,
             this.toolStripMenuItem2});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.settingsToolStripMenuItem.Text = "&Bearbeiten";
             // 
             // connectionToolStripMenuItem
             // 
             this.connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
-            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.connectionToolStripMenuItem.Text = "&Einstellungen...";
             this.connectionToolStripMenuItem.Click += new System.EventHandler(this.connectionToolStripMenuItem_Click);
             // 
@@ -251,20 +251,20 @@
             this.standardToolStripMenuItem,
             this.gridViewToolStripMenuItem});
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(154, 22);
             this.toolStripMenuItem2.Text = "&Ansicht";
             // 
             // standardToolStripMenuItem
             // 
             this.standardToolStripMenuItem.Name = "standardToolStripMenuItem";
-            this.standardToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.standardToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.standardToolStripMenuItem.Text = "Standard";
             // 
             // gridViewToolStripMenuItem
             // 
             this.gridViewToolStripMenuItem.Enabled = false;
             this.gridViewToolStripMenuItem.Name = "gridViewToolStripMenuItem";
-            this.gridViewToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.gridViewToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.gridViewToolStripMenuItem.Text = "Grid View";
             // 
             // grpGenerell
@@ -309,11 +309,11 @@
             // txtBemerkung
             // 
             this.txtBemerkung.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBemerkung.Location = new System.Drawing.Point(70, 232);
+            this.txtBemerkung.Location = new System.Drawing.Point(70, 235);
             this.txtBemerkung.Multiline = true;
             this.txtBemerkung.Name = "txtBemerkung";
             this.txtBemerkung.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtBemerkung.Size = new System.Drawing.Size(538, 120);
+            this.txtBemerkung.Size = new System.Drawing.Size(538, 117);
             this.txtBemerkung.TabIndex = 1;
             // 
             // txtOrt
@@ -322,7 +322,7 @@
             this.txtOrt.Location = new System.Drawing.Point(70, 206);
             this.txtOrt.Name = "txtOrt";
             this.txtOrt.Size = new System.Drawing.Size(219, 20);
-            this.txtOrt.TabIndex = 1;
+            this.txtOrt.TabIndex = 5;
             // 
             // txtPLZ
             // 
@@ -330,7 +330,7 @@
             this.txtPLZ.Location = new System.Drawing.Point(70, 180);
             this.txtPLZ.Name = "txtPLZ";
             this.txtPLZ.Size = new System.Drawing.Size(219, 20);
-            this.txtPLZ.TabIndex = 1;
+            this.txtPLZ.TabIndex = 4;
             // 
             // lblComment
             // 
@@ -356,7 +356,7 @@
             this.txtStrasse3.Location = new System.Drawing.Point(70, 154);
             this.txtStrasse3.Name = "txtStrasse3";
             this.txtStrasse3.Size = new System.Drawing.Size(219, 20);
-            this.txtStrasse3.TabIndex = 1;
+            this.txtStrasse3.TabIndex = 99;
             // 
             // label7
             // 
@@ -373,7 +373,7 @@
             this.txtStrasse2.Location = new System.Drawing.Point(70, 128);
             this.txtStrasse2.Name = "txtStrasse2";
             this.txtStrasse2.Size = new System.Drawing.Size(219, 20);
-            this.txtStrasse2.TabIndex = 1;
+            this.txtStrasse2.TabIndex = 0;
             // 
             // label6
             // 
@@ -390,7 +390,7 @@
             this.txtWebpage.Location = new System.Drawing.Point(383, 181);
             this.txtWebpage.Name = "txtWebpage";
             this.txtWebpage.Size = new System.Drawing.Size(225, 20);
-            this.txtWebpage.TabIndex = 1;
+            this.txtWebpage.TabIndex = 11;
             // 
             // txtEmail
             // 
@@ -398,7 +398,7 @@
             this.txtEmail.Location = new System.Drawing.Point(383, 154);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(225, 20);
-            this.txtEmail.TabIndex = 1;
+            this.txtEmail.TabIndex = 10;
             // 
             // txtFax
             // 
@@ -406,7 +406,7 @@
             this.txtFax.Location = new System.Drawing.Point(383, 128);
             this.txtFax.Name = "txtFax";
             this.txtFax.Size = new System.Drawing.Size(225, 20);
-            this.txtFax.TabIndex = 1;
+            this.txtFax.TabIndex = 9;
             // 
             // txtMobile
             // 
@@ -414,7 +414,7 @@
             this.txtMobile.Location = new System.Drawing.Point(383, 103);
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.Size = new System.Drawing.Size(225, 20);
-            this.txtMobile.TabIndex = 1;
+            this.txtMobile.TabIndex = 8;
             // 
             // txtStrasse1
             // 
@@ -422,7 +422,7 @@
             this.txtStrasse1.Location = new System.Drawing.Point(70, 102);
             this.txtStrasse1.Name = "txtStrasse1";
             this.txtStrasse1.Size = new System.Drawing.Size(219, 20);
-            this.txtStrasse1.TabIndex = 1;
+            this.txtStrasse1.TabIndex = 3;
             // 
             // label5
             // 
@@ -448,7 +448,7 @@
             this.txtPhon2.Location = new System.Drawing.Point(383, 77);
             this.txtPhon2.Name = "txtPhon2";
             this.txtPhon2.Size = new System.Drawing.Size(225, 20);
-            this.txtPhon2.TabIndex = 1;
+            this.txtPhon2.TabIndex = 7;
             // 
             // label14
             // 
@@ -465,7 +465,7 @@
             this.txtName.Location = new System.Drawing.Point(70, 76);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(219, 20);
-            this.txtName.TabIndex = 1;
+            this.txtName.TabIndex = 2;
             // 
             // label13
             // 
@@ -500,7 +500,7 @@
             this.txtPhone1.Location = new System.Drawing.Point(383, 51);
             this.txtPhone1.Name = "txtPhone1";
             this.txtPhone1.Size = new System.Drawing.Size(225, 20);
-            this.txtPhone1.TabIndex = 1;
+            this.txtPhone1.TabIndex = 6;
             // 
             // txtAnrede
             // 
@@ -508,7 +508,7 @@
             this.txtAnrede.Location = new System.Drawing.Point(70, 24);
             this.txtAnrede.Name = "txtAnrede";
             this.txtAnrede.Size = new System.Drawing.Size(219, 20);
-            this.txtAnrede.TabIndex = 1;
+            this.txtAnrede.TabIndex = 0;
             // 
             // txtVorname
             // 
@@ -591,7 +591,7 @@
             this.cboCaoZahlart.Location = new System.Drawing.Point(93, 149);
             this.cboCaoZahlart.Name = "cboCaoZahlart";
             this.cboCaoZahlart.Size = new System.Drawing.Size(215, 21);
-            this.cboCaoZahlart.TabIndex = 2;
+            this.cboCaoZahlart.TabIndex = 17;
             // 
             // cboCaoVersand
             // 
@@ -599,7 +599,7 @@
             this.cboCaoVersand.Location = new System.Drawing.Point(93, 122);
             this.cboCaoVersand.Name = "cboCaoVersand";
             this.cboCaoVersand.Size = new System.Drawing.Size(215, 21);
-            this.cboCaoVersand.TabIndex = 2;
+            this.cboCaoVersand.TabIndex = 16;
             this.cboCaoVersand.SelectedIndexChanged += new System.EventHandler(this.txtCaoVersand_SelectedIndexChanged);
             // 
             // label16
@@ -635,7 +635,7 @@
             this.txtCaoZahlungsziel.Location = new System.Drawing.Point(91, 98);
             this.txtCaoZahlungsziel.Name = "txtCaoZahlungsziel";
             this.txtCaoZahlungsziel.Size = new System.Drawing.Size(34, 20);
-            this.txtCaoZahlungsziel.TabIndex = 1;
+            this.txtCaoZahlungsziel.TabIndex = 15;
             this.txtCaoZahlungsziel.Text = "30";
             this.txtCaoZahlungsziel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -672,7 +672,7 @@
             this.txtCaoCustomerSince.Location = new System.Drawing.Point(91, 74);
             this.txtCaoCustomerSince.Name = "txtCaoCustomerSince";
             this.txtCaoCustomerSince.Size = new System.Drawing.Size(215, 20);
-            this.txtCaoCustomerSince.TabIndex = 1;
+            this.txtCaoCustomerSince.TabIndex = 14;
             // 
             // label17
             // 
@@ -683,20 +683,28 @@
             this.label17.TabIndex = 0;
             this.label17.Text = "Geburtstdatum:";
             // 
+            // txtCaoBriefanrede
+            // 
+            this.txtCaoBriefanrede.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCaoBriefanrede.Location = new System.Drawing.Point(91, 24);
+            this.txtCaoBriefanrede.Name = "txtCaoBriefanrede";
+            this.txtCaoBriefanrede.Size = new System.Drawing.Size(215, 20);
+            this.txtCaoBriefanrede.TabIndex = 12;
+            // 
             // txtCaoGeb
             // 
             this.txtCaoGeb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCaoGeb.Location = new System.Drawing.Point(91, 50);
             this.txtCaoGeb.Name = "txtCaoGeb";
             this.txtCaoGeb.Size = new System.Drawing.Size(215, 20);
-            this.txtCaoGeb.TabIndex = 1;
+            this.txtCaoGeb.TabIndex = 13;
             // 
             // grpSugar
             // 
-            this.grpSugar.Controls.Add(this.textBox23);
+            this.grpSugar.Controls.Add(this.txtSugarLand);
             this.grpSugar.Controls.Add(this.label28);
-            this.grpSugar.Controls.Add(this.textBox22);
-            this.grpSugar.Controls.Add(this.label27);
+            this.grpSugar.Controls.Add(this.txtSugarAbteilung);
+            this.grpSugar.Controls.Add(this.lblSugarAbteilung);
             this.grpSugar.Controls.Add(this.txtSugarZugewiesenAn);
             this.grpSugar.Controls.Add(this.label26);
             this.grpSugar.Controls.Add(this.txtSugarLeadSource);
@@ -712,39 +720,39 @@
             this.grpSugar.TabStop = false;
             this.grpSugar.Text = "Sugar options";
             // 
-            // textBox23
+            // txtSugarLand
             // 
-            this.textBox23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox23.Location = new System.Drawing.Point(93, 149);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(215, 20);
-            this.textBox23.TabIndex = 1;
+            this.txtSugarLand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSugarLand.Location = new System.Drawing.Point(93, 149);
+            this.txtSugarLand.Name = "txtSugarLand";
+            this.txtSugarLand.Size = new System.Drawing.Size(215, 20);
+            this.txtSugarLand.TabIndex = 23;
             // 
             // label28
             // 
             this.label28.AutoSize = true;
             this.label28.Location = new System.Drawing.Point(8, 152);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(56, 13);
+            this.label28.Size = new System.Drawing.Size(34, 13);
             this.label28.TabIndex = 0;
-            this.label28.Text = "Reserve 2";
+            this.label28.Text = "Land:";
             // 
-            // textBox22
+            // txtSugarAbteilung
             // 
-            this.textBox22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox22.Location = new System.Drawing.Point(93, 123);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(215, 20);
-            this.textBox22.TabIndex = 1;
+            this.txtSugarAbteilung.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSugarAbteilung.Location = new System.Drawing.Point(93, 123);
+            this.txtSugarAbteilung.Name = "txtSugarAbteilung";
+            this.txtSugarAbteilung.Size = new System.Drawing.Size(215, 20);
+            this.txtSugarAbteilung.TabIndex = 22;
             // 
-            // label27
+            // lblSugarAbteilung
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(8, 126);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(56, 13);
-            this.label27.TabIndex = 0;
-            this.label27.Text = "Reserve 1";
+            this.lblSugarAbteilung.AutoSize = true;
+            this.lblSugarAbteilung.Location = new System.Drawing.Point(8, 126);
+            this.lblSugarAbteilung.Name = "lblSugarAbteilung";
+            this.lblSugarAbteilung.Size = new System.Drawing.Size(54, 13);
+            this.lblSugarAbteilung.TabIndex = 0;
+            this.lblSugarAbteilung.Text = "Abteilung:";
             // 
             // txtSugarZugewiesenAn
             // 
@@ -752,7 +760,7 @@
             this.txtSugarZugewiesenAn.Location = new System.Drawing.Point(93, 97);
             this.txtSugarZugewiesenAn.Name = "txtSugarZugewiesenAn";
             this.txtSugarZugewiesenAn.Size = new System.Drawing.Size(215, 20);
-            this.txtSugarZugewiesenAn.TabIndex = 1;
+            this.txtSugarZugewiesenAn.TabIndex = 21;
             // 
             // label26
             // 
@@ -769,7 +777,7 @@
             this.txtSugarLeadSource.Location = new System.Drawing.Point(93, 71);
             this.txtSugarLeadSource.Name = "txtSugarLeadSource";
             this.txtSugarLeadSource.Size = new System.Drawing.Size(215, 20);
-            this.txtSugarLeadSource.TabIndex = 1;
+            this.txtSugarLeadSource.TabIndex = 20;
             // 
             // label25
             // 
@@ -787,7 +795,7 @@
             this.txtSugarReportsTo.Location = new System.Drawing.Point(93, 45);
             this.txtSugarReportsTo.Name = "txtSugarReportsTo";
             this.txtSugarReportsTo.Size = new System.Drawing.Size(215, 20);
-            this.txtSugarReportsTo.TabIndex = 1;
+            this.txtSugarReportsTo.TabIndex = 19;
             // 
             // label24
             // 
@@ -804,7 +812,7 @@
             this.txtSugarTitle.Location = new System.Drawing.Point(93, 19);
             this.txtSugarTitle.Name = "txtSugarTitle";
             this.txtSugarTitle.Size = new System.Drawing.Size(215, 20);
-            this.txtSugarTitle.TabIndex = 1;
+            this.txtSugarTitle.TabIndex = 18;
             // 
             // label23
             // 
@@ -1614,14 +1622,6 @@
             this.tabSuche.Text = "Suche";
             this.tabSuche.UseVisualStyleBackColor = true;
             // 
-            // txtCaoBriefanrede
-            // 
-            this.txtCaoBriefanrede.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCaoBriefanrede.Location = new System.Drawing.Point(91, 24);
-            this.txtCaoBriefanrede.Name = "txtCaoBriefanrede";
-            this.txtCaoBriefanrede.Size = new System.Drawing.Size(215, 20);
-            this.txtCaoBriefanrede.TabIndex = 1;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1715,10 +1715,10 @@
         private System.Windows.Forms.ComboBox cboCaoVersand;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox23;
+        private System.Windows.Forms.TextBox txtSugarLand;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox textBox22;
-        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox txtSugarAbteilung;
+        private System.Windows.Forms.Label lblSugarAbteilung;
         private System.Windows.Forms.TextBox txtSugarZugewiesenAn;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox txtSugarLeadSource;
