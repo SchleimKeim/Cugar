@@ -51,6 +51,7 @@
             this.txtSuche.Name = "txtSuche";
             this.txtSuche.Size = new System.Drawing.Size(178, 20);
             this.txtSuche.TabIndex = 0;
+            this.txtSuche.TextChanged += new System.EventHandler(this.txtSuche_TextChanged);
             // 
             // rbName
             // 

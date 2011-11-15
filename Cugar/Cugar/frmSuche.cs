@@ -17,8 +17,11 @@ namespace Cugar
 
         #region private members
 
-        private const string m_const_strCaoTableSearchAll = "tblCaoSearchAll";
-        private const string m_const_strSugarTableSearchAll = "tblSugarSearchAll";
+        private const string m_const_strCaoTableSearchAllPrivate = "tblCaoSearchAllPrivate";
+        private const string m_const_strCaoTableSearchAllCompanies = "tblCaoSearchAllCompanies";
+        private const string m_const_strSugarTableSearchAllPrivate = "tblSugarSearchAllPrivate";
+        private const string m_const_strSugarTableSearchAllCompanies = "tblSugarSearchAllCompanies";
+
         private const string m_const_strCaoTableSearchHuman = "tblCaoSearchHuman";
         private const string m_const_strSugarTableSearchHuman = "tblSugarSearchHuman";
 
@@ -41,27 +44,30 @@ namespace Cugar
 
         private BindingSource m_BS;
 
+        // Bool to decide weither its a search for normal contacts or for companys
+        private bool m_privat = false;
+
         #endregion
 
-        /// <summary>
-        /// The Constructor requires two connector objects</summary>
-        /// <param name="ds">a DataSet</param>
-        /// <param name="searchstring">the search string</param>  
-        public frmSuche(DataSet ds, string searchstring)
-        {
-            m_strSuchstring = searchstring;
-            m_DS = ds;
-            InitializeComponent();
+        ///// <summary>
+        ///// The Constructor requires two connector objects</summary>
+        ///// <param name="ds">a DataSet</param>
+        ///// <param name="searchstring">the search string</param>  
+        //public frmSuche(DataSet ds, string searchstring)
+        //{
+        //    m_strSuchstring = searchstring;
+        //    m_DS = ds;
+        //    InitializeComponent();
             
-        }
+        //}
 
-        public frmSuche(DataSet ds, string searchstring, BindingSource bs)
-        {
-            m_strSuchstring = searchstring;
-            m_DS = ds;
-            m_BS = bs;
-            InitializeComponent();
-        }
+        //public frmSuche(DataSet ds, string searchstring, BindingSource bs)
+        //{
+        //    m_strSuchstring = searchstring;
+        //    m_DS = ds;
+        //    m_BS = bs;
+        //    InitializeComponent();
+        //}
         /*
         /// <summary>
         /// The Constructor requires two connector objects</summary>
@@ -88,12 +94,15 @@ namespace Cugar
         */
 
         /// <summary>
-        /// The Constructor requires two connector objects</summary>
+        /// Please make sure to set the property Privat to true or false 
+        /// before calling any functions!
+        /// </summary>
         /// <param name="ds">a DataSet</param>
-        /// <param name="searchstring">the search string</param>  
+        /// <param name="searchstring">the searchstring</param>
         /// <param name="obj_cao">the cCao Object from frmMain</param>
         /// <param name="obj_sugar">the cSugar Object from frmMain</param>
         /// <param name="mainform">reference to the frmMain</param>
+        /// <param name="bs">reference to a BindingSource</param>
         public frmSuche(DataSet ds, string searchstring, cCao obj_cao, cSugar obj_sugar, frmMain mainform, BindingSource bs)
         {
             m_strSuchstring = searchstring;
@@ -103,8 +112,6 @@ namespace Cugar
             this.frmMain = mainform;
             m_BS = bs;
             InitializeComponent();
-           
-
         }
 
         private void frmSuche_Load(object sender, EventArgs e)
@@ -117,7 +124,15 @@ namespace Cugar
             try
             {
                 ClearBothDgvsNew();
-                StartSearch(m_strSuchstring);
+                if (m_privat == true)
+                {
+                    StartSearchPrivat(m_strSuchstring);
+                }
+                else
+                {
+                    StartSearchFirma(m_strSuchstring);
+                }
+
             }
             catch (Exception adsf)
             {
@@ -128,28 +143,51 @@ namespace Cugar
 
         private void cmdSuche_Click(object sender, EventArgs e)
         {
-            StartSearch(txtSuche.Text);
+            if (m_privat == true)
+            {
+                StartSearchPrivat(txtSuche.Text);
+            }
+            else
+            {
+                StartSearchFirma(txtSuche.Text);
+            }
         }
 
-        private void StartSearch(string searchstring)
+        /// <summary>
+        /// Searches for Private Customers
+        /// </summary>
+        /// <param name="searchstring">searchstring</param>
+        public void StartSearchPrivat(string searchstring)
         {
             m_objCao = new cCao(m_DS, m_BS);
             //m_objCao.search_ds_human_persons(searchstring);
             m_objCao.search_ds_all_persons(searchstring);
             //m_DV_Search_Cao_human = m_DS.Tables[m_const_strCaoTableSearchAll].DefaultView;
-            m_BS.DataSource = m_DS.Tables[m_const_strCaoTableSearchAll];
+            m_BS.DataSource = m_DS.Tables[m_const_strCaoTableSearchAllPrivate];
 
             dgvCaoSuche.DataSource = m_BS;
 
             m_objSugar = new cSugar(m_DS, m_BS);
             //m_objSugar.search_ds_human_persons(searchstring);
             m_objSugar.search_ds_all_persons(searchstring);
-            m_DV_Search_Sugar_human = m_DS.Tables[m_const_strSugarTableSearchAll].DefaultView;
+            m_DV_Search_Sugar_human = m_DS.Tables[m_const_strSugarTableSearchAllPrivate].DefaultView;
             //m_BS.DataSource = m_DS.Tables[m_const_strSugarTableSearchAll];
             dgvSugarSuche.DataSource = m_DV_Search_Sugar_human;
             //dgvSugarSuche.DataSource = m_BS;
         }
 
+        public void StartSearchFirma(string searchstring)
+        {
+            m_objCao = new cCao(m_DS, m_BS);
+            m_objCao.search_ds_all_companies(searchstring);
+            m_BS.DataSource = m_DS.Tables[m_const_strCaoTableSearchAllCompanies];
+            dgvCaoSuche.DataSource = m_BS;
+
+            //m_objSugar = new cSugar(m_DS, m_BS);
+            //m_objSugar.search_ds_all_persons(searchstring);
+            //m_DV_Search_Sugar_human = m_DS.Tables[m_const_strSugarTableSearchAll].DefaultView;
+            //dgvSugarSuche.DataSource = m_DV_Search_Sugar_human;
+        }
         private void cmdClear_Click(object sender, EventArgs e)
         {
             ClearBothDgvs();
@@ -169,13 +207,20 @@ namespace Cugar
             {
                 dgvCaoSuche.DataSource = null;
                 m_DV_Search_Cao_human = null;
-                m_DS.Tables.Remove(m_const_strCaoTableSearchAll);
+                if (m_privat == true)
+                {
+                    m_DS.Tables.Remove(m_const_strCaoTableSearchAllPrivate);
+                }
+                else if (m_privat == false)
+                {
+                    m_DS.Tables.Remove(m_const_strCaoTableSearchAllCompanies);
+                }
             }
             if (dgvSugarSuche.ColumnCount > 0)
             {
                 dgvSugarSuche.DataSource = null;
                 m_DV_Search_Sugar_human = null;
-                m_DS.Tables.Remove(m_const_strSugarTableSearchAll);
+                m_DS.Tables.Remove(m_const_strSugarTableSearchAllPrivate);
             }
         }
 
@@ -188,16 +233,16 @@ namespace Cugar
              */
             dgvCaoSuche.DataSource = null;
             m_DV_Search_Cao_human = null;
-            if (m_DS.Tables[m_const_strCaoTableSearchAll] != null)
+            if (m_DS.Tables[m_const_strCaoTableSearchAllPrivate] != null)
             {
-                m_DS.Tables.Remove(m_const_strCaoTableSearchAll);
+                m_DS.Tables.Remove(m_const_strCaoTableSearchAllPrivate);
             }                
       
             dgvSugarSuche.DataSource = null;
             m_DV_Search_Sugar_human = null;
-            if (m_DS.Tables[m_const_strSugarTableSearchAll] != null)
+            if (m_DS.Tables[m_const_strSugarTableSearchAllPrivate] != null)
             {
-                m_DS.Tables.Remove(m_const_strSugarTableSearchAll);
+                m_DS.Tables.Remove(m_const_strSugarTableSearchAllPrivate);
             }           
             
         }
@@ -213,8 +258,32 @@ namespace Cugar
             //this.frmMain.dtDatensatzCao = m_DS.Tables[m_const_strCaoTableSearchAll];
             
             this.frmMain.DatensatzLaden();
-            this.frmMain.SaveButtonEnabled = true;
+            //this.frmMain.SaveButtonEnabled = true;
             this.Close();
+        }
+
+        #region propertys
+        /// <summary>
+        /// Sets weither if the search is for Private Customers
+        /// or for a Company
+        /// </summary>
+        /// <value>true or false, true = private, false = company</value>
+        public bool Privat
+        {
+            get
+            {
+                return m_privat;
+            }
+            set
+            {
+                m_privat = value;
+            }
+        }
+        #endregion
+
+        private void txtSuche_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

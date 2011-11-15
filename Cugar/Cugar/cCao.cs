@@ -15,8 +15,11 @@ namespace Cugar
     {
         #region private members
         private const string m_const_strCaoTablePrivate = "tblCaoPrivate";
-        private const string m_const_strCaoTableSearchAll = "tblCaoSearchAll";
+        private const string m_const_strCaoTableSearchAllPrivate = "tblCaoSearchAllPrivate";
+        private const string m_const_strCaoTableSearchAllCompanies = "tblCaoSearchAllCompanies";
         private const string m_const_strCaoTableSearchHuman = "tblCaoSearchHuman";
+
+
         private const string m_const_strCaoVersandarten = "tblCaoVersandarten";
         private const string m_const_strCaoZahlarten = "tblcaoversandarten";
 
@@ -121,7 +124,6 @@ namespace Cugar
             OdbcCommand m_cmdCaoSelect = new OdbcCommand("select * FROM ADRESSEN WHERE KUNDENGRUPPE=1 ORDER BY REC_ID;", m_cnCao);
             m_daCao = new OdbcDataAdapter(m_cmdCaoSelect);
             m_daCao.Fill(m_dsCao, m_const_strCaoTablePrivate);
-            //return m_dsCao;
         }
 
         /// <summary>
@@ -216,8 +218,8 @@ namespace Cugar
 
             OdbcCommand m_cmdSearchCommand = new OdbcCommand(m_strCommand.ToString());
             m_daCao = new OdbcDataAdapter(m_cmdSearchCommand.CommandText, m_cnCao);
-            m_daCao.FillSchema(m_dsCao, SchemaType.Source, m_const_strCaoTableSearchAll);
-            m_daCao.Fill(m_dsCao, m_const_strCaoTableSearchAll);
+            m_daCao.FillSchema(m_dsCao, SchemaType.Source, m_const_strCaoTableSearchAllPrivate);
+            m_daCao.Fill(m_dsCao, m_const_strCaoTableSearchAllPrivate);
 
             //added 03.11.2011
             
@@ -241,6 +243,25 @@ namespace Cugar
             m_daCao = new OdbcDataAdapter(m_cmdSearchCommand.CommandText, m_cnCao);
             m_daCao.FillSchema(m_dsCao, SchemaType.Source, m_const_strCaoTableSearchHuman);
             m_daCao.Fill(m_dsCao, m_const_strCaoTableSearchHuman);            
+        }
+
+        /// <summary>
+        /// Searches for Companies.
+        /// </summary>
+        /// <param name="searchstring">the searchstring</param>
+        public void search_ds_all_companies(string searchstring)
+        {
+            StringBuilder m_strCommand = new StringBuilder();
+            m_strCommand.Append(@"select * from adressen where NAME1 like ");
+            m_strCommand.Append(@"'%");
+            m_strCommand.Append(searchstring);
+            m_strCommand.Append(@"%'");
+            m_strCommand.Append(" AND KUNDENGRUPPE=2;");
+
+            OdbcCommand m_cmdSearchCommand = new OdbcCommand(m_strCommand.ToString());
+            m_daCao = new OdbcDataAdapter(m_cmdSearchCommand.CommandText, m_cnCao);
+            m_daCao.FillSchema(m_dsCao, SchemaType.Source, m_const_strCaoTableSearchAllCompanies);
+            m_daCao.Fill(m_dsCao, m_const_strCaoTableSearchAllCompanies);
         }
 
         /// <summary>
@@ -579,7 +600,7 @@ namespace Cugar
             //delete
             //OdbcCommand myDeleteCommand = new OdbcCommand("delete from ADRESSEN_LIEF Where ADDR_ID=3;delete from ADRESSEN_TO_MERK Where ADDR_ID=3;DELETE FROM ADRESSEN WHERE REC_ID=3.DeleteCommand = myDeleteCommand;", myConnection);
             //myDeleteCommand.Parameters.Add("@fldStudentNr", OleDbType.Integer, 2, "fldStudentNr");
-            m_daCao.Update(m_dsCao, m_const_strCaoTableSearchAll);         
+            m_daCao.Update(m_dsCao, m_const_strCaoTableSearchAllPrivate);         
             
         }
 
@@ -623,17 +644,7 @@ namespace Cugar
         #endregion
 
         #region propertys
-        ///// <summary>
-        /////  Read only
-        /////  Returns the DataSet
-        /////  </summary>
-        //public DataSet ds
-        //{           
-        //    get
-        //    {
-        //        return m_dsCao;
-        //    }
-        //}
+
         /// <summary>
         /// Returns the latest REC_ID from cao.adressen
         /// </summary>

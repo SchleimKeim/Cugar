@@ -12,7 +12,14 @@ using MySql.Data.MySqlClient;
 
 namespace Cugar
 {
-    /* *********************
+    /* **************************
+     * 14.11.2011 New ToDo list:
+     * **************************
+     * - Insert Companys (prepare @ school)
+     * - Update Records
+     * - clean up main.cs
+     * 
+     * 
      * 3.11.2011
      * *********************
      * REMOVE TXTSTRASSE 2 UND 3
@@ -132,9 +139,12 @@ namespace Cugar
 
         /* Added on 1.11. just for testing */
         private const string m_const_strCaoTablePrivate = "tblCaoPrivate";
-        private const string m_const_strSugarTableSearchAll = "tblSugarSearchAll";
+        private const string m_const_strSugarTablePrivate = "tblSugarContacts";
+        private const string m_const_strCaoTableSearchAllPrivate = "tblCaoSearchAllPrivate";
+        private const string m_const_strCaoTableSearchAllCompanies = "tblCaoSearchAllCompanies";
         private const string m_const_strCaoTableSearchHuman = "tblCaoSearchHuman";
         private const string m_const_strSugarTableSearchHuman = "tblSugarSearchHuman";
+        
 
         private const string m_const_strCaoVersandarten = "tblCaoVersandarten";
         private const string m_const_strCaoZahlarten = "tblCaoZahlarten";
@@ -144,8 +154,11 @@ namespace Cugar
 
         /* binding sources */
         private BindingSource m_BS_CaoSearchContacts = new BindingSource();
+        private BindingSource m_BS_CaoSearchFirma = new BindingSource();
         private BindingSource m_BS_CaoZahlarten = new BindingSource();
         private BindingSource m_BS_CaoVersandarten = new BindingSource();
+        private BindingSource m_BS_SugarSearchContacts = new BindingSource();
+        
 
         private bool m_bNew = false;
 
@@ -212,9 +225,9 @@ namespace Cugar
                 {
                     //m_objSugar = new cSugar(m_DS);
                     // added on 03.11.
-                    m_objSugar = new cSugar(m_DS, m_BS_CaoSearchContacts);
-                    m_objSugar.LoadDataSet();
-                    m_dvSugar = m_DS.Tables[m_const_strSugarTable].DefaultView;
+                    m_objSugar = new cSugar(m_DS, m_BS_SugarSearchContacts);
+                    m_objSugar.LoadPrivateCustomers();
+                    m_dvSugar = m_DS.Tables[m_const_strSugarTablePrivate].DefaultView;
                     dgvSugar.DataSource = m_dvSugar;
                 }
                 catch (Exception asdf)
@@ -252,25 +265,6 @@ namespace Cugar
         /// </summary>
         private void LoadCaoVersandArten()
         {
-            #region old
-            //int foo = 0;
-
-            //if (m_objCao.Versandarten == null)
-            //{
-            //    m_objCao.LoadCaoVersandarten();
-            //}
-
-            //string[] bla;
-            //bla = m_objCao.Versandarten;
-
-
-            //foreach (string x in bla)
-            //{
-            //    cboCaoVersand.Items.Add(m_objCao.Versandarten[foo]);
-            //    foo++;
-            //}
-            #endregion
-
             #region testing to fill it without cCao, works but its not beautiful :(            
             StringBuilder m_sCaoConnect = new StringBuilder();
             #region connection string for odbc
@@ -350,32 +344,34 @@ namespace Cugar
         }
 
         
-        private void tstxtSuche_Click(object sender, EventArgs e)
-        {
-            tstxtSuchePrivat.Clear();
-        }
+        //private void tstxtSuche_Click(object sender, EventArgs e)
+        //{
+        //    tstxtSuchePrivat.Clear();
+        //}
 
         private void tsCmdSearch_Click(object sender, EventArgs e)
         {
-            Search();
+            SearchPrivat();
         }
 
-        private void Search()
+        private void SearchPrivat()
         {
             //frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text);
             frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuchePrivat.Text, m_objCao, m_objSugar, this, m_BS_CaoSearchContacts);
+            m_objSuche.Privat = true;
+            //m_objSuche.StartSearchPrivat(tstxtSuchePrivat.Text);
             //frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text, m_objCao, m_objSugar);            
             m_objSuche.ShowDialog();      
         }
 
-        private void tstxtSuche_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                Search();
-            }
+        //private void tstxtSuche_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    if (e.KeyCode == Keys.Enter)
+        //    {
+        //        SearchPrivat();
+        //    }
 
-        }
+        //}
 
         private void hilfeToolStripButton_Click(object sender, EventArgs e)
         {
@@ -564,13 +560,29 @@ namespace Cugar
 
         #endregion
 
-        /// <summary>
-        /// First it checks if we are creating a new dataset.
-        /// Then it Builds the insert string out of the textboxes.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void cmdPrivatSave_Click(object sender, EventArgs e)
+        {
+            CaoInsertPrivat();
+            SugarInsertPrivat();
+    
+            //Routine für Update vorgang
+            //m_DS.AcceptChanges();
+            //if (m_DS.HasChanges())
+            //{
+            //    MessageBox.Show("Änderungen :D");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Keine Änderungen :(");
+            //}
+            //cCao m_objCao = new cCao(m_DS, m_BS_CaoSearchContacts);
+            //m_objCao.UpdateAll();
+        }
+
+        /// <summary>
+        /// Creates a new Cao record.
+        /// </summary>
+        private void CaoInsertPrivat()
         {
             if (m_bNew == true)
             {
@@ -610,12 +622,12 @@ namespace Cugar
                 caoInsert.Parameters.Add("@REC_ID", OdbcType.Int, 11, "@REC_ID");
                 caoInsert.Parameters["@REC_ID"].Value = m_objCao.LatestRecId;
                 caoInsert.Parameters.Add("@KUNDENGRUPPE", OdbcType.Int, 11, "@KUNDENGRUPPE");
-                caoInsert.Parameters["@KUNDENGRUPPE"].Value = 2;
-                
+                caoInsert.Parameters["@KUNDENGRUPPE"].Value = 1;
+
                 caoInsert.Parameters.Add("@NAME1", OdbcType.VarChar, 40, "@NAME1");
                 CToolbox tool = new CToolbox();
                 caoInsert.Parameters["@NAME1"].Value = tool.UniteName(txtVorname.Text, txtName.Text);
-                
+
                 caoInsert.Parameters.Add("@PLZ", OdbcType.VarChar, 10, "@PLZ");
                 caoInsert.Parameters["@PLZ"].Value = txtPLZ.Text;
                 caoInsert.Parameters.Add("@ORT", OdbcType.VarChar, 40, "@ORT");
@@ -661,14 +673,75 @@ namespace Cugar
                     MessageBox.Show(asdf.ToString());
                     throw;
                 }
+
+            }
+        }
+
+        /// <summary>
+        /// Creates a new Sugar record.
+        /// </summary>
+        private void SugarInsertPrivat()
+        {
+            if (m_bNew == true)
+            {
+
                 #region Insert Command Text
+                if (m_objSugar.SugarConnection.State != ConnectionState.Open )
+                {
+                    m_objSugar.SugarConnection.Open();
+                }
                 StringBuilder sb_SugarInsert = new StringBuilder();
-                sb_SugarInsert.Append("INSERT INTO ontacts(");
+                sb_SugarInsert.Append("INSERT INTO contacts(");
 
                 #region rows for insert command text
+                /* original insert into text:
+                 * INSERT INTO sugarcrm.contacts(
+                 * id,
+                 * date_entered,  
+                 * modified_user_id, 
+                 * created_by, 
+                 * description, 
+                 * deleted, 
+                 * assigned_user_id, 
+                 * salutation, 
+                 * first_name, 
+                 * last_name, 
+                 * title, 
+                 * department, 
+                 * phone_home, 
+                 * phone_mobile, 
+                 * phone_work, 
+                 * phone_fax, 
+                 * primary_address_street, 
+                 * primary_address_city, 
+                 * primary_address_postalcode, 
+                 * primary_address_country
+                 * )
+                 * VALUES (
+                 * '82da7b1d-46de-403b-ac5b-f77edc2803ba', 
+                 * '2011.11.14',
+                 * 'ed2d04a5-8264-45e7-fbdb-4ebebdf8375a', 
+                 * 'ed2d04a5-8264-45e7-fbdb-4ebebdf8375a', 
+                 * 'asdf', 
+                 * 0, 
+                 * 'ed2d04a5-8264-45e7-fbdb-4ebebdf8375a', 
+                 * 'Sehr geehrter Herr', 
+                 * 'Anton', 
+                 * 'Good', 
+                 * 'CIO', 
+                 * 'Informatikbro', 
+                 * '0817236908', 
+                 * '0817236908', 
+                 * '0817236908', 
+                 * '0817236908', 
+                 * 'Staatsstrasse 11', 
+                 * 'Plons', 
+                 * '8889', 
+                 * 'Schweiz'); */
+
                 sb_SugarInsert.Append("id, ");
                 sb_SugarInsert.Append("date_entered, ");
-                sb_SugarInsert.Append("date_modified, ");
+                //sb_SugarInsert.Append("date_modified, ");
                 sb_SugarInsert.Append("modified_user_id, ");
                 sb_SugarInsert.Append("created_by, ");
                 sb_SugarInsert.Append("description, ");
@@ -686,20 +759,31 @@ namespace Cugar
                 sb_SugarInsert.Append("primary_address_street, ");
                 sb_SugarInsert.Append("primary_address_city, ");
                 sb_SugarInsert.Append("primary_address_postalcode, ");
-                sb_SugarInsert.Append("primary_address_country, ");
-                sb_SugarInsert.Append("lead_source, ");
-                sb_SugarInsert.Append(@"birthdate)");
-                #endregion
-                sb_SugarInsert.Append(@" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                #endregion
+                sb_SugarInsert.Append("primary_address_country)");
+                //sb_SugarInsert.Append("lead_source, ");
+                //sb_SugarInsert.Append("lead_source)");
+                //sb_SugarInsert.Append(@"birthdate)");
 
+                #endregion
+                sb_SugarInsert.Append(@" VALUES(@id, @date_entered, @modified_user_id, @created_by, @description, @deleted, @assigned_user_id, @salutation, @first_name, @last_name, @title, @department, @phone_home, @phone_mobile, @phone_work, @phone_fax, @primary_address_street, @primary_address_city, @primary_address_postalcode, @primary_address_country)");
+                //@sb_SugarInsert.Append(@" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
+                #region cmSugar + Parameters
                 MySqlCommand cmSugarInsert = new MySqlCommand(sb_SugarInsert.ToString(), m_objSugar.SugarConnection);
                 cmSugarInsert.Parameters.Add("@id", MySqlDbType.VarChar, 36, "@id");
                 cmSugarInsert.Parameters["@id"].Value = System.Guid.NewGuid().ToString();
-                cmSugarInsert.Parameters.Add("@date_entered", MySqlDbType.Datetime);
-                cmSugarInsert.Parameters["@date_entered"].Value = DateTime.Today.ToString();
-                cmSugarInsert.Parameters.Add("@date_modified", MySqlDbType.Datetime);
-                cmSugarInsert.Parameters["@date_modified"].Value = DateTime.Today.ToString();
+
+ 
+                //MySqlParameter myparam = new MySqlParameter();
+                //myparam.ParameterName = "@date_entered";
+                //myparam.SourceColumn = "@date_entered";
+                //myparam.DbType = (DbType)MySqlDbType.DateTime;
+                //myparam.Value = DateTime.Today.ToShortDateString();
+                //cmSugarInsert.Parameters.Add(myparam);
+
+                cmSugarInsert.Parameters.Add("@date_entered", MySqlDbType.DateTime);
+                cmSugarInsert.Parameters["@date_entered"].Value = DateTime.Today.ToShortDateString();
+                //cmSugarInsert.Parameters.Add("@date_modified", MySqlDbType.DateTime);
+                //cmSugarInsert.Parameters["@date_modified"].Value = DateTime.Today.ToString();
                 cmSugarInsert.Parameters.Add("@modified_user_id", MySqlDbType.VarChar, 36, "@modified_user_id");
                 cmSugarInsert.Parameters["@modified_user_id"].Value = "ed2d04a5-8264-45e7-fbdb-4ebebdf8375a";
                 cmSugarInsert.Parameters.Add("@created_by", MySqlDbType.VarChar, 36, "@created_by");
@@ -721,7 +805,7 @@ namespace Cugar
                 cmSugarInsert.Parameters.Add("@department", MySqlDbType.VarChar, 255, "@department");
                 cmSugarInsert.Parameters["@department"].Value = txtSugarAbteilung.Text;
                 cmSugarInsert.Parameters.Add("@phone_home", MySqlDbType.VarChar, 100, "@phone_home");
-                cmSugarInsert.Parameters["@phone_home"].Value = txtPhone1.Text; 
+                cmSugarInsert.Parameters["@phone_home"].Value = txtPhone1.Text;
                 cmSugarInsert.Parameters.Add("@phone_mobile", MySqlDbType.VarChar, 100, "@phone_mobile");
                 cmSugarInsert.Parameters["@phone_mobile"].Value = txtMobile.Text;
                 cmSugarInsert.Parameters.Add("@phone_work", MySqlDbType.VarChar, 100, "@phone_work");
@@ -733,17 +817,20 @@ namespace Cugar
                 cmSugarInsert.Parameters.Add("@primary_address_city", MySqlDbType.VarChar, 100, "@primary_address_city");
                 cmSugarInsert.Parameters["@primary_address_city"].Value = txtOrt.Text;
                 cmSugarInsert.Parameters.Add("@primary_address_postalcode", MySqlDbType.VarChar, 20, "@primary_address_postalcode");
-                cmSugarInsert.Parameters["@primary_address_postalcode"].Value =  txtPLZ.Text; 
+                cmSugarInsert.Parameters["@primary_address_postalcode"].Value = txtPLZ.Text;
                 cmSugarInsert.Parameters.Add("@primary_address_country", MySqlDbType.VarChar, 255, "@primary_address_country");
                 cmSugarInsert.Parameters["@primary_address_country"].Value = txtSugarLand.Text;
-                cmSugarInsert.Parameters.Add("@lead_source", MySqlDbType.VarChar, 255, "@lead_source");
-                cmSugarInsert.Parameters["@lead_source"].Value = txtSugarLeadSource.Text;
-                cmSugarInsert.Parameters.Add("@birthdate", MySqlDbType.Date);
-                cmSugarInsert.Parameters["@birthdate"].Value = txtCaoGeb.Text;
+                //cmSugarInsert.Parameters.Add("@lead_source", MySqlDbType.VarChar, 255, "@lead_source");
+                //cmSugarInsert.Parameters["@lead_source"].Value = txtSugarLeadSource.Text;
+                //cmSugarInsert.Parameters.Add("@birthdate", MySqlDbType.Date);
+                //cmSugarInsert.Parameters["@birthdate"].Value = txtCaoGeb.Text;
+                #endregion
+                #endregion
 
                 try
                 {
                     cmSugarInsert.ExecuteNonQuery();
+                    m_objSugar.SugarConnection.Close();
                 }
                 catch (Exception asdf)
                 {
@@ -751,24 +838,8 @@ namespace Cugar
                     throw;
                 }
             }
-            else
-            { 
-            }
-    
-    
-                
-                //m_DS.AcceptChanges();
-            //if (m_DS.HasChanges())
-            //{
-            //    MessageBox.Show("Änderungen :D");
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Keine Änderungen :(");
-            //}
-            //cCao m_objCao = new cCao(m_DS, m_BS_CaoSearchContacts);
-            //m_objCao.UpdateAll();
         }
+
 
         private void neuToolStripButton_Click(object sender, EventArgs e)
         {
@@ -786,17 +857,72 @@ namespace Cugar
             txtPhon2.Clear();
             txtPhone1.Clear();
             txtCaoBriefanrede.Clear();
-            txtCaoZahlungsziel.Clear();
+            //txtCaoZahlungsziel.Clear();
             txtCaoCustomerSince.Clear();
             txtCaoGeb.Clear();
             txtBemerkung.Clear();
             #endregion
+
             m_bNew = true;
             this.EnableSave();
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CaoInsertFirma();
+            SugarInsertFirma();
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void CaoInsertFirma()
+        {
+            //just use the code from privat with kundengruppe=2
+        }
+
+        private void SugarInsertFirma()
+        {
+            //...
+        }
+
+        private void tstxtSucheFirma_Click(object sender, EventArgs e)
+        {
+            tstxtSucheFirma.Clear();
+        }
+
+        private void tstxtSucheFirma_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchFirma();
+            }
+
+        }
+
+        private void SearchFirma()
+        {
+            frmSuche m_objSuche = new frmSuche(m_DS, tstxtSucheFirma.Text, m_objCao, m_objSugar, this, m_BS_CaoSearchFirma);
+            m_objSuche.Privat = false;
+            //m_objSuche.StartSearchFirma(tstxtSucheFirma.Text);
+            m_objSuche.ShowDialog();
+        }
+
+        private void tstxtSuchePrivat_Click(object sender, EventArgs e)
+        {
+            tstxtSuchePrivat.Clear();
+        }
+
+        private void tstxtSuchePrivat_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchFirma();
+            }
+        }
 
     }
 }

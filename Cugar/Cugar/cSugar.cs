@@ -15,8 +15,9 @@ namespace Cugar
     public class cSugar
     {
         #region private members
-        private const string m_const_strSugarTable = "tblSugar";
-        private const string m_const_strSugarTableSearchAll = "tblSugarSearchAll";
+        private const string m_const_strSugarTable = "tblSugarContacts";
+        private const string m_const_strSugarTableSearchAllPrivate = "tblSugarSearchAllPersons";
+        private const string m_const_strSugarTableSearchAllCompanies = "tblSugarSearchAllCompanies";
         private const string m_const_strSugarTableSearchHuman = "tblSugarSearchHuman";
         private String m_server;
         private String m_user;
@@ -99,14 +100,13 @@ namespace Cugar
 
         /// <summary>
         ///  Loads the whole Database into the referenced DataSet.
-        ///  Using a Tablename "tblSugar"
+        ///  Using a Tablename "tblSugarContacts"
         /// </summary>
-        public void LoadDataSet()
+        public void LoadPrivateCustomers()
         {
-            MySqlCommand m_cmdCaoSelect = new MySqlCommand("select * from contacts where deleted=0", m_cnSugar);
-            m_daSugar = new MySqlDataAdapter(m_cmdCaoSelect);
+            MySqlCommand m_cmdSugarSelect = new MySqlCommand("select * from contacts where deleted=0", m_cnSugar);
+            m_daSugar = new MySqlDataAdapter(m_cmdSugarSelect);
             m_daSugar.Fill(m_dsSugar, m_const_strSugarTable);
-            //return m_dsSugar;
         }
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace Cugar
 
             MySqlCommand m_cmdSearchCommand = new MySqlCommand(m_strCommand.ToString());
             m_daSugar = new MySqlDataAdapter(m_cmdSearchCommand.CommandText, m_cnSugar);
-            m_daSugar.FillSchema(m_dsSugar, SchemaType.Source, m_const_strSugarTableSearchAll);
+            m_daSugar.FillSchema(m_dsSugar, SchemaType.Source, m_const_strSugarTableSearchAllPrivate);
             m_daSugar.Fill(m_dsSugar, "tblSugarSearchAll");            
         }
         /// <summary>
@@ -171,26 +171,24 @@ namespace Cugar
         /// <summary>
         ///  Creates a New Contact
         /// </summary>
-        /// <param name="commandstring">a string containing an sql command</param>
-        public void CreateNew(string commandstring)
+        /// <param name="command">a complete odbccommand with parameters</param>
+        public void CreateNew(MySqlCommand command)
         {
-            MySqlCommand m_cmdSugarInsert = new MySqlCommand(commandstring, m_cnSugar);
-            m_cmdSugarInsert.ExecuteNonQuery();
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception asdf)
+            {
+                MessageBox.Show(asdf.ToString());
+                throw;
+            }
+
+
         }
         #endregion
 
         #region propertys
-        ///// <summary>
-        /////  Read only
-        /////  Returns the DataSet
-        /////  </summary>
-        //public DataSet ds
-        //{
-        //    get
-        //    {
-        //        return LoadDataSet();
-        //    }
-        //}
 
         /// <summary>
         /// Returns the SugarConnection
