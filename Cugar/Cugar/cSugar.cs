@@ -16,9 +16,10 @@ namespace Cugar
     {
         #region private members
         private const string m_const_strSugarTable = "tblSugarContacts";
-        private const string m_const_strSugarTableSearchAllPrivate = "tblSugarSearchAllPersons";
+        private const string m_const_strSugarTableSearchAllPrivate = "tblSugarSearchAllPrivate";
         private const string m_const_strSugarTableSearchAllCompanies = "tblSugarSearchAllCompanies";
         private const string m_const_strSugarTableSearchHuman = "tblSugarSearchHuman";
+
         private String m_server;
         private String m_user;
         private String m_pw;
@@ -124,7 +125,7 @@ namespace Cugar
             MySqlCommand m_cmdSearchCommand = new MySqlCommand(m_strCommand.ToString());
             m_daSugar = new MySqlDataAdapter(m_cmdSearchCommand.CommandText, m_cnSugar);
             m_daSugar.FillSchema(m_dsSugar, SchemaType.Source, m_const_strSugarTableSearchAllPrivate);
-            m_daSugar.Fill(m_dsSugar, "tblSugarSearchAll");            
+            m_daSugar.Fill(m_dsSugar, m_const_strSugarTableSearchAllPrivate);            
         }
         /// <summary>
         ///Searches the table adressen for a given Searchstring

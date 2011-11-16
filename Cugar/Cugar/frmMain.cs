@@ -920,8 +920,13 @@ namespace Cugar
         {
             if (e.KeyCode == Keys.Enter)
             {
-                SearchFirma();
+                SearchPrivat();
             }
+        }
+
+        private void mnuFrmMain_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
 
     }

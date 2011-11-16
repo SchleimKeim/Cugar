@@ -17,8 +17,12 @@ namespace Cugar
         private const string m_const_strCaoTablePrivate = "tblCaoPrivate";
         private const string m_const_strCaoTableSearchAllPrivate = "tblCaoSearchAllPrivate";
         private const string m_const_strCaoTableSearchAllCompanies = "tblCaoSearchAllCompanies";
-        private const string m_const_strCaoTableSearchHuman = "tblCaoSearchHuman";
 
+        private const string m_const_strCaoTableSearchHuman = "tblCaoSearchHuman";
+        private const string m_const_strSugarTableSearchHuman = "tblSugarSearchHuman";
+
+        private const string m_const_strAktuellerCaoDatensatz = "tblCaoSelected";
+        private const string m_const_strAktuellerSugarDatensatz = "tblSugarSelected";
 
         private const string m_const_strCaoVersandarten = "tblCaoVersandarten";
         private const string m_const_strCaoZahlarten = "tblcaoversandarten";
