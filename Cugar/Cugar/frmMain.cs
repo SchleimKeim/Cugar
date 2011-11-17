@@ -255,6 +255,9 @@ namespace Cugar
             { 
                 //txtStrasse1.Text = m_DS.Tables[m_const_strCaoTable].
             }
+            // Prepare cbos
+            cboAnrede.SelectedIndex = 0;
+            cboFAnrede.SelectedIndex = 0;
 
         }
         /// <summary>
@@ -436,7 +439,7 @@ namespace Cugar
 
                 /* Fills in all the textfield using databinding object casted into a datarowview */
 
-                txtAnrede.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["ANREDE"].ToString();         
+                cboAnrede.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["ANREDE"].ToString();         
                 txtStrasse1.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["STRASSE"].ToString();
                 txtPLZ.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["PLZ"].ToString();
                 txtOrt.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["ORT"].ToString();                
@@ -451,6 +454,8 @@ namespace Cugar
                 txtCaoCustomerSince.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_SEIT"].ToString();
                 txtCaoGeb.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_GEBDATUM"].ToString();
                 txtBemerkung.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["INFO"].ToString();
+
+                //((DataRowView)m_BS_CaoSearchContacts.Current)["INFO"] = txtBemerkung.Text;
                 
                 //txtSugarZugewiesenAn.Text = ((DataRowView)m_BS.Current)[].ToString();
                 //txtSugarLeadSource.Text = ((DataRowView)m_BS.Current)[].ToString();
@@ -562,21 +567,22 @@ namespace Cugar
 
         private void cmdPrivatSave_Click(object sender, EventArgs e)
         {
-            CaoInsertPrivat();
-            SugarInsertPrivat();
+            //CaoInsertPrivat();
+            //SugarInsertPrivat();
     
             //Routine für Update vorgang
-            //m_DS.AcceptChanges();
-            //if (m_DS.HasChanges())
-            //{
-            //    MessageBox.Show("Änderungen :D");
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Keine Änderungen :(");
-            //}
-            //cCao m_objCao = new cCao(m_DS, m_BS_CaoSearchContacts);
-            //m_objCao.UpdateAll();
+            m_DS.AcceptChanges();
+            if (m_DS.HasChanges())
+            {
+                MessageBox.Show("Änderungen :D");
+            }
+            else
+            {
+                MessageBox.Show("Keine Änderungen :(");
+            }
+            cCao m_objCao = new cCao(m_DS, m_BS_CaoSearchContacts);
+            m_objCao.UpdateAll();
+
         }
 
         /// <summary>
@@ -633,7 +639,7 @@ namespace Cugar
                 caoInsert.Parameters.Add("@ORT", OdbcType.VarChar, 40, "@ORT");
                 caoInsert.Parameters["@ORT"].Value = txtOrt.Text;
                 caoInsert.Parameters.Add("@ANREDE", OdbcType.VarChar, 40, "@ANREDE");
-                caoInsert.Parameters["@ANREDE"].Value = txtAnrede.Text;
+                caoInsert.Parameters["@ANREDE"].Value = cboAnrede.Text;
                 caoInsert.Parameters.Add("@STRASSE", OdbcType.VarChar, 40, "@STRASSE");
                 caoInsert.Parameters["@STRASSE"].Value = txtStrasse1.Text;
                 caoInsert.Parameters.Add("@TELE1", OdbcType.VarChar, 100, "@TELE1");
@@ -795,7 +801,7 @@ namespace Cugar
                 cmSugarInsert.Parameters.Add("@assigned_user_id", MySqlDbType.VarChar, 36, "@assigned_user_id");
                 cmSugarInsert.Parameters["@assigned_user_id"].Value = "ed2d04a5-8264-45e7-fbdb-4ebebdf8375a";
                 cmSugarInsert.Parameters.Add("@salutation", MySqlDbType.VarChar, 255, "@salutation");
-                cmSugarInsert.Parameters["@salutation"].Value = txtAnrede.Text;
+                cmSugarInsert.Parameters["@salutation"].Value = cboAnrede.Text;
                 cmSugarInsert.Parameters.Add("@first_name", MySqlDbType.VarChar, 100, "@first_name");
                 cmSugarInsert.Parameters["@first_name"].Value = txtVorname.Text;
                 cmSugarInsert.Parameters.Add("@last_name", MySqlDbType.VarChar, 100, "@last_name");
@@ -846,7 +852,7 @@ namespace Cugar
             #region 1. clear all textfields
             txtVorname.Clear();
             txtName.Clear();
-            txtAnrede.Clear();
+            cboAnrede.SelectedIndex = 0;
             txtStrasse1.Clear();
             txtPLZ.Clear();
             txtOrt.Clear();
@@ -871,7 +877,7 @@ namespace Cugar
         private void button2_Click(object sender, EventArgs e)
         {
             CaoInsertFirma();
-            SugarInsertFirma();
+            //SugarInsertFirma();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -930,7 +936,7 @@ namespace Cugar
                 caoInsert.Parameters.Add("@ORT", OdbcType.VarChar, 40, "@ORT");
                 caoInsert.Parameters["@ORT"].Value = txtOrt.Text;
                 caoInsert.Parameters.Add("@ANREDE", OdbcType.VarChar, 40, "@ANREDE");
-                caoInsert.Parameters["@ANREDE"].Value = txtAnrede.Text;
+                caoInsert.Parameters["@ANREDE"].Value = cboAnrede.Text;
                 caoInsert.Parameters.Add("@STRASSE", OdbcType.VarChar, 40, "@STRASSE");
                 caoInsert.Parameters["@STRASSE"].Value = txtStrasse1.Text;
                 caoInsert.Parameters.Add("@TELE1", OdbcType.VarChar, 100, "@TELE1");
@@ -973,140 +979,140 @@ namespace Cugar
             }
         }
 
-        private void SugarInsertFirma()
-        {
-            if (m_bNew == true)
-            {
-                #region Insert Command Text
-                if (m_objSugar.SugarConnection.State != ConnectionState.Open )
-                {
-                    m_objSugar.SugarConnection.Open();
-                }
-                StringBuilder sb_SugarInsert = new StringBuilder();
-                sb_SugarInsert.Append("INSERT INTO accounts(");
+        //private void SugarInsertFirma()
+        //{
+        //    if (m_bNew == true)
+        //    {
+        //        #region Insert Command Text
+        //        if (m_objSugar.SugarConnection.State != ConnectionState.Open )
+        //        {
+        //            m_objSugar.SugarConnection.Open();
+        //        }
+        //        StringBuilder sb_SugarInsert = new StringBuilder();
+        //        sb_SugarInsert.Append("INSERT INTO accounts(");
 
-                #region rows for insert command text
-                sb_SugarInsert.Append("id, ");
-                sb_SugarInsert.Append("name, ");
-                sb_SugarInsert.Append("date_entered, ");
-                //sb_SugarInsert.Append("date_modified, ");
-                sb_SugarInsert.Append("modified_user_id, ");
-                sb_SugarInsert.Append("created_by, ");
-                sb_SugarInsert.Append("description, ");
-                sb_SugarInsert.Append("deleted, ");
-                sb_SugarInsert.Append("assigned_user_id, ");
-                sb_SugarInsert.Append("account_type, ");
-                //!
-                sb_SugarInsert.Append("industry, ");
-                //!
-                sb_SugarInsert.Append("annual_revenue, ");
-                //!
-                sb_SugarInsert.Append("phone_fax, ");
-                sb_SugarInsert.Append("billing_address_street, ");
-                sb_SugarInsert.Append("billing_address_city, ");
-                sb_SugarInsert.Append("billing_address_state, ");
-                sb_SugarInsert.Append("billing_address_country, ");
-                //! 
-                sb_SugarInsert.Append("rating, ");
-                //!
-                sb_SugarInsert.Append("phone_office, ");
-                sb_SugarInsert.Append("phone_alternate, ");
-                sb_SugarInsert.Append("website, ");
-                //!
-                sb_SugarInsert.Append("ownership, ");
-                sb_SugarInsert.Append("employees, ");
-                sb_SugarInsert.Append("ticker_symbol, ");
-                //!
+        //        #region rows for insert command text
+        //        sb_SugarInsert.Append("id, ");
+        //        sb_SugarInsert.Append("name, ");
+        //        sb_SugarInsert.Append("date_entered, ");
+        //        //sb_SugarInsert.Append("date_modified, ");
+        //        sb_SugarInsert.Append("modified_user_id, ");
+        //        sb_SugarInsert.Append("created_by, ");
+        //        sb_SugarInsert.Append("description, ");
+        //        sb_SugarInsert.Append("deleted, ");
+        //        sb_SugarInsert.Append("assigned_user_id, ");
+        //        sb_SugarInsert.Append("account_type, ");
+        //        //!
+        //        sb_SugarInsert.Append("industry, ");
+        //        //!
+        //        sb_SugarInsert.Append("annual_revenue, ");
+        //        //!
+        //        sb_SugarInsert.Append("phone_fax, ");
+        //        sb_SugarInsert.Append("billing_address_street, ");
+        //        sb_SugarInsert.Append("billing_address_city, ");
+        //        sb_SugarInsert.Append("billing_address_state, ");
+        //        sb_SugarInsert.Append("billing_address_country, ");
+        //        //! 
+        //        sb_SugarInsert.Append("rating, ");
+        //        //!
+        //        sb_SugarInsert.Append("phone_office, ");
+        //        sb_SugarInsert.Append("phone_alternate, ");
+        //        sb_SugarInsert.Append("website, ");
+        //        //!
+        //        sb_SugarInsert.Append("ownership, ");
+        //        sb_SugarInsert.Append("employees, ");
+        //        sb_SugarInsert.Append("ticker_symbol, ");
+        //        //!
 
-                /* 
-                 * sbSugarInsert.Append("shipping_address_street, ");
-                 * sbSugarInsert.Append("shipping_address_city, ");
-                 * sbSugarInsert.Append("shipping_address_state, ");
-                 * sbSugarInsert.Append("shipping_address_postalcode, ");
-                 * sbSugarInsert.Append("shipping_address_country, ");
-                 */
+        //        /* 
+        //         * sbSugarInsert.Append("shipping_address_street, ");
+        //         * sbSugarInsert.Append("shipping_address_city, ");
+        //         * sbSugarInsert.Append("shipping_address_state, ");
+        //         * sbSugarInsert.Append("shipping_address_postalcode, ");
+        //         * sbSugarInsert.Append("shipping_address_country, ");
+        //         */
 
-                /*
-                 * sbSugarInsert.Append("parent_id, ");
-                 * sbSugarInsert.Append("sic_code, ");
-                 * sbSugarInsert.Append("campaign_id", );
-                 */
+        //        /*
+        //         * sbSugarInsert.Append("parent_id, ");
+        //         * sbSugarInsert.Append("sic_code, ");
+        //         * sbSugarInsert.Append("campaign_id", );
+        //         */
 
-                #endregion
-                sb_SugarInsert.Append(@" VALUES()");
-                #region cmSugar + Parameters
-                MySqlCommand cmSugarInsert = new MySqlCommand(sb_SugarInsert.ToString(), m_objSugar.SugarConnection);
-                cmSugarInsert.Parameters.Add("@id", MySqlDbType.VarChar, 36, "@id");
-                cmSugarInsert.Parameters["@id"].Value = System.Guid.NewGuid().ToString();
+        //        #endregion
+        //        sb_SugarInsert.Append(@" VALUES()");
+        //        #region cmSugar + Parameters
+        //        MySqlCommand cmSugarInsert = new MySqlCommand(sb_SugarInsert.ToString(), m_objSugar.SugarConnection);
+        //        cmSugarInsert.Parameters.Add("@id", MySqlDbType.VarChar, 36, "@id");
+        //        cmSugarInsert.Parameters["@id"].Value = System.Guid.NewGuid().ToString();
 
  
-                //MySqlParameter myparam = new MySqlParameter();
-                //myparam.ParameterName = "@date_entered";
-                //myparam.SourceColumn = "@date_entered";
-                //myparam.DbType = (DbType)MySqlDbType.DateTime;
-                //myparam.Value = DateTime.Today.ToShortDateString();
-                //cmSugarInsert.Parameters.Add(myparam);
+        //        //MySqlParameter myparam = new MySqlParameter();
+        //        //myparam.ParameterName = "@date_entered";
+        //        //myparam.SourceColumn = "@date_entered";
+        //        //myparam.DbType = (DbType)MySqlDbType.DateTime;
+        //        //myparam.Value = DateTime.Today.ToShortDateString();
+        //        //cmSugarInsert.Parameters.Add(myparam);
 
-                cmSugarInsert.Parameters.Add("@date_entered", MySqlDbType.DateTime);
-                cmSugarInsert.Parameters["@date_entered"].Value = DateTime.Today.ToShortDateString();
-                //cmSugarInsert.Parameters.Add("@date_modified", MySqlDbType.DateTime);
-                //cmSugarInsert.Parameters["@date_modified"].Value = DateTime.Today.ToString();
-                cmSugarInsert.Parameters.Add("@modified_user_id", MySqlDbType.VarChar, 36, "@modified_user_id");
-                cmSugarInsert.Parameters["@modified_user_id"].Value = "ed2d04a5-8264-45e7-fbdb-4ebebdf8375a";
-                cmSugarInsert.Parameters.Add("@created_by", MySqlDbType.VarChar, 36, "@created_by");
-                cmSugarInsert.Parameters["@created_by"].Value = "ed2d04a5-8264-45e7-fbdb-4ebebdf8375a";
-                cmSugarInsert.Parameters.Add("@description", MySqlDbType.Text);
-                cmSugarInsert.Parameters["@description"].Value = txtBemerkung.Text;
-                cmSugarInsert.Parameters.Add("@deleted", MySqlDbType.Int16, 1, "@deleted");
-                cmSugarInsert.Parameters["@deleted"].Value = 0;
-                cmSugarInsert.Parameters.Add("@assigned_user_id", MySqlDbType.VarChar, 36, "@assigned_user_id");
-                cmSugarInsert.Parameters["@assigned_user_id"].Value = "ed2d04a5-8264-45e7-fbdb-4ebebdf8375a";
-                cmSugarInsert.Parameters.Add("@salutation", MySqlDbType.VarChar, 255, "@salutation");
-                cmSugarInsert.Parameters["@salutation"].Value = txtAnrede.Text;
-                cmSugarInsert.Parameters.Add("@first_name", MySqlDbType.VarChar, 100, "@first_name");
-                cmSugarInsert.Parameters["@first_name"].Value = txtVorname.Text;
-                cmSugarInsert.Parameters.Add("@last_name", MySqlDbType.VarChar, 100, "@last_name");
-                cmSugarInsert.Parameters["@last_name"].Value = txtName.Text;
-                cmSugarInsert.Parameters.Add("@title", MySqlDbType.VarChar, 100, "@title");
-                cmSugarInsert.Parameters["@title"].Value = txtSugarTitle.Text;
-                cmSugarInsert.Parameters.Add("@department", MySqlDbType.VarChar, 255, "@department");
-                cmSugarInsert.Parameters["@department"].Value = txtSugarAbteilung.Text;
-                cmSugarInsert.Parameters.Add("@phone_home", MySqlDbType.VarChar, 100, "@phone_home");
-                cmSugarInsert.Parameters["@phone_home"].Value = txtPhone1.Text;
-                cmSugarInsert.Parameters.Add("@phone_mobile", MySqlDbType.VarChar, 100, "@phone_mobile");
-                cmSugarInsert.Parameters["@phone_mobile"].Value = txtMobile.Text;
-                cmSugarInsert.Parameters.Add("@phone_work", MySqlDbType.VarChar, 100, "@phone_work");
-                cmSugarInsert.Parameters["@phone_work"].Value = txtPhon2.Text;
-                cmSugarInsert.Parameters.Add("@phone_fax", MySqlDbType.VarChar, 100, "@phone_fax");
-                cmSugarInsert.Parameters["@phone_fax"].Value = txtFax.Text;
-                cmSugarInsert.Parameters.Add("@primary_address_street", MySqlDbType.VarChar, 150, "@primary_address_street");
-                cmSugarInsert.Parameters["@primary_address_street"].Value = txtStrasse1.Text;
-                cmSugarInsert.Parameters.Add("@primary_address_city", MySqlDbType.VarChar, 100, "@primary_address_city");
-                cmSugarInsert.Parameters["@primary_address_city"].Value = txtOrt.Text;
-                cmSugarInsert.Parameters.Add("@primary_address_postalcode", MySqlDbType.VarChar, 20, "@primary_address_postalcode");
-                cmSugarInsert.Parameters["@primary_address_postalcode"].Value = txtPLZ.Text;
-                cmSugarInsert.Parameters.Add("@primary_address_country", MySqlDbType.VarChar, 255, "@primary_address_country");
-                cmSugarInsert.Parameters["@primary_address_country"].Value = txtSugarLand.Text;
-                //cmSugarInsert.Parameters.Add("@lead_source", MySqlDbType.VarChar, 255, "@lead_source");
-                //cmSugarInsert.Parameters["@lead_source"].Value = txtSugarLeadSource.Text;
-                //cmSugarInsert.Parameters.Add("@birthdate", MySqlDbType.Date);
-                //cmSugarInsert.Parameters["@birthdate"].Value = txtCaoGeb.Text;
-                #endregion
-                #endregion
+        //        cmSugarInsert.Parameters.Add("@date_entered", MySqlDbType.DateTime);
+        //        cmSugarInsert.Parameters["@date_entered"].Value = DateTime.Today.ToShortDateString();
+        //        //cmSugarInsert.Parameters.Add("@date_modified", MySqlDbType.DateTime);
+        //        //cmSugarInsert.Parameters["@date_modified"].Value = DateTime.Today.ToString();
+        //        cmSugarInsert.Parameters.Add("@modified_user_id", MySqlDbType.VarChar, 36, "@modified_user_id");
+        //        cmSugarInsert.Parameters["@modified_user_id"].Value = "ed2d04a5-8264-45e7-fbdb-4ebebdf8375a";
+        //        cmSugarInsert.Parameters.Add("@created_by", MySqlDbType.VarChar, 36, "@created_by");
+        //        cmSugarInsert.Parameters["@created_by"].Value = "ed2d04a5-8264-45e7-fbdb-4ebebdf8375a";
+        //        cmSugarInsert.Parameters.Add("@description", MySqlDbType.Text);
+        //        cmSugarInsert.Parameters["@description"].Value = txtBemerkung.Text;
+        //        cmSugarInsert.Parameters.Add("@deleted", MySqlDbType.Int16, 1, "@deleted");
+        //        cmSugarInsert.Parameters["@deleted"].Value = 0;
+        //        cmSugarInsert.Parameters.Add("@assigned_user_id", MySqlDbType.VarChar, 36, "@assigned_user_id");
+        //        cmSugarInsert.Parameters["@assigned_user_id"].Value = "ed2d04a5-8264-45e7-fbdb-4ebebdf8375a";
+        //        cmSugarInsert.Parameters.Add("@salutation", MySqlDbType.VarChar, 255, "@salutation");
+        //        cmSugarInsert.Parameters["@salutation"].Value = txtAnrede.Text;
+        //        cmSugarInsert.Parameters.Add("@first_name", MySqlDbType.VarChar, 100, "@first_name");
+        //        cmSugarInsert.Parameters["@first_name"].Value = txtVorname.Text;
+        //        cmSugarInsert.Parameters.Add("@last_name", MySqlDbType.VarChar, 100, "@last_name");
+        //        cmSugarInsert.Parameters["@last_name"].Value = txtName.Text;
+        //        cmSugarInsert.Parameters.Add("@title", MySqlDbType.VarChar, 100, "@title");
+        //        cmSugarInsert.Parameters["@title"].Value = txtSugarTitle.Text;
+        //        cmSugarInsert.Parameters.Add("@department", MySqlDbType.VarChar, 255, "@department");
+        //        cmSugarInsert.Parameters["@department"].Value = txtSugarAbteilung.Text;
+        //        cmSugarInsert.Parameters.Add("@phone_home", MySqlDbType.VarChar, 100, "@phone_home");
+        //        cmSugarInsert.Parameters["@phone_home"].Value = txtPhone1.Text;
+        //        cmSugarInsert.Parameters.Add("@phone_mobile", MySqlDbType.VarChar, 100, "@phone_mobile");
+        //        cmSugarInsert.Parameters["@phone_mobile"].Value = txtMobile.Text;
+        //        cmSugarInsert.Parameters.Add("@phone_work", MySqlDbType.VarChar, 100, "@phone_work");
+        //        cmSugarInsert.Parameters["@phone_work"].Value = txtPhon2.Text;
+        //        cmSugarInsert.Parameters.Add("@phone_fax", MySqlDbType.VarChar, 100, "@phone_fax");
+        //        cmSugarInsert.Parameters["@phone_fax"].Value = txtFax.Text;
+        //        cmSugarInsert.Parameters.Add("@primary_address_street", MySqlDbType.VarChar, 150, "@primary_address_street");
+        //        cmSugarInsert.Parameters["@primary_address_street"].Value = txtStrasse1.Text;
+        //        cmSugarInsert.Parameters.Add("@primary_address_city", MySqlDbType.VarChar, 100, "@primary_address_city");
+        //        cmSugarInsert.Parameters["@primary_address_city"].Value = txtOrt.Text;
+        //        cmSugarInsert.Parameters.Add("@primary_address_postalcode", MySqlDbType.VarChar, 20, "@primary_address_postalcode");
+        //        cmSugarInsert.Parameters["@primary_address_postalcode"].Value = txtPLZ.Text;
+        //        cmSugarInsert.Parameters.Add("@primary_address_country", MySqlDbType.VarChar, 255, "@primary_address_country");
+        //        cmSugarInsert.Parameters["@primary_address_country"].Value = txtSugarLand.Text;
+        //        //cmSugarInsert.Parameters.Add("@lead_source", MySqlDbType.VarChar, 255, "@lead_source");
+        //        //cmSugarInsert.Parameters["@lead_source"].Value = txtSugarLeadSource.Text;
+        //        //cmSugarInsert.Parameters.Add("@birthdate", MySqlDbType.Date);
+        //        //cmSugarInsert.Parameters["@birthdate"].Value = txtCaoGeb.Text;
+        //        #endregion
+        //        #endregion
 
-                try
-                {
-                    cmSugarInsert.ExecuteNonQuery();
-                    m_objSugar.SugarConnection.Close();
-                }
-                catch (Exception asdf)
-                {
-                    MessageBox.Show(asdf.ToString());
-                    throw;
-                }
-            }
-            //...
-        }
+        //        try
+        //        {
+        //            cmSugarInsert.ExecuteNonQuery();
+        //            m_objSugar.SugarConnection.Close();
+        //        }
+        //        catch (Exception asdf)
+        //        {
+        //            MessageBox.Show(asdf.ToString());
+        //            throw;
+        //        }
+        //    }
+        //    //...
+        //}
 
         private void tstxtSucheFirma_Click(object sender, EventArgs e)
         {
