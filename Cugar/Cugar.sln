@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual C# Express 2008
+# Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cugar", "Cugar\Cugar.csproj", "{1EFA3FFD-3806-4500-A6B9-9B01ED2628CB}"
 EndProject
 Global

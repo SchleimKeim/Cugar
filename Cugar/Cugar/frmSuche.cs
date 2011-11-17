@@ -28,7 +28,6 @@ namespace Cugar
         private const string m_const_strAktuellerCaoDatensatz = "tblCaoSelected";
         private const string m_const_strAktuellerSugarDatensatz = "tblSugarSelected";
 
-
         private string m_strSuchstring;
         private cCao m_objCao;
         private cSugar m_objSugar;
