@@ -258,7 +258,9 @@ namespace Cugar
             // Prepare cbos
             cboAnrede.SelectedIndex = 0;
             cboFAnrede.SelectedIndex = 0;
-
+            cboFSugarType.SelectedIndex = 0;
+            cboFCaoBriefanrede.SelectedIndex = 0;
+            cboFSugarType.SelectedIndex = 0;
         }
         /// <summary>
         ///  Loads all cao Versandarten into cboVersand
@@ -849,29 +851,38 @@ namespace Cugar
 
         private void neuToolStripButton_Click(object sender, EventArgs e)
         {
-            #region 1. clear all textfields
-            txtVorname.Clear();
-            txtName.Clear();
-            cboAnrede.SelectedIndex = 0;
-            txtStrasse1.Clear();
-            txtPLZ.Clear();
-            txtOrt.Clear();
-            txtWebpage.Clear();
-            txtEmail.Clear();
-            txtFax.Clear();
-            txtMobile.Clear();
-            txtPhon2.Clear();
-            txtPhone1.Clear();
-            txtCaoBriefanrede.Clear();
-            //txtCaoZahlungsziel.Clear();
-            txtCaoCustomerSince.Clear();
-            txtCaoGeb.Clear();
-            txtBemerkung.Clear();
-            #endregion
 
-            m_bNew = true;
-            this.EnableSave();
-
+            
+            DialogResult dr = MessageBox.Show("Alle Textfelder clearen?", "Neuer Datensatz...", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (dr == DialogResult.Yes)
+            {
+                #region 1. clear all textfields
+                txtVorname.Clear();
+                txtName.Clear();
+                cboAnrede.SelectedIndex = 0;
+                txtStrasse1.Clear();
+                txtPLZ.Clear();
+                txtOrt.Clear();
+                txtWebpage.Clear();
+                txtEmail.Clear();
+                txtFax.Clear();
+                txtMobile.Clear();
+                txtPhon2.Clear();
+                txtPhone1.Clear();
+                txtCaoBriefanrede.Clear();
+                txtCaoZahlungsziel.Clear();
+                txtCaoCustomerSince.Clear();
+                txtCaoGeb.Clear();
+                txtBemerkung.Clear();
+                #endregion
+                m_bNew = true;
+                this.EnableSave();
+            }
+            else
+            {
+                 m_bNew = true;
+                 this.EnableSave();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -1146,6 +1157,17 @@ namespace Cugar
             if (e.KeyCode == Keys.Enter)
             {
                 SearchPrivat();
+            }
+        }
+        private void frmMain_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F && e.Control)
+            {
+                tstxtSuchePrivat.Focus();
+            }
+
+            if (e.KeyCode == Keys.N && e.Control)
+            {
             }
         }
 

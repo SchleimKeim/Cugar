@@ -124,58 +124,48 @@
             this.lblFBemerkung = new System.Windows.Forms.Label();
             this.lblFOrt = new System.Windows.Forms.Label();
             this.lblFPLZ = new System.Windows.Forms.Label();
-            this.txtFPostfach = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.lblPostfach = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.lblFStrasse1 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.txtFWeb = new System.Windows.Forms.TextBox();
+            this.txtFMail = new System.Windows.Forms.TextBox();
+            this.txtFFax = new System.Windows.Forms.TextBox();
+            this.txtFStrasse = new System.Windows.Forms.TextBox();
+            this.lblFWeb = new System.Windows.Forms.Label();
+            this.lblFMail = new System.Windows.Forms.Label();
+            this.lblFFax = new System.Windows.Forms.Label();
+            this.lblFStrasse = new System.Windows.Forms.Label();
+            this.txtFPhone = new System.Windows.Forms.TextBox();
             this.txtFName = new System.Windows.Forms.TextBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
+            this.lblFPhone = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.label43 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.label44 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.label45 = new System.Windows.Forms.Label();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.label46 = new System.Windows.Forms.Label();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.label47 = new System.Windows.Forms.Label();
-            this.textBox24 = new System.Windows.Forms.TextBox();
-            this.label48 = new System.Windows.Forms.Label();
+            this.txtFSugarBranche = new System.Windows.Forms.TextBox();
+            this.lblFSugarBranche = new System.Windows.Forms.Label();
+            this.lblFSugarType = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label49 = new System.Windows.Forms.Label();
+            this.cboFZahlart = new System.Windows.Forms.ComboBox();
+            this.cboFVersand = new System.Windows.Forms.ComboBox();
+            this.cboFCaoBriefanrede = new System.Windows.Forms.ComboBox();
+            this.lblFCaoBriefanrede = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.textBox25 = new System.Windows.Forms.TextBox();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.textBox26 = new System.Windows.Forms.TextBox();
-            this.label55 = new System.Windows.Forms.Label();
-            this.textBox27 = new System.Windows.Forms.TextBox();
+            this.lblFZahlungsziel = new System.Windows.Forms.Label();
+            this.txtFZahlungsziel = new System.Windows.Forms.TextBox();
+            this.lblFZahlart = new System.Windows.Forms.Label();
+            this.lblFVersand = new System.Windows.Forms.Label();
+            this.lblFKunSeit = new System.Windows.Forms.Label();
+            this.txtFKunSeit = new System.Windows.Forms.TextBox();
             this.tabDGVCao = new System.Windows.Forms.TabPage();
             this.dgvCao = new System.Windows.Forms.DataGridView();
             this.tabDGVSugar = new System.Windows.Forms.TabPage();
             this.dgvSugar = new System.Windows.Forms.DataGridView();
             this.tabSuche = new System.Windows.Forms.TabPage();
             this.cboAnrede = new System.Windows.Forms.ComboBox();
+            this.lblFNameCao = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cboFSugarType = new System.Windows.Forms.ComboBox();
+            this.txtFSugarMitarbeiter = new System.Windows.Forms.TextBox();
+            this.lblFSugarMitarbeiter = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtFSugarUmsatz = new System.Windows.Forms.TextBox();
             this.mnuFrmMain.SuspendLayout();
             this.grpGenerell.SuspendLayout();
             this.grpCAO.SuspendLayout();
@@ -1045,23 +1035,19 @@
             this.groupBox1.Controls.Add(this.lblFBemerkung);
             this.groupBox1.Controls.Add(this.lblFOrt);
             this.groupBox1.Controls.Add(this.lblFPLZ);
-            this.groupBox1.Controls.Add(this.txtFPostfach);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox9);
-            this.groupBox1.Controls.Add(this.textBox10);
-            this.groupBox1.Controls.Add(this.textBox11);
-            this.groupBox1.Controls.Add(this.textBox12);
-            this.groupBox1.Controls.Add(this.lblPostfach);
-            this.groupBox1.Controls.Add(this.label33);
-            this.groupBox1.Controls.Add(this.textBox13);
-            this.groupBox1.Controls.Add(this.label34);
-            this.groupBox1.Controls.Add(this.label35);
-            this.groupBox1.Controls.Add(this.label36);
-            this.groupBox1.Controls.Add(this.lblFStrasse1);
-            this.groupBox1.Controls.Add(this.textBox15);
+            this.groupBox1.Controls.Add(this.txtFWeb);
+            this.groupBox1.Controls.Add(this.txtFMail);
+            this.groupBox1.Controls.Add(this.txtFFax);
+            this.groupBox1.Controls.Add(this.txtFStrasse);
+            this.groupBox1.Controls.Add(this.lblFWeb);
+            this.groupBox1.Controls.Add(this.lblFMail);
+            this.groupBox1.Controls.Add(this.lblFFax);
+            this.groupBox1.Controls.Add(this.lblFStrasse);
+            this.groupBox1.Controls.Add(this.txtFPhone);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.txtFName);
-            this.groupBox1.Controls.Add(this.label38);
-            this.groupBox1.Controls.Add(this.label40);
+            this.groupBox1.Controls.Add(this.lblFPhone);
+            this.groupBox1.Controls.Add(this.lblFNameCao);
             this.groupBox1.Controls.Add(this.label41);
             this.groupBox1.Controls.Add(this.label42);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
@@ -1134,123 +1120,81 @@
             this.lblFPLZ.TabIndex = 0;
             this.lblFPLZ.Text = "PLZ:";
             // 
-            // txtFPostfach
+            // txtFWeb
             // 
-            this.txtFPostfach.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFPostfach.Location = new System.Drawing.Point(70, 128);
-            this.txtFPostfach.Name = "txtFPostfach";
-            this.txtFPostfach.Size = new System.Drawing.Size(219, 20);
-            this.txtFPostfach.TabIndex = 1;
+            this.txtFWeb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFWeb.Location = new System.Drawing.Point(380, 207);
+            this.txtFWeb.Name = "txtFWeb";
+            this.txtFWeb.Size = new System.Drawing.Size(225, 20);
+            this.txtFWeb.TabIndex = 1;
             // 
-            // textBox6
+            // txtFMail
             // 
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox6.Location = new System.Drawing.Point(383, 181);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(225, 20);
-            this.textBox6.TabIndex = 1;
+            this.txtFMail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFMail.Location = new System.Drawing.Point(380, 180);
+            this.txtFMail.Name = "txtFMail";
+            this.txtFMail.Size = new System.Drawing.Size(225, 20);
+            this.txtFMail.TabIndex = 1;
             // 
-            // textBox9
+            // txtFFax
             // 
-            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox9.Location = new System.Drawing.Point(383, 154);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(225, 20);
-            this.textBox9.TabIndex = 1;
+            this.txtFFax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFFax.Location = new System.Drawing.Point(380, 154);
+            this.txtFFax.Name = "txtFFax";
+            this.txtFFax.Size = new System.Drawing.Size(225, 20);
+            this.txtFFax.TabIndex = 1;
             // 
-            // textBox10
+            // txtFStrasse
             // 
-            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox10.Location = new System.Drawing.Point(383, 128);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(225, 20);
-            this.textBox10.TabIndex = 1;
+            this.txtFStrasse.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFStrasse.Location = new System.Drawing.Point(70, 154);
+            this.txtFStrasse.Name = "txtFStrasse";
+            this.txtFStrasse.Size = new System.Drawing.Size(219, 20);
+            this.txtFStrasse.TabIndex = 1;
             // 
-            // textBox11
+            // lblFWeb
             // 
-            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox11.Location = new System.Drawing.Point(383, 103);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(225, 20);
-            this.textBox11.TabIndex = 1;
+            this.lblFWeb.AutoSize = true;
+            this.lblFWeb.Location = new System.Drawing.Point(322, 209);
+            this.lblFWeb.Name = "lblFWeb";
+            this.lblFWeb.Size = new System.Drawing.Size(46, 13);
+            this.lblFWeb.TabIndex = 0;
+            this.lblFWeb.Text = "Internet:";
             // 
-            // textBox12
+            // lblFMail
             // 
-            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox12.Location = new System.Drawing.Point(70, 102);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(219, 20);
-            this.textBox12.TabIndex = 1;
+            this.lblFMail.AutoSize = true;
+            this.lblFMail.Location = new System.Drawing.Point(322, 182);
+            this.lblFMail.Name = "lblFMail";
+            this.lblFMail.Size = new System.Drawing.Size(35, 13);
+            this.lblFMail.TabIndex = 0;
+            this.lblFMail.Text = "Email:";
             // 
-            // lblPostfach
+            // lblFFax
             // 
-            this.lblPostfach.AutoSize = true;
-            this.lblPostfach.Location = new System.Drawing.Point(6, 131);
-            this.lblPostfach.Name = "lblPostfach";
-            this.lblPostfach.Size = new System.Drawing.Size(52, 13);
-            this.lblPostfach.TabIndex = 0;
-            this.lblPostfach.Text = "Postfach:";
+            this.lblFFax.AutoSize = true;
+            this.lblFFax.Location = new System.Drawing.Point(322, 156);
+            this.lblFFax.Name = "lblFFax";
+            this.lblFFax.Size = new System.Drawing.Size(27, 13);
+            this.lblFFax.TabIndex = 0;
+            this.lblFFax.Text = "Fax:";
             // 
-            // label33
+            // lblFStrasse
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(325, 183);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(46, 13);
-            this.label33.TabIndex = 0;
-            this.label33.Text = "Internet:";
+            this.lblFStrasse.AutoSize = true;
+            this.lblFStrasse.Location = new System.Drawing.Point(6, 156);
+            this.lblFStrasse.Name = "lblFStrasse";
+            this.lblFStrasse.Size = new System.Drawing.Size(45, 13);
+            this.lblFStrasse.TabIndex = 0;
+            this.lblFStrasse.Text = "Strasse:";
             // 
-            // textBox13
+            // txtFPhone
             // 
-            this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox13.Location = new System.Drawing.Point(383, 77);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(225, 20);
-            this.textBox13.TabIndex = 1;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(325, 156);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(35, 13);
-            this.label34.TabIndex = 0;
-            this.label34.Text = "Email:";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(325, 130);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(27, 13);
-            this.label35.TabIndex = 0;
-            this.label35.Text = "Fax:";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(325, 105);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(41, 13);
-            this.label36.TabIndex = 0;
-            this.label36.Text = "Mobile:";
-            // 
-            // lblFStrasse1
-            // 
-            this.lblFStrasse1.AutoSize = true;
-            this.lblFStrasse1.Location = new System.Drawing.Point(6, 105);
-            this.lblFStrasse1.Name = "lblFStrasse1";
-            this.lblFStrasse1.Size = new System.Drawing.Size(54, 13);
-            this.lblFStrasse1.TabIndex = 0;
-            this.lblFStrasse1.Text = "Strasse 1:";
-            // 
-            // textBox15
-            // 
-            this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox15.Location = new System.Drawing.Point(383, 51);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(225, 20);
-            this.textBox15.TabIndex = 1;
+            this.txtFPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFPhone.Location = new System.Drawing.Point(383, 51);
+            this.txtFPhone.Name = "txtFPhone";
+            this.txtFPhone.Size = new System.Drawing.Size(222, 20);
+            this.txtFPhone.TabIndex = 1;
             // 
             // txtFName
             // 
@@ -1260,23 +1204,14 @@
             this.txtFName.Size = new System.Drawing.Size(219, 20);
             this.txtFName.TabIndex = 1;
             // 
-            // label38
+            // lblFPhone
             // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(325, 79);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(55, 13);
-            this.label38.TabIndex = 0;
-            this.label38.Text = "Telefon 2:";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(325, 53);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(49, 13);
-            this.label40.TabIndex = 0;
-            this.label40.Text = "Telefon: ";
+            this.lblFPhone.AutoSize = true;
+            this.lblFPhone.Location = new System.Drawing.Point(322, 53);
+            this.lblFPhone.Name = "lblFPhone";
+            this.lblFPhone.Size = new System.Drawing.Size(49, 13);
+            this.lblFPhone.TabIndex = 0;
+            this.lblFPhone.Text = "Telefon: ";
             // 
             // label41
             // 
@@ -1298,18 +1233,14 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox17);
-            this.groupBox2.Controls.Add(this.label43);
-            this.groupBox2.Controls.Add(this.textBox18);
-            this.groupBox2.Controls.Add(this.label44);
-            this.groupBox2.Controls.Add(this.textBox19);
-            this.groupBox2.Controls.Add(this.label45);
-            this.groupBox2.Controls.Add(this.textBox20);
-            this.groupBox2.Controls.Add(this.label46);
-            this.groupBox2.Controls.Add(this.textBox21);
-            this.groupBox2.Controls.Add(this.label47);
-            this.groupBox2.Controls.Add(this.textBox24);
-            this.groupBox2.Controls.Add(this.label48);
+            this.groupBox2.Controls.Add(this.cboFSugarType);
+            this.groupBox2.Controls.Add(this.txtFSugarMitarbeiter);
+            this.groupBox2.Controls.Add(this.lblFSugarMitarbeiter);
+            this.groupBox2.Controls.Add(this.txtFSugarUmsatz);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.txtFSugarBranche);
+            this.groupBox2.Controls.Add(this.lblFSugarBranche);
+            this.groupBox2.Controls.Add(this.lblFSugarType);
             this.groupBox2.Location = new System.Drawing.Point(626, 189);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(316, 179);
@@ -1317,124 +1248,46 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sugar options";
             // 
-            // textBox17
+            // txtFSugarBranche
             // 
-            this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox17.Location = new System.Drawing.Point(93, 149);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(215, 20);
-            this.textBox17.TabIndex = 1;
+            this.txtFSugarBranche.AcceptsReturn = true;
+            this.txtFSugarBranche.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFSugarBranche.Location = new System.Drawing.Point(93, 45);
+            this.txtFSugarBranche.Name = "txtFSugarBranche";
+            this.txtFSugarBranche.Size = new System.Drawing.Size(215, 20);
+            this.txtFSugarBranche.TabIndex = 1;
             // 
-            // label43
+            // lblFSugarBranche
             // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(8, 152);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(56, 13);
-            this.label43.TabIndex = 0;
-            this.label43.Text = "Reserve 2";
+            this.lblFSugarBranche.AutoSize = true;
+            this.lblFSugarBranche.Location = new System.Drawing.Point(8, 48);
+            this.lblFSugarBranche.Name = "lblFSugarBranche";
+            this.lblFSugarBranche.Size = new System.Drawing.Size(50, 13);
+            this.lblFSugarBranche.TabIndex = 0;
+            this.lblFSugarBranche.Text = "Branche:";
             // 
-            // textBox18
+            // lblFSugarType
             // 
-            this.textBox18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox18.Location = new System.Drawing.Point(93, 123);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(215, 20);
-            this.textBox18.TabIndex = 1;
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(8, 126);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(56, 13);
-            this.label44.TabIndex = 0;
-            this.label44.Text = "Reserve 1";
-            // 
-            // textBox19
-            // 
-            this.textBox19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox19.Location = new System.Drawing.Point(93, 97);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(215, 20);
-            this.textBox19.TabIndex = 1;
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(8, 100);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(83, 13);
-            this.label45.TabIndex = 0;
-            this.label45.Text = "Zugewiesen an:";
-            // 
-            // textBox20
-            // 
-            this.textBox20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox20.Location = new System.Drawing.Point(93, 71);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(215, 20);
-            this.textBox20.TabIndex = 1;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(8, 74);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(71, 13);
-            this.label46.TabIndex = 0;
-            this.label46.Text = "Lead Source:";
-            // 
-            // textBox21
-            // 
-            this.textBox21.AcceptsReturn = true;
-            this.textBox21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox21.Location = new System.Drawing.Point(93, 45);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(215, 20);
-            this.textBox21.TabIndex = 1;
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(8, 48);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(59, 13);
-            this.label47.TabIndex = 0;
-            this.label47.Text = "Reports to:";
-            // 
-            // textBox24
-            // 
-            this.textBox24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox24.Location = new System.Drawing.Point(93, 19);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(215, 20);
-            this.textBox24.TabIndex = 1;
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(8, 22);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(30, 13);
-            this.label48.TabIndex = 0;
-            this.label48.Text = "Titel:";
+            this.lblFSugarType.AutoSize = true;
+            this.lblFSugarType.Location = new System.Drawing.Point(8, 22);
+            this.lblFSugarType.Name = "lblFSugarType";
+            this.lblFSugarType.Size = new System.Drawing.Size(34, 13);
+            this.lblFSugarType.TabIndex = 0;
+            this.lblFSugarType.Text = "Type:";
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.comboBox2);
-            this.groupBox3.Controls.Add(this.comboBox3);
-            this.groupBox3.Controls.Add(this.comboBox4);
-            this.groupBox3.Controls.Add(this.label49);
+            this.groupBox3.Controls.Add(this.cboFZahlart);
+            this.groupBox3.Controls.Add(this.cboFVersand);
+            this.groupBox3.Controls.Add(this.cboFCaoBriefanrede);
+            this.groupBox3.Controls.Add(this.lblFCaoBriefanrede);
             this.groupBox3.Controls.Add(this.label50);
-            this.groupBox3.Controls.Add(this.label51);
-            this.groupBox3.Controls.Add(this.textBox25);
-            this.groupBox3.Controls.Add(this.label52);
-            this.groupBox3.Controls.Add(this.label53);
-            this.groupBox3.Controls.Add(this.label54);
-            this.groupBox3.Controls.Add(this.textBox26);
-            this.groupBox3.Controls.Add(this.label55);
-            this.groupBox3.Controls.Add(this.textBox27);
+            this.groupBox3.Controls.Add(this.lblFZahlungsziel);
+            this.groupBox3.Controls.Add(this.txtFZahlungsziel);
+            this.groupBox3.Controls.Add(this.lblFZahlart);
+            this.groupBox3.Controls.Add(this.lblFVersand);
+            this.groupBox3.Controls.Add(this.lblFKunSeit);
+            this.groupBox3.Controls.Add(this.txtFKunSeit);
             this.groupBox3.Location = new System.Drawing.Point(626, 6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(316, 174);
@@ -1442,38 +1295,42 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "CAO options";
             // 
-            // comboBox2
+            // cboFZahlart
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(93, 149);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(215, 21);
-            this.comboBox2.TabIndex = 2;
+            this.cboFZahlart.FormattingEnabled = true;
+            this.cboFZahlart.Location = new System.Drawing.Point(93, 149);
+            this.cboFZahlart.Name = "cboFZahlart";
+            this.cboFZahlart.Size = new System.Drawing.Size(215, 21);
+            this.cboFZahlart.TabIndex = 2;
             // 
-            // comboBox3
+            // cboFVersand
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(93, 122);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(215, 21);
-            this.comboBox3.TabIndex = 2;
+            this.cboFVersand.FormattingEnabled = true;
+            this.cboFVersand.Location = new System.Drawing.Point(93, 122);
+            this.cboFVersand.Name = "cboFVersand";
+            this.cboFVersand.Size = new System.Drawing.Size(215, 21);
+            this.cboFVersand.TabIndex = 2;
             // 
-            // comboBox4
+            // cboFCaoBriefanrede
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(91, 23);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(215, 21);
-            this.comboBox4.TabIndex = 2;
+            this.cboFCaoBriefanrede.FormattingEnabled = true;
+            this.cboFCaoBriefanrede.Items.AddRange(new object[] {
+            "Sehr geehrte Damen und Herren",
+            "Sehr geehrter Herr",
+            "Sehr geehrte Frau"});
+            this.cboFCaoBriefanrede.Location = new System.Drawing.Point(91, 23);
+            this.cboFCaoBriefanrede.Name = "cboFCaoBriefanrede";
+            this.cboFCaoBriefanrede.Size = new System.Drawing.Size(215, 21);
+            this.cboFCaoBriefanrede.TabIndex = 2;
             // 
-            // label49
+            // lblFCaoBriefanrede
             // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(6, 26);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(64, 13);
-            this.label49.TabIndex = 0;
-            this.label49.Text = "Briefanrede:";
+            this.lblFCaoBriefanrede.AutoSize = true;
+            this.lblFCaoBriefanrede.Location = new System.Drawing.Point(6, 26);
+            this.lblFCaoBriefanrede.Name = "lblFCaoBriefanrede";
+            this.lblFCaoBriefanrede.Size = new System.Drawing.Size(64, 13);
+            this.lblFCaoBriefanrede.TabIndex = 0;
+            this.lblFCaoBriefanrede.Text = "Briefanrede:";
             // 
             // label50
             // 
@@ -1484,76 +1341,59 @@
             this.label50.TabIndex = 0;
             this.label50.Text = "Tage Netto";
             // 
-            // label51
+            // lblFZahlungsziel
             // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(6, 101);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(69, 13);
-            this.label51.TabIndex = 0;
-            this.label51.Text = "Zahlungsziel:";
+            this.lblFZahlungsziel.AutoSize = true;
+            this.lblFZahlungsziel.Location = new System.Drawing.Point(6, 101);
+            this.lblFZahlungsziel.Name = "lblFZahlungsziel";
+            this.lblFZahlungsziel.Size = new System.Drawing.Size(69, 13);
+            this.lblFZahlungsziel.TabIndex = 0;
+            this.lblFZahlungsziel.Text = "Zahlungsziel:";
             // 
-            // textBox25
+            // txtFZahlungsziel
             // 
-            this.textBox25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox25.Location = new System.Drawing.Point(91, 98);
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(34, 20);
-            this.textBox25.TabIndex = 1;
-            this.textBox25.Text = "30";
-            this.textBox25.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtFZahlungsziel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFZahlungsziel.Location = new System.Drawing.Point(91, 98);
+            this.txtFZahlungsziel.Name = "txtFZahlungsziel";
+            this.txtFZahlungsziel.Size = new System.Drawing.Size(34, 20);
+            this.txtFZahlungsziel.TabIndex = 1;
+            this.txtFZahlungsziel.Text = "30";
+            this.txtFZahlungsziel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label52
+            // lblFZahlart
             // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(6, 152);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(43, 13);
-            this.label52.TabIndex = 0;
-            this.label52.Text = "Zahlart:";
+            this.lblFZahlart.AutoSize = true;
+            this.lblFZahlart.Location = new System.Drawing.Point(6, 152);
+            this.lblFZahlart.Name = "lblFZahlart";
+            this.lblFZahlart.Size = new System.Drawing.Size(43, 13);
+            this.lblFZahlart.TabIndex = 0;
+            this.lblFZahlart.Text = "Zahlart:";
             // 
-            // label53
+            // lblFVersand
             // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(6, 127);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(49, 13);
-            this.label53.TabIndex = 0;
-            this.label53.Text = "Versand:";
+            this.lblFVersand.AutoSize = true;
+            this.lblFVersand.Location = new System.Drawing.Point(6, 127);
+            this.lblFVersand.Name = "lblFVersand";
+            this.lblFVersand.Size = new System.Drawing.Size(49, 13);
+            this.lblFVersand.TabIndex = 0;
+            this.lblFVersand.Text = "Versand:";
             // 
-            // label54
+            // lblFKunSeit
             // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(6, 77);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(60, 13);
-            this.label54.TabIndex = 0;
-            this.label54.Text = "Kunde seit:";
+            this.lblFKunSeit.AutoSize = true;
+            this.lblFKunSeit.Location = new System.Drawing.Point(6, 77);
+            this.lblFKunSeit.Name = "lblFKunSeit";
+            this.lblFKunSeit.Size = new System.Drawing.Size(60, 13);
+            this.lblFKunSeit.TabIndex = 0;
+            this.lblFKunSeit.Text = "Kunde seit:";
             // 
-            // textBox26
+            // txtFKunSeit
             // 
-            this.textBox26.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox26.Location = new System.Drawing.Point(91, 74);
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(215, 20);
-            this.textBox26.TabIndex = 1;
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(6, 53);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(79, 13);
-            this.label55.TabIndex = 0;
-            this.label55.Text = "Geburtstdatum:";
-            // 
-            // textBox27
-            // 
-            this.textBox27.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox27.Location = new System.Drawing.Point(91, 50);
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(215, 20);
-            this.textBox27.TabIndex = 1;
+            this.txtFKunSeit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFKunSeit.Location = new System.Drawing.Point(91, 74);
+            this.txtFKunSeit.Name = "txtFKunSeit";
+            this.txtFKunSeit.Size = new System.Drawing.Size(215, 20);
+            this.txtFKunSeit.TabIndex = 1;
             // 
             // tabDGVCao
             // 
@@ -1614,6 +1454,71 @@
             this.cboAnrede.Size = new System.Drawing.Size(219, 21);
             this.cboAnrede.TabIndex = 100;
             // 
+            // lblFNameCao
+            // 
+            this.lblFNameCao.AutoSize = true;
+            this.lblFNameCao.Location = new System.Drawing.Point(6, 77);
+            this.lblFNameCao.Name = "lblFNameCao";
+            this.lblFNameCao.Size = new System.Drawing.Size(66, 13);
+            this.lblFNameCao.TabIndex = 0;
+            this.lblFNameCao.Text = "Name (Cao):";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Location = new System.Drawing.Point(70, 74);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(219, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // cboFSugarType
+            // 
+            this.cboFSugarType.FormattingEnabled = true;
+            this.cboFSugarType.Items.AddRange(new object[] {
+            "Kunde",
+            "Lieferant",
+            "Support",
+            "Partner"});
+            this.cboFSugarType.Location = new System.Drawing.Point(93, 19);
+            this.cboFSugarType.Name = "cboFSugarType";
+            this.cboFSugarType.Size = new System.Drawing.Size(215, 21);
+            this.cboFSugarType.TabIndex = 3;
+            // 
+            // txtFSugarMitarbeiter
+            // 
+            this.txtFSugarMitarbeiter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFSugarMitarbeiter.Location = new System.Drawing.Point(93, 97);
+            this.txtFSugarMitarbeiter.Name = "txtFSugarMitarbeiter";
+            this.txtFSugarMitarbeiter.Size = new System.Drawing.Size(215, 20);
+            this.txtFSugarMitarbeiter.TabIndex = 1;
+            // 
+            // lblFSugarMitarbeiter
+            // 
+            this.lblFSugarMitarbeiter.AutoSize = true;
+            this.lblFSugarMitarbeiter.Location = new System.Drawing.Point(8, 100);
+            this.lblFSugarMitarbeiter.Name = "lblFSugarMitarbeiter";
+            this.lblFSugarMitarbeiter.Size = new System.Drawing.Size(56, 13);
+            this.lblFSugarMitarbeiter.TabIndex = 0;
+            this.lblFSugarMitarbeiter.Text = "Reserve 1";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(8, 74);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(45, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Umsatz:";
+            // 
+            // txtFSugarUmsatz
+            // 
+            this.txtFSugarUmsatz.AcceptsReturn = true;
+            this.txtFSugarUmsatz.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFSugarUmsatz.Location = new System.Drawing.Point(93, 71);
+            this.txtFSugarUmsatz.Name = "txtFSugarUmsatz";
+            this.txtFSugarUmsatz.Size = new System.Drawing.Size(215, 20);
+            this.txtFSugarUmsatz.TabIndex = 1;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1622,10 +1527,12 @@
             this.Controls.Add(this.tsToolStipMain);
             this.Controls.Add(this.mnuFrmMain);
             this.Controls.Add(this.tabPrivat);
+            this.KeyPreview = true;
             this.MainMenuStrip = this.mnuFrmMain;
             this.Name = "frmMain";
             this.Text = "Cugar v0.1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyDown);
             this.mnuFrmMain.ResumeLayout(false);
             this.mnuFrmMain.PerformLayout();
             this.grpGenerell.ResumeLayout(false);
@@ -1743,52 +1650,35 @@
         private System.Windows.Forms.Label lblFBemerkung;
         private System.Windows.Forms.Label lblFOrt;
         private System.Windows.Forms.Label lblFPLZ;
-        private System.Windows.Forms.TextBox txtFPostfach;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.Label lblPostfach;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label lblFStrasse1;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox txtFWeb;
+        private System.Windows.Forms.TextBox txtFMail;
+        private System.Windows.Forms.TextBox txtFFax;
+        private System.Windows.Forms.TextBox txtFStrasse;
+        private System.Windows.Forms.Label lblFWeb;
+        private System.Windows.Forms.Label lblFMail;
+        private System.Windows.Forms.Label lblFFax;
+        private System.Windows.Forms.Label lblFStrasse;
+        private System.Windows.Forms.TextBox txtFPhone;
         private System.Windows.Forms.TextBox txtFName;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label lblFPhone;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.TextBox textBox24;
-        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.TextBox txtFSugarBranche;
+        private System.Windows.Forms.Label lblFSugarBranche;
+        private System.Windows.Forms.Label lblFSugarType;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.ComboBox cboFZahlart;
+        private System.Windows.Forms.ComboBox cboFVersand;
+        private System.Windows.Forms.ComboBox cboFCaoBriefanrede;
+        private System.Windows.Forms.Label lblFCaoBriefanrede;
         private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.TextBox textBox25;
-        private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.TextBox textBox26;
-        private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.TextBox textBox27;
+        private System.Windows.Forms.Label lblFZahlungsziel;
+        private System.Windows.Forms.TextBox txtFZahlungsziel;
+        private System.Windows.Forms.Label lblFZahlart;
+        private System.Windows.Forms.Label lblFVersand;
+        private System.Windows.Forms.Label lblFKunSeit;
+        private System.Windows.Forms.TextBox txtFKunSeit;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabDGVCao;
         private System.Windows.Forms.DataGridView dgvCao;
@@ -1803,6 +1693,13 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox cboAnrede;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblFNameCao;
+        private System.Windows.Forms.ComboBox cboFSugarType;
+        private System.Windows.Forms.TextBox txtFSugarMitarbeiter;
+        private System.Windows.Forms.Label lblFSugarMitarbeiter;
+        private System.Windows.Forms.TextBox txtFSugarUmsatz;
+        private System.Windows.Forms.Label label8;
 
 
 
