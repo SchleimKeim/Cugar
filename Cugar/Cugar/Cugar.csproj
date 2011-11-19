@@ -186,7 +186,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
     <None Include="Icons\png\16\Modern3D\geometry\triangle_red.png" />
     <None Include="sugarcrm.accounts.rows.sql" />
   </ItemGroup>
@@ -195,8 +194,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="all_cao_params.txt" />
+    <None Include="Icons\industry-icon.png" />
+    <None Include="Icons\User-Administrator-Blue-icon.png" />
     <Content Include="Notes.txt" />
     <Content Include="all_sugar_params.txt" />
+    <Content Include="SugarInsertFirma.txt" />
     <Content Include="SugarInsertFirma_allerows.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

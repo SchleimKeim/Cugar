@@ -97,19 +97,8 @@
             this.txtSugarTitle = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.tsToolStipMain = new System.Windows.Forms.ToolStrip();
-            this.neuToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tstxtSuchePrivat = new System.Windows.Forms.ToolStripTextBox();
             this.tstxtSucheFirma = new System.Windows.Forms.ToolStripTextBox();
-            this.tsCmdSearch = new System.Windows.Forms.ToolStripButton();
-            this.öffnenToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.speichernToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.druckenToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.ausschneidenToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.kopierenToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.einfügenToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.hilfeToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tabPrivat = new System.Windows.Forms.TabControl();
             this.tabContacts = new System.Windows.Forms.TabPage();
             this.cmdPrivatExit = new System.Windows.Forms.Button();
@@ -140,10 +129,10 @@
             this.label42 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cboFSugarType = new System.Windows.Forms.ComboBox();
-            this.txtFSugarMitarbeiter = new System.Windows.Forms.TextBox();
-            this.lblFSugarMitarbeiter = new System.Windows.Forms.Label();
+            this.txtFSugarLand = new System.Windows.Forms.TextBox();
+            this.lblFSugarLand = new System.Windows.Forms.Label();
             this.txtFSugarUmsatz = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblFSugarUmsatz = new System.Windows.Forms.Label();
             this.txtFSugarBranche = new System.Windows.Forms.TextBox();
             this.lblFSugarBranche = new System.Windows.Forms.Label();
             this.lblFSugarType = new System.Windows.Forms.Label();
@@ -164,6 +153,12 @@
             this.tabDGVSugar = new System.Windows.Forms.TabPage();
             this.dgvSugar = new System.Windows.Forms.DataGridView();
             this.tabSuche = new System.Windows.Forms.TabPage();
+            this.lblFSugarMitarbeiter = new System.Windows.Forms.Label();
+            this.txtFSugarMitarbeiter = new System.Windows.Forms.TextBox();
+            this.neuToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.speichernToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.druckenToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.hilfeToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.mnuFrmMain.SuspendLayout();
             this.grpGenerell.SuspendLayout();
             this.grpCAO.SuspendLayout();
@@ -820,31 +815,14 @@
             this.neuToolStripButton,
             this.tstxtSuchePrivat,
             this.tstxtSucheFirma,
-            this.tsCmdSearch,
-            this.öffnenToolStripButton,
             this.speichernToolStripButton,
             this.druckenToolStripButton,
-            this.toolStripSeparator,
-            this.ausschneidenToolStripButton,
-            this.kopierenToolStripButton,
-            this.einfügenToolStripButton,
-            this.toolStripSeparator1,
             this.hilfeToolStripButton});
             this.tsToolStipMain.Location = new System.Drawing.Point(0, 24);
             this.tsToolStipMain.Name = "tsToolStipMain";
             this.tsToolStipMain.Size = new System.Drawing.Size(959, 25);
             this.tsToolStipMain.TabIndex = 3;
             this.tsToolStipMain.Text = "toolStrip1";
-            // 
-            // neuToolStripButton
-            // 
-            this.neuToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.neuToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("neuToolStripButton.Image")));
-            this.neuToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.neuToolStripButton.Name = "neuToolStripButton";
-            this.neuToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.neuToolStripButton.Text = "&Neu";
-            this.neuToolStripButton.Click += new System.EventHandler(this.neuToolStripButton_Click);
             // 
             // tstxtSuchePrivat
             // 
@@ -861,90 +839,6 @@
             this.tstxtSucheFirma.Text = "Firmen...";
             this.tstxtSucheFirma.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tstxtSucheFirma_KeyDown);
             this.tstxtSucheFirma.Click += new System.EventHandler(this.tstxtSucheFirma_Click);
-            // 
-            // tsCmdSearch
-            // 
-            this.tsCmdSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsCmdSearch.Image = ((System.Drawing.Image)(resources.GetObject("tsCmdSearch.Image")));
-            this.tsCmdSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsCmdSearch.Name = "tsCmdSearch";
-            this.tsCmdSearch.Size = new System.Drawing.Size(23, 22);
-            this.tsCmdSearch.Text = "Suchen...";
-            this.tsCmdSearch.Click += new System.EventHandler(this.tsCmdSearch_Click);
-            // 
-            // öffnenToolStripButton
-            // 
-            this.öffnenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.öffnenToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("öffnenToolStripButton.Image")));
-            this.öffnenToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.öffnenToolStripButton.Name = "öffnenToolStripButton";
-            this.öffnenToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.öffnenToolStripButton.Text = "Ö&ffnen";
-            // 
-            // speichernToolStripButton
-            // 
-            this.speichernToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.speichernToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("speichernToolStripButton.Image")));
-            this.speichernToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.speichernToolStripButton.Name = "speichernToolStripButton";
-            this.speichernToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.speichernToolStripButton.Text = "&Speichern";
-            // 
-            // druckenToolStripButton
-            // 
-            this.druckenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.druckenToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("druckenToolStripButton.Image")));
-            this.druckenToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.druckenToolStripButton.Name = "druckenToolStripButton";
-            this.druckenToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.druckenToolStripButton.Text = "&Drucken";
-            // 
-            // toolStripSeparator
-            // 
-            this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // ausschneidenToolStripButton
-            // 
-            this.ausschneidenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ausschneidenToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("ausschneidenToolStripButton.Image")));
-            this.ausschneidenToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ausschneidenToolStripButton.Name = "ausschneidenToolStripButton";
-            this.ausschneidenToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.ausschneidenToolStripButton.Text = "&Ausschneiden";
-            // 
-            // kopierenToolStripButton
-            // 
-            this.kopierenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.kopierenToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("kopierenToolStripButton.Image")));
-            this.kopierenToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.kopierenToolStripButton.Name = "kopierenToolStripButton";
-            this.kopierenToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.kopierenToolStripButton.Text = "&Kopieren";
-            // 
-            // einfügenToolStripButton
-            // 
-            this.einfügenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.einfügenToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("einfügenToolStripButton.Image")));
-            this.einfügenToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.einfügenToolStripButton.Name = "einfügenToolStripButton";
-            this.einfügenToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.einfügenToolStripButton.Text = "&Einfügen";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // hilfeToolStripButton
-            // 
-            this.hilfeToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.hilfeToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("hilfeToolStripButton.Image")));
-            this.hilfeToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.hilfeToolStripButton.Name = "hilfeToolStripButton";
-            this.hilfeToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.hilfeToolStripButton.Text = "Hi&lfe";
-            this.hilfeToolStripButton.Click += new System.EventHandler(this.hilfeToolStripButton_Click);
             // 
             // tabPrivat
             // 
@@ -1235,10 +1129,12 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.cboFSugarType);
+            this.groupBox2.Controls.Add(this.txtFSugarLand);
+            this.groupBox2.Controls.Add(this.lblFSugarLand);
             this.groupBox2.Controls.Add(this.txtFSugarMitarbeiter);
-            this.groupBox2.Controls.Add(this.lblFSugarMitarbeiter);
             this.groupBox2.Controls.Add(this.txtFSugarUmsatz);
-            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.lblFSugarMitarbeiter);
+            this.groupBox2.Controls.Add(this.lblFSugarUmsatz);
             this.groupBox2.Controls.Add(this.txtFSugarBranche);
             this.groupBox2.Controls.Add(this.lblFSugarBranche);
             this.groupBox2.Controls.Add(this.lblFSugarType);
@@ -1262,22 +1158,22 @@
             this.cboFSugarType.Size = new System.Drawing.Size(215, 21);
             this.cboFSugarType.TabIndex = 3;
             // 
-            // txtFSugarMitarbeiter
+            // txtFSugarLand
             // 
-            this.txtFSugarMitarbeiter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFSugarMitarbeiter.Location = new System.Drawing.Point(93, 97);
-            this.txtFSugarMitarbeiter.Name = "txtFSugarMitarbeiter";
-            this.txtFSugarMitarbeiter.Size = new System.Drawing.Size(215, 20);
-            this.txtFSugarMitarbeiter.TabIndex = 1;
+            this.txtFSugarLand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFSugarLand.Location = new System.Drawing.Point(93, 123);
+            this.txtFSugarLand.Name = "txtFSugarLand";
+            this.txtFSugarLand.Size = new System.Drawing.Size(215, 20);
+            this.txtFSugarLand.TabIndex = 1;
             // 
-            // lblFSugarMitarbeiter
+            // lblFSugarLand
             // 
-            this.lblFSugarMitarbeiter.AutoSize = true;
-            this.lblFSugarMitarbeiter.Location = new System.Drawing.Point(8, 100);
-            this.lblFSugarMitarbeiter.Name = "lblFSugarMitarbeiter";
-            this.lblFSugarMitarbeiter.Size = new System.Drawing.Size(56, 13);
-            this.lblFSugarMitarbeiter.TabIndex = 0;
-            this.lblFSugarMitarbeiter.Text = "Reserve 1";
+            this.lblFSugarLand.AutoSize = true;
+            this.lblFSugarLand.Location = new System.Drawing.Point(8, 126);
+            this.lblFSugarLand.Name = "lblFSugarLand";
+            this.lblFSugarLand.Size = new System.Drawing.Size(34, 13);
+            this.lblFSugarLand.TabIndex = 0;
+            this.lblFSugarLand.Text = "Land:";
             // 
             // txtFSugarUmsatz
             // 
@@ -1288,14 +1184,14 @@
             this.txtFSugarUmsatz.Size = new System.Drawing.Size(215, 20);
             this.txtFSugarUmsatz.TabIndex = 1;
             // 
-            // label8
+            // lblFSugarUmsatz
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 74);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 13);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Umsatz:";
+            this.lblFSugarUmsatz.AutoSize = true;
+            this.lblFSugarUmsatz.Location = new System.Drawing.Point(8, 74);
+            this.lblFSugarUmsatz.Name = "lblFSugarUmsatz";
+            this.lblFSugarUmsatz.Size = new System.Drawing.Size(45, 13);
+            this.lblFSugarUmsatz.TabIndex = 0;
+            this.lblFSugarUmsatz.Text = "Umsatz:";
             // 
             // txtFSugarBranche
             // 
@@ -1351,6 +1247,7 @@
             this.cboFZahlart.Name = "cboFZahlart";
             this.cboFZahlart.Size = new System.Drawing.Size(215, 21);
             this.cboFZahlart.TabIndex = 2;
+            this.cboFZahlart.SelectedIndexChanged += new System.EventHandler(this.cboFZahlart_SelectedIndexChanged);
             // 
             // cboFVersand
             // 
@@ -1450,7 +1347,7 @@
             this.tabDGVCao.Location = new System.Drawing.Point(4, 22);
             this.tabDGVCao.Name = "tabDGVCao";
             this.tabDGVCao.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDGVCao.Size = new System.Drawing.Size(951, 404);
+            this.tabDGVCao.Size = new System.Drawing.Size(951, 372);
             this.tabDGVCao.TabIndex = 2;
             this.tabDGVCao.Text = "dgvCao";
             this.tabDGVCao.UseVisualStyleBackColor = true;
@@ -1468,7 +1365,7 @@
             this.tabDGVSugar.Controls.Add(this.dgvSugar);
             this.tabDGVSugar.Location = new System.Drawing.Point(4, 22);
             this.tabDGVSugar.Name = "tabDGVSugar";
-            this.tabDGVSugar.Size = new System.Drawing.Size(951, 404);
+            this.tabDGVSugar.Size = new System.Drawing.Size(951, 372);
             this.tabDGVSugar.TabIndex = 3;
             this.tabDGVSugar.Text = "dgvSugar";
             this.tabDGVSugar.UseVisualStyleBackColor = true;
@@ -1486,10 +1383,66 @@
             this.tabSuche.Location = new System.Drawing.Point(4, 22);
             this.tabSuche.Name = "tabSuche";
             this.tabSuche.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSuche.Size = new System.Drawing.Size(951, 404);
+            this.tabSuche.Size = new System.Drawing.Size(951, 372);
             this.tabSuche.TabIndex = 4;
             this.tabSuche.Text = "Suche";
             this.tabSuche.UseVisualStyleBackColor = true;
+            // 
+            // lblFSugarMitarbeiter
+            // 
+            this.lblFSugarMitarbeiter.AutoSize = true;
+            this.lblFSugarMitarbeiter.Location = new System.Drawing.Point(8, 100);
+            this.lblFSugarMitarbeiter.Name = "lblFSugarMitarbeiter";
+            this.lblFSugarMitarbeiter.Size = new System.Drawing.Size(59, 13);
+            this.lblFSugarMitarbeiter.TabIndex = 0;
+            this.lblFSugarMitarbeiter.Text = "Mitarbeiter:";
+            // 
+            // txtFSugarMitarbeiter
+            // 
+            this.txtFSugarMitarbeiter.AcceptsReturn = true;
+            this.txtFSugarMitarbeiter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFSugarMitarbeiter.Location = new System.Drawing.Point(93, 97);
+            this.txtFSugarMitarbeiter.Name = "txtFSugarMitarbeiter";
+            this.txtFSugarMitarbeiter.Size = new System.Drawing.Size(215, 20);
+            this.txtFSugarMitarbeiter.TabIndex = 1;
+            // 
+            // neuToolStripButton
+            // 
+            this.neuToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.neuToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("neuToolStripButton.Image")));
+            this.neuToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.neuToolStripButton.Name = "neuToolStripButton";
+            this.neuToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.neuToolStripButton.Text = "&Neu";
+            this.neuToolStripButton.Click += new System.EventHandler(this.neuToolStripButton_Click);
+            // 
+            // speichernToolStripButton
+            // 
+            this.speichernToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.speichernToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("speichernToolStripButton.Image")));
+            this.speichernToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.speichernToolStripButton.Name = "speichernToolStripButton";
+            this.speichernToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.speichernToolStripButton.Text = "&Speichern";
+            // 
+            // druckenToolStripButton
+            // 
+            this.druckenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.druckenToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("druckenToolStripButton.Image")));
+            this.druckenToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.druckenToolStripButton.Name = "druckenToolStripButton";
+            this.druckenToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.druckenToolStripButton.Text = "&Drucken";
+            // 
+            // hilfeToolStripButton
+            // 
+            this.hilfeToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.hilfeToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("hilfeToolStripButton.Image")));
+            this.hilfeToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.hilfeToolStripButton.Name = "hilfeToolStripButton";
+            this.hilfeToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.hilfeToolStripButton.Text = "Hi&lfe";
+            this.hilfeToolStripButton.Click += new System.EventHandler(this.hilfeToolStripButton_Click);
             // 
             // frmMain
             // 
@@ -1602,14 +1555,8 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ToolStrip tsToolStipMain;
         private System.Windows.Forms.ToolStripButton neuToolStripButton;
-        private System.Windows.Forms.ToolStripButton öffnenToolStripButton;
         private System.Windows.Forms.ToolStripButton speichernToolStripButton;
         private System.Windows.Forms.ToolStripButton druckenToolStripButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
-        private System.Windows.Forms.ToolStripButton ausschneidenToolStripButton;
-        private System.Windows.Forms.ToolStripButton kopierenToolStripButton;
-        private System.Windows.Forms.ToolStripButton einfügenToolStripButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton hilfeToolStripButton;
         private System.Windows.Forms.ToolStripTextBox tstxtSuchePrivat;
         private System.Windows.Forms.ToolStripMenuItem standardToolStripMenuItem;
@@ -1658,7 +1605,6 @@
         private System.Windows.Forms.DataGridView dgvCao;
         private System.Windows.Forms.TabPage tabDGVSugar;
         private System.Windows.Forms.DataGridView dgvSugar;
-        private System.Windows.Forms.ToolStripButton tsCmdSearch;
         private System.Windows.Forms.TabPage tabSuche;
         private System.Windows.Forms.ToolStripTextBox tstxtSucheFirma;
         private System.Windows.Forms.Button cmdPrivatExit;
@@ -1668,10 +1614,12 @@
         private System.Windows.Forms.TextBox txtFName2;
         private System.Windows.Forms.Label lblFNameCao;
         private System.Windows.Forms.ComboBox cboFSugarType;
+        private System.Windows.Forms.TextBox txtFSugarLand;
+        private System.Windows.Forms.Label lblFSugarLand;
+        private System.Windows.Forms.TextBox txtFSugarUmsatz;
+        private System.Windows.Forms.Label lblFSugarUmsatz;
         private System.Windows.Forms.TextBox txtFSugarMitarbeiter;
         private System.Windows.Forms.Label lblFSugarMitarbeiter;
-        private System.Windows.Forms.TextBox txtFSugarUmsatz;
-        private System.Windows.Forms.Label label8;
 
 
 

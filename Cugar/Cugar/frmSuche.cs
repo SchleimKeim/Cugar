@@ -41,7 +41,8 @@ namespace Cugar
         /* Reference to frmMain */
         private frmMain frmMain = null;
 
-        private BindingSource m_BS;
+        private BindingSource m_BS_Cao;
+        private BindingSource m_BS_Sugar;
 
         // Bool to decide weither its a search for normal contacts or for companys
         private bool m_privat = false;
@@ -101,15 +102,17 @@ namespace Cugar
         /// <param name="obj_cao">the cCao Object from frmMain</param>
         /// <param name="obj_sugar">the cSugar Object from frmMain</param>
         /// <param name="mainform">reference to the frmMain</param>
-        /// <param name="bs">reference to a BindingSource</param>
-        public frmSuche(DataSet ds, string searchstring, cCao obj_cao, cSugar obj_sugar, frmMain mainform, BindingSource bs)
+        /// <param name="bsCao">The Databinding for Cao</param>
+        /// <param name="bsSugar">The Databinding for Sugar</param>
+        public frmSuche(DataSet ds, string searchstring, cCao obj_cao, cSugar obj_sugar, frmMain mainform, BindingSource bsCao, BindingSource bsSugar)
         {
             m_strSuchstring = searchstring;
             m_DS = ds;
             m_objCao = obj_cao;
             m_objSugar = obj_sugar;
             this.frmMain = mainform;
-            m_BS = bs;
+            m_BS_Cao = bsCao;
+            m_BS_Sugar = bsSugar;
             InitializeComponent();
         }
 
@@ -122,7 +125,7 @@ namespace Cugar
 
             try
             {
-                ClearBothDgvsNew();
+                ClearBothDgvs();
                 if (m_privat == true)
                 {
                     StartSearchPrivat(m_strSuchstring);
@@ -158,34 +161,34 @@ namespace Cugar
         /// <param name="searchstring">searchstring</param>
         public void StartSearchPrivat(string searchstring)
         {
-            m_objCao = new cCao(m_DS, m_BS);
+            m_objCao = new cCao(m_DS, m_BS_Cao);
             //m_objCao.search_ds_human_persons(searchstring);
             m_objCao.search_ds_all_persons(searchstring);
             //m_DV_Search_Cao_human = m_DS.Tables[m_const_strCaoTableSearchAll].DefaultView;
-            m_BS.DataSource = m_DS.Tables[m_const_strCaoTableSearchAllPrivate];
+            m_BS_Cao.DataSource = m_DS.Tables[m_const_strCaoTableSearchAllPrivate];
+            dgvCaoSuche.DataSource = m_BS_Cao;
 
-            dgvCaoSuche.DataSource = m_BS;
-
-            m_objSugar = new cSugar(m_DS, m_BS);
+            m_objSugar = new cSugar(m_DS, m_BS_Sugar);
             //m_objSugar.search_ds_human_persons(searchstring);
             m_objSugar.search_ds_all_persons(searchstring);
-            m_DV_Search_Sugar_human = m_DS.Tables[m_const_strSugarTableSearchAllPrivate].DefaultView;
+            m_BS_Sugar.DataSource = m_DS.Tables[m_const_strSugarTableSearchAllPrivate];
+            //m_DV_Search_Sugar_human = m_DS.Tables[m_const_strSugarTableSearchAllPrivate].DefaultView;
             //m_BS.DataSource = m_DS.Tables[m_const_strSugarTableSearchAll];
-            dgvSugarSuche.DataSource = m_DV_Search_Sugar_human;
-            //dgvSugarSuche.DataSource = m_BS;
+            //dgvSugarSuche.DataSource = m_DV_Search_Sugar_human;
+            dgvSugarSuche.DataSource = m_BS_Sugar;
         }
 
         public void StartSearchFirma(string searchstring)
         {
-            m_objCao = new cCao(m_DS, m_BS);
+            m_objCao = new cCao(m_DS, m_BS_Cao);
             m_objCao.search_ds_all_companies(searchstring);
-            m_BS.DataSource = m_DS.Tables[m_const_strCaoTableSearchAllCompanies];
-            dgvCaoSuche.DataSource = m_BS;
+            m_BS_Cao.DataSource = m_DS.Tables[m_const_strCaoTableSearchAllCompanies];
+            dgvCaoSuche.DataSource = m_BS_Cao;
 
-            //m_objSugar = new cSugar(m_DS, m_BS);
-            //m_objSugar.search_ds_all_persons(searchstring);
-            //m_DV_Search_Sugar_human = m_DS.Tables[m_const_strSugarTableSearchAll].DefaultView;
-            //dgvSugarSuche.DataSource = m_DV_Search_Sugar_human;
+            m_objSugar = new cSugar(m_DS, m_BS_Sugar);
+            m_objSugar.search_ds_all_companies(searchstring);
+            m_BS_Sugar.DataSource = m_DS.Tables[m_const_strSugarTableSearchAllCompanies].DefaultView;
+            dgvSugarSuche.DataSource = m_BS_Sugar;
         }
         private void cmdClear_Click(object sender, EventArgs e)
         {
@@ -215,36 +218,43 @@ namespace Cugar
                     m_DS.Tables.Remove(m_const_strCaoTableSearchAllCompanies);
                 }
             }
+
             if (dgvSugarSuche.ColumnCount > 0)
             {
                 dgvSugarSuche.DataSource = null;
                 m_DV_Search_Sugar_human = null;
-                m_DS.Tables.Remove(m_const_strSugarTableSearchAllPrivate);
+                if (m_privat == true)
+                {
+                    m_DS.Tables.Remove(m_const_strSugarTableSearchAllPrivate);
+                }
+                else if (m_privat == false)
+                {
+                    m_DS.Tables.Remove(m_const_strSugarTableSearchAllCompanies);
+                }
             }
         }
+        //private void ClearBothDgvsNew()
+        //{
 
-        private void ClearBothDgvsNew()
-        {
+        //    /* if the DatagridView is empty do nothing
+        //     * else set the source to null to clear the DataGridView
+        //     * at last clear the search field and set the Focus to it.
+        //     */
+        //    dgvCaoSuche.DataSource = null;
+        //    m_DV_Search_Cao_human = null;
+        //    if (m_DS.Tables[m_const_strCaoTableSearchAllPrivate] != null)
+        //    {
+        //        m_DS.Tables.Remove(m_const_strCaoTableSearchAllPrivate);
+        //    }
 
-            /* if the DatagridView is empty do nothing
-             * else set the source to null to clear the DataGridView
-             * at last clear the search field and set the Focus to it.
-             */
-            dgvCaoSuche.DataSource = null;
-            m_DV_Search_Cao_human = null;
-            if (m_DS.Tables[m_const_strCaoTableSearchAllPrivate] != null)
-            {
-                m_DS.Tables.Remove(m_const_strCaoTableSearchAllPrivate);
-            }                
-      
-            dgvSugarSuche.DataSource = null;
-            m_DV_Search_Sugar_human = null;
-            if (m_DS.Tables[m_const_strSugarTableSearchAllPrivate] != null)
-            {
-                m_DS.Tables.Remove(m_const_strSugarTableSearchAllPrivate);
-            }           
-            
-        }
+        //    dgvSugarSuche.DataSource = null;
+        //    m_DV_Search_Sugar_human = null;
+        //    if (m_DS.Tables[m_const_strSugarTableSearchAllPrivate] != null)
+        //    {
+        //        m_DS.Tables.Remove(m_const_strSugarTableSearchAllPrivate);
+        //    }
+
+        //}
 
         private void cmdExit_Click(object sender, EventArgs e)
         {
@@ -255,10 +265,17 @@ namespace Cugar
         {
             /* temporary solution, find somethingg to bind the textfields to the actual m_DS */
             //this.frmMain.dtDatensatzCao = m_DS.Tables[m_const_strCaoTableSearchAll];
-            
-            this.frmMain.DatensatzLaden();
-            //this.frmMain.SaveButtonEnabled = true;
-            this.Close();
+            if (m_privat == true)
+            {
+                this.frmMain.DatensatzLadenPrivate();
+                //this.frmMain.SaveButtonEnabled = true;
+                this.Close();
+            }
+            else
+            {
+
+            }
+
         }
 
         #region propertys

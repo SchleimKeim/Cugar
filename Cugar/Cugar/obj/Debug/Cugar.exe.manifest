@@ -57,14 +57,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cugar.exe" size="109056">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cugar.exe" size="196608">
       <assemblyIdentity name="Cugar" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>z+zxmgw605k4Zh2KTOeyZ8q3rT8=</dsig:DigestValue>
+        <dsig:DigestValue>mL0OPHRCHRjsteUS+oe4zdwUIN0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -111,6 +111,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>ThOY2aD7npcaF5uPY7k6wO0VwWI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="SugarInsertFirma.txt" size="8505">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>39tw1ZpRf0+KKowRJsmuuiXEYNw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="SugarInsertFirma_allerows.txt" size="2352">

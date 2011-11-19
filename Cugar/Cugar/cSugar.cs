@@ -112,7 +112,7 @@ namespace Cugar
 
         /// <summary>
         ///Searches the table adressen for a given Searchstring
-        ///and inserts a "tblSugarSearchAll" into the DataSet.</summary>
+        ///and inserts a "tblSugarSearchAllPrivate" into the DataSet.</summary>
         /// <param name="searchstring">the search string</param>
         public void search_ds_all_persons(string searchstring)
         {
@@ -126,6 +126,25 @@ namespace Cugar
             m_daSugar = new MySqlDataAdapter(m_cmdSearchCommand.CommandText, m_cnSugar);
             m_daSugar.FillSchema(m_dsSugar, SchemaType.Source, m_const_strSugarTableSearchAllPrivate);
             m_daSugar.Fill(m_dsSugar, m_const_strSugarTableSearchAllPrivate);            
+        }
+
+        /// <summary>
+        /// Searches the table accounts for a given Searchstring
+        /// and inserts a "tblSugarSearchAllCompanies" into the DataSet.
+        /// </summary>
+        /// <param name="searchstring">the search string</param>
+        public void search_ds_all_companies(string searchstring)
+        {
+            StringBuilder m_strCommand = new StringBuilder();
+            m_strCommand.Append("select * from accounts where name like ");
+            m_strCommand.Append("'%");
+            m_strCommand.Append(searchstring);
+            m_strCommand.Append("%' and deleted = 0;");
+
+            MySqlCommand m_cmdSearchCommand = new MySqlCommand(m_strCommand.ToString());
+            m_daSugar = new MySqlDataAdapter(m_cmdSearchCommand.CommandText, m_cnSugar);
+            m_daSugar.FillSchema(m_dsSugar, SchemaType.Source, m_const_strSugarTableSearchAllCompanies);
+            m_daSugar.Fill(m_dsSugar, m_const_strSugarTableSearchAllCompanies);            
         }
         /// <summary>
         ///Searches the table adressen for a given Searchstring

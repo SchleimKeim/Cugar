@@ -31,3 +31,5 @@ shipping_address_country varchar(255) DEFAULT NULL,
 parent_id char(36) DEFAULT NULL,
 sic_code varchar(10) DEFAULT NULL,
 campaign_id char(36) DEFAULT NULL,
+
+

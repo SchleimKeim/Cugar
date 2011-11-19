@@ -155,10 +155,11 @@ namespace Cugar
         /* binding sources */
         private BindingSource m_BS_CaoSearchContacts = new BindingSource();
         private BindingSource m_BS_CaoSearchFirma = new BindingSource();
+        private BindingSource m_BS_SugarSearchContacts = new BindingSource();
+        private BindingSource m_BS_SugarSearchFirma = new BindingSource();
+        
         private BindingSource m_BS_CaoZahlarten = new BindingSource();
         private BindingSource m_BS_CaoVersandarten = new BindingSource();
-        private BindingSource m_BS_SugarSearchContacts = new BindingSource();
-        
 
         private bool m_bNew = false;
 
@@ -356,21 +357,22 @@ namespace Cugar
 
         }
 
-        
+        #region obsolete
         //private void tstxtSuche_Click(object sender, EventArgs e)
         //{
         //    tstxtSuchePrivat.Clear();
         //}
 
-        private void tsCmdSearch_Click(object sender, EventArgs e)
-        {
-            SearchPrivat();
-        }
+        //private void tsCmdSearch_Click(object sender, EventArgs e)
+        //{
+        //    SearchPrivat();
+        //}
+        #endregion
 
         private void SearchPrivat()
         {
             //frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text);
-            frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuchePrivat.Text, m_objCao, m_objSugar, this, m_BS_CaoSearchContacts);
+            frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuchePrivat.Text, m_objCao, m_objSugar, this, m_BS_CaoSearchContacts, m_BS_SugarSearchContacts);
             m_objSuche.Privat = true;
             //m_objSuche.StartSearchPrivat(tstxtSuchePrivat.Text);
             //frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text, m_objCao, m_objSugar);            
@@ -407,8 +409,11 @@ namespace Cugar
                 MessageBox.Show(foo.ToString());
             }
         }
-
-        public void DatensatzLaden()
+        /// <summary>
+        /// Fills all the textfields with values from the current
+        /// selected DataRow out of the BindingSource. (tblSearch*Contacts)
+        /// </summary>
+        public void DatensatzLadenPrivate()
         {
             #region snippet, obsolete
             /* snippet:
@@ -478,6 +483,64 @@ namespace Cugar
             //((DataRowView)m_BS_Sugar.Current)["last_name"] = 
             //m_BS.Current
             
+        }
+
+        /// <summary>
+        /// Fills all the textfields with values from the current
+        /// selected DataRow out of the BindingSource. (tblSearch*Companies)
+        /// </summary>
+        public void DatensatzLadenCompany()
+        {
+            if (m_BS_CaoSearchContacts.Current != null)
+            {
+                //reset ts textfields
+                tstxtSuchePrivat.Text = "Personen...";
+                tstxtSucheFirma.Text = "Firmen...";
+
+                txtFName1.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["NAME1"].ToString();
+
+                #region fill cbos and set them to the right index
+                // set cboCaoVersand to the right index
+                int VerdsandId = 0;
+                VerdsandId = Convert.ToInt32(((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_LIEFART"]);
+                cboFVersand.SelectedIndex = VerdsandId - 1;
+
+                //set cboCaoZahlart to the right index
+                int ZahlartId = 0;
+                ZahlartId = Convert.ToInt32(((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_ZAHLART"]);
+                cboFZahlart.SelectedIndex = ZahlartId - 1;
+                #endregion
+
+                /* Fills in all the textfield using databinding object casted into a datarowview */
+
+                cboFAnrede.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["ANREDE"].ToString();
+                txtFStrasse.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["STRASSE"].ToString();
+                txtFPLZ.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["PLZ"].ToString();
+                txtFOrt.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["ORT"].ToString();
+                txtFWeb.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["INTERNET"].ToString();
+                txtFMail.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["EMAIL"].ToString();
+                txtFFax.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["FAX"].ToString();
+                //txtMobile.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["FUNK"].ToString();
+                //txtPhon2.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["TELE2"].ToString();
+                txtFPhone.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["TELE1"].ToString();
+                cboFAnrede.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["BRIEFANREDE"].ToString();
+                txtFZahlungsziel.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["BRT_TAGE"].ToString();
+                txtFKunSeit.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_SEIT"].ToString();
+                txtFBemerkung.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["INFO"].ToString();
+
+                //((DataRowView)m_BS_CaoSearchContacts.Current)["INFO"] = txtBemerkung.Text;
+
+                //txtSugarZugewiesenAn.Text = ((DataRowView)m_BS.Current)[].ToString();
+                //txtSugarLeadSource.Text = ((DataRowView)m_BS.Current)[].ToString();
+
+                //txtSugarReportsTo.Text = ((DataRowView)m_BS.Current)[].ToString();
+                //txtSugarTitle.Text = ((DataRowView)m_BS.Current)[].ToString();
+            }
+
+            //((DataRowView)m_BS.Current)["NAME1"] = txtName.Text;
+            //((DataRowView)m_BS_Sugar.Current)["last_name"] = 
+            //m_BS.Current
+
         }
 
         //private void tstxtSuche_Enter(object sender, EventArgs e)
@@ -585,7 +648,7 @@ namespace Cugar
             else if (tabPrivat.SelectedTab == tabCompanies)
             {
                 CaoInsertFirma();
-                //SugarInsertFirma();
+                SugarInsertFirma();
             }
             else
             {
@@ -1063,18 +1126,16 @@ namespace Cugar
                 sb_SugarInsert.Append("phone_fax, ");
                 sb_SugarInsert.Append("billing_address_street, ");
                 sb_SugarInsert.Append("billing_address_city, ");
-                sb_SugarInsert.Append("billing_address_state, ");
                 sb_SugarInsert.Append("billing_address_country, ");
                 //! 
-                sb_SugarInsert.Append("rating, ");
+                //sb_SugarInsert.Append("rating, ");
                 //!
                 sb_SugarInsert.Append("phone_office, ");
-                sb_SugarInsert.Append("phone_alternate, ");
                 sb_SugarInsert.Append("website, ");
                 //!
-                sb_SugarInsert.Append("ownership, ");
-                sb_SugarInsert.Append("employees, ");
-                sb_SugarInsert.Append("ticker_symbol, ");
+                //sb_SugarInsert.Append("ownership, ");
+                sb_SugarInsert.Append("employees)");
+                //sb_SugarInsert.Append("ticker_symbol, ");
                 //!
 
                 /* 
@@ -1092,20 +1153,13 @@ namespace Cugar
                  */
 
                 #endregion
-                sb_SugarInsert.Append(@" VALUES()");
+                sb_SugarInsert.Append(@" VALUES(@id, @name, @date_entered, @modified_user_id, @created_by, @description, @deleted, @assigned_user_id, @account_type, @industry, @annual_revenue, @phone_fax, @billing_address_street, @billing_address_city, @billing_address_country, @phone_office, @website, @employees)");
                 #region cmSugar + Parameters
                 MySqlCommand cmSugarInsert = new MySqlCommand(sb_SugarInsert.ToString(), m_objSugar.SugarConnection);
                 cmSugarInsert.Parameters.Add("@id", MySqlDbType.VarChar, 36, "@id");
                 cmSugarInsert.Parameters["@id"].Value = System.Guid.NewGuid().ToString();
-
-
-                //MySqlParameter myparam = new MySqlParameter();
-                //myparam.ParameterName = "@date_entered";
-                //myparam.SourceColumn = "@date_entered";
-                //myparam.DbType = (DbType)MySqlDbType.DateTime;
-                //myparam.Value = DateTime.Today.ToShortDateString();
-                //cmSugarInsert.Parameters.Add(myparam);
-
+                cmSugarInsert.Parameters.Add("@name", MySqlDbType.VarChar, 150, "@name");
+                cmSugarInsert.Parameters["@name"].Value = txtFName1.Text;
                 cmSugarInsert.Parameters.Add("@date_entered", MySqlDbType.DateTime);
                 cmSugarInsert.Parameters["@date_entered"].Value = DateTime.Today.ToShortDateString();
                 //cmSugarInsert.Parameters.Add("@date_modified", MySqlDbType.DateTime);
@@ -1120,36 +1174,28 @@ namespace Cugar
                 cmSugarInsert.Parameters["@deleted"].Value = 0;
                 cmSugarInsert.Parameters.Add("@assigned_user_id", MySqlDbType.VarChar, 36, "@assigned_user_id");
                 cmSugarInsert.Parameters["@assigned_user_id"].Value = "ed2d04a5-8264-45e7-fbdb-4ebebdf8375a";
-                cmSugarInsert.Parameters.Add("@salutation", MySqlDbType.VarChar, 255, "@salutation");
-                    cmSugarInsert.Parameters["@salutation"].Value = cboAnrede.Text;
-                cmSugarInsert.Parameters.Add("@first_name", MySqlDbType.VarChar, 100, "@first_name");
-                cmSugarInsert.Parameters["@first_name"].Value = txtVorname.Text;
-                cmSugarInsert.Parameters.Add("@last_name", MySqlDbType.VarChar, 100, "@last_name");
-                cmSugarInsert.Parameters["@last_name"].Value = txtName.Text;
-                cmSugarInsert.Parameters.Add("@title", MySqlDbType.VarChar, 100, "@title");
-                cmSugarInsert.Parameters["@title"].Value = txtSugarTitle.Text;
-                cmSugarInsert.Parameters.Add("@department", MySqlDbType.VarChar, 255, "@department");
-                cmSugarInsert.Parameters["@department"].Value = txtSugarAbteilung.Text;
-                cmSugarInsert.Parameters.Add("@phone_home", MySqlDbType.VarChar, 100, "@phone_home");
-                cmSugarInsert.Parameters["@phone_home"].Value = txtPhone1.Text;
-                cmSugarInsert.Parameters.Add("@phone_mobile", MySqlDbType.VarChar, 100, "@phone_mobile");
-                cmSugarInsert.Parameters["@phone_mobile"].Value = txtMobile.Text;
-                cmSugarInsert.Parameters.Add("@phone_work", MySqlDbType.VarChar, 100, "@phone_work");
-                cmSugarInsert.Parameters["@phone_work"].Value = txtPhon2.Text;
+                cmSugarInsert.Parameters.Add("@account_type", MySqlDbType.VarChar, 50, "@account_type");
+                cmSugarInsert.Parameters["@account_type"].Value = cboFSugarType.Text;
+                cmSugarInsert.Parameters.Add("@industry", MySqlDbType.VarChar, 50, "@industry");
+                cmSugarInsert.Parameters["@industry"].Value = txtFSugarBranche.Text;
+                cmSugarInsert.Parameters.Add("@annual_revenue", MySqlDbType.VarChar, 100, "@annual_revenue");
+                cmSugarInsert.Parameters["@annual_revenue"].Value = txtFSugarUmsatz.Text;
                 cmSugarInsert.Parameters.Add("@phone_fax", MySqlDbType.VarChar, 100, "@phone_fax");
-                cmSugarInsert.Parameters["@phone_fax"].Value = txtFax.Text;
-                cmSugarInsert.Parameters.Add("@primary_address_street", MySqlDbType.VarChar, 150, "@primary_address_street");
-                cmSugarInsert.Parameters["@primary_address_street"].Value = txtStrasse1.Text;
-                cmSugarInsert.Parameters.Add("@primary_address_city", MySqlDbType.VarChar, 100, "@primary_address_city");
-                cmSugarInsert.Parameters["@primary_address_city"].Value = txtOrt.Text;
-                cmSugarInsert.Parameters.Add("@primary_address_postalcode", MySqlDbType.VarChar, 20, "@primary_address_postalcode");
-                cmSugarInsert.Parameters["@primary_address_postalcode"].Value = txtPLZ.Text;
-                cmSugarInsert.Parameters.Add("@primary_address_country", MySqlDbType.VarChar, 255, "@primary_address_country");
-                cmSugarInsert.Parameters["@primary_address_country"].Value = txtSugarLand.Text;
-                //cmSugarInsert.Parameters.Add("@lead_source", MySqlDbType.VarChar, 255, "@lead_source");
-                //cmSugarInsert.Parameters["@lead_source"].Value = txtSugarLeadSource.Text;
-                //cmSugarInsert.Parameters.Add("@birthdate", MySqlDbType.Date);
-                //cmSugarInsert.Parameters["@birthdate"].Value = txtCaoGeb.Text;
+                cmSugarInsert.Parameters["@phone_fax"].Value = txtFFax.Text;
+                cmSugarInsert.Parameters.Add("@billing_address_street", MySqlDbType.VarChar, 150, "@billing_address_street");
+                cmSugarInsert.Parameters["@billing_address_street"].Value = txtFStrasse.Text;
+                cmSugarInsert.Parameters.Add("@billing_address_city", MySqlDbType.VarChar, 100, "@billing_address_city");
+                cmSugarInsert.Parameters["@billing_address_city"].Value = txtFOrt.Text;
+                cmSugarInsert.Parameters.Add("@billing_address_postalcode", MySqlDbType.VarChar, 20, "@billing_address_postalcode");
+                cmSugarInsert.Parameters["@billing_address_postalcode"].Value = txtFPLZ.Text;
+                cmSugarInsert.Parameters.Add("@billing_address_country", MySqlDbType.VarChar, 255, "@billing_address_country");
+                cmSugarInsert.Parameters["@billing_address_country"].Value = txtFSugarLand.Text;
+                cmSugarInsert.Parameters.Add("@phone_office", MySqlDbType.VarChar, 100, "@phone_office");
+                cmSugarInsert.Parameters["@phone_office"].Value = txtFPhone.Text;
+                cmSugarInsert.Parameters.Add("@website", MySqlDbType.VarChar, 255, "@website");
+                cmSugarInsert.Parameters["@website"].Value = txtFWeb.Text;
+                cmSugarInsert.Parameters.Add("@employees", MySqlDbType.VarChar, 10, "@employees");
+                cmSugarInsert.Parameters["@employees"].Value = txtFSugarMitarbeiter.Text;
                 #endregion
                 #endregion
 
@@ -1183,7 +1229,7 @@ namespace Cugar
 
         private void SearchFirma()
         {
-            frmSuche m_objSuche = new frmSuche(m_DS, tstxtSucheFirma.Text, m_objCao, m_objSugar, this, m_BS_CaoSearchFirma);
+            frmSuche m_objSuche = new frmSuche(m_DS, tstxtSucheFirma.Text, m_objCao, m_objSugar, this, m_BS_CaoSearchFirma, m_BS_SugarSearchFirma);
             m_objSuche.Privat = false;
             //m_objSuche.StartSearchFirma(tstxtSucheFirma.Text);
             m_objSuche.ShowDialog();
@@ -1214,6 +1260,11 @@ namespace Cugar
         }
 
         private void mnuFrmMain_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void cboFZahlart_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
