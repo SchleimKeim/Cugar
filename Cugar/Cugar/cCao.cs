@@ -290,7 +290,6 @@ namespace Cugar
             //sbUpdate.Append("KUNNUM1 = ?, ");
             //sbUpdate.Append("KUNNUM2 = ?, ");
             #endregion
-
              
             sbUpdate.Append("NAME1 = ?, ");
             sbUpdate.Append("PLZ = ?, ");

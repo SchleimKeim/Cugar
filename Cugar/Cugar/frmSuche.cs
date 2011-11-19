@@ -122,7 +122,7 @@ namespace Cugar
             rbStrasse.Checked = false;
             rbTelefon.Checked = false;
             txtSuche.Text = m_strSuchstring;
-
+            
             try
             {
                 ClearBothDgvs();
@@ -198,17 +198,40 @@ namespace Cugar
 
         }
 
-        private void ClearBothDgvs()
+        public void ClearBothDgvs()
         {
             /* if the DatagridView is empty do nothing
              * else set the source to null to clear the DataGridView
              * at last clear the search field and set the Focus to it.
              */
 
+            #region just testing...
+            //if (m_DS.Tables[m_const_strSugarTableSearchAllPrivate].Columns.Count > 0)
+            //{
+            //    m_DS.Tables[m_const_strSugarTableSearchAllPrivate].Clear();
+            //}
+            //if (m_DS.Tables[m_const_strSugarTableSearchAllCompanies].Columns.Count > 0)
+            //{
+            //    m_DS.Tables[m_const_strSugarTableSearchAllCompanies].Clear();
+            //}
+            //if (m_DS.Tables[m_const_strCaoTableSearchAllPrivate].Columns.Count > 0)
+            //{
+            //    m_DS.Tables[m_const_strCaoTableSearchAllPrivate].Clear();
+            //}
+            //if (m_DS.Tables[m_const_strCaoTableSearchAllCompanies].Columns.Count > 0)
+            //{
+            //    m_DS.Tables[m_const_strCaoTableSearchAllCompanies].Clear();
+            //}
+            #endregion
+
+            ClearDataSet(m_const_strCaoTableSearchAllPrivate);
+            ClearDataSet(m_const_strCaoTableSearchAllCompanies);
+            ClearDataSet(m_const_strSugarTableSearchAllPrivate);
+            ClearDataSet(m_const_strSugarTableSearchAllCompanies);
+
             if (dgvCaoSuche.ColumnCount > 0)
             {
                 dgvCaoSuche.DataSource = null;
-                m_DV_Search_Cao_human = null;
                 if (m_privat == true)
                 {
                     m_DS.Tables.Remove(m_const_strCaoTableSearchAllPrivate);
@@ -222,7 +245,6 @@ namespace Cugar
             if (dgvSugarSuche.ColumnCount > 0)
             {
                 dgvSugarSuche.DataSource = null;
-                m_DV_Search_Sugar_human = null;
                 if (m_privat == true)
                 {
                     m_DS.Tables.Remove(m_const_strSugarTableSearchAllPrivate);
@@ -231,6 +253,15 @@ namespace Cugar
                 {
                     m_DS.Tables.Remove(m_const_strSugarTableSearchAllCompanies);
                 }
+            }
+
+        }
+
+        private void ClearDataSet(string tablename)
+        {
+            if (m_DS.Tables.Contains(tablename) == true)
+            {
+                m_DS.Tables.Remove(tablename);
             }
         }
         //private void ClearBothDgvsNew()
@@ -273,7 +304,8 @@ namespace Cugar
             }
             else
             {
-
+                this.frmMain.DatensatzLadenCompany();
+                this.Close();
             }
 
         }

@@ -81,28 +81,25 @@
             this.label18 = new System.Windows.Forms.Label();
             this.txtCaoCustomerSince = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.txtCaoBriefanrede = new System.Windows.Forms.TextBox();
             this.txtCaoGeb = new System.Windows.Forms.TextBox();
             this.grpSugar = new System.Windows.Forms.GroupBox();
             this.txtSugarLand = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.txtSugarAbteilung = new System.Windows.Forms.TextBox();
             this.lblSugarAbteilung = new System.Windows.Forms.Label();
-            this.txtSugarZugewiesenAn = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
             this.txtSugarLeadSource = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.txtSugarReportsTo = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
             this.txtSugarTitle = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.tsToolStipMain = new System.Windows.Forms.ToolStrip();
+            this.neuToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tstxtSuchePrivat = new System.Windows.Forms.ToolStripTextBox();
             this.tstxtSucheFirma = new System.Windows.Forms.ToolStripTextBox();
-            this.tabPrivat = new System.Windows.Forms.TabControl();
+            this.speichernToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.druckenToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.hilfeToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.tabMain = new System.Windows.Forms.TabControl();
             this.tabContacts = new System.Windows.Forms.TabPage();
-            this.cmdPrivatExit = new System.Windows.Forms.Button();
-            this.cmdSave = new System.Windows.Forms.Button();
             this.tabCompanies = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboFAnrede = new System.Windows.Forms.ComboBox();
@@ -131,7 +128,9 @@
             this.cboFSugarType = new System.Windows.Forms.ComboBox();
             this.txtFSugarLand = new System.Windows.Forms.TextBox();
             this.lblFSugarLand = new System.Windows.Forms.Label();
+            this.txtFSugarMitarbeiter = new System.Windows.Forms.TextBox();
             this.txtFSugarUmsatz = new System.Windows.Forms.TextBox();
+            this.lblFSugarMitarbeiter = new System.Windows.Forms.Label();
             this.lblFSugarUmsatz = new System.Windows.Forms.Label();
             this.txtFSugarBranche = new System.Windows.Forms.TextBox();
             this.lblFSugarBranche = new System.Windows.Forms.Label();
@@ -153,18 +152,15 @@
             this.tabDGVSugar = new System.Windows.Forms.TabPage();
             this.dgvSugar = new System.Windows.Forms.DataGridView();
             this.tabSuche = new System.Windows.Forms.TabPage();
-            this.lblFSugarMitarbeiter = new System.Windows.Forms.Label();
-            this.txtFSugarMitarbeiter = new System.Windows.Forms.TextBox();
-            this.neuToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.speichernToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.druckenToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.hilfeToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.cmdPrivatExit = new System.Windows.Forms.Button();
+            this.cmdSave = new System.Windows.Forms.Button();
+            this.cboCaoBriefanrede = new System.Windows.Forms.ComboBox();
             this.mnuFrmMain.SuspendLayout();
             this.grpGenerell.SuspendLayout();
             this.grpCAO.SuspendLayout();
             this.grpSugar.SuspendLayout();
             this.tsToolStipMain.SuspendLayout();
-            this.tabPrivat.SuspendLayout();
+            this.tabMain.SuspendLayout();
             this.tabContacts.SuspendLayout();
             this.tabCompanies.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -551,6 +547,7 @@
             // 
             // grpCAO
             // 
+            this.grpCAO.Controls.Add(this.cboCaoBriefanrede);
             this.grpCAO.Controls.Add(this.cboCaoZahlart);
             this.grpCAO.Controls.Add(this.cboCaoVersand);
             this.grpCAO.Controls.Add(this.label16);
@@ -562,7 +559,6 @@
             this.grpCAO.Controls.Add(this.label18);
             this.grpCAO.Controls.Add(this.txtCaoCustomerSince);
             this.grpCAO.Controls.Add(this.label17);
-            this.grpCAO.Controls.Add(this.txtCaoBriefanrede);
             this.grpCAO.Controls.Add(this.txtCaoGeb);
             this.grpCAO.Location = new System.Drawing.Point(626, 6);
             this.grpCAO.Name = "grpCAO";
@@ -669,14 +665,6 @@
             this.label17.TabIndex = 0;
             this.label17.Text = "Geburtstdatum:";
             // 
-            // txtCaoBriefanrede
-            // 
-            this.txtCaoBriefanrede.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCaoBriefanrede.Location = new System.Drawing.Point(91, 24);
-            this.txtCaoBriefanrede.Name = "txtCaoBriefanrede";
-            this.txtCaoBriefanrede.Size = new System.Drawing.Size(215, 20);
-            this.txtCaoBriefanrede.TabIndex = 12;
-            // 
             // txtCaoGeb
             // 
             this.txtCaoGeb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -691,12 +679,8 @@
             this.grpSugar.Controls.Add(this.label28);
             this.grpSugar.Controls.Add(this.txtSugarAbteilung);
             this.grpSugar.Controls.Add(this.lblSugarAbteilung);
-            this.grpSugar.Controls.Add(this.txtSugarZugewiesenAn);
-            this.grpSugar.Controls.Add(this.label26);
             this.grpSugar.Controls.Add(this.txtSugarLeadSource);
             this.grpSugar.Controls.Add(this.label25);
-            this.grpSugar.Controls.Add(this.txtSugarReportsTo);
-            this.grpSugar.Controls.Add(this.label24);
             this.grpSugar.Controls.Add(this.txtSugarTitle);
             this.grpSugar.Controls.Add(this.label23);
             this.grpSugar.Location = new System.Drawing.Point(626, 189);
@@ -709,7 +693,7 @@
             // txtSugarLand
             // 
             this.txtSugarLand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSugarLand.Location = new System.Drawing.Point(93, 149);
+            this.txtSugarLand.Location = new System.Drawing.Point(93, 71);
             this.txtSugarLand.Name = "txtSugarLand";
             this.txtSugarLand.Size = new System.Drawing.Size(215, 20);
             this.txtSugarLand.TabIndex = 23;
@@ -717,7 +701,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(8, 152);
+            this.label28.Location = new System.Drawing.Point(8, 74);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(34, 13);
             this.label28.TabIndex = 0;
@@ -726,7 +710,7 @@
             // txtSugarAbteilung
             // 
             this.txtSugarAbteilung.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSugarAbteilung.Location = new System.Drawing.Point(93, 123);
+            this.txtSugarAbteilung.Location = new System.Drawing.Point(93, 45);
             this.txtSugarAbteilung.Name = "txtSugarAbteilung";
             this.txtSugarAbteilung.Size = new System.Drawing.Size(215, 20);
             this.txtSugarAbteilung.TabIndex = 22;
@@ -734,33 +718,16 @@
             // lblSugarAbteilung
             // 
             this.lblSugarAbteilung.AutoSize = true;
-            this.lblSugarAbteilung.Location = new System.Drawing.Point(8, 126);
+            this.lblSugarAbteilung.Location = new System.Drawing.Point(8, 48);
             this.lblSugarAbteilung.Name = "lblSugarAbteilung";
             this.lblSugarAbteilung.Size = new System.Drawing.Size(54, 13);
             this.lblSugarAbteilung.TabIndex = 0;
             this.lblSugarAbteilung.Text = "Abteilung:";
             // 
-            // txtSugarZugewiesenAn
-            // 
-            this.txtSugarZugewiesenAn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSugarZugewiesenAn.Location = new System.Drawing.Point(93, 97);
-            this.txtSugarZugewiesenAn.Name = "txtSugarZugewiesenAn";
-            this.txtSugarZugewiesenAn.Size = new System.Drawing.Size(215, 20);
-            this.txtSugarZugewiesenAn.TabIndex = 21;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(8, 100);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(83, 13);
-            this.label26.TabIndex = 0;
-            this.label26.Text = "Zugewiesen an:";
-            // 
             // txtSugarLeadSource
             // 
             this.txtSugarLeadSource.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSugarLeadSource.Location = new System.Drawing.Point(93, 71);
+            this.txtSugarLeadSource.Location = new System.Drawing.Point(93, 97);
             this.txtSugarLeadSource.Name = "txtSugarLeadSource";
             this.txtSugarLeadSource.Size = new System.Drawing.Size(215, 20);
             this.txtSugarLeadSource.TabIndex = 20;
@@ -768,29 +735,11 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(8, 74);
+            this.label25.Location = new System.Drawing.Point(8, 100);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(71, 13);
+            this.label25.Size = new System.Drawing.Size(40, 13);
             this.label25.TabIndex = 0;
-            this.label25.Text = "Lead Source:";
-            // 
-            // txtSugarReportsTo
-            // 
-            this.txtSugarReportsTo.AcceptsReturn = true;
-            this.txtSugarReportsTo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSugarReportsTo.Location = new System.Drawing.Point(93, 45);
-            this.txtSugarReportsTo.Name = "txtSugarReportsTo";
-            this.txtSugarReportsTo.Size = new System.Drawing.Size(215, 20);
-            this.txtSugarReportsTo.TabIndex = 19;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(8, 48);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(59, 13);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "Reports to:";
+            this.label25.Text = "Quelle:";
             // 
             // txtSugarTitle
             // 
@@ -824,6 +773,16 @@
             this.tsToolStipMain.TabIndex = 3;
             this.tsToolStipMain.Text = "toolStrip1";
             // 
+            // neuToolStripButton
+            // 
+            this.neuToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.neuToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("neuToolStripButton.Image")));
+            this.neuToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.neuToolStripButton.Name = "neuToolStripButton";
+            this.neuToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.neuToolStripButton.Text = "&Neu";
+            this.neuToolStripButton.Click += new System.EventHandler(this.neuToolStripButton_Click);
+            // 
             // tstxtSuchePrivat
             // 
             this.tstxtSuchePrivat.Name = "tstxtSuchePrivat";
@@ -840,20 +799,49 @@
             this.tstxtSucheFirma.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tstxtSucheFirma_KeyDown);
             this.tstxtSucheFirma.Click += new System.EventHandler(this.tstxtSucheFirma_Click);
             // 
-            // tabPrivat
+            // speichernToolStripButton
             // 
-            this.tabPrivat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.speichernToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.speichernToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("speichernToolStripButton.Image")));
+            this.speichernToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.speichernToolStripButton.Name = "speichernToolStripButton";
+            this.speichernToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.speichernToolStripButton.Text = "&Speichern";
+            this.speichernToolStripButton.Click += new System.EventHandler(this.speichernToolStripButton_Click);
+            // 
+            // druckenToolStripButton
+            // 
+            this.druckenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.druckenToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("druckenToolStripButton.Image")));
+            this.druckenToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.druckenToolStripButton.Name = "druckenToolStripButton";
+            this.druckenToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.druckenToolStripButton.Text = "&Drucken";
+            // 
+            // hilfeToolStripButton
+            // 
+            this.hilfeToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.hilfeToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("hilfeToolStripButton.Image")));
+            this.hilfeToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.hilfeToolStripButton.Name = "hilfeToolStripButton";
+            this.hilfeToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.hilfeToolStripButton.Text = "Hi&lfe";
+            this.hilfeToolStripButton.Click += new System.EventHandler(this.hilfeToolStripButton_Click);
+            // 
+            // tabMain
+            // 
+            this.tabMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabPrivat.Controls.Add(this.tabContacts);
-            this.tabPrivat.Controls.Add(this.tabCompanies);
-            this.tabPrivat.Controls.Add(this.tabDGVCao);
-            this.tabPrivat.Controls.Add(this.tabDGVSugar);
-            this.tabPrivat.Controls.Add(this.tabSuche);
-            this.tabPrivat.Location = new System.Drawing.Point(0, 52);
-            this.tabPrivat.Name = "tabPrivat";
-            this.tabPrivat.SelectedIndex = 0;
-            this.tabPrivat.Size = new System.Drawing.Size(959, 398);
-            this.tabPrivat.TabIndex = 4;
+            this.tabMain.Controls.Add(this.tabContacts);
+            this.tabMain.Controls.Add(this.tabCompanies);
+            this.tabMain.Controls.Add(this.tabDGVCao);
+            this.tabMain.Controls.Add(this.tabDGVSugar);
+            this.tabMain.Controls.Add(this.tabSuche);
+            this.tabMain.Location = new System.Drawing.Point(0, 52);
+            this.tabMain.Name = "tabMain";
+            this.tabMain.SelectedIndex = 0;
+            this.tabMain.Size = new System.Drawing.Size(959, 398);
+            this.tabMain.TabIndex = 4;
             // 
             // tabContacts
             // 
@@ -867,29 +855,6 @@
             this.tabContacts.TabIndex = 0;
             this.tabContacts.Text = "Privatkunden";
             this.tabContacts.UseVisualStyleBackColor = true;
-            // 
-            // cmdPrivatExit
-            // 
-            this.cmdPrivatExit.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmdPrivatExit.Location = new System.Drawing.Point(799, 452);
-            this.cmdPrivatExit.Name = "cmdPrivatExit";
-            this.cmdPrivatExit.Size = new System.Drawing.Size(75, 23);
-            this.cmdPrivatExit.TabIndex = 3;
-            this.cmdPrivatExit.Text = "&Exit";
-            this.cmdPrivatExit.UseVisualStyleBackColor = true;
-            this.cmdPrivatExit.Click += new System.EventHandler(this.cmdPrivatExit_Click);
-            // 
-            // cmdSave
-            // 
-            this.cmdSave.Enabled = false;
-            this.cmdSave.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmdSave.Location = new System.Drawing.Point(880, 452);
-            this.cmdSave.Name = "cmdSave";
-            this.cmdSave.Size = new System.Drawing.Size(75, 23);
-            this.cmdSave.TabIndex = 3;
-            this.cmdSave.Text = "&Save";
-            this.cmdSave.UseVisualStyleBackColor = true;
-            this.cmdSave.Click += new System.EventHandler(this.cmdPrivatSave_Click);
             // 
             // tabCompanies
             // 
@@ -1175,6 +1140,15 @@
             this.lblFSugarLand.TabIndex = 0;
             this.lblFSugarLand.Text = "Land:";
             // 
+            // txtFSugarMitarbeiter
+            // 
+            this.txtFSugarMitarbeiter.AcceptsReturn = true;
+            this.txtFSugarMitarbeiter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFSugarMitarbeiter.Location = new System.Drawing.Point(93, 97);
+            this.txtFSugarMitarbeiter.Name = "txtFSugarMitarbeiter";
+            this.txtFSugarMitarbeiter.Size = new System.Drawing.Size(215, 20);
+            this.txtFSugarMitarbeiter.TabIndex = 1;
+            // 
             // txtFSugarUmsatz
             // 
             this.txtFSugarUmsatz.AcceptsReturn = true;
@@ -1183,6 +1157,15 @@
             this.txtFSugarUmsatz.Name = "txtFSugarUmsatz";
             this.txtFSugarUmsatz.Size = new System.Drawing.Size(215, 20);
             this.txtFSugarUmsatz.TabIndex = 1;
+            // 
+            // lblFSugarMitarbeiter
+            // 
+            this.lblFSugarMitarbeiter.AutoSize = true;
+            this.lblFSugarMitarbeiter.Location = new System.Drawing.Point(8, 100);
+            this.lblFSugarMitarbeiter.Name = "lblFSugarMitarbeiter";
+            this.lblFSugarMitarbeiter.Size = new System.Drawing.Size(59, 13);
+            this.lblFSugarMitarbeiter.TabIndex = 0;
+            this.lblFSugarMitarbeiter.Text = "Mitarbeiter:";
             // 
             // lblFSugarUmsatz
             // 
@@ -1388,61 +1371,40 @@
             this.tabSuche.Text = "Suche";
             this.tabSuche.UseVisualStyleBackColor = true;
             // 
-            // lblFSugarMitarbeiter
+            // cmdPrivatExit
             // 
-            this.lblFSugarMitarbeiter.AutoSize = true;
-            this.lblFSugarMitarbeiter.Location = new System.Drawing.Point(8, 100);
-            this.lblFSugarMitarbeiter.Name = "lblFSugarMitarbeiter";
-            this.lblFSugarMitarbeiter.Size = new System.Drawing.Size(59, 13);
-            this.lblFSugarMitarbeiter.TabIndex = 0;
-            this.lblFSugarMitarbeiter.Text = "Mitarbeiter:";
+            this.cmdPrivatExit.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmdPrivatExit.Location = new System.Drawing.Point(799, 452);
+            this.cmdPrivatExit.Name = "cmdPrivatExit";
+            this.cmdPrivatExit.Size = new System.Drawing.Size(75, 23);
+            this.cmdPrivatExit.TabIndex = 3;
+            this.cmdPrivatExit.Text = "&Exit";
+            this.cmdPrivatExit.UseVisualStyleBackColor = true;
+            this.cmdPrivatExit.Click += new System.EventHandler(this.cmdPrivatExit_Click);
             // 
-            // txtFSugarMitarbeiter
+            // cmdSave
             // 
-            this.txtFSugarMitarbeiter.AcceptsReturn = true;
-            this.txtFSugarMitarbeiter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFSugarMitarbeiter.Location = new System.Drawing.Point(93, 97);
-            this.txtFSugarMitarbeiter.Name = "txtFSugarMitarbeiter";
-            this.txtFSugarMitarbeiter.Size = new System.Drawing.Size(215, 20);
-            this.txtFSugarMitarbeiter.TabIndex = 1;
+            this.cmdSave.Enabled = false;
+            this.cmdSave.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmdSave.Location = new System.Drawing.Point(880, 452);
+            this.cmdSave.Name = "cmdSave";
+            this.cmdSave.Size = new System.Drawing.Size(75, 23);
+            this.cmdSave.TabIndex = 3;
+            this.cmdSave.Text = "&Save";
+            this.cmdSave.UseVisualStyleBackColor = true;
+            this.cmdSave.Click += new System.EventHandler(this.cmdPrivatSave_Click);
             // 
-            // neuToolStripButton
+            // cboCaoBriefanrede
             // 
-            this.neuToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.neuToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("neuToolStripButton.Image")));
-            this.neuToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.neuToolStripButton.Name = "neuToolStripButton";
-            this.neuToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.neuToolStripButton.Text = "&Neu";
-            this.neuToolStripButton.Click += new System.EventHandler(this.neuToolStripButton_Click);
-            // 
-            // speichernToolStripButton
-            // 
-            this.speichernToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.speichernToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("speichernToolStripButton.Image")));
-            this.speichernToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.speichernToolStripButton.Name = "speichernToolStripButton";
-            this.speichernToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.speichernToolStripButton.Text = "&Speichern";
-            // 
-            // druckenToolStripButton
-            // 
-            this.druckenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.druckenToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("druckenToolStripButton.Image")));
-            this.druckenToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.druckenToolStripButton.Name = "druckenToolStripButton";
-            this.druckenToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.druckenToolStripButton.Text = "&Drucken";
-            // 
-            // hilfeToolStripButton
-            // 
-            this.hilfeToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.hilfeToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("hilfeToolStripButton.Image")));
-            this.hilfeToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.hilfeToolStripButton.Name = "hilfeToolStripButton";
-            this.hilfeToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.hilfeToolStripButton.Text = "Hi&lfe";
-            this.hilfeToolStripButton.Click += new System.EventHandler(this.hilfeToolStripButton_Click);
+            this.cboCaoBriefanrede.FormattingEnabled = true;
+            this.cboCaoBriefanrede.Items.AddRange(new object[] {
+            "Sehr geehrte Damen und Herren",
+            "Sehr geehrter Herr",
+            "Sehr geehrte Frau"});
+            this.cboCaoBriefanrede.Location = new System.Drawing.Point(91, 23);
+            this.cboCaoBriefanrede.Name = "cboCaoBriefanrede";
+            this.cboCaoBriefanrede.Size = new System.Drawing.Size(215, 21);
+            this.cboCaoBriefanrede.TabIndex = 18;
             // 
             // frmMain
             // 
@@ -1453,7 +1415,7 @@
             this.Controls.Add(this.cmdPrivatExit);
             this.Controls.Add(this.tsToolStipMain);
             this.Controls.Add(this.mnuFrmMain);
-            this.Controls.Add(this.tabPrivat);
+            this.Controls.Add(this.tabMain);
             this.KeyPreview = true;
             this.MainMenuStrip = this.mnuFrmMain;
             this.Name = "frmMain";
@@ -1470,7 +1432,7 @@
             this.grpSugar.PerformLayout();
             this.tsToolStipMain.ResumeLayout(false);
             this.tsToolStipMain.PerformLayout();
-            this.tabPrivat.ResumeLayout(false);
+            this.tabMain.ResumeLayout(false);
             this.tabContacts.ResumeLayout(false);
             this.tabCompanies.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -1545,12 +1507,8 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox txtSugarAbteilung;
         private System.Windows.Forms.Label lblSugarAbteilung;
-        private System.Windows.Forms.TextBox txtSugarZugewiesenAn;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox txtSugarLeadSource;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox txtSugarReportsTo;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox txtSugarTitle;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ToolStrip tsToolStipMain;
@@ -1561,7 +1519,7 @@
         private System.Windows.Forms.ToolStripTextBox tstxtSuchePrivat;
         private System.Windows.Forms.ToolStripMenuItem standardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gridViewToolStripMenuItem;
-        private System.Windows.Forms.TabControl tabPrivat;
+        private System.Windows.Forms.TabControl tabMain;
         private System.Windows.Forms.TabPage tabCompanies;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cboFAnrede;
@@ -1609,7 +1567,6 @@
         private System.Windows.Forms.ToolStripTextBox tstxtSucheFirma;
         private System.Windows.Forms.Button cmdPrivatExit;
         private System.Windows.Forms.Button cmdSave;
-        private System.Windows.Forms.TextBox txtCaoBriefanrede;
         private System.Windows.Forms.ComboBox cboAnrede;
         private System.Windows.Forms.TextBox txtFName2;
         private System.Windows.Forms.Label lblFNameCao;
@@ -1620,6 +1577,7 @@
         private System.Windows.Forms.Label lblFSugarUmsatz;
         private System.Windows.Forms.TextBox txtFSugarMitarbeiter;
         private System.Windows.Forms.Label lblFSugarMitarbeiter;
+        private System.Windows.Forms.ComboBox cboCaoBriefanrede;
 
 
 
