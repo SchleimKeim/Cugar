@@ -39,6 +39,7 @@
             this.standardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grpGenerell = new System.Windows.Forms.GroupBox();
+            this.cboAnrede = new System.Windows.Forms.ComboBox();
             this.txtBemerkung = new System.Windows.Forms.TextBox();
             this.txtOrt = new System.Windows.Forms.TextBox();
             this.txtPLZ = new System.Windows.Forms.TextBox();
@@ -110,12 +111,10 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.hilfeToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tabPrivat = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabContacts = new System.Windows.Forms.TabPage();
             this.cmdPrivatExit = new System.Windows.Forms.Button();
-            this.cmdPrivatSave = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cmdSave = new System.Windows.Forms.Button();
+            this.tabCompanies = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboFAnrede = new System.Windows.Forms.ComboBox();
             this.txtFBemerkung = new System.Windows.Forms.TextBox();
@@ -133,11 +132,18 @@
             this.lblFFax = new System.Windows.Forms.Label();
             this.lblFStrasse = new System.Windows.Forms.Label();
             this.txtFPhone = new System.Windows.Forms.TextBox();
-            this.txtFName = new System.Windows.Forms.TextBox();
+            this.txtFName2 = new System.Windows.Forms.TextBox();
+            this.txtFName1 = new System.Windows.Forms.TextBox();
             this.lblFPhone = new System.Windows.Forms.Label();
+            this.lblFNameCao = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cboFSugarType = new System.Windows.Forms.ComboBox();
+            this.txtFSugarMitarbeiter = new System.Windows.Forms.TextBox();
+            this.lblFSugarMitarbeiter = new System.Windows.Forms.Label();
+            this.txtFSugarUmsatz = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.txtFSugarBranche = new System.Windows.Forms.TextBox();
             this.lblFSugarBranche = new System.Windows.Forms.Label();
             this.lblFSugarType = new System.Windows.Forms.Label();
@@ -158,22 +164,14 @@
             this.tabDGVSugar = new System.Windows.Forms.TabPage();
             this.dgvSugar = new System.Windows.Forms.DataGridView();
             this.tabSuche = new System.Windows.Forms.TabPage();
-            this.cboAnrede = new System.Windows.Forms.ComboBox();
-            this.lblFNameCao = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.cboFSugarType = new System.Windows.Forms.ComboBox();
-            this.txtFSugarMitarbeiter = new System.Windows.Forms.TextBox();
-            this.lblFSugarMitarbeiter = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtFSugarUmsatz = new System.Windows.Forms.TextBox();
             this.mnuFrmMain.SuspendLayout();
             this.grpGenerell.SuspendLayout();
             this.grpCAO.SuspendLayout();
             this.grpSugar.SuspendLayout();
             this.tsToolStipMain.SuspendLayout();
             this.tabPrivat.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabContacts.SuspendLayout();
+            this.tabCompanies.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -201,20 +199,20 @@
             this.neuToolStripMenuItem,
             this.beendenToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.fileToolStripMenuItem.Text = "&Datei";
             // 
             // neuToolStripMenuItem
             // 
             this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.neuToolStripMenuItem.Text = "Neu...";
             this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
             // 
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.beendenToolStripMenuItem.Text = "&Beenden";
             this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
@@ -224,13 +222,13 @@
             this.connectionToolStripMenuItem,
             this.toolStripMenuItem2});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.settingsToolStripMenuItem.Text = "&Bearbeiten";
             // 
             // connectionToolStripMenuItem
             // 
             this.connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
-            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.connectionToolStripMenuItem.Text = "&Einstellungen...";
             this.connectionToolStripMenuItem.Click += new System.EventHandler(this.connectionToolStripMenuItem_Click);
             // 
@@ -240,20 +238,20 @@
             this.standardToolStripMenuItem,
             this.gridViewToolStripMenuItem});
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(154, 22);
             this.toolStripMenuItem2.Text = "&Ansicht";
             // 
             // standardToolStripMenuItem
             // 
             this.standardToolStripMenuItem.Name = "standardToolStripMenuItem";
-            this.standardToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.standardToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.standardToolStripMenuItem.Text = "Standard";
             // 
             // gridViewToolStripMenuItem
             // 
             this.gridViewToolStripMenuItem.Enabled = false;
             this.gridViewToolStripMenuItem.Name = "gridViewToolStripMenuItem";
-            this.gridViewToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.gridViewToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.gridViewToolStripMenuItem.Text = "Grid View";
             // 
             // grpGenerell
@@ -294,6 +292,18 @@
             this.grpGenerell.TabIndex = 1;
             this.grpGenerell.TabStop = false;
             this.grpGenerell.Text = "Generell";
+            // 
+            // cboAnrede
+            // 
+            this.cboAnrede.FormattingEnabled = true;
+            this.cboAnrede.Items.AddRange(new object[] {
+            "Herr",
+            "Frau",
+            "Familie"});
+            this.cboAnrede.Location = new System.Drawing.Point(70, 22);
+            this.cboAnrede.Name = "cboAnrede";
+            this.cboAnrede.Size = new System.Drawing.Size(219, 21);
+            this.cboAnrede.TabIndex = 100;
             // 
             // txtBemerkung
             // 
@@ -938,39 +948,36 @@
             // 
             // tabPrivat
             // 
-            this.tabPrivat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
+            this.tabPrivat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabPrivat.Controls.Add(this.tabPage1);
-            this.tabPrivat.Controls.Add(this.tabPage2);
+            this.tabPrivat.Controls.Add(this.tabContacts);
+            this.tabPrivat.Controls.Add(this.tabCompanies);
             this.tabPrivat.Controls.Add(this.tabDGVCao);
             this.tabPrivat.Controls.Add(this.tabDGVSugar);
             this.tabPrivat.Controls.Add(this.tabSuche);
             this.tabPrivat.Location = new System.Drawing.Point(0, 52);
             this.tabPrivat.Name = "tabPrivat";
             this.tabPrivat.SelectedIndex = 0;
-            this.tabPrivat.Size = new System.Drawing.Size(959, 430);
+            this.tabPrivat.Size = new System.Drawing.Size(959, 398);
             this.tabPrivat.TabIndex = 4;
             // 
-            // tabPage1
+            // tabContacts
             // 
-            this.tabPage1.Controls.Add(this.cmdPrivatExit);
-            this.tabPage1.Controls.Add(this.cmdPrivatSave);
-            this.tabPage1.Controls.Add(this.grpGenerell);
-            this.tabPage1.Controls.Add(this.grpSugar);
-            this.tabPage1.Controls.Add(this.grpCAO);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(951, 404);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Privatkunden";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabContacts.Controls.Add(this.grpGenerell);
+            this.tabContacts.Controls.Add(this.grpSugar);
+            this.tabContacts.Controls.Add(this.grpCAO);
+            this.tabContacts.Location = new System.Drawing.Point(4, 22);
+            this.tabContacts.Name = "tabContacts";
+            this.tabContacts.Padding = new System.Windows.Forms.Padding(3);
+            this.tabContacts.Size = new System.Drawing.Size(951, 372);
+            this.tabContacts.TabIndex = 0;
+            this.tabContacts.Text = "Privatkunden";
+            this.tabContacts.UseVisualStyleBackColor = true;
             // 
             // cmdPrivatExit
             // 
             this.cmdPrivatExit.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmdPrivatExit.Location = new System.Drawing.Point(786, 375);
+            this.cmdPrivatExit.Location = new System.Drawing.Point(799, 452);
             this.cmdPrivatExit.Name = "cmdPrivatExit";
             this.cmdPrivatExit.Size = new System.Drawing.Size(75, 23);
             this.cmdPrivatExit.TabIndex = 3;
@@ -978,53 +985,30 @@
             this.cmdPrivatExit.UseVisualStyleBackColor = true;
             this.cmdPrivatExit.Click += new System.EventHandler(this.cmdPrivatExit_Click);
             // 
-            // cmdPrivatSave
+            // cmdSave
             // 
-            this.cmdPrivatSave.Enabled = false;
-            this.cmdPrivatSave.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmdPrivatSave.Location = new System.Drawing.Point(867, 374);
-            this.cmdPrivatSave.Name = "cmdPrivatSave";
-            this.cmdPrivatSave.Size = new System.Drawing.Size(75, 23);
-            this.cmdPrivatSave.TabIndex = 3;
-            this.cmdPrivatSave.Text = "&Save";
-            this.cmdPrivatSave.UseVisualStyleBackColor = true;
-            this.cmdPrivatSave.Click += new System.EventHandler(this.cmdPrivatSave_Click);
+            this.cmdSave.Enabled = false;
+            this.cmdSave.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmdSave.Location = new System.Drawing.Point(880, 452);
+            this.cmdSave.Name = "cmdSave";
+            this.cmdSave.Size = new System.Drawing.Size(75, 23);
+            this.cmdSave.TabIndex = 3;
+            this.cmdSave.Text = "&Save";
+            this.cmdSave.UseVisualStyleBackColor = true;
+            this.cmdSave.Click += new System.EventHandler(this.cmdPrivatSave_Click);
             // 
-            // tabPage2
+            // tabCompanies
             // 
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Controls.Add(this.groupBox3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(951, 404);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Firmenkunden";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(867, 374);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "&Save";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(786, 375);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "E&xit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.tabCompanies.Controls.Add(this.groupBox1);
+            this.tabCompanies.Controls.Add(this.groupBox2);
+            this.tabCompanies.Controls.Add(this.groupBox3);
+            this.tabCompanies.Location = new System.Drawing.Point(4, 22);
+            this.tabCompanies.Name = "tabCompanies";
+            this.tabCompanies.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCompanies.Size = new System.Drawing.Size(951, 372);
+            this.tabCompanies.TabIndex = 1;
+            this.tabCompanies.Text = "Firmenkunden";
+            this.tabCompanies.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -1044,8 +1028,8 @@
             this.groupBox1.Controls.Add(this.lblFFax);
             this.groupBox1.Controls.Add(this.lblFStrasse);
             this.groupBox1.Controls.Add(this.txtFPhone);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.txtFName);
+            this.groupBox1.Controls.Add(this.txtFName2);
+            this.groupBox1.Controls.Add(this.txtFName1);
             this.groupBox1.Controls.Add(this.lblFPhone);
             this.groupBox1.Controls.Add(this.lblFNameCao);
             this.groupBox1.Controls.Add(this.label41);
@@ -1196,13 +1180,21 @@
             this.txtFPhone.Size = new System.Drawing.Size(222, 20);
             this.txtFPhone.TabIndex = 1;
             // 
-            // txtFName
+            // txtFName2
             // 
-            this.txtFName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFName.Location = new System.Drawing.Point(70, 50);
-            this.txtFName.Name = "txtFName";
-            this.txtFName.Size = new System.Drawing.Size(219, 20);
-            this.txtFName.TabIndex = 1;
+            this.txtFName2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFName2.Location = new System.Drawing.Point(70, 74);
+            this.txtFName2.Name = "txtFName2";
+            this.txtFName2.Size = new System.Drawing.Size(219, 20);
+            this.txtFName2.TabIndex = 1;
+            // 
+            // txtFName1
+            // 
+            this.txtFName1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFName1.Location = new System.Drawing.Point(70, 50);
+            this.txtFName1.Name = "txtFName1";
+            this.txtFName1.Size = new System.Drawing.Size(219, 20);
+            this.txtFName1.TabIndex = 1;
             // 
             // lblFPhone
             // 
@@ -1212,6 +1204,15 @@
             this.lblFPhone.Size = new System.Drawing.Size(49, 13);
             this.lblFPhone.TabIndex = 0;
             this.lblFPhone.Text = "Telefon: ";
+            // 
+            // lblFNameCao
+            // 
+            this.lblFNameCao.AutoSize = true;
+            this.lblFNameCao.Location = new System.Drawing.Point(6, 77);
+            this.lblFNameCao.Name = "lblFNameCao";
+            this.lblFNameCao.Size = new System.Drawing.Size(66, 13);
+            this.lblFNameCao.TabIndex = 0;
+            this.lblFNameCao.Text = "Name (Cao):";
             // 
             // label41
             // 
@@ -1247,6 +1248,54 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sugar options";
+            // 
+            // cboFSugarType
+            // 
+            this.cboFSugarType.FormattingEnabled = true;
+            this.cboFSugarType.Items.AddRange(new object[] {
+            "Kunde",
+            "Lieferant",
+            "Support",
+            "Partner"});
+            this.cboFSugarType.Location = new System.Drawing.Point(93, 19);
+            this.cboFSugarType.Name = "cboFSugarType";
+            this.cboFSugarType.Size = new System.Drawing.Size(215, 21);
+            this.cboFSugarType.TabIndex = 3;
+            // 
+            // txtFSugarMitarbeiter
+            // 
+            this.txtFSugarMitarbeiter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFSugarMitarbeiter.Location = new System.Drawing.Point(93, 97);
+            this.txtFSugarMitarbeiter.Name = "txtFSugarMitarbeiter";
+            this.txtFSugarMitarbeiter.Size = new System.Drawing.Size(215, 20);
+            this.txtFSugarMitarbeiter.TabIndex = 1;
+            // 
+            // lblFSugarMitarbeiter
+            // 
+            this.lblFSugarMitarbeiter.AutoSize = true;
+            this.lblFSugarMitarbeiter.Location = new System.Drawing.Point(8, 100);
+            this.lblFSugarMitarbeiter.Name = "lblFSugarMitarbeiter";
+            this.lblFSugarMitarbeiter.Size = new System.Drawing.Size(56, 13);
+            this.lblFSugarMitarbeiter.TabIndex = 0;
+            this.lblFSugarMitarbeiter.Text = "Reserve 1";
+            // 
+            // txtFSugarUmsatz
+            // 
+            this.txtFSugarUmsatz.AcceptsReturn = true;
+            this.txtFSugarUmsatz.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFSugarUmsatz.Location = new System.Drawing.Point(93, 71);
+            this.txtFSugarUmsatz.Name = "txtFSugarUmsatz";
+            this.txtFSugarUmsatz.Size = new System.Drawing.Size(215, 20);
+            this.txtFSugarUmsatz.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(8, 74);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(45, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Umsatz:";
             // 
             // txtFSugarBranche
             // 
@@ -1442,88 +1491,13 @@
             this.tabSuche.Text = "Suche";
             this.tabSuche.UseVisualStyleBackColor = true;
             // 
-            // cboAnrede
-            // 
-            this.cboAnrede.FormattingEnabled = true;
-            this.cboAnrede.Items.AddRange(new object[] {
-            "Herr",
-            "Frau",
-            "Familie"});
-            this.cboAnrede.Location = new System.Drawing.Point(70, 22);
-            this.cboAnrede.Name = "cboAnrede";
-            this.cboAnrede.Size = new System.Drawing.Size(219, 21);
-            this.cboAnrede.TabIndex = 100;
-            // 
-            // lblFNameCao
-            // 
-            this.lblFNameCao.AutoSize = true;
-            this.lblFNameCao.Location = new System.Drawing.Point(6, 77);
-            this.lblFNameCao.Name = "lblFNameCao";
-            this.lblFNameCao.Size = new System.Drawing.Size(66, 13);
-            this.lblFNameCao.TabIndex = 0;
-            this.lblFNameCao.Text = "Name (Cao):";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(70, 74);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(219, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // cboFSugarType
-            // 
-            this.cboFSugarType.FormattingEnabled = true;
-            this.cboFSugarType.Items.AddRange(new object[] {
-            "Kunde",
-            "Lieferant",
-            "Support",
-            "Partner"});
-            this.cboFSugarType.Location = new System.Drawing.Point(93, 19);
-            this.cboFSugarType.Name = "cboFSugarType";
-            this.cboFSugarType.Size = new System.Drawing.Size(215, 21);
-            this.cboFSugarType.TabIndex = 3;
-            // 
-            // txtFSugarMitarbeiter
-            // 
-            this.txtFSugarMitarbeiter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFSugarMitarbeiter.Location = new System.Drawing.Point(93, 97);
-            this.txtFSugarMitarbeiter.Name = "txtFSugarMitarbeiter";
-            this.txtFSugarMitarbeiter.Size = new System.Drawing.Size(215, 20);
-            this.txtFSugarMitarbeiter.TabIndex = 1;
-            // 
-            // lblFSugarMitarbeiter
-            // 
-            this.lblFSugarMitarbeiter.AutoSize = true;
-            this.lblFSugarMitarbeiter.Location = new System.Drawing.Point(8, 100);
-            this.lblFSugarMitarbeiter.Name = "lblFSugarMitarbeiter";
-            this.lblFSugarMitarbeiter.Size = new System.Drawing.Size(56, 13);
-            this.lblFSugarMitarbeiter.TabIndex = 0;
-            this.lblFSugarMitarbeiter.Text = "Reserve 1";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 74);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 13);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Umsatz:";
-            // 
-            // txtFSugarUmsatz
-            // 
-            this.txtFSugarUmsatz.AcceptsReturn = true;
-            this.txtFSugarUmsatz.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFSugarUmsatz.Location = new System.Drawing.Point(93, 71);
-            this.txtFSugarUmsatz.Name = "txtFSugarUmsatz";
-            this.txtFSugarUmsatz.Size = new System.Drawing.Size(215, 20);
-            this.txtFSugarUmsatz.TabIndex = 1;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 483);
+            this.ClientSize = new System.Drawing.Size(959, 480);
+            this.Controls.Add(this.cmdSave);
+            this.Controls.Add(this.cmdPrivatExit);
             this.Controls.Add(this.tsToolStipMain);
             this.Controls.Add(this.mnuFrmMain);
             this.Controls.Add(this.tabPrivat);
@@ -1544,8 +1518,8 @@
             this.tsToolStipMain.ResumeLayout(false);
             this.tsToolStipMain.PerformLayout();
             this.tabPrivat.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.tabContacts.ResumeLayout(false);
+            this.tabCompanies.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1641,7 +1615,7 @@
         private System.Windows.Forms.ToolStripMenuItem standardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gridViewToolStripMenuItem;
         private System.Windows.Forms.TabControl tabPrivat;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabCompanies;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cboFAnrede;
         private System.Windows.Forms.TextBox txtFBemerkung;
@@ -1659,7 +1633,7 @@
         private System.Windows.Forms.Label lblFFax;
         private System.Windows.Forms.Label lblFStrasse;
         private System.Windows.Forms.TextBox txtFPhone;
-        private System.Windows.Forms.TextBox txtFName;
+        private System.Windows.Forms.TextBox txtFName1;
         private System.Windows.Forms.Label lblFPhone;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
@@ -1679,7 +1653,7 @@
         private System.Windows.Forms.Label lblFVersand;
         private System.Windows.Forms.Label lblFKunSeit;
         private System.Windows.Forms.TextBox txtFKunSeit;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabContacts;
         private System.Windows.Forms.TabPage tabDGVCao;
         private System.Windows.Forms.DataGridView dgvCao;
         private System.Windows.Forms.TabPage tabDGVSugar;
@@ -1688,12 +1662,10 @@
         private System.Windows.Forms.TabPage tabSuche;
         private System.Windows.Forms.ToolStripTextBox tstxtSucheFirma;
         private System.Windows.Forms.Button cmdPrivatExit;
-        private System.Windows.Forms.Button cmdPrivatSave;
+        private System.Windows.Forms.Button cmdSave;
         private System.Windows.Forms.TextBox txtCaoBriefanrede;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox cboAnrede;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtFName2;
         private System.Windows.Forms.Label lblFNameCao;
         private System.Windows.Forms.ComboBox cboFSugarType;
         private System.Windows.Forms.TextBox txtFSugarMitarbeiter;

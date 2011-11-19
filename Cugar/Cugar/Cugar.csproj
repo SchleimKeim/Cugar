@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CaoConnector_old.cs" />
+    <Content Include="CaoInsertFirma.txt" />
     <Compile Include="cCao.cs" />
     <Compile Include="CDatabasecon.cs" />
     <Compile Include="cSugar.cs" />

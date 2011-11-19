@@ -1,0 +1,23 @@
+﻿
+                StringBuilder sb_CaoInsert = new StringBuilder();
+                sb_CaoInsert.Append("INSERT INTO adressen(");
+                sb_CaoInsert.Append("REC_ID, ");
+                sb_CaoInsert.Append("KUNDENGRUPPE, ");
+                sb_CaoInsert.Append("NAME1, ");
+                sb_CaoInsert.Append("NAME2, ");
+                sb_CaoInsert.Append("PLZ, ");
+                sb_CaoInsert.Append("ORT, ");
+                sb_CaoInsert.Append("ANREDE, ");
+                sb_CaoInsert.Append("STRASSE, ");
+                sb_CaoInsert.Append("TELE1, ");
+                sb_CaoInsert.Append("FAX, ");
+                sb_CaoInsert.Append("EMAIL, ");
+                sb_CaoInsert.Append("INTERNET, ");
+                sb_CaoInsert.Append("BRIEFANREDE, ");
+                sb_CaoInsert.Append("BRT_TAGE, ");
+                sb_CaoInsert.Append("INFO, ");
+                sb_CaoInsert.Append("KUN_LIEFART, ");
+                sb_CaoInsert.Append("KUN_SEIT, ");
+                sb_CaoInsert.Append("GEAEND_NAME, ");
+                sb_CaoInsert.Append(@"KUN_ZAHLART)");
+                sb_CaoInsert.Append(@" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
