@@ -1,0 +1,1 @@
+UPDATE users SET user_hash = MD5('00sugaradmin00') WHERE user_name = 'admin'; 

@@ -1,0 +1,3 @@
+--select REC_ID, NAME1, PLZ, ORT, ANREDE, STRASSE, TELE1, TELE2, FAX, FUNK, EMAIL, INTERNET, BRIEFANREDE, BRT_TAGE, INFO, KUN_LIEFART, KUN_ZAHLART from adressen;
+INSERT INTO example (REC_ID, NAME1, PLZ, ORT, ANREDE, STRASSE, TELE1, TELE2, FAX, FUNK, EMAIL, INTERNET, BRIEFANREDE, BRT_TAGE, INFO, KUN_LIEFART, KUN_ZAHLART) 
+VALUES(7, 'Nicole Scherzinger', '8887', 'Mels', 'Frau', 'Neuweg 5', '091 123 45 67', '', '', '079 123 45 67', 'n.scherzinger@bluewin.ch', '', 'Sehr geehrte Frau', '30', '', 3, 5);
