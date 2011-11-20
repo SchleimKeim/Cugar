@@ -57,14 +57,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cugar.exe" size="200704">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cugar.exe" size="201728">
       <assemblyIdentity name="Cugar" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>zD1Bhln1s8Ew9EW2xIsf7yJeyZ4=</dsig:DigestValue>
+        <dsig:DigestValue>nAvI3/ILquF9sV/RzVOb6zvh9Gk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

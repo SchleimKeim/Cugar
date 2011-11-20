@@ -467,6 +467,7 @@ namespace Cugar
 
             #region parameters
             myUpdateCommand.Parameters.Add("@REC_ID", OdbcType.Int, 11, "@REC_ID");
+
             #region not in use
             //myUpdateCommand.Parameters.Add("@MATCHCODE", OdbcType.VarChar, 255, "@MATCHCODE");
             //myUpdateCommand.Parameters.Add("@KUNDENGRUPPE", OdbcType.Int, 11, "@KUNDENGRUPPE");

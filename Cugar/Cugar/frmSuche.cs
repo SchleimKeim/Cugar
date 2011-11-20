@@ -239,7 +239,6 @@ namespace Cugar
             ClearBothDgvs();
             txtSuche.Text = "";
             txtSuche.Focus();
-
         }
 
         public void ClearBothDgvs()
@@ -249,25 +248,6 @@ namespace Cugar
              * at last clear the search field and set the Focus to it.
              */
 
-            #region just testing...
-            //if (m_DS.Tables[m_const_strSugarTableSearchAllPrivate].Columns.Count > 0)
-            //{
-            //    m_DS.Tables[m_const_strSugarTableSearchAllPrivate].Clear();
-            //}
-            //if (m_DS.Tables[m_const_strSugarTableSearchAllCompanies].Columns.Count > 0)
-            //{
-            //    m_DS.Tables[m_const_strSugarTableSearchAllCompanies].Clear();
-            //}
-            //if (m_DS.Tables[m_const_strCaoTableSearchAllPrivate].Columns.Count > 0)
-            //{
-            //    m_DS.Tables[m_const_strCaoTableSearchAllPrivate].Clear();
-            //}
-            //if (m_DS.Tables[m_const_strCaoTableSearchAllCompanies].Columns.Count > 0)
-            //{
-            //    m_DS.Tables[m_const_strCaoTableSearchAllCompanies].Clear();
-            //}
-            #endregion
-
             ClearDataSet(m_const_strCaoTableSearchAllPrivate);
             ClearDataSet(m_const_strCaoTableSearchAllCompanies);
             ClearDataSet(m_const_strSugarTableSearchAllPrivate);
@@ -276,6 +256,7 @@ namespace Cugar
             if (dgvCaoSuche.ColumnCount > 0)
             {
                 dgvCaoSuche.DataSource = null;
+                #region obsolete
                 //if (m_privat == true)
                 //{
                 //    m_DS.Tables.Remove(m_const_strCaoTableSearchAllPrivate);
@@ -284,11 +265,13 @@ namespace Cugar
                 //{
                 //    m_DS.Tables.Remove(m_const_strCaoTableSearchAllCompanies);
                 //}
+                #endregion
             }
 
             if (dgvSugarSuche.ColumnCount > 0)
             {
                 dgvSugarSuche.DataSource = null;
+                #region obsolete
                 //if (m_privat == true)
                 //{
                 //    m_DS.Tables.Remove(m_const_strSugarTableSearchAllPrivate);
@@ -297,6 +280,7 @@ namespace Cugar
                 //{
                 //    m_DS.Tables.Remove(m_const_strSugarTableSearchAllCompanies);
                 //}
+                #endregion
             }
 
         }

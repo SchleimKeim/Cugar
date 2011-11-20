@@ -681,12 +681,12 @@ namespace Cugar
                 if (tabMain.SelectedTab == tabContacts)
                 {
                     UpdateContactCao();
-                    UpdateContactSugar();
+                    //UpdateContactSugar();
                 }
                 else if (tabMain.SelectedTab == tabCompanies)
                 {
-                    UpdateCompanyCao();
-                    UpdateCompanySugar();
+                    //UpdateCompanyCao();
+                    //UpdateCompanySugar();
                 }
                 else
                 {
@@ -1333,6 +1333,119 @@ namespace Cugar
 
         private void UpdateContactCao()
         {
+            /* Set up the databindings */
+
+            // Combine txtVorname + txtName
+            string name;
+            name = txtVorname.Text + " " + txtName.Text;
+            ((DataRowView)m_BS_CaoSearchContacts.Current)["NAME1"] = name;
+
+            // Cao Versandart Id
+            int VersandId = 0;
+            VersandId = cboCaoVersand.SelectedIndex + 1;
+            ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_LIEFART"] = VersandId.ToString();
+
+            // Cao Zahlart Id
+            int ZahlId = 0;
+            ZahlId = cboCaoZahlart.SelectedIndex + 1;
+            ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_ZAHLART"] = ZahlId;
+
+            ((DataRowView)m_BS_CaoSearchContacts.Current)["ANREDE"] = cboAnrede.Text;
+            ((DataRowView)m_BS_CaoSearchContacts.Current)["STRASSE"] = txtStrasse1.Text;
+            ((DataRowView)m_BS_CaoSearchContacts.Current)["PLZ"] = txtPLZ.Text;
+            ((DataRowView)m_BS_CaoSearchContacts.Current)["ORT"] = txtOrt.Text;
+            ((DataRowView)m_BS_CaoSearchContacts.Current)["INTERNET"] = txtWebpage.Text;
+            ((DataRowView)m_BS_CaoSearchContacts.Current)["EMAIL"] = txtEmail.Text;
+            ((DataRowView)m_BS_CaoSearchContacts.Current)["FAX"] = txtFax.Text;
+            ((DataRowView)m_BS_CaoSearchContacts.Current)["FUNK"] = txtMobile.Text;
+            ((DataRowView)m_BS_CaoSearchContacts.Current)["TELE2"] = txtPhon2.Text;
+            ((DataRowView)m_BS_CaoSearchContacts.Current)["TELE1"] = txtPhone1.Text;
+            ((DataRowView)m_BS_CaoSearchContacts.Current)["BRIEFANREDE"] = cboCaoBriefanrede.Text;
+            ((DataRowView)m_BS_CaoSearchContacts.Current)["BRT_TAGE"] = txtCaoZahlungsziel.Text;
+            ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_SEIT"] = txtCaoCustomerSince.Text;
+
+            if (txtCaoGeb.Text != "")
+            {
+                try
+                {
+                    ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_GEBDATUM"] = Convert.ToDateTime(txtCaoGeb.Text);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString());
+                    ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_GEBDATUM"] = "01.01.1911";
+                }
+            }
+            
+            ((DataRowView)m_BS_CaoSearchContacts.Current)["INFO"] = txtBemerkung.Text;
+            ((DataRowView)m_BS_CaoSearchContacts.Current).EndEdit();
+
+            //((DataRowView)m_BS_SugarSearchContacts.Current)["primary_address_country"] = txtSugarLand.Text;
+            //((DataRowView)m_BS_SugarSearchContacts.Current)["lead_source"] = txtSugarLeadSource.Text;
+            //((DataRowView)m_BS_SugarSearchContacts.Current)["department"] = txtSugarAbteilung.Text;
+            //((DataRowView)m_BS_SugarSearchContacts.Current)["title"] = txtSugarTitle.Text;
+
+
+            cCao m_objCaoUpdate = new cCao(m_DS, m_BS_CaoSearchContacts);
+            m_objCaoUpdate.UpdateAll();
+
+            //if (m_BS_CaoSearchContacts.Current != null)
+            //{
+            //    //tabCompanies.
+            //    //set searchtext to personen
+            //    tstxtSuchePrivat.Text = "Personen...";
+
+            //    #region Convert the name filed into two fields using CToolbox
+            //    CToolbox m_objTool = new CToolbox();
+            //    string[] foo2;
+            //    foo2 = m_objTool.SplitName(((DataRowView)m_BS_CaoSearchContacts.Current)["NAME1"].ToString());
+            //    txtVorname.Text = foo2[0];
+            //    txtName.Text = foo2[1];
+            //    #endregion
+
+            //    #region fill cbos and set them to the right index
+            //    // set cboCaoVersand to the right index
+            //    int VerdsandId = 0;
+            //    VerdsandId = Convert.ToInt32(((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_LIEFART"]);
+            //    cboCaoVersand.SelectedIndex = VerdsandId - 1;
+
+            //    //set cboCaoZahlart to the right index
+            //    int ZahlartId = 0;
+            //    ZahlartId = Convert.ToInt32(((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_ZAHLART"]);
+            //    cboCaoZahlart.SelectedIndex = ZahlartId - 1;
+            //    #endregion
+
+            //    /* Fills in all the textfield using databinding object casted into a datarowview */
+
+            //    cboAnrede.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["ANREDE"].ToString();
+            //    txtStrasse1.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["STRASSE"].ToString();
+            //    txtPLZ.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["PLZ"].ToString();
+            //    txtOrt.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["ORT"].ToString();
+            //    txtWebpage.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["INTERNET"].ToString();
+            //    txtEmail.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["EMAIL"].ToString();
+            //    txtFax.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["FAX"].ToString();
+            //    txtMobile.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["FUNK"].ToString();
+            //    txtPhon2.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["TELE2"].ToString();
+            //    txtPhone1.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["TELE1"].ToString();
+            //    cboCaoBriefanrede.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["BRIEFANREDE"].ToString();
+            //    txtCaoZahlungsziel.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["BRT_TAGE"].ToString();
+            //    txtCaoCustomerSince.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_SEIT"].ToString();
+            //    txtCaoGeb.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_GEBDATUM"].ToString();
+            //    txtBemerkung.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["INFO"].ToString();
+
+            //    //((DataRowView)m_BS_CaoSearchContacts.Current)["INFO"] = txtBemerkung.Text;
+
+            //    //txtSugarZugewiesenAn.Text = ((DataRowView)m_BS.Current)[].ToString();
+            //    txtSugarLand.Text = ((DataRowView)m_BS_SugarSearchContacts.Current)["primary_address_country"].ToString();
+            //    txtSugarLeadSource.Text = ((DataRowView)m_BS_SugarSearchContacts.Current)["lead_source"].ToString();
+            //    txtSugarAbteilung.Text = ((DataRowView)m_BS_SugarSearchContacts.Current)["department"].ToString();
+            //    txtSugarTitle.Text = ((DataRowView)m_BS_SugarSearchContacts.Current)["title"].ToString();
+            //}
+
+            ////((DataRowView)m_BS.Current)["NAME1"] = txtName.Text;
+            ////((DataRowView)m_BS_Sugar.Current)["last_name"] = 
+            ////m_BS.Current
+
         }
 
         private void UpdateContactSugar()

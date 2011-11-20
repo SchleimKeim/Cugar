@@ -70,6 +70,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grpCAO = new System.Windows.Forms.GroupBox();
+            this.cboCaoBriefanrede = new System.Windows.Forms.ComboBox();
             this.cboCaoZahlart = new System.Windows.Forms.ComboBox();
             this.cboCaoVersand = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -154,7 +155,6 @@
             this.tabSuche = new System.Windows.Forms.TabPage();
             this.cmdPrivatExit = new System.Windows.Forms.Button();
             this.cmdSave = new System.Windows.Forms.Button();
-            this.cboCaoBriefanrede = new System.Windows.Forms.ComboBox();
             this.mnuFrmMain.SuspendLayout();
             this.grpGenerell.SuspendLayout();
             this.grpCAO.SuspendLayout();
@@ -566,6 +566,18 @@
             this.grpCAO.TabIndex = 2;
             this.grpCAO.TabStop = false;
             this.grpCAO.Text = "CAO options";
+            // 
+            // cboCaoBriefanrede
+            // 
+            this.cboCaoBriefanrede.FormattingEnabled = true;
+            this.cboCaoBriefanrede.Items.AddRange(new object[] {
+            "Sehr geehrte Damen und Herren",
+            "Sehr geehrter Herr",
+            "Sehr geehrte Frau"});
+            this.cboCaoBriefanrede.Location = new System.Drawing.Point(91, 23);
+            this.cboCaoBriefanrede.Name = "cboCaoBriefanrede";
+            this.cboCaoBriefanrede.Size = new System.Drawing.Size(215, 21);
+            this.cboCaoBriefanrede.TabIndex = 18;
             // 
             // cboCaoZahlart
             // 
@@ -1384,7 +1396,6 @@
             // 
             // cmdSave
             // 
-            this.cmdSave.Enabled = false;
             this.cmdSave.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmdSave.Location = new System.Drawing.Point(880, 452);
             this.cmdSave.Name = "cmdSave";
@@ -1393,18 +1404,6 @@
             this.cmdSave.Text = "&Save";
             this.cmdSave.UseVisualStyleBackColor = true;
             this.cmdSave.Click += new System.EventHandler(this.cmdPrivatSave_Click);
-            // 
-            // cboCaoBriefanrede
-            // 
-            this.cboCaoBriefanrede.FormattingEnabled = true;
-            this.cboCaoBriefanrede.Items.AddRange(new object[] {
-            "Sehr geehrte Damen und Herren",
-            "Sehr geehrter Herr",
-            "Sehr geehrte Frau"});
-            this.cboCaoBriefanrede.Location = new System.Drawing.Point(91, 23);
-            this.cboCaoBriefanrede.Name = "cboCaoBriefanrede";
-            this.cboCaoBriefanrede.Size = new System.Drawing.Size(215, 21);
-            this.cboCaoBriefanrede.TabIndex = 18;
             // 
             // frmMain
             // 
