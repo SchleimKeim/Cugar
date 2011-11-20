@@ -161,33 +161,77 @@ namespace Cugar
         /// <param name="searchstring">searchstring</param>
         public void StartSearchPrivat(string searchstring)
         {
+            /* Create new Object cCao.
+             * Use the Search Contacts Method.
+             * Bind the DataSource from the Binding Source
+             * Set the DataSource for the dgv */
+
             m_objCao = new cCao(m_DS, m_BS_Cao);
-            //m_objCao.search_ds_human_persons(searchstring);
-            m_objCao.search_ds_all_persons(searchstring);
-            //m_DV_Search_Cao_human = m_DS.Tables[m_const_strCaoTableSearchAll].DefaultView;
+            if (rbName.Checked == true)
+            {
+                m_objCao.SearchContactsByName(searchstring);
+            }
+            if (rbStrasse.Checked == true)
+            {
+                m_objCao.SearchContactsBySteet(searchstring);
+            }
+            if (rbTelefon.Checked == true)
+            {
+                m_objCao.SearchContactsByPhone(searchstring);
+            }
             m_BS_Cao.DataSource = m_DS.Tables[m_const_strCaoTableSearchAllPrivate];
             dgvCaoSuche.DataSource = m_BS_Cao;
 
+
             m_objSugar = new cSugar(m_DS, m_BS_Sugar);
-            //m_objSugar.search_ds_human_persons(searchstring);
-            m_objSugar.search_ds_all_persons(searchstring);
+            if (rbName.Checked == true)
+            {
+                m_objSugar.SearchContactsByName(searchstring);
+            }
+            if (rbStrasse.Checked == true)
+            {
+                m_objSugar.SearchContactsByStreet(searchstring);
+            }
+            if (rbTelefon.Checked == true)
+            {
+                m_objSugar.SearchContactsByPhone(searchstring);
+            }
             m_BS_Sugar.DataSource = m_DS.Tables[m_const_strSugarTableSearchAllPrivate];
-            //m_DV_Search_Sugar_human = m_DS.Tables[m_const_strSugarTableSearchAllPrivate].DefaultView;
-            //m_BS.DataSource = m_DS.Tables[m_const_strSugarTableSearchAll];
-            //dgvSugarSuche.DataSource = m_DV_Search_Sugar_human;
             dgvSugarSuche.DataSource = m_BS_Sugar;
         }
 
         public void StartSearchFirma(string searchstring)
         {
             m_objCao = new cCao(m_DS, m_BS_Cao);
-            m_objCao.search_ds_all_companies(searchstring);
+            if (rbName.Checked == true)
+            {
+                m_objCao.SearchCompanyByName(searchstring);   
+            }
+            if (rbStrasse.Checked == true)
+            {
+                m_objCao.SearchCompanyByStreet(searchstring);
+            }
+            if (rbTelefon.Checked == true)
+            {
+                m_objCao.SearchCompanyByPhone(searchstring);
+            }
             m_BS_Cao.DataSource = m_DS.Tables[m_const_strCaoTableSearchAllCompanies];
             dgvCaoSuche.DataSource = m_BS_Cao;
-
+           
             m_objSugar = new cSugar(m_DS, m_BS_Sugar);
-            m_objSugar.search_ds_all_companies(searchstring);
-            m_BS_Sugar.DataSource = m_DS.Tables[m_const_strSugarTableSearchAllCompanies].DefaultView;
+            if (rbName.Checked == true)
+            {
+                m_objSugar.SearchCompanyByName(searchstring);   
+            }
+            if (rbStrasse.Checked == true)
+            {
+                m_objSugar.SearchCompanyByStreet(searchstring);
+            }
+            if (rbTelefon.Checked == true)
+            {
+                m_objSugar.SearchCompanyByPhone(searchstring);
+            }
+            m_BS_Sugar.DataSource = m_DS.Tables[m_const_strSugarTableSearchAllCompanies];
             dgvSugarSuche.DataSource = m_BS_Sugar;
         }
         private void cmdClear_Click(object sender, EventArgs e)
@@ -232,27 +276,27 @@ namespace Cugar
             if (dgvCaoSuche.ColumnCount > 0)
             {
                 dgvCaoSuche.DataSource = null;
-                if (m_privat == true)
-                {
-                    m_DS.Tables.Remove(m_const_strCaoTableSearchAllPrivate);
-                }
-                else if (m_privat == false)
-                {
-                    m_DS.Tables.Remove(m_const_strCaoTableSearchAllCompanies);
-                }
+                //if (m_privat == true)
+                //{
+                //    m_DS.Tables.Remove(m_const_strCaoTableSearchAllPrivate);
+                //}
+                //else if (m_privat == false)
+                //{
+                //    m_DS.Tables.Remove(m_const_strCaoTableSearchAllCompanies);
+                //}
             }
 
             if (dgvSugarSuche.ColumnCount > 0)
             {
                 dgvSugarSuche.DataSource = null;
-                if (m_privat == true)
-                {
-                    m_DS.Tables.Remove(m_const_strSugarTableSearchAllPrivate);
-                }
-                else if (m_privat == false)
-                {
-                    m_DS.Tables.Remove(m_const_strSugarTableSearchAllCompanies);
-                }
+                //if (m_privat == true)
+                //{
+                //    m_DS.Tables.Remove(m_const_strSugarTableSearchAllPrivate);
+                //}
+                //else if (m_privat == false)
+                //{
+                //    m_DS.Tables.Remove(m_const_strSugarTableSearchAllCompanies);
+                //}
             }
 
         }

@@ -198,6 +198,7 @@
     <None Include="Icons\User-Administrator-Blue-icon.png" />
     <Content Include="Notes.txt" />
     <Content Include="all_sugar_params.txt" />
+    <Content Include="searchcontactsbyname_sicherung.txt" />
     <Content Include="SugarInsertFirma.txt" />
     <Content Include="SugarInsertFirma_allerows.txt" />
   </ItemGroup>

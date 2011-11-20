@@ -1,0 +1,23 @@
+﻿
+        /// <summary>
+        /// Searches for Private Customers
+        /// </summary>
+        /// <param name="searchstring">searchstring</param>
+        public void StartSearchPrivat(string searchstring)
+        {
+            m_objCao = new cCao(m_DS, m_BS_Cao);
+            //m_objCao.search_ds_human_persons(searchstring);
+            m_objCao.SearchContactsByName(searchstring);
+            //m_DV_Search_Cao_human = m_DS.Tables[m_const_strCaoTableSearchAll].DefaultView;
+            m_BS_Cao.DataSource = m_DS.Tables[m_const_strCaoTableSearchAllPrivate];
+            dgvCaoSuche.DataSource = m_BS_Cao;
+
+            m_objSugar = new cSugar(m_DS, m_BS_Sugar);
+            //m_objSugar.search_ds_human_persons(searchstring);
+            m_objSugar.SearchContactsByName(searchstring);
+            m_BS_Sugar.DataSource = m_DS.Tables[m_const_strSugarTableSearchAllPrivate];
+            //m_DV_Search_Sugar_human = m_DS.Tables[m_const_strSugarTableSearchAllPrivate].DefaultView;
+            //m_BS.DataSource = m_DS.Tables[m_const_strSugarTableSearchAll];
+            //dgvSugarSuche.DataSource = m_DV_Search_Sugar_human;
+            dgvSugarSuche.DataSource = m_BS_Sugar;
+        }

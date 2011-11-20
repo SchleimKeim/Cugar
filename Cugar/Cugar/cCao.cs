@@ -207,10 +207,9 @@ namespace Cugar
 
 
         /// <summary>
-        ///Searches the table adressen for a given Searchstring
-        ///and inserts a "tblCaoSearchAll" into the DataSet.</summary>
+        /// Searches for Contacts By Name.</summary>
         /// <param name="searchstring">the search string</param>
-        public void search_ds_all_persons(string searchstring)
+        public void SearchContactsByName(string searchstring)
         {
             StringBuilder m_strCommand = new StringBuilder();
             m_strCommand.Append(@"select * from adressen where NAME1 like ");
@@ -224,11 +223,44 @@ namespace Cugar
             m_daCao = new OdbcDataAdapter(m_cmdSearchCommand.CommandText, m_cnCao);
             m_daCao.FillSchema(m_dsCao, SchemaType.Source, m_const_strCaoTableSearchAllPrivate);
             m_daCao.Fill(m_dsCao, m_const_strCaoTableSearchAllPrivate);
+        }
+        /// <summary>
+        /// Searches for Contacts by Street.</summary>
+        /// <param name="searchstring">the search string</param>
+        public void SearchContactsBySteet(string searchstring)
+        {
+            StringBuilder m_strCommand = new StringBuilder();
+            m_strCommand.Append(@"select * from adressen where STRASSE like ");
+            m_strCommand.Append(@"'%");
+            m_strCommand.Append(searchstring);
+            m_strCommand.Append(@"%'");
+            m_strCommand.Append(" AND KUNDENGRUPPE=1;");
+            //m_strCommand.Append(@"select  * from adressen where NAME1 like 'Meier'");
 
-            //added 03.11.2011
-            
+            OdbcCommand m_cmdSearchCommand = new OdbcCommand(m_strCommand.ToString());
+            m_daCao = new OdbcDataAdapter(m_cmdSearchCommand.CommandText, m_cnCao);
+            m_daCao.FillSchema(m_dsCao, SchemaType.Source, m_const_strCaoTableSearchAllPrivate);
+            m_daCao.Fill(m_dsCao, m_const_strCaoTableSearchAllPrivate);
         }
 
+        /// <summary>
+        /// Searches for Contacts By Mainphone.</summary>
+        /// <param name="searchstring">the search string</param>
+        public void SearchContactsByPhone(string searchstring)
+        {
+            StringBuilder m_strCommand = new StringBuilder();
+            m_strCommand.Append(@"select * from adressen where TELE1 like ");
+            m_strCommand.Append(@"'%");
+            m_strCommand.Append(searchstring);
+            m_strCommand.Append(@"%'");
+            m_strCommand.Append(" AND KUNDENGRUPPE=1;");
+            //m_strCommand.Append(@"select  * from adressen where NAME1 like 'Meier'");
+
+            OdbcCommand m_cmdSearchCommand = new OdbcCommand(m_strCommand.ToString());
+            m_daCao = new OdbcDataAdapter(m_cmdSearchCommand.CommandText, m_cnCao);
+            m_daCao.FillSchema(m_dsCao, SchemaType.Source, m_const_strCaoTableSearchAllPrivate);
+            m_daCao.Fill(m_dsCao, m_const_strCaoTableSearchAllPrivate);
+        }
         /// <summary>
         ///Searches the table adressen for a given Searchstring
         ///and inserts a "tblCaoSearchHuman" into the DataSet.</summary>
@@ -250,10 +282,10 @@ namespace Cugar
         }
 
         /// <summary>
-        /// Searches for Companies.
+        /// Searches for Companies by Name.
         /// </summary>
         /// <param name="searchstring">the searchstring</param>
-        public void search_ds_all_companies(string searchstring)
+        public void SearchCompanyByName(string searchstring)
         {
             StringBuilder m_strCommand = new StringBuilder();
             m_strCommand.Append(@"select * from adressen where NAME1 like ");
@@ -267,7 +299,42 @@ namespace Cugar
             m_daCao.FillSchema(m_dsCao, SchemaType.Source, m_const_strCaoTableSearchAllCompanies);
             m_daCao.Fill(m_dsCao, m_const_strCaoTableSearchAllCompanies);
         }
+        /// <summary>
+        /// Searches for Companies by Street.
+        /// </summary>
+        /// <param name="searchstring">the searchstring</param>
+        public void SearchCompanyByStreet(string searchstring)
+        {
+            StringBuilder m_strCommand = new StringBuilder();
+            m_strCommand.Append(@"select * from adressen where STRASSE like ");
+            m_strCommand.Append(@"'%");
+            m_strCommand.Append(searchstring);
+            m_strCommand.Append(@"%'");
+            m_strCommand.Append(" AND KUNDENGRUPPE=2;");
 
+            OdbcCommand m_cmdSearchCommand = new OdbcCommand(m_strCommand.ToString());
+            m_daCao = new OdbcDataAdapter(m_cmdSearchCommand.CommandText, m_cnCao);
+            m_daCao.FillSchema(m_dsCao, SchemaType.Source, m_const_strCaoTableSearchAllCompanies);
+            m_daCao.Fill(m_dsCao, m_const_strCaoTableSearchAllCompanies);
+        }
+        /// <summary>
+        /// Searches for Companies by Mainphone.
+        /// </summary>
+        /// <param name="searchstring">the searchstring</param>
+        public void SearchCompanyByPhone(string searchstring)
+        {
+            StringBuilder m_strCommand = new StringBuilder();
+            m_strCommand.Append(@"select * from adressen where TELE1 like ");
+            m_strCommand.Append(@"'%");
+            m_strCommand.Append(searchstring);
+            m_strCommand.Append(@"%'");
+            m_strCommand.Append(" AND KUNDENGRUPPE=2;");
+
+            OdbcCommand m_cmdSearchCommand = new OdbcCommand(m_strCommand.ToString());
+            m_daCao = new OdbcDataAdapter(m_cmdSearchCommand.CommandText, m_cnCao);
+            m_daCao.FillSchema(m_dsCao, SchemaType.Source, m_const_strCaoTableSearchAllCompanies);
+            m_daCao.Fill(m_dsCao, m_const_strCaoTableSearchAllCompanies);
+        }
         /// <summary>
         ///Updates the Database.
         ///</summary>
