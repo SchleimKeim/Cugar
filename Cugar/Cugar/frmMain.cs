@@ -122,8 +122,8 @@ namespace Cugar
     {
         #region members
 
-        private DataView m_dvCao;
-        private DataView m_dvSugar;
+        //private DataView m_dvCao;
+        //private DataView m_dvSugar;
 
         private DataSet m_DS = new DataSet();
         private cCao m_objCao;
@@ -175,10 +175,6 @@ namespace Cugar
             InitializeComponent();
         }
 
-
-
-        
-
         private void Form1_Load(object sender, EventArgs e)
         {
             
@@ -189,76 +185,66 @@ namespace Cugar
                 MessageBox.Show("Please Restart Cugar to load the mew settings.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);             
             }
 
-            /* Fills out dgvCao */
-
             if (m_DS.Tables.Count == 0)
             {
+                /* Fills out dgvCao */
+                //#region fill dgvCao
+                //try
+                //{
+                //    /* vorgang:
+                //     * neues cao objekt wird erstellt mit dem DataSet der main.cf
+                //     * die methode LoadDataSet() fllt das DataSet mit informationen 
+                //     * aus der Cao Datenbank
+                //     * das DataView der main.cf wird mit den tables aus dem DataSet der main.cf gefllt
+                //     * dgv kriegt als source das DataView der main.cf
+                //     */
 
-                #region fill dgvCao
-                try
-                {
-                    /* vorgang:
-                     * neues cao objekt wird erstellt mit dem DataSet der main.cf
-                     * die methode LoadDataSet() fllt das DataSet mit informationen 
-                     * aus der Cao Datenbank
-                     * das DataView der main.cf wird mit den tables aus dem DataSet der main.cf gefllt
-                     * dgv kriegt als source das DataView der main.cf
-                     */
+                //    //m_objCao = new cCao(m_DS);
 
-                    //m_objCao = new cCao(m_DS);
+                //    // added on 03.11.
+                //    m_objCao = new cCao(m_DS, m_BS_CaoSearchContacts);
 
-                    // added on 03.11.
-                    m_objCao = new cCao(m_DS, m_BS_CaoSearchContacts);
+                //    //load all private customers, propably obsolete but good
+                //    m_objCao.LoadPrivateCustomers();                    
+                //    m_dvCao = m_DS.Tables[m_const_strCaoTablePrivate].DefaultView;
+                //    dgvCao.DataSource = m_dvCao;
 
-                    //load all private customers, propably obsolete but good
-                    m_objCao.LoadPrivateCustomers();                    
-                    m_dvCao = m_DS.Tables[m_const_strCaoTablePrivate].DefaultView;
-                    dgvCao.DataSource = m_dvCao;
+                //    //load cbo Versandarten, currently not working :(
+                //}
+                //catch (Exception asdf)
+                //{
+                //    MessageBox.Show(asdf.ToString());
+                //    Application.Exit();
+                //}
+                //#endregion
 
-                    //load cbo Versandarten, currently not working :(
-                }
-                catch (Exception asdf)
-                {
-                    MessageBox.Show(asdf.ToString());
-                    Application.Exit();
-                }
-                #endregion
-
-                #region fill dgvSugar
-                /* Fills out dgvSugar */
-                try
-                {
-                    //m_objSugar = new cSugar(m_DS);
-                    // added on 03.11.
-                    m_objSugar = new cSugar(m_DS, m_BS_SugarSearchContacts);
-                    m_objSugar.LoadPrivateCustomers();
-                    m_dvSugar = m_DS.Tables[m_const_strSugarTablePrivate].DefaultView;
-                    dgvSugar.DataSource = m_dvSugar;
-                }
-                catch (Exception asdf)
-                {
-                    MessageBox.Show("Ein Fehler ist aufgetreten!\n Bitte berprfen Sie die Einstellungen!");
-                    MessageBox.Show(asdf.ToString());
-                    Application.Exit();
-                }
-                #endregion
+                //#region fill dgvSugar
+                ///* Fills out dgvSugar */
+                //try
+                //{
+                //    //m_objSugar = new cSugar(m_DS);
+                //    // added on 03.11.
+                //    m_objSugar = new cSugar(m_DS, m_BS_SugarSearchContacts);
+                //    m_objSugar.LoadPrivateCustomers();
+                //    m_dvSugar = m_DS.Tables[m_const_strSugarTablePrivate].DefaultView;
+                //    dgvSugar.DataSource = m_dvSugar;
+                //}
+                //catch (Exception asdf)
+                //{
+                //    MessageBox.Show("Ein Fehler ist aufgetreten!\n Bitte berprfen Sie die Einstellungen!");
+                //    MessageBox.Show(asdf.ToString());
+                //    Application.Exit();
+                //}
+                //#endregion
 
                 /* Versandarten ausfüllen */
-                //LoadCaoVersandArten();
-                //m_objCao.LoadCaoVersandarten();
                 LoadCaoVersandArten();                
                 cboCaoVersand.SelectedIndex = 0;
 
                 /* zahlunggsarten ausfüllen */
-                //LoadCaoZahlungsarten();
-                //m_objCao.LoadCaoZahlarten();
                 LoadCaoZahlungsarten();                
                 cboCaoZahlart.SelectedIndex = 0;                
 
-            }
-            else
-            { 
-                //txtStrasse1.Text = m_DS.Tables[m_const_strCaoTable].
             }
             // Prepare cbos
             cboAnrede.SelectedIndex = 0;
@@ -309,6 +295,7 @@ namespace Cugar
 
         /// <summary>
         /// Loads "Cao Zahlungsarten" in the cbos
+        /// in tabMain.tabPrivat and tabMain.tabCompany
         /// and sets the SelectedIndex = 0
         /// </summary>
         private void LoadCaoZahlungsarten()
@@ -325,7 +312,7 @@ namespace Cugar
             #endregion
             OdbcConnection m_cnFoo = new OdbcConnection(m_sCaoConnect.ToString());
 
-
+            
             int spalten_nr = 0; //Nummer der Spalte, in der das gewnschte Element steht
             OdbcCommand cmd = new OdbcCommand(@"select NAME from ZAHLUNGSARTEN;", m_cnFoo);
 
@@ -359,7 +346,7 @@ namespace Cugar
 
         private void neuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            PrepareNew();
         }
 
         #region obsolete
@@ -987,7 +974,14 @@ namespace Cugar
 
         private void neuToolStripButton_Click(object sender, EventArgs e)
         {
-            
+            PrepareNew();
+        }
+        /// <summary>
+        /// Asks the User if he wants to clear all Textfields and
+        /// enables the Save button.
+        /// </summary>
+        private void PrepareNew()
+        {
             // If the User clicks "yes" all the textfields get cleared.
             // If he clicks "no" the Text stays there, handy if the User
             // forgot to click "add new".
@@ -1017,8 +1011,8 @@ namespace Cugar
             }
             else
             {
-                 m_bNew = true;
-                 this.EnableSave();
+                m_bNew = true;
+                this.EnableSave();
             }
         }
 
@@ -1285,27 +1279,27 @@ namespace Cugar
                 SearchPrivat();
             }
         }
+        #region keyboard shortcuts
         private void frmMain_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F && e.Control)
             {
                 tstxtSuchePrivat.Focus();
             }
-
-            if (e.KeyCode == Keys.N && e.Control)
-            {
-            }
         }
+        #endregion
 
-        private void mnuFrmMain_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
+        #region unused
+        //private void mnuFrmMain_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void cboFZahlart_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        //private void cboFZahlart_SelectedIndexChanged(object sender, EventArgs e)
+        //{
 
-        }
+        //}
+        #endregion
 
         private void speichernToolStripButton_Click(object sender, EventArgs e)
         {
@@ -1450,6 +1444,11 @@ namespace Cugar
 
         private void UpdateContactSugar()
         {
+        }
+
+        private void druckenToolStripButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Drucken wird leider noch nicht unterstützt.");
         }
     }
 }

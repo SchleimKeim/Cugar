@@ -152,7 +152,6 @@
             this.dgvCao = new System.Windows.Forms.DataGridView();
             this.tabDGVSugar = new System.Windows.Forms.TabPage();
             this.dgvSugar = new System.Windows.Forms.DataGridView();
-            this.tabSuche = new System.Windows.Forms.TabPage();
             this.cmdPrivatExit = new System.Windows.Forms.Button();
             this.cmdSave = new System.Windows.Forms.Button();
             this.mnuFrmMain.SuspendLayout();
@@ -182,7 +181,6 @@
             this.mnuFrmMain.Size = new System.Drawing.Size(959, 24);
             this.mnuFrmMain.TabIndex = 0;
             this.mnuFrmMain.Text = "menuStrip1";
-            this.mnuFrmMain.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuFrmMain_ItemClicked);
             // 
             // fileToolStripMenuItem
             // 
@@ -190,20 +188,20 @@
             this.neuToolStripMenuItem,
             this.beendenToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.fileToolStripMenuItem.Text = "&Datei";
             // 
             // neuToolStripMenuItem
             // 
             this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.neuToolStripMenuItem.Text = "Neu...";
             this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
             // 
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.beendenToolStripMenuItem.Text = "&Beenden";
             this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
@@ -213,13 +211,13 @@
             this.connectionToolStripMenuItem,
             this.toolStripMenuItem2});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.settingsToolStripMenuItem.Text = "&Bearbeiten";
             // 
             // connectionToolStripMenuItem
             // 
             this.connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
-            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.connectionToolStripMenuItem.Text = "&Einstellungen...";
             this.connectionToolStripMenuItem.Click += new System.EventHandler(this.connectionToolStripMenuItem_Click);
             // 
@@ -229,20 +227,20 @@
             this.standardToolStripMenuItem,
             this.gridViewToolStripMenuItem});
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(154, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(160, 22);
             this.toolStripMenuItem2.Text = "&Ansicht";
             // 
             // standardToolStripMenuItem
             // 
             this.standardToolStripMenuItem.Name = "standardToolStripMenuItem";
-            this.standardToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.standardToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.standardToolStripMenuItem.Text = "Standard";
             // 
             // gridViewToolStripMenuItem
             // 
             this.gridViewToolStripMenuItem.Enabled = false;
             this.gridViewToolStripMenuItem.Name = "gridViewToolStripMenuItem";
-            this.gridViewToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.gridViewToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.gridViewToolStripMenuItem.Text = "Grid View";
             // 
             // grpGenerell
@@ -829,6 +827,7 @@
             this.druckenToolStripButton.Name = "druckenToolStripButton";
             this.druckenToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.druckenToolStripButton.Text = "&Drucken";
+            this.druckenToolStripButton.Click += new System.EventHandler(this.druckenToolStripButton_Click);
             // 
             // hilfeToolStripButton
             // 
@@ -848,7 +847,6 @@
             this.tabMain.Controls.Add(this.tabCompanies);
             this.tabMain.Controls.Add(this.tabDGVCao);
             this.tabMain.Controls.Add(this.tabDGVSugar);
-            this.tabMain.Controls.Add(this.tabSuche);
             this.tabMain.Location = new System.Drawing.Point(0, 52);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
@@ -1242,7 +1240,6 @@
             this.cboFZahlart.Name = "cboFZahlart";
             this.cboFZahlart.Size = new System.Drawing.Size(215, 21);
             this.cboFZahlart.TabIndex = 2;
-            this.cboFZahlart.SelectedIndexChanged += new System.EventHandler(this.cboFZahlart_SelectedIndexChanged);
             // 
             // cboFVersand
             // 
@@ -1373,16 +1370,6 @@
             this.dgvSugar.Size = new System.Drawing.Size(934, 363);
             this.dgvSugar.TabIndex = 1;
             // 
-            // tabSuche
-            // 
-            this.tabSuche.Location = new System.Drawing.Point(4, 22);
-            this.tabSuche.Name = "tabSuche";
-            this.tabSuche.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSuche.Size = new System.Drawing.Size(951, 372);
-            this.tabSuche.TabIndex = 4;
-            this.tabSuche.Text = "Suche";
-            this.tabSuche.UseVisualStyleBackColor = true;
-            // 
             // cmdPrivatExit
             // 
             this.cmdPrivatExit.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -1396,6 +1383,7 @@
             // 
             // cmdSave
             // 
+            this.cmdSave.Enabled = false;
             this.cmdSave.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmdSave.Location = new System.Drawing.Point(880, 452);
             this.cmdSave.Name = "cmdSave";
@@ -1562,7 +1550,6 @@
         private System.Windows.Forms.DataGridView dgvCao;
         private System.Windows.Forms.TabPage tabDGVSugar;
         private System.Windows.Forms.DataGridView dgvSugar;
-        private System.Windows.Forms.TabPage tabSuche;
         private System.Windows.Forms.ToolStripTextBox tstxtSucheFirma;
         private System.Windows.Forms.Button cmdPrivatExit;
         private System.Windows.Forms.Button cmdSave;

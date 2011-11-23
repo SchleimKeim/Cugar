@@ -78,7 +78,7 @@
     <Compile Include="_oldfiles\CaoConnector_old.cs" />
     <Content Include="_textfiles\CaoInsertFirma.txt" />
     <Compile Include="cCao.cs" />
-    <Compile Include="CDatabasecon.cs" />
+    <Compile Include="_oldfiles\CDatabasecon.cs" />
     <Compile Include="cSugar.cs" />
     <Compile Include="CToolbox.cs" />
     <Compile Include="frmMain.cs">
@@ -201,6 +201,7 @@
     <Content Include="_textfiles\searchcontactsbyname_sicherung.txt" />
     <Content Include="_textfiles\SugarInsertFirma.txt" />
     <Content Include="_textfiles\SugarInsertFirma_allerows.txt" />
+    <Content Include="_textfiles\temp.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
