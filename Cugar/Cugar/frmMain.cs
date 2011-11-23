@@ -177,7 +177,7 @@ namespace Cugar
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            /* If its the first start show frmSettings */
             if (Cugar.Properties.Settings.Default.first_start == true)
             {                
                 frmSettings m_SubForm_Settings = new frmSettings();
@@ -256,6 +256,7 @@ namespace Cugar
         }
         /// <summary>
         /// Loads "Cao Versandarten" in the cbos
+        /// in tabMain.tabPrivat and tabMain.tabCompany
         /// and sets the SelectedIndex = 0
         /// </summary>
         private void LoadCaoVersandArten()
@@ -361,6 +362,10 @@ namespace Cugar
         //}
         #endregion
 
+        /// <summary>
+        /// Creates a new frmSuche and starts a new 
+        /// search for private contacts.
+        /// </summary>
         private void SearchPrivat()
         {
             //frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text);
