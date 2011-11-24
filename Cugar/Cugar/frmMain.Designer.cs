@@ -906,7 +906,7 @@
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(614, 362);
-            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Generell";
             // 
@@ -918,7 +918,7 @@
             this.cboFAnrede.Location = new System.Drawing.Point(70, 23);
             this.cboFAnrede.Name = "cboFAnrede";
             this.cboFAnrede.Size = new System.Drawing.Size(219, 21);
-            this.cboFAnrede.TabIndex = 2;
+            this.cboFAnrede.TabIndex = 0;
             // 
             // txtFBemerkung
             // 
@@ -928,7 +928,7 @@
             this.txtFBemerkung.Name = "txtFBemerkung";
             this.txtFBemerkung.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtFBemerkung.Size = new System.Drawing.Size(538, 120);
-            this.txtFBemerkung.TabIndex = 1;
+            this.txtFBemerkung.TabIndex = 6;
             // 
             // txtFOrt
             // 
@@ -936,7 +936,7 @@
             this.txtFOrt.Location = new System.Drawing.Point(70, 206);
             this.txtFOrt.Name = "txtFOrt";
             this.txtFOrt.Size = new System.Drawing.Size(219, 20);
-            this.txtFOrt.TabIndex = 1;
+            this.txtFOrt.TabIndex = 5;
             // 
             // txtFPLZ
             // 
@@ -944,7 +944,7 @@
             this.txtFPLZ.Location = new System.Drawing.Point(70, 180);
             this.txtFPLZ.Name = "txtFPLZ";
             this.txtFPLZ.Size = new System.Drawing.Size(219, 20);
-            this.txtFPLZ.TabIndex = 1;
+            this.txtFPLZ.TabIndex = 4;
             // 
             // lblFBemerkung
             // 
@@ -979,7 +979,7 @@
             this.txtFWeb.Location = new System.Drawing.Point(380, 207);
             this.txtFWeb.Name = "txtFWeb";
             this.txtFWeb.Size = new System.Drawing.Size(225, 20);
-            this.txtFWeb.TabIndex = 1;
+            this.txtFWeb.TabIndex = 10;
             // 
             // txtFMail
             // 
@@ -987,7 +987,7 @@
             this.txtFMail.Location = new System.Drawing.Point(380, 180);
             this.txtFMail.Name = "txtFMail";
             this.txtFMail.Size = new System.Drawing.Size(225, 20);
-            this.txtFMail.TabIndex = 1;
+            this.txtFMail.TabIndex = 9;
             // 
             // txtFFax
             // 
@@ -995,7 +995,7 @@
             this.txtFFax.Location = new System.Drawing.Point(380, 154);
             this.txtFFax.Name = "txtFFax";
             this.txtFFax.Size = new System.Drawing.Size(225, 20);
-            this.txtFFax.TabIndex = 1;
+            this.txtFFax.TabIndex = 8;
             // 
             // txtFStrasse
             // 
@@ -1003,7 +1003,7 @@
             this.txtFStrasse.Location = new System.Drawing.Point(70, 154);
             this.txtFStrasse.Name = "txtFStrasse";
             this.txtFStrasse.Size = new System.Drawing.Size(219, 20);
-            this.txtFStrasse.TabIndex = 1;
+            this.txtFStrasse.TabIndex = 3;
             // 
             // lblFWeb
             // 
@@ -1047,7 +1047,7 @@
             this.txtFPhone.Location = new System.Drawing.Point(383, 51);
             this.txtFPhone.Name = "txtFPhone";
             this.txtFPhone.Size = new System.Drawing.Size(222, 20);
-            this.txtFPhone.TabIndex = 1;
+            this.txtFPhone.TabIndex = 7;
             // 
             // txtFName2
             // 
@@ -1055,7 +1055,7 @@
             this.txtFName2.Location = new System.Drawing.Point(70, 74);
             this.txtFName2.Name = "txtFName2";
             this.txtFName2.Size = new System.Drawing.Size(219, 20);
-            this.txtFName2.TabIndex = 1;
+            this.txtFName2.TabIndex = 2;
             // 
             // txtFName1
             // 
@@ -1116,7 +1116,7 @@
             this.groupBox2.Location = new System.Drawing.Point(626, 189);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(316, 179);
-            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sugar options";
             // 
@@ -1131,7 +1131,7 @@
             this.cboFSugarType.Location = new System.Drawing.Point(93, 19);
             this.cboFSugarType.Name = "cboFSugarType";
             this.cboFSugarType.Size = new System.Drawing.Size(215, 21);
-            this.cboFSugarType.TabIndex = 3;
+            this.cboFSugarType.TabIndex = 16;
             // 
             // txtFSugarLand
             // 
@@ -1139,7 +1139,7 @@
             this.txtFSugarLand.Location = new System.Drawing.Point(93, 123);
             this.txtFSugarLand.Name = "txtFSugarLand";
             this.txtFSugarLand.Size = new System.Drawing.Size(215, 20);
-            this.txtFSugarLand.TabIndex = 1;
+            this.txtFSugarLand.TabIndex = 20;
             // 
             // lblFSugarLand
             // 
@@ -1157,7 +1157,7 @@
             this.txtFSugarMitarbeiter.Location = new System.Drawing.Point(93, 97);
             this.txtFSugarMitarbeiter.Name = "txtFSugarMitarbeiter";
             this.txtFSugarMitarbeiter.Size = new System.Drawing.Size(215, 20);
-            this.txtFSugarMitarbeiter.TabIndex = 1;
+            this.txtFSugarMitarbeiter.TabIndex = 19;
             // 
             // txtFSugarUmsatz
             // 
@@ -1166,7 +1166,7 @@
             this.txtFSugarUmsatz.Location = new System.Drawing.Point(93, 71);
             this.txtFSugarUmsatz.Name = "txtFSugarUmsatz";
             this.txtFSugarUmsatz.Size = new System.Drawing.Size(215, 20);
-            this.txtFSugarUmsatz.TabIndex = 1;
+            this.txtFSugarUmsatz.TabIndex = 18;
             // 
             // lblFSugarMitarbeiter
             // 
@@ -1193,7 +1193,7 @@
             this.txtFSugarBranche.Location = new System.Drawing.Point(93, 45);
             this.txtFSugarBranche.Name = "txtFSugarBranche";
             this.txtFSugarBranche.Size = new System.Drawing.Size(215, 20);
-            this.txtFSugarBranche.TabIndex = 1;
+            this.txtFSugarBranche.TabIndex = 17;
             // 
             // lblFSugarBranche
             // 
@@ -1229,7 +1229,7 @@
             this.groupBox3.Location = new System.Drawing.Point(626, 6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(316, 174);
-            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "CAO options";
             // 
@@ -1239,7 +1239,7 @@
             this.cboFZahlart.Location = new System.Drawing.Point(93, 149);
             this.cboFZahlart.Name = "cboFZahlart";
             this.cboFZahlart.Size = new System.Drawing.Size(215, 21);
-            this.cboFZahlart.TabIndex = 2;
+            this.cboFZahlart.TabIndex = 15;
             // 
             // cboFVersand
             // 
@@ -1247,7 +1247,7 @@
             this.cboFVersand.Location = new System.Drawing.Point(93, 122);
             this.cboFVersand.Name = "cboFVersand";
             this.cboFVersand.Size = new System.Drawing.Size(215, 21);
-            this.cboFVersand.TabIndex = 2;
+            this.cboFVersand.TabIndex = 14;
             // 
             // cboFCaoBriefanrede
             // 
@@ -1259,7 +1259,7 @@
             this.cboFCaoBriefanrede.Location = new System.Drawing.Point(91, 23);
             this.cboFCaoBriefanrede.Name = "cboFCaoBriefanrede";
             this.cboFCaoBriefanrede.Size = new System.Drawing.Size(215, 21);
-            this.cboFCaoBriefanrede.TabIndex = 2;
+            this.cboFCaoBriefanrede.TabIndex = 11;
             // 
             // lblFCaoBriefanrede
             // 
@@ -1294,7 +1294,7 @@
             this.txtFZahlungsziel.Location = new System.Drawing.Point(91, 98);
             this.txtFZahlungsziel.Name = "txtFZahlungsziel";
             this.txtFZahlungsziel.Size = new System.Drawing.Size(34, 20);
-            this.txtFZahlungsziel.TabIndex = 1;
+            this.txtFZahlungsziel.TabIndex = 13;
             this.txtFZahlungsziel.Text = "30";
             this.txtFZahlungsziel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -1331,7 +1331,7 @@
             this.txtFKunSeit.Location = new System.Drawing.Point(91, 74);
             this.txtFKunSeit.Name = "txtFKunSeit";
             this.txtFKunSeit.Size = new System.Drawing.Size(215, 20);
-            this.txtFKunSeit.TabIndex = 1;
+            this.txtFKunSeit.TabIndex = 12;
             // 
             // tabDGVCao
             // 
