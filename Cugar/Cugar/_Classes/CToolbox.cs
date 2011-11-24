@@ -11,7 +11,7 @@ namespace Cugar
     /// <summary>
     ///  Verschiedene Tools und Funktionen
     /// </summary>
-    public class CToolbox
+    public class cToolbox
     {
         #region private members
         private String m_server;
@@ -22,10 +22,10 @@ namespace Cugar
 
 
         #region constructors
-        public CToolbox()
+        public cToolbox()
         {
         }
-        public CToolbox(string server, string user, string pw, string dbname)
+        public cToolbox(string server, string user, string pw, string dbname)
         {
             m_server = server;
             m_user = user;

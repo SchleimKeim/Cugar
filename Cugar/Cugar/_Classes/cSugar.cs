@@ -10,7 +10,9 @@ using System.Data.OleDb;
 namespace Cugar
 {
     /// <summary>
-    ///  SugarConnector Class
+    /// SugarConnector Class. Connects to Sugar
+    /// and works with a referenced DataSet and 
+    /// a referenced BindingSource.
     /// </summary>
     public class cSugar
     {
@@ -33,8 +35,11 @@ namespace Cugar
         #endregion
         
         /// <summary>
-        ///  Constructor expecting a DataSet
+        ///  Constructor expecting a DataSet.
+        ///  Note: its recommencet to use the one who expects
+        ///  a DataSet AND a Bindingsource!
         /// </summary>
+        /// <param name="ds">Referenced DataSet</param>
         public cSugar(DataSet ds)
         {
             m_dsSugar = ds;
@@ -54,6 +59,11 @@ namespace Cugar
             }
         }
 
+        /// <summary>
+        ///  Constructor expecting a DataSet and a Bindingsource.
+        /// </summary>
+        /// <param name="ds">DataSet to reference</param>
+        /// <param name="bs">Referenced BindingSource</param>
         public cSugar(DataSet ds, BindingSource bs)
         {
             m_dsSugar = ds;
@@ -77,7 +87,7 @@ namespace Cugar
 
         #region methods
         /// <summary>
-        ///  Builds a Connection to the given SugarHost
+        ///  Builds a Connection to the given Sugar Server
         ///  using the User Settings.
         /// </summary>
         private void SugarConnect()
@@ -100,7 +110,7 @@ namespace Cugar
         }
 
         /// <summary>
-        ///  Loads the whole Database into the referenced DataSet.
+        ///  Loads all private Sugar Customers into the referenced DataSet.
         ///  Using a Tablename "tblSugarContacts"
         /// </summary>
         public void LoadPrivateCustomers()
@@ -111,7 +121,8 @@ namespace Cugar
         }
 
         /// <summary>
-        /// Searches for Contacts by Name.</summary>
+        /// Searches for Contacts by Name.
+        /// Table: tblSugarSearchAllCompanies</summary>
         /// <param name="searchstring">the search string</param>
         public void SearchContactsByName(string searchstring)
         {
@@ -128,7 +139,8 @@ namespace Cugar
         }
 
         /// <summary>
-        /// Searches for Contacts by Street.</summary>
+        /// Searches for Contacts by Street.
+        /// Table: tblSugarSearchAllCompanies</summary>
         /// <param name="searchstring">the search string</param>
         public void SearchContactsByStreet(string searchstring)
         {
@@ -143,8 +155,10 @@ namespace Cugar
             m_daSugar.FillSchema(m_dsSugar, SchemaType.Source, m_const_strSugarTableSearchAllPrivate);
             m_daSugar.Fill(m_dsSugar, m_const_strSugarTableSearchAllPrivate);            
         }
+
         /// <summary>
-        /// Searches for Contacts by Mainphone.</summary>
+        /// Searches for Contacts by Mainphone.
+        /// Table: tblSugarSearchAllCompanies</summary>
         /// <param name="searchstring">the search string</param>
         public void SearchContactsByPhone(string searchstring)
         {
@@ -159,9 +173,10 @@ namespace Cugar
             m_daSugar.FillSchema(m_dsSugar, SchemaType.Source, m_const_strSugarTableSearchAllPrivate);
             m_daSugar.Fill(m_dsSugar, m_const_strSugarTableSearchAllPrivate);            
         }
+
         /// <summary>
         /// Searches for Companies by Name.
-        /// </summary>
+        /// Table: tblSugarSearchAllCompanies</summary>
         /// <param name="searchstring">the search string</param>
         public void SearchCompanyByName(string searchstring)
         {
@@ -179,7 +194,7 @@ namespace Cugar
 
         /// <summary>
         /// Searches for Companies by Street.
-        /// </summary>
+        /// Table: tblSugarSearchAllCompanies</summary>
         /// <param name="searchstring">the search string</param>
         public void SearchCompanyByStreet(string searchstring)
         {
@@ -197,7 +212,7 @@ namespace Cugar
 
         /// <summary>
         /// Searches for Companies by Mainphone.
-        /// </summary>
+        /// Table: tblSugarSearchAllCompanies</summary>
         /// <param name="searchstring">the search string</param>
         public void SearchCompanyByPhone(string searchstring)
         {
@@ -212,6 +227,7 @@ namespace Cugar
             m_daSugar.FillSchema(m_dsSugar, SchemaType.Source, m_const_strSugarTableSearchAllCompanies);
             m_daSugar.Fill(m_dsSugar, m_const_strSugarTableSearchAllCompanies);            
         }
+
         /// <summary>
         ///Searches the table adressen for a given Searchstring
         ///and inserts a "tblSugarSearchHuman" into the DataSet.</summary>
@@ -253,7 +269,7 @@ namespace Cugar
         //    //myUpdateCommand.Parameters.Add("@REC_ID", MySqlDbType.Decimal, 
         //    //myUpdateCommand.Parameters.Add("@REC_ID", OdbcType.Int, 2, "@REC_ID");
         //}
-
+        #region obsolete
         /// <summary>
         ///  Creates a New Contact
         /// </summary>
@@ -272,6 +288,7 @@ namespace Cugar
 
 
         }
+        #endregion
         #endregion
 
         #region propertys

@@ -9,7 +9,9 @@ using System.Data.Odbc;
 namespace Cugar
 {
     /// <summary>
-    ///  CaoConnector Class
+    /// SugarConnector Class. Connects to CaoFaktura
+    /// and works with a referenced DataSet and 
+    /// a referenced BindingSource.
     /// </summary>
     public class cCao
     {
@@ -42,9 +44,11 @@ namespace Cugar
 
 
         /// <summary>
-        ///  Constructor expecting a DataSet
+        ///  Constructor expecting a DataSet.
+        ///  Note: its recommencet to use the one who expects
+        ///  a DataSet AND a Bindingsource!
         /// </summary>
-        /// <param name="ds">DataSet für Referenzierung</param>
+        /// <param name="ds">Referenced DataSet</param>
         public cCao(DataSet ds)
         {
             m_dsCao = ds;
@@ -70,10 +74,10 @@ namespace Cugar
         }
 
         /// <summary>
-        ///  Constructor expecting a DataSet
+        ///  Constructor expecting a DataSet and a Bindingsource.
         /// </summary>
-        /// <param name="bs">Binding Source to reference</param>
         /// <param name="ds">DataSet to reference</param>
+        /// <param name="bs">Referenced BindingSource</param>
         public cCao(DataSet ds, BindingSource bs)
         {
             m_dsCao = ds;
@@ -101,7 +105,7 @@ namespace Cugar
 
         #region methods
         /// <summary>
-        ///  Builds a Connection to the given CaoHost
+        ///  Builds a Connection to the given Cao Server
         ///  using the User Settings.
         /// </summary>
         private void CaoConnect()
@@ -120,7 +124,7 @@ namespace Cugar
         }
 
         /// <summary>
-        ///  Loads all private Customers into the referenced DataSet.
+        ///  Loads all private Cao Customers into the referenced DataSet.
         ///  Using a Tablename "tblCaoPrivate"
         /// </summary>
         public void LoadPrivateCustomers()
@@ -139,9 +143,10 @@ namespace Cugar
             OdbcCommand m_cmdCaoVersandarten = new OdbcCommand(@"select NAME from registry where MAINKEY='MAIN\\LIEFART';", m_cnCao);
             m_daCao = new OdbcDataAdapter(m_cmdCaoVersandarten);
             m_daCao.Fill(m_dsCao, m_const_strCaoVersandarten);
-            m_BS.DataSource = m_dsCao.Tables[m_const_strCaoVersandarten];           
+            m_BS.DataSource = m_dsCao.Tables[m_const_strCaoVersandarten];
         }
 
+        #region obsolete
         /// <summary>
         ///  Loads the "Cao Zahlungsarten" into the referenced combobox
         ///  <param name="cb">a combobox control</param>
@@ -194,9 +199,11 @@ namespace Cugar
         //    dr.Close();
         //    m_cnFoo.Close();
         //}
+        #endregion obsolete
 
         /// <summary>
         ///  Loads the "Cao Zahlarten" into the referenced DataSet
+        ///  Table: tblcaoversandarten
         /// </summary>
         public void LoadCaoZahlarten()
         {
@@ -205,9 +212,9 @@ namespace Cugar
             m_daCao.Fill(m_dsCao, m_const_strCaoZahlarten);
         }
 
-
         /// <summary>
-        /// Searches for Contacts By Name.</summary>
+        /// Searches for Contacts By Name.
+        /// Table: tblCaoSearchAllPrivate</summary>
         /// <param name="searchstring">the search string</param>
         public void SearchContactsByName(string searchstring)
         {
@@ -224,8 +231,10 @@ namespace Cugar
             m_daCao.FillSchema(m_dsCao, SchemaType.Source, m_const_strCaoTableSearchAllPrivate);
             m_daCao.Fill(m_dsCao, m_const_strCaoTableSearchAllPrivate);
         }
+
         /// <summary>
-        /// Searches for Contacts by Street.</summary>
+        /// Searches for Contacts by Street.
+        /// Table: tblCaoSearchAllPrivate</summary>
         /// <param name="searchstring">the search string</param>
         public void SearchContactsBySteet(string searchstring)
         {
@@ -244,7 +253,8 @@ namespace Cugar
         }
 
         /// <summary>
-        /// Searches for Contacts By Mainphone.</summary>
+        /// Searches for Contacts By Mainphone.
+        /// Table: tblCaoSearchAllPrivate</summary>
         /// <param name="searchstring">the search string</param>
         public void SearchContactsByPhone(string searchstring)
         {
@@ -261,6 +271,7 @@ namespace Cugar
             m_daCao.FillSchema(m_dsCao, SchemaType.Source, m_const_strCaoTableSearchAllPrivate);
             m_daCao.Fill(m_dsCao, m_const_strCaoTableSearchAllPrivate);
         }
+
         /// <summary>
         ///Searches the table adressen for a given Searchstring
         ///and inserts a "tblCaoSearchHuman" into the DataSet.</summary>
@@ -283,7 +294,7 @@ namespace Cugar
 
         /// <summary>
         /// Searches for Companies by Name.
-        /// </summary>
+        /// Table: tblCaoSearchAllPrivate</summary>
         /// <param name="searchstring">the searchstring</param>
         public void SearchCompanyByName(string searchstring)
         {
@@ -299,9 +310,10 @@ namespace Cugar
             m_daCao.FillSchema(m_dsCao, SchemaType.Source, m_const_strCaoTableSearchAllCompanies);
             m_daCao.Fill(m_dsCao, m_const_strCaoTableSearchAllCompanies);
         }
+
         /// <summary>
         /// Searches for Companies by Street.
-        /// </summary>
+        /// Table: tblCaoSearchAllPrivate</summary>
         /// <param name="searchstring">the searchstring</param>
         public void SearchCompanyByStreet(string searchstring)
         {
@@ -317,9 +329,10 @@ namespace Cugar
             m_daCao.FillSchema(m_dsCao, SchemaType.Source, m_const_strCaoTableSearchAllCompanies);
             m_daCao.Fill(m_dsCao, m_const_strCaoTableSearchAllCompanies);
         }
+
         /// <summary>
         /// Searches for Companies by Mainphone.
-        /// </summary>
+        /// Table: tblCaoSearchAllPrivate</summary>
         /// <param name="searchstring">the searchstring</param>
         public void SearchCompanyByPhone(string searchstring)
         {
@@ -335,6 +348,7 @@ namespace Cugar
             m_daCao.FillSchema(m_dsCao, SchemaType.Source, m_const_strCaoTableSearchAllCompanies);
             m_daCao.Fill(m_dsCao, m_const_strCaoTableSearchAllCompanies);
         }
+
         /// <summary>
         ///Updates the Database.
         ///</summary>
@@ -671,11 +685,11 @@ namespace Cugar
             //delete
             //OdbcCommand myDeleteCommand = new OdbcCommand("delete from ADRESSEN_LIEF Where ADDR_ID=3;delete from ADRESSEN_TO_MERK Where ADDR_ID=3;DELETE FROM ADRESSEN WHERE REC_ID=3.DeleteCommand = myDeleteCommand;", myConnection);
             //myDeleteCommand.Parameters.Add("@fldStudentNr", OleDbType.Integer, 2, "fldStudentNr");
-            m_daCao.Update(m_dsCao, m_const_strCaoTableSearchAllPrivate);         
-            
+            m_daCao.Update(m_dsCao, m_const_strCaoTableSearchAllPrivate);
+
         }
 
-
+        #region obsolete
         /// <summary>
         ///  Creates a New Contact
         /// </summary>
@@ -691,9 +705,8 @@ namespace Cugar
                 MessageBox.Show(asdf.ToString()); 
                 throw;
             }
-
-            
         }
+        #endregion obsolete
 
         private int GetLatestRecId()
         {

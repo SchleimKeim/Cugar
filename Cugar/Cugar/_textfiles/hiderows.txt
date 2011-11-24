@@ -1,0 +1,2 @@
+﻿Einbauen in frmSearch nach dem dgv.datasource:
+dgvCaoSuche.Columns[0].Visible = false;

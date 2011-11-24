@@ -147,10 +147,12 @@ namespace Cugar
         {
             if (m_privat == true)
             {
+                ClearBothDgvs();
                 StartSearchPrivat(txtSuche.Text);
             }
             else
             {
+                ClearBothDgvs();
                 StartSearchFirma(txtSuche.Text);
             }
         }
@@ -181,7 +183,6 @@ namespace Cugar
             }
             m_BS_Cao.DataSource = m_DS.Tables[m_const_strCaoTableSearchAllPrivate];
             dgvCaoSuche.DataSource = m_BS_Cao;
-
 
             m_objSugar = new cSugar(m_DS, m_BS_Sugar);
             if (rbName.Checked == true)

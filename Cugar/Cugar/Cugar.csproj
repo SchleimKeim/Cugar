@@ -77,37 +77,37 @@
   <ItemGroup>
     <Compile Include="_oldfiles\CaoConnector_old.cs" />
     <Content Include="_textfiles\CaoInsertFirma.txt" />
-    <Compile Include="cCao.cs" />
+    <Compile Include="_Classes\cCao.cs" />
     <Compile Include="_oldfiles\CDatabasecon.cs" />
-    <Compile Include="cSugar.cs" />
-    <Compile Include="CToolbox.cs" />
-    <Compile Include="frmMain.cs">
+    <Compile Include="_Classes\cSugar.cs" />
+    <Compile Include="_Classes\CToolbox.cs" />
+    <Compile Include="_Forms\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
+    <Compile Include="_Forms\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNeu.cs">
+    <Compile Include="_oldfiles\frmNeu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNeu.Designer.cs">
+    <Compile Include="_oldfiles\frmNeu.Designer.cs">
       <DependentUpon>frmNeu.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSettings.cs">
+    <Compile Include="_Forms\frmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSettings.Designer.cs">
+    <Compile Include="_Forms\frmSettings.Designer.cs">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmMain.resx">
+    <EmbeddedResource Include="_Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNeu.resx">
+    <EmbeddedResource Include="_oldfiles\frmNeu.resx">
       <DependentUpon>frmNeu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSettings.resx">
+    <EmbeddedResource Include="_Forms\frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -115,7 +115,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSuche.resx">
+    <EmbeddedResource Include="_Forms\frmSuche.resx">
       <DependentUpon>frmSuche.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -135,10 +135,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="frmSuche.cs">
+    <Compile Include="_Forms\frmSuche.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSuche.Designer.cs">
+    <Compile Include="_Forms\frmSuche.Designer.cs">
       <DependentUpon>frmSuche.cs</DependentUpon>
     </Compile>
     <Compile Include="_oldfiles\SugarConnector_old.cs" />
@@ -196,6 +196,7 @@
     <Content Include="_textfiles\all_cao_params.txt" />
     <None Include="Icons\industry-icon.png" />
     <None Include="Icons\User-Administrator-Blue-icon.png" />
+    <Content Include="_textfiles\hiderows.txt" />
     <Content Include="_textfiles\Notes.txt" />
     <Content Include="_textfiles\all_sugar_params.txt" />
     <Content Include="_textfiles\searchcontactsbyname_sicherung.txt" />

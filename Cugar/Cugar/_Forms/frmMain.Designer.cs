@@ -1406,7 +1406,7 @@
             this.KeyPreview = true;
             this.MainMenuStrip = this.mnuFrmMain;
             this.Name = "frmMain";
-            this.Text = "Cugar v0.1";
+            this.Text = "Cugar 0.9";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyDown);
             this.mnuFrmMain.ResumeLayout(false);

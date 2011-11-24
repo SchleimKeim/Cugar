@@ -122,13 +122,11 @@ namespace Cugar
     {
         #region members
 
-        //private DataView m_dvCao;
-        //private DataView m_dvSugar;
+        private DataView m_dvCao;
+        private DataView m_dvSugar;
 
         private DataSet m_DS = new DataSet();
         private cCao m_objCao;
-        //private cCao m_objCaoVersand;
-
         private cSugar m_objSugar;
 
         private DataTable m_dtDatensatzCao;
@@ -137,7 +135,6 @@ namespace Cugar
         private const string m_const_strSugarTable = "tblSugar";
         private const string m_const_strCaoTable = "tblCao";
 
-        /* Added on 1.11. just for testing */
         private const string m_const_strCaoTablePrivate = "tblCaoPrivate";
         private const string m_const_strSugarTablePrivate = "tblSugarContacts";
 
@@ -148,7 +145,6 @@ namespace Cugar
 
         private const string m_const_strCaoTableSearchHuman = "tblCaoSearchHuman";
         private const string m_const_strSugarTableSearchHuman = "tblSugarSearchHuman";
-        
 
         private const string m_const_strCaoVersandarten = "tblCaoVersandarten";
         private const string m_const_strCaoZahlarten = "tblCaoZahlarten";
@@ -162,8 +158,8 @@ namespace Cugar
         private BindingSource m_BS_SugarSearchContacts = new BindingSource();
         private BindingSource m_BS_SugarSearchFirma = new BindingSource();
         
-        private BindingSource m_BS_CaoZahlarten = new BindingSource();
-        private BindingSource m_BS_CaoVersandarten = new BindingSource();
+        //private BindingSource m_BS_CaoZahlarten = new BindingSource();
+        //private BindingSource m_BS_CaoVersandarten = new BindingSource();
 
         private bool m_bNew = false;
 
@@ -187,55 +183,60 @@ namespace Cugar
 
             if (m_DS.Tables.Count == 0)
             {
-                /* Fills out dgvCao */
-                //#region fill dgvCao
-                //try
-                //{
-                //    /* vorgang:
-                //     * neues cao objekt wird erstellt mit dem DataSet der main.cf
-                //     * die methode LoadDataSet() fllt das DataSet mit informationen 
-                //     * aus der Cao Datenbank
-                //     * das DataView der main.cf wird mit den tables aus dem DataSet der main.cf gefllt
-                //     * dgv kriegt als source das DataView der main.cf
-                //     */
+                #region prepare cCao Object and cSugar Object
+                try
+                {
+                    m_objCao = new cCao(m_DS);
 
-                //    //m_objCao = new cCao(m_DS);
+                    #region obsolete
+                    /* vorgang:
+                     * neues cao objekt wird erstellt mit dem DataSet der main.cf
+                     * die methode LoadDataSet() fllt das DataSet mit informationen 
+                     * aus der Cao Datenbank
+                     * das DataView der main.cf wird mit den tables aus dem DataSet der main.cf gefllt
+                     * dgv kriegt als source das DataView der main.cf
+                     */
 
-                //    // added on 03.11.
-                //    m_objCao = new cCao(m_DS, m_BS_CaoSearchContacts);
+                    //m_objCao = new cCao(m_DS);
 
-                //    //load all private customers, propably obsolete but good
-                //    m_objCao.LoadPrivateCustomers();                    
-                //    m_dvCao = m_DS.Tables[m_const_strCaoTablePrivate].DefaultView;
-                //    dgvCao.DataSource = m_dvCao;
+                    //searchme
+                    //m_objCao = new cCao(m_DS, m_BS_CaoSearchContacts);
+                    //m_objCao = new cCao(m_DS);
+                    
 
-                //    //load cbo Versandarten, currently not working :(
-                //}
-                //catch (Exception asdf)
-                //{
-                //    MessageBox.Show(asdf.ToString());
-                //    Application.Exit();
-                //}
-                //#endregion
+                    //load all private customers, propably obsolete but good
+                    //m_objCao.LoadPrivateCustomers();
+                    //m_dvCao = m_DS.Tables[m_const_strCaoTablePrivate].DefaultView;
+                    //dgvCao.DataSource = m_dvCao;
 
-                //#region fill dgvSugar
-                ///* Fills out dgvSugar */
-                //try
-                //{
-                //    //m_objSugar = new cSugar(m_DS);
-                //    // added on 03.11.
-                //    m_objSugar = new cSugar(m_DS, m_BS_SugarSearchContacts);
-                //    m_objSugar.LoadPrivateCustomers();
-                //    m_dvSugar = m_DS.Tables[m_const_strSugarTablePrivate].DefaultView;
-                //    dgvSugar.DataSource = m_dvSugar;
-                //}
-                //catch (Exception asdf)
-                //{
-                //    MessageBox.Show("Ein Fehler ist aufgetreten!\n Bitte berprfen Sie die Einstellungen!");
-                //    MessageBox.Show(asdf.ToString());
-                //    Application.Exit();
-                //}
-                //#endregion
+                    //load cbo Versandarten, currently not working :(
+                    #endregion
+                }
+                catch (Exception asdf)
+                {
+                    MessageBox.Show(asdf.ToString());
+                    Application.Exit();
+                }
+
+                try
+                {
+                    m_objSugar = new cSugar(m_DS);
+                    #region obsolete
+                    //searchme 
+                    //m_objSugar = new cSugar(m_DS, m_BS_SugarSearchContacts);
+                    //m_objSugar = new cSugar(m_DS);
+                    //m_objSugar.LoadPrivateCustomers();
+                    //m_dvSugar = m_DS.Tables[m_const_strSugarTablePrivate].DefaultView;
+                    //dgvSugar.DataSource = m_dvSugar;
+                    #endregion
+                }
+                catch (Exception asdf)
+                {
+                    MessageBox.Show("Ein Fehler ist aufgetreten!\n Bitte berprfen Sie die Einstellungen!");
+                    MessageBox.Show(asdf.ToString());
+                    Application.Exit();
+                }
+                #endregion
 
                 /* Versandarten ausfüllen */
                 LoadCaoVersandArten();                
@@ -385,6 +386,12 @@ namespace Cugar
 
         //}
 
+        /// <summary>
+        /// This Action is just implemented for debugging.
+        /// Basically it just shows how many Tables are in the DataSet.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void hilfeToolStripButton_Click(object sender, EventArgs e)
         {
             if (m_dtDatensatzCao == null)
@@ -440,7 +447,7 @@ namespace Cugar
                 tstxtSuchePrivat.Text = "Personen...";
 
                 #region Convert the name filed into two fields using CToolbox
-                CToolbox m_objTool = new CToolbox();                
+                cToolbox m_objTool = new cToolbox();                
                 string[] foo2;                
                 foo2 = m_objTool.SplitName(((DataRowView)m_BS_CaoSearchContacts.Current)["NAME1"].ToString());
                 txtVorname.Text = foo2[0];
@@ -655,17 +662,20 @@ namespace Cugar
                     CaoInsertPrivat();
                     SugarInsertPrivat();
                     m_bNew = false;
+                    cmdSave.Enabled = false;
                 }
                 else if (tabMain.SelectedTab == tabCompanies)
                 {
                     CaoInsertFirma();
                     SugarInsertFirma();
                     m_bNew = false;
+                    cmdSave.Enabled = false;
                 }
                 else
                 {
+                    MessageBox.Show("Keine Daten eingefügt.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);             
                     m_bNew = false;
-                    //do nothing :)
+                    cmdSave.Enabled = false;
                 }
             }
             else
@@ -738,7 +748,6 @@ namespace Cugar
                 sb_CaoInsert.Append(@"BRUTTO_FLAG)");
                 sb_CaoInsert.Append(@" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 #endregion
-
                 OdbcCommand caoInsert = new OdbcCommand(sb_CaoInsert.ToString(), m_objCao.CaoConnection);
 
                 #region parameters
@@ -748,7 +757,7 @@ namespace Cugar
                 caoInsert.Parameters["@KUNDENGRUPPE"].Value = 1;
 
                 caoInsert.Parameters.Add("@NAME1", OdbcType.VarChar, 40, "@NAME1");
-                CToolbox tool = new CToolbox();
+                cToolbox tool = new cToolbox();
                 caoInsert.Parameters["@NAME1"].Value = tool.UniteName(txtVorname.Text, txtName.Text);
 
                 caoInsert.Parameters.Add("@PLZ", OdbcType.VarChar, 10, "@PLZ");
