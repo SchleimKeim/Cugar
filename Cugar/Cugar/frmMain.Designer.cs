@@ -292,7 +292,7 @@
             this.cboAnrede.Location = new System.Drawing.Point(70, 22);
             this.cboAnrede.Name = "cboAnrede";
             this.cboAnrede.Size = new System.Drawing.Size(219, 21);
-            this.cboAnrede.TabIndex = 100;
+            this.cboAnrede.TabIndex = 1;
             // 
             // txtBemerkung
             // 
@@ -302,7 +302,7 @@
             this.txtBemerkung.Name = "txtBemerkung";
             this.txtBemerkung.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtBemerkung.Size = new System.Drawing.Size(538, 117);
-            this.txtBemerkung.TabIndex = 1;
+            this.txtBemerkung.TabIndex = 7;
             // 
             // txtOrt
             // 
@@ -310,7 +310,7 @@
             this.txtOrt.Location = new System.Drawing.Point(70, 206);
             this.txtOrt.Name = "txtOrt";
             this.txtOrt.Size = new System.Drawing.Size(219, 20);
-            this.txtOrt.TabIndex = 5;
+            this.txtOrt.TabIndex = 6;
             // 
             // txtPLZ
             // 
@@ -318,7 +318,7 @@
             this.txtPLZ.Location = new System.Drawing.Point(70, 180);
             this.txtPLZ.Name = "txtPLZ";
             this.txtPLZ.Size = new System.Drawing.Size(219, 20);
-            this.txtPLZ.TabIndex = 4;
+            this.txtPLZ.TabIndex = 5;
             // 
             // lblComment
             // 
@@ -361,7 +361,7 @@
             this.txtStrasse2.Location = new System.Drawing.Point(70, 128);
             this.txtStrasse2.Name = "txtStrasse2";
             this.txtStrasse2.Size = new System.Drawing.Size(219, 20);
-            this.txtStrasse2.TabIndex = 0;
+            this.txtStrasse2.TabIndex = 99;
             // 
             // label6
             // 
@@ -378,7 +378,7 @@
             this.txtWebpage.Location = new System.Drawing.Point(383, 181);
             this.txtWebpage.Name = "txtWebpage";
             this.txtWebpage.Size = new System.Drawing.Size(225, 20);
-            this.txtWebpage.TabIndex = 11;
+            this.txtWebpage.TabIndex = 13;
             // 
             // txtEmail
             // 
@@ -386,7 +386,7 @@
             this.txtEmail.Location = new System.Drawing.Point(383, 154);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(225, 20);
-            this.txtEmail.TabIndex = 10;
+            this.txtEmail.TabIndex = 12;
             // 
             // txtFax
             // 
@@ -394,7 +394,7 @@
             this.txtFax.Location = new System.Drawing.Point(383, 128);
             this.txtFax.Name = "txtFax";
             this.txtFax.Size = new System.Drawing.Size(225, 20);
-            this.txtFax.TabIndex = 9;
+            this.txtFax.TabIndex = 11;
             // 
             // txtMobile
             // 
@@ -402,7 +402,7 @@
             this.txtMobile.Location = new System.Drawing.Point(383, 103);
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.Size = new System.Drawing.Size(225, 20);
-            this.txtMobile.TabIndex = 8;
+            this.txtMobile.TabIndex = 10;
             // 
             // txtStrasse1
             // 
@@ -410,7 +410,7 @@
             this.txtStrasse1.Location = new System.Drawing.Point(70, 102);
             this.txtStrasse1.Name = "txtStrasse1";
             this.txtStrasse1.Size = new System.Drawing.Size(219, 20);
-            this.txtStrasse1.TabIndex = 3;
+            this.txtStrasse1.TabIndex = 4;
             // 
             // label5
             // 
@@ -436,7 +436,7 @@
             this.txtPhon2.Location = new System.Drawing.Point(383, 77);
             this.txtPhon2.Name = "txtPhon2";
             this.txtPhon2.Size = new System.Drawing.Size(225, 20);
-            this.txtPhon2.TabIndex = 7;
+            this.txtPhon2.TabIndex = 9;
             // 
             // label14
             // 
@@ -453,7 +453,7 @@
             this.txtName.Location = new System.Drawing.Point(70, 76);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(219, 20);
-            this.txtName.TabIndex = 2;
+            this.txtName.TabIndex = 3;
             // 
             // label13
             // 
@@ -488,7 +488,7 @@
             this.txtPhone1.Location = new System.Drawing.Point(383, 51);
             this.txtPhone1.Name = "txtPhone1";
             this.txtPhone1.Size = new System.Drawing.Size(225, 20);
-            this.txtPhone1.TabIndex = 6;
+            this.txtPhone1.TabIndex = 8;
             // 
             // txtVorname
             // 
@@ -496,7 +496,7 @@
             this.txtVorname.Location = new System.Drawing.Point(70, 50);
             this.txtVorname.Name = "txtVorname";
             this.txtVorname.Size = new System.Drawing.Size(219, 20);
-            this.txtVorname.TabIndex = 1;
+            this.txtVorname.TabIndex = 2;
             // 
             // label11
             // 
@@ -575,7 +575,7 @@
             this.cboCaoBriefanrede.Location = new System.Drawing.Point(91, 23);
             this.cboCaoBriefanrede.Name = "cboCaoBriefanrede";
             this.cboCaoBriefanrede.Size = new System.Drawing.Size(215, 21);
-            this.cboCaoBriefanrede.TabIndex = 18;
+            this.cboCaoBriefanrede.TabIndex = 14;
             // 
             // cboCaoZahlart
             // 
@@ -583,7 +583,7 @@
             this.cboCaoZahlart.Location = new System.Drawing.Point(93, 149);
             this.cboCaoZahlart.Name = "cboCaoZahlart";
             this.cboCaoZahlart.Size = new System.Drawing.Size(215, 21);
-            this.cboCaoZahlart.TabIndex = 17;
+            this.cboCaoZahlart.TabIndex = 20;
             // 
             // cboCaoVersand
             // 
@@ -591,7 +591,7 @@
             this.cboCaoVersand.Location = new System.Drawing.Point(93, 122);
             this.cboCaoVersand.Name = "cboCaoVersand";
             this.cboCaoVersand.Size = new System.Drawing.Size(215, 21);
-            this.cboCaoVersand.TabIndex = 16;
+            this.cboCaoVersand.TabIndex = 19;
             this.cboCaoVersand.SelectedIndexChanged += new System.EventHandler(this.txtCaoVersand_SelectedIndexChanged);
             // 
             // label16
@@ -627,7 +627,7 @@
             this.txtCaoZahlungsziel.Location = new System.Drawing.Point(91, 98);
             this.txtCaoZahlungsziel.Name = "txtCaoZahlungsziel";
             this.txtCaoZahlungsziel.Size = new System.Drawing.Size(34, 20);
-            this.txtCaoZahlungsziel.TabIndex = 15;
+            this.txtCaoZahlungsziel.TabIndex = 18;
             this.txtCaoZahlungsziel.Text = "30";
             this.txtCaoZahlungsziel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -664,7 +664,7 @@
             this.txtCaoCustomerSince.Location = new System.Drawing.Point(91, 74);
             this.txtCaoCustomerSince.Name = "txtCaoCustomerSince";
             this.txtCaoCustomerSince.Size = new System.Drawing.Size(215, 20);
-            this.txtCaoCustomerSince.TabIndex = 14;
+            this.txtCaoCustomerSince.TabIndex = 17;
             // 
             // label17
             // 
@@ -681,7 +681,7 @@
             this.txtCaoGeb.Location = new System.Drawing.Point(91, 50);
             this.txtCaoGeb.Name = "txtCaoGeb";
             this.txtCaoGeb.Size = new System.Drawing.Size(215, 20);
-            this.txtCaoGeb.TabIndex = 13;
+            this.txtCaoGeb.TabIndex = 16;
             // 
             // grpSugar
             // 
@@ -696,7 +696,7 @@
             this.grpSugar.Location = new System.Drawing.Point(626, 189);
             this.grpSugar.Name = "grpSugar";
             this.grpSugar.Size = new System.Drawing.Size(316, 179);
-            this.grpSugar.TabIndex = 2;
+            this.grpSugar.TabIndex = 3;
             this.grpSugar.TabStop = false;
             this.grpSugar.Text = "Sugar options";
             // 
@@ -740,7 +740,7 @@
             this.txtSugarLeadSource.Location = new System.Drawing.Point(93, 97);
             this.txtSugarLeadSource.Name = "txtSugarLeadSource";
             this.txtSugarLeadSource.Size = new System.Drawing.Size(215, 20);
-            this.txtSugarLeadSource.TabIndex = 20;
+            this.txtSugarLeadSource.TabIndex = 24;
             // 
             // label25
             // 
@@ -757,7 +757,7 @@
             this.txtSugarTitle.Location = new System.Drawing.Point(93, 19);
             this.txtSugarTitle.Name = "txtSugarTitle";
             this.txtSugarTitle.Size = new System.Drawing.Size(215, 20);
-            this.txtSugarTitle.TabIndex = 18;
+            this.txtSugarTitle.TabIndex = 21;
             // 
             // label23
             // 
@@ -780,7 +780,7 @@
             this.tsToolStipMain.Location = new System.Drawing.Point(0, 24);
             this.tsToolStipMain.Name = "tsToolStipMain";
             this.tsToolStipMain.Size = new System.Drawing.Size(959, 25);
-            this.tsToolStipMain.TabIndex = 3;
+            this.tsToolStipMain.TabIndex = 0;
             this.tsToolStipMain.Text = "toolStrip1";
             // 
             // neuToolStripButton
