@@ -209,7 +209,7 @@ namespace Cugar
             m_daSugar.FillSchema(m_dsSugar, SchemaType.Source, m_const_strSugarTableSearchAllCompanies);
             m_daSugar.Fill(m_dsSugar, m_const_strSugarTableSearchAllCompanies);            
         }
-
+        
         /// <summary>
         /// Searches for Companies by Mainphone.
         /// Table: tblSugarSearchAllCompanies</summary>
@@ -249,26 +249,241 @@ namespace Cugar
             //return m_dsSugar;
         }
 
-        //experimental
-        //public void Update()
-        //{
-        //    OleDbCommand myUpdateCommand = new OleDbCommand();
+        public void SaveChanges()
+        {
+            m_daSugar = new MySqlDataAdapter();
+            try
+            {
+                m_daSugar.SelectCommand = CreateSelectCommand();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            try
+            {
+                m_daSugar.DeleteCommand = CreateDeleteCommand();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());               
+            }
+            try
+            {
+                m_daSugar.UpdateCommand = CreateUpdateCommand();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());                              
+            }
 
-        //    myUpdateCommand.Parameters.Add("@REC_ID", OleDbType.Decimal, , "@REC_ID");
-        //    OleDbParameter myPara = new OleDbParameter();
-        //    myPara.ParameterName = "@REC_ID";
-        //    myPara.OleDbType = OleDbType.Decimal;
-        //    myPara.Direction = ParameterDirection.Input;
-        //    myPara.SourceColumn = "@REC_ID";
+            try
+            {
+                m_daSugar.InsertCommand = CreateInsertCommand();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());                                             
+            }
+
             
+            try
+            {
+               // m_daSugar
+                //m_dsSugar.Tables[m_const_strSugarTableSearchAllPrivate].AcceptChanges();
+                m_dsSugar.AcceptChanges();
+                m_daSugar.Update(m_dsSugar, m_const_strSugarTableSearchAllPrivate);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                return;
+            }
+        }
 
 
+        /// <summary>
+        /// Creates the InsertCommand
+        /// </summary>
+        /// <returns>MySqlCommand myInsertCommand</returns>
+        public MySqlCommand CreateInsertCommand()
+        {
+            StringBuilder sb_SugarInsert = new StringBuilder();
+            sb_SugarInsert.Append("INSERT INTO contacts(");
 
+            #region rows for insert command text
+            sb_SugarInsert.Append("id, ");
+            sb_SugarInsert.Append("date_entered, ");
+            sb_SugarInsert.Append("modified_user_id, ");
+            sb_SugarInsert.Append("created_by, ");
+            sb_SugarInsert.Append("description, ");
+            sb_SugarInsert.Append("deleted, ");
+            sb_SugarInsert.Append("assigned_user_id, ");
+            sb_SugarInsert.Append("salutation, ");
+            sb_SugarInsert.Append("first_name, ");
+            sb_SugarInsert.Append("last_name, ");
+            sb_SugarInsert.Append("title, ");
+            sb_SugarInsert.Append("department, ");
+            sb_SugarInsert.Append("phone_home, ");
+            sb_SugarInsert.Append("phone_mobile, ");
+            sb_SugarInsert.Append("phone_work, ");
+            sb_SugarInsert.Append("phone_fax, ");
+            sb_SugarInsert.Append("primary_address_street, ");
+            sb_SugarInsert.Append("primary_address_city, ");
+            sb_SugarInsert.Append("primary_address_postalcode, ");
+            sb_SugarInsert.Append("primary_address_country, ");
+            sb_SugarInsert.Append("lead_source, ");
+            sb_SugarInsert.Append(@"birthdate)");
 
+            #endregion
+            sb_SugarInsert.Append(@" VALUES(@id, @date_entered, @modified_user_id, @created_by, @description, @deleted, @assigned_user_id, @salutation, @first_name, @last_name, @title, @department, @phone_home, @phone_mobile, @phone_work, @phone_fax, @primary_address_street, @primary_address_city, @primary_address_postalcode, @primary_address_country, @lead_source, @birthdate)");
 
-        //    //myUpdateCommand.Parameters.Add("@REC_ID", MySqlDbType.Decimal, 
-        //    //myUpdateCommand.Parameters.Add("@REC_ID", OdbcType.Int, 2, "@REC_ID");
-        //}
+            #region cmSugar + Parameters
+            MySqlCommand myInsertCommand = new MySqlCommand(sb_SugarInsert.ToString(), m_cnSugar);
+            myInsertCommand.Parameters.Add("@id", MySqlDbType.VarChar, 36, "@id");
+            myInsertCommand.Parameters.Add("@date_entered", MySqlDbType.DateTime);
+            myInsertCommand.Parameters.Add("@modified_user_id", MySqlDbType.VarChar, 36, "@modified_user_id");
+            myInsertCommand.Parameters.Add("@created_by", MySqlDbType.VarChar, 36, "@created_by");
+            myInsertCommand.Parameters.Add("@description", MySqlDbType.Text);
+            myInsertCommand.Parameters.Add("@deleted", MySqlDbType.Int16, 1, "@deleted");
+            myInsertCommand.Parameters.Add("@assigned_user_id", MySqlDbType.VarChar, 36, "@assigned_user_id");
+            myInsertCommand.Parameters.Add("@salutation", MySqlDbType.VarChar, 255, "@salutation");
+            myInsertCommand.Parameters.Add("@first_name", MySqlDbType.VarChar, 100, "@first_name");
+            myInsertCommand.Parameters.Add("@last_name", MySqlDbType.VarChar, 100, "@last_name");
+            myInsertCommand.Parameters.Add("@title", MySqlDbType.VarChar, 100, "@title");
+            myInsertCommand.Parameters.Add("@department", MySqlDbType.VarChar, 255, "@department");
+            myInsertCommand.Parameters.Add("@phone_home", MySqlDbType.VarChar, 100, "@phone_home");
+            myInsertCommand.Parameters.Add("@phone_mobile", MySqlDbType.VarChar, 100, "@phone_mobile");
+            myInsertCommand.Parameters.Add("@phone_work", MySqlDbType.VarChar, 100, "@phone_work");
+            myInsertCommand.Parameters.Add("@phone_fax", MySqlDbType.VarChar, 100, "@phone_fax");
+            myInsertCommand.Parameters.Add("@primary_address_street", MySqlDbType.VarChar, 150, "@primary_address_street");
+            myInsertCommand.Parameters.Add("@primary_address_city", MySqlDbType.VarChar, 100, "@primary_address_city");
+            myInsertCommand.Parameters.Add("@primary_address_postalcode", MySqlDbType.VarChar, 20, "@primary_address_postalcode");
+            myInsertCommand.Parameters.Add("@primary_address_country", MySqlDbType.VarChar, 255, "@primary_address_country");
+            myInsertCommand.Parameters.Add("@lead_source", MySqlDbType.VarChar, 255, "@lead_source");
+            myInsertCommand.Parameters.Add("@birthdate", MySqlDbType.Date);
+            #endregion
+            return myInsertCommand;
+        }
+
+        /// <summary>
+        /// Creates the Update Command
+        /// </summary>
+        /// <returns>MySqlCommand myUpdateCommand</returns>
+        public MySqlCommand CreateUpdateCommand()
+        {
+            //#region old
+            //#region parameters
+            //StringBuilder sbUpdate = new StringBuilder();
+            //sbUpdate.Append("UPDATE contacts SET id = ?, ");
+            //sbUpdate.Append("first_name = ?, ");
+            //sbUpdate.Append("salutation = ?, ");
+            //sbUpdate.Append("primary_address_street = ?, ");
+            //sbUpdate.Append("primary_address_postalcode = ?, ");
+            //sbUpdate.Append("primary_address_city = ?, ");
+            //sbUpdate.Append("phone_fax = ?, ");
+            //sbUpdate.Append("phone_mobile = ?, ");
+            //sbUpdate.Append("phone_work = ?, ");
+            //sbUpdate.Append("phone_home = ?, ");
+            //sbUpdate.Append("birthdate = ?, ");
+            //sbUpdate.Append("description = ?, ");
+            //sbUpdate.Append("primary_address_country = ?, ");
+            //sbUpdate.Append("lead_source = ?, ");
+            //sbUpdate.Append("department = ?, ");
+            //sbUpdate.Append("last_name = ?, ");
+            //sbUpdate.Append("title = ?");
+            //sbUpdate.Append(" WHERE id = ?");
+
+            //MySqlCommand myUpdateCommand = new MySqlCommand(sbUpdate.ToString(), m_cnSugar);
+            //myUpdateCommand.Parameters.Add("@id", MySqlDbType.VarChar, 36, "@id");
+            //myUpdateCommand.Parameters.Add("@first_name", MySqlDbType.VarChar, 100, "@first_name");
+            //myUpdateCommand.Parameters.Add("@last_name", MySqlDbType.VarChar, 100, "@last_name");
+            //myUpdateCommand.Parameters.Add("@salutation", MySqlDbType.VarChar, 255, "@salutation");
+            //myUpdateCommand.Parameters.Add("@primary_address_street", MySqlDbType.VarChar, 150, "@primary_address_street");
+            //myUpdateCommand.Parameters.Add("@primary_address_postalcode", MySqlDbType.VarChar, 20, "@primary_address_postalcode");
+            //myUpdateCommand.Parameters.Add("@primary_address_city", MySqlDbType.VarChar, 100, "@primary_address_city");
+            //myUpdateCommand.Parameters.Add("@phone_fax", MySqlDbType.VarChar, 100, "@phone_fax");
+            //myUpdateCommand.Parameters.Add("@phone_mobile", MySqlDbType.VarChar, 100, "@phone_mobile");
+            //myUpdateCommand.Parameters.Add("@phone_work", MySqlDbType.VarChar, 100, "@phone_work");
+            //myUpdateCommand.Parameters.Add("@phone_home", MySqlDbType.VarChar, 100, "@phone_home");
+            //myUpdateCommand.Parameters.Add("@birthdate", MySqlDbType.Date);
+            //myUpdateCommand.Parameters.Add("@description", MySqlDbType.Text);
+            //myUpdateCommand.Parameters.Add("@primary_address_country", MySqlDbType.VarChar, 255, "@primary_address_country");
+            //myUpdateCommand.Parameters.Add("@lead_source", MySqlDbType.VarChar, 255, "@lead_source");
+            //myUpdateCommand.Parameters.Add("@department", MySqlDbType.VarChar, 255, "@department");
+            //myUpdateCommand.Parameters.Add("@title", MySqlDbType.VarChar, 100, "@title");
+            //#endregion
+            //#endregion
+            StringBuilder sbUpdate = new StringBuilder();
+            sbUpdate.Append("UPDATE contacts SET ");
+            sbUpdate.Append("first_name = @first_name, ");
+            sbUpdate.Append("salutation = @salutation, ");
+            sbUpdate.Append("primary_address_street = @primary_address_street, ");
+            sbUpdate.Append("primary_address_postalcode = @primary_address_postalcode, ");
+            sbUpdate.Append("primary_address_city = @primary_address_city, ");
+            sbUpdate.Append("phone_fax = @phone_fax, ");
+            sbUpdate.Append("phone_mobile = @phone_mobile, ");
+            sbUpdate.Append("phone_work = @phone_work, ");
+            sbUpdate.Append("phone_home = @phone_home, ");
+            sbUpdate.Append("birthdate = @birthdate, ");
+            sbUpdate.Append("description = @description, ");
+            sbUpdate.Append("primary_address_country = @primary_address_country, ");
+            sbUpdate.Append("lead_source = @lead_source, ");
+            sbUpdate.Append("department = @department, ");
+            sbUpdate.Append("last_name = @last_name, ");
+            sbUpdate.Append("title = @title");
+            sbUpdate.Append(" WHERE id = @id");
+
+            MySqlCommand myUpdateCommand = new MySqlCommand(sbUpdate.ToString(), m_cnSugar);
+            myUpdateCommand.Parameters.Add("@id", MySqlDbType.VarChar, 36, "@id");
+            myUpdateCommand.Parameters.Add("@first_name", MySqlDbType.VarChar, 100, "@first_name");
+            myUpdateCommand.Parameters.Add("@last_name", MySqlDbType.VarChar, 100, "@last_name");
+            myUpdateCommand.Parameters.Add("@salutation", MySqlDbType.VarChar, 255, "@salutation");
+            myUpdateCommand.Parameters.Add("@primary_address_street", MySqlDbType.VarChar, 150, "@primary_address_street");
+            myUpdateCommand.Parameters.Add("@primary_address_postalcode", MySqlDbType.VarChar, 20, "@primary_address_postalcode");
+            myUpdateCommand.Parameters.Add("@primary_address_city", MySqlDbType.VarChar, 100, "@primary_address_city");
+            myUpdateCommand.Parameters.Add("@phone_fax", MySqlDbType.VarChar, 100, "@phone_fax");
+            myUpdateCommand.Parameters.Add("@phone_mobile", MySqlDbType.VarChar, 100, "@phone_mobile");
+            myUpdateCommand.Parameters.Add("@phone_work", MySqlDbType.VarChar, 100, "@phone_work");
+            myUpdateCommand.Parameters.Add("@phone_home", MySqlDbType.VarChar, 100, "@phone_home");
+            myUpdateCommand.Parameters.Add("@birthdate", MySqlDbType.Date);
+            myUpdateCommand.Parameters.Add("@description", MySqlDbType.Text);
+            myUpdateCommand.Parameters.Add("@primary_address_country", MySqlDbType.VarChar, 255, "@primary_address_country");
+            myUpdateCommand.Parameters.Add("@lead_source", MySqlDbType.VarChar, 255, "@lead_source");
+            myUpdateCommand.Parameters.Add("@department", MySqlDbType.VarChar, 255, "@department");
+            myUpdateCommand.Parameters.Add("@title", MySqlDbType.VarChar, 100, "@title");
+
+            return myUpdateCommand;
+        }
+
+        /// <summary>
+        /// Creates the Delete Command
+        /// </summary>
+        /// <returns>MySqlCommand myDeleteCommand</returns>
+        public MySqlCommand CreateDeleteCommand()
+        {
+            #region parameters
+            StringBuilder sbUpdate = new StringBuilder();
+            sbUpdate.Append("DELETE from contacts WHERE id = ?");
+
+            MySqlCommand myDeleteCommand = new MySqlCommand(sbUpdate.ToString(), m_cnSugar);
+            myDeleteCommand.Parameters.Add("@id", MySqlDbType.VarChar, 36, "@id");
+            #endregion
+            return myDeleteCommand;
+        }
+
+        /// <summary>
+        /// Creates the Select Command
+        /// </summary>
+        /// <returns>MySqlCommand myDeleteCommand</returns>
+        private MySqlCommand CreateSelectCommand()
+        {
+            StringBuilder sb_SelectCommand = new StringBuilder();
+            sb_SelectCommand.Append("SELECT id, date_entered, modified_user_id, created_by, description, deleted, assigned_user_id, salutation, first_name, last_name, title, department, phone_home, phone_mobile, phone_work, phone_fax, primary_address_street, primary_address_city, primary_address_postalcode, primary_address_country, lead_source, birthdate FROM contacts where deleted=0");
+            MySqlCommand mySelectCommand = new MySqlCommand(sb_SelectCommand.ToString(), m_cnSugar);
+            return mySelectCommand;
+        }
+
         #region obsolete
         /// <summary>
         ///  Creates a New Contact

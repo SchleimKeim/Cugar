@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.Odbc; //remove afterwards!
 using MySql.Data.MySqlClient;
+using MySql.Data;
 
 namespace Cugar
 {
@@ -262,18 +263,8 @@ namespace Cugar
         /// </summary>
         private void LoadCaoVersandArten()
         {
-            #region testing to fill it without cCao, works but its not beautiful :(            
             StringBuilder m_sCaoConnect = new StringBuilder();
-            #region connection string for odbc
-            m_sCaoConnect.Append("Driver={MySQL ODBC 5.1 Driver};");
-            m_sCaoConnect.Append("Server=" + Cugar.Properties.Settings.Default.caohost + ";");
-            m_sCaoConnect.Append("Database=" + Cugar.Properties.Settings.Default.caodb + ";");
-            m_sCaoConnect.Append("User=" + Cugar.Properties.Settings.Default.caouser + ";");
-            m_sCaoConnect.Append("Password=" + Cugar.Properties.Settings.Default.caopw + ";");
-            m_sCaoConnect.Append("Option=3");
-            #endregion
-            OdbcConnection m_cnFoo = new OdbcConnection(m_sCaoConnect.ToString());            
-
+            OdbcConnection m_cnFoo = m_objCao.CaoConnection;
 
             int spalten_nr = 0; //Nummer der Spalte, in der das gewnschte Element steht
             OdbcCommand cmd = new OdbcCommand(@"select NAME from registry where MAINKEY='MAIN\\LIEFART' order by VAL_INT;", m_cnFoo);
@@ -292,7 +283,6 @@ namespace Cugar
             m_cnFoo.Close();
             cboCaoVersand.SelectedIndex = 0;
             cboFVersand.SelectedIndex = 0;
-            #endregion
         }
 
         /// <summary>
@@ -302,18 +292,8 @@ namespace Cugar
         /// </summary>
         private void LoadCaoZahlungsarten()
         {
-            #region testing to fill it without cCao, works but its not beautiful :(
             StringBuilder m_sCaoConnect = new StringBuilder();
-            #region connection string for odbc
-            m_sCaoConnect.Append("Driver={MySQL ODBC 5.1 Driver};");
-            m_sCaoConnect.Append("Server=" + Cugar.Properties.Settings.Default.caohost + ";");
-            m_sCaoConnect.Append("Database=" + Cugar.Properties.Settings.Default.caodb + ";");
-            m_sCaoConnect.Append("User=" + Cugar.Properties.Settings.Default.caouser + ";");
-            m_sCaoConnect.Append("Password=" + Cugar.Properties.Settings.Default.caopw + ";");
-            m_sCaoConnect.Append("Option=3");
-            #endregion
-            OdbcConnection m_cnFoo = new OdbcConnection(m_sCaoConnect.ToString());
-
+            OdbcConnection m_cnFoo = m_objCao.CaoConnection;
             
             int spalten_nr = 0; //Nummer der Spalte, in der das gewnschte Element steht
             OdbcCommand cmd = new OdbcCommand(@"select NAME from ZAHLUNGSARTEN;", m_cnFoo);
@@ -332,7 +312,6 @@ namespace Cugar
             m_cnFoo.Close();
             cboCaoZahlart.SelectedIndex = 0;
             cboFZahlart.SelectedIndex = 0;
-            #endregion
         }
 
         private void connectionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -484,7 +463,9 @@ namespace Cugar
 
                 dtpKunSeit.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_SEIT"].ToString();
 
-                dtpGebDatum.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_GEBDATUM"].ToString();
+                //dtpGebDatum.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_GEBDATUM"].ToString();
+                dtpGebDatum.Value = Convert.ToDateTime(((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_GEBDATUM"]);
+
 
                 txtBemerkung.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["INFO"].ToString();
 
@@ -687,7 +668,7 @@ namespace Cugar
                 if (tabMain.SelectedTab == tabContacts)
                 {
                     UpdateContactCao();
-                    //UpdateContactSugar();
+                    UpdateContactSugar();
                 }
                 else if (tabMain.SelectedTab == tabCompanies)
                 {
@@ -734,6 +715,7 @@ namespace Cugar
                 sb_CaoInsert.Append("NAME1, ");
                 sb_CaoInsert.Append("PLZ, ");
                 sb_CaoInsert.Append("ORT, ");
+                sb_CaoInsert.Append("LAND, ");
                 sb_CaoInsert.Append("ANREDE, ");
                 sb_CaoInsert.Append("STRASSE, ");
                 sb_CaoInsert.Append("TELE1, ");
@@ -751,7 +733,7 @@ namespace Cugar
                 sb_CaoInsert.Append("GEAEND_NAME, ");
                 sb_CaoInsert.Append("KUN_ZAHLART, ");
                 sb_CaoInsert.Append(@"BRUTTO_FLAG)");
-                sb_CaoInsert.Append(@" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                sb_CaoInsert.Append(@" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 #endregion
                 OdbcCommand caoInsert = new OdbcCommand(sb_CaoInsert.ToString(), m_objCao.CaoConnection);
 
@@ -769,6 +751,8 @@ namespace Cugar
                 caoInsert.Parameters["@PLZ"].Value = txtPLZ.Text;
                 caoInsert.Parameters.Add("@ORT", OdbcType.VarChar, 40, "@ORT");
                 caoInsert.Parameters["@ORT"].Value = txtOrt.Text;
+                caoInsert.Parameters.Add("@LAND", OdbcType.VarChar, 5, "@LAND");
+                caoInsert.Parameters["@LAND"].Value = "CH";
                 caoInsert.Parameters.Add("@ANREDE", OdbcType.VarChar, 40, "@ANREDE");
                 caoInsert.Parameters["@ANREDE"].Value = cboAnrede.Text;
                 caoInsert.Parameters.Add("@STRASSE", OdbcType.VarChar, 40, "@STRASSE");
@@ -914,12 +898,12 @@ namespace Cugar
                 sb_SugarInsert.Append("primary_address_city, ");
                 sb_SugarInsert.Append("primary_address_postalcode, ");
                 sb_SugarInsert.Append("primary_address_country, ");
-                sb_SugarInsert.Append("lead_source)");
+                sb_SugarInsert.Append("lead_source, ");
                 //sb_SugarInsert.Append("lead_source)");
-                //sb_SugarInsert.Append(@"birthdate)");
+                sb_SugarInsert.Append(@"birthdate)");
 
                 #endregion
-                sb_SugarInsert.Append(@" VALUES(@id, @date_entered, @modified_user_id, @created_by, @description, @deleted, @assigned_user_id, @salutation, @first_name, @last_name, @title, @department, @phone_home, @phone_mobile, @phone_work, @phone_fax, @primary_address_street, @primary_address_city, @primary_address_postalcode, @primary_address_country, @lead_source)");
+                sb_SugarInsert.Append(@" VALUES(@id, @date_entered, @modified_user_id, @created_by, @description, @deleted, @assigned_user_id, @salutation, @first_name, @last_name, @title, @department, @phone_home, @phone_mobile, @phone_work, @phone_fax, @primary_address_street, @primary_address_city, @primary_address_postalcode, @primary_address_country, @lead_source, @birthdate)");
                 //@sb_SugarInsert.Append(@" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
                 #region cmSugar + Parameters
                 MySqlCommand cmSugarInsert = new MySqlCommand(sb_SugarInsert.ToString(), m_objSugar.SugarConnection);
@@ -976,8 +960,8 @@ namespace Cugar
                 cmSugarInsert.Parameters["@primary_address_country"].Value = txtSugarLand.Text;
                 cmSugarInsert.Parameters.Add("@lead_source", MySqlDbType.VarChar, 255, "@lead_source");
                 cmSugarInsert.Parameters["@lead_source"].Value = txtSugarLeadSource.Text;
-                //cmSugarInsert.Parameters.Add("@birthdate", MySqlDbType.Date);
-                //cmSugarInsert.Parameters["@birthdate"].Value = txtCaoGeb.Text;
+                cmSugarInsert.Parameters.Add("@birthdate", MySqlDbType.Date);
+                cmSugarInsert.Parameters["@birthdate"].Value = dtpGebDatum.Text;
                 #endregion
                 #endregion
 
@@ -1325,17 +1309,19 @@ namespace Cugar
 
         private void speichernToolStripButton_Click(object sender, EventArgs e)
         {
-            if (tabMain.SelectedTab == tabCompanies)
+            if (((DataRowView)m_BS_CaoSearchContacts.Current)["REC_ID"].ToString() != null)
             {
-                //UpdateCompanies()
-            }
-            else if (tabMain.SelectedTab == tabContacts)
-            {
-                //UpdateContacts()
-            }
-            else
-            {
-                //do nothing
+                if (tabMain.SelectedTab == tabCompanies)
+                {
+                    //UpdateCompanyCao();
+                    //UpdateCompanySugar();
+                }
+                else if (tabMain.SelectedTab == tabContacts)
+                {
+
+                    UpdateContactCao();
+                    UpdateContactSugar();
+                }
             }
         }
 
@@ -1346,127 +1332,191 @@ namespace Cugar
         private void UpdateCompanySugar()
         {
         }
-
+        /// <summary>
+        /// Updates the Current Contact in the Sugarcrm Contacts Table.
+        /// </summary>
         private void UpdateContactCao()
         {
-            /* Set up the databindings */
+            #region new 26.11.2011 try to create the update command with execute non query
+            cCao m_objUpdateSugar = new cCao(m_DS, m_BS_CaoSearchContacts);
+            OdbcConnection m_cnCao = new OdbcConnection();
+            m_cnCao = m_objCao.CaoConnection;
 
-            // Combine txtVorname + txtName
-            string name;
-            name = txtVorname.Text + " " + txtName.Text;
-            ((DataRowView)m_BS_CaoSearchContacts.Current)["NAME1"] = name;
+            StringBuilder sb_UpdateCommand = new StringBuilder();
+            sb_UpdateCommand.Append("UPDATE adressen SET ");
+            sb_UpdateCommand.Append(@"NAME1='");
+            sb_UpdateCommand.Append(txtVorname.Text + " " + txtName.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"ANREDE='");
+            sb_UpdateCommand.Append(cboAnrede.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"STRASSE='");
+            sb_UpdateCommand.Append(txtStrasse1.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"PLZ='");
+            sb_UpdateCommand.Append(txtPLZ.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"ORT='");
+            sb_UpdateCommand.Append(txtOrt.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"FAX='");
+            sb_UpdateCommand.Append(txtFax.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"FUNK='");
+            sb_UpdateCommand.Append(txtMobile.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"TELE2='");
+            sb_UpdateCommand.Append(txtPhon2.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"TELE1='");
+            sb_UpdateCommand.Append(txtPhone1.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"INFO='");
+            sb_UpdateCommand.Append(txtBemerkung.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"KUN_GEBDATUM='");
+            sb_UpdateCommand.Append(dtpGebDatum.Value.Year.ToString() + "-" + dtpGebDatum.Value.Month.ToString() + "-" + dtpGebDatum.Value.Day.ToString());
+            sb_UpdateCommand.Append(@"'");
 
-            // Cao Versandart Id
-            int VersandId = 0;
-            VersandId = cboCaoVersand.SelectedIndex + 1;
-            ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_LIEFART"] = VersandId.ToString();
+            sb_UpdateCommand.Append(@" where REC_ID = '");
+            sb_UpdateCommand.Append(((DataRowView)m_BS_CaoSearchContacts.Current)["REC_ID"].ToString());
+            sb_UpdateCommand.Append(@"';");
 
-            // Cao Zahlart Id
-            int ZahlId = 0;
-            ZahlId = cboCaoZahlart.SelectedIndex + 1;
-            ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_ZAHLART"] = ZahlId;
+            OdbcCommand myUpdateCommand = new OdbcCommand(sb_UpdateCommand.ToString(), m_objCao.CaoConnection);
 
-            ((DataRowView)m_BS_CaoSearchContacts.Current)["ANREDE"] = cboAnrede.Text;
-            ((DataRowView)m_BS_CaoSearchContacts.Current)["STRASSE"] = txtStrasse1.Text;
-            ((DataRowView)m_BS_CaoSearchContacts.Current)["PLZ"] = txtPLZ.Text;
-            ((DataRowView)m_BS_CaoSearchContacts.Current)["ORT"] = txtOrt.Text;
-            ((DataRowView)m_BS_CaoSearchContacts.Current)["INTERNET"] = txtWebpage.Text;
-            ((DataRowView)m_BS_CaoSearchContacts.Current)["EMAIL"] = txtEmail.Text;
-            ((DataRowView)m_BS_CaoSearchContacts.Current)["FAX"] = txtFax.Text;
-            ((DataRowView)m_BS_CaoSearchContacts.Current)["FUNK"] = txtMobile.Text;
-            ((DataRowView)m_BS_CaoSearchContacts.Current)["TELE2"] = txtPhon2.Text;
-            ((DataRowView)m_BS_CaoSearchContacts.Current)["TELE1"] = txtPhone1.Text;
-            ((DataRowView)m_BS_CaoSearchContacts.Current)["BRIEFANREDE"] = cboCaoBriefanrede.Text;
-            ((DataRowView)m_BS_CaoSearchContacts.Current)["BRT_TAGE"] = txtCaoZahlungsziel.Text;
-            ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_SEIT"] = dtpKunSeit.Text;
 
-            if (dtpGebDatum.Text != "")
+            if (myUpdateCommand.Connection.State == ConnectionState.Closed)
             {
-                try
-                {
-                    ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_GEBDATUM"] = Convert.ToDateTime(dtpGebDatum.Text);
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.ToString());
-                    ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_GEBDATUM"] = "01.01.1911";
-                }
+                myUpdateCommand.Connection.Open();
             }
+            try
+            {
+                myUpdateCommand.ExecuteNonQuery();
+                myUpdateCommand.Connection.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            #endregion
 
+        }
+
+        /// <summary>
+        /// Updates the Current Contact in the Sugarcrm Contacts Table.
+        /// </summary>
+        private void UpdateContactSugar()
+        {
+            #region oldstuff
+            //((DataRowView)m_BS_SugarSearchContacts.Current)["first_name"] = txtVorname.Text;
+            //((DataRowView)m_BS_SugarSearchContacts.Current)["last_name"] = txtVorname.Text;
+
+            //if (dtpGebDatum.Text != "")
+            //{
+            //    try
+            //    {
+            //        ((DataRowView)m_BS_SugarSearchContacts.Current)["birthdate"] = Convert.ToDateTime(dtpGebDatum.Text);
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBox.Show(e.ToString());
+            //        ((DataRowView)m_BS_SugarSearchContacts.Current)["birthdate"] = "01.01.1911";
+            //    }
+            //}
+
+            //((DataRowView)m_BS_SugarSearchContacts.Current)["description"] = txtBemerkung.Text;
             
-            ((DataRowView)m_BS_CaoSearchContacts.Current)["INFO"] = txtBemerkung.Text;
-            ((DataRowView)m_BS_CaoSearchContacts.Current).EndEdit();
 
             //((DataRowView)m_BS_SugarSearchContacts.Current)["primary_address_country"] = txtSugarLand.Text;
             //((DataRowView)m_BS_SugarSearchContacts.Current)["lead_source"] = txtSugarLeadSource.Text;
             //((DataRowView)m_BS_SugarSearchContacts.Current)["department"] = txtSugarAbteilung.Text;
             //((DataRowView)m_BS_SugarSearchContacts.Current)["title"] = txtSugarTitle.Text;
+            //((DataRowView)m_BS_SugarSearchContacts.Current).EndEdit();
+            //frmChanges_new m_objChanges = new frmChanges_new(m_DS, m_BS_SugarSearchContacts);
+            //m_objChanges.Show();
+
+            //cSugar m_objSugarUpdate = new cSugar(m_DS, m_BS_SugarSearchContacts);
+            ////m_objSugarUpdate.SaveChanges();
+            #endregion
+
+            #region new 26.11.2011 try to create the update command with execute non query
+            cSugar m_objUpdateSugar = new cSugar(m_DS, m_BS_SugarSearchContacts);
+            MySqlConnection m_cnSugar = new MySqlConnection();
+            m_cnSugar = m_objUpdateSugar.SugarConnection;
+
+            StringBuilder sb_UpdateCommand = new StringBuilder();
+            sb_UpdateCommand.Append("UPDATE contacts SET ");
+            sb_UpdateCommand.Append(@"first_name='");
+            sb_UpdateCommand.Append(txtVorname.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"last_name='");
+            sb_UpdateCommand.Append(txtName.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"salutation='");
+            sb_UpdateCommand.Append(cboAnrede.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"primary_address_street='");
+            sb_UpdateCommand.Append(txtStrasse1.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"primary_address_postalcode='");
+            sb_UpdateCommand.Append(txtPLZ.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"primary_address_city='");
+            sb_UpdateCommand.Append(txtOrt.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"phone_fax='");
+            sb_UpdateCommand.Append(txtFax.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"phone_mobile='");
+            sb_UpdateCommand.Append(txtMobile.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"phone_work='");
+            sb_UpdateCommand.Append(txtPhon2.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"phone_home='");
+            sb_UpdateCommand.Append(txtPhone1.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"description='");
+            sb_UpdateCommand.Append(txtBemerkung.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"primary_address_country='");
+            sb_UpdateCommand.Append(txtSugarLand.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"lead_source='");
+            sb_UpdateCommand.Append(txtSugarLeadSource.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"department='");
+            sb_UpdateCommand.Append(txtSugarAbteilung.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"title='");
+            sb_UpdateCommand.Append(txtSugarTitle.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"birthdate='");
+            sb_UpdateCommand.Append(dtpGebDatum.Value.Year.ToString() + "-" + dtpGebDatum.Value.Month.ToString() + "-" + dtpGebDatum.Value.Day.ToString());
+            sb_UpdateCommand.Append(@"'");
+
+            sb_UpdateCommand.Append(@" where id = '");
+            sb_UpdateCommand.Append(((DataRowView)m_BS_SugarSearchContacts.Current)["id"].ToString());
+            sb_UpdateCommand.Append(@"';");
+
+            MySqlCommand myUpdateCommand = new MySqlCommand(sb_UpdateCommand.ToString(), m_objSugar.SugarConnection);
 
 
-            cCao m_objCaoUpdate = new cCao(m_DS, m_BS_CaoSearchContacts);
-            m_objCaoUpdate.UpdateAll();
+            if (myUpdateCommand.Connection.State == ConnectionState.Closed)
+            {
+                myUpdateCommand.Connection.Open();
+            }
+            try
+            {
+                myUpdateCommand.ExecuteNonQuery();
+                myUpdateCommand.Connection.Clone();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
 
-            //if (m_BS_CaoSearchContacts.Current != null)
-            //{
-            //    //tabCompanies.
-            //    //set searchtext to personen
-            //    tstxtSuchePrivat.Text = "Personen...";
-
-            //    #region Convert the name filed into two fields using CToolbox
-            //    CToolbox m_objTool = new CToolbox();
-            //    string[] foo2;
-            //    foo2 = m_objTool.SplitName(((DataRowView)m_BS_CaoSearchContacts.Current)["NAME1"].ToString());
-            //    txtVorname.Text = foo2[0];
-            //    txtName.Text = foo2[1];
-            //    #endregion
-
-            //    #region fill cbos and set them to the right index
-            //    // set cboCaoVersand to the right index
-            //    int VerdsandId = 0;
-            //    VerdsandId = Convert.ToInt32(((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_LIEFART"]);
-            //    cboCaoVersand.SelectedIndex = VerdsandId - 1;
-
-            //    //set cboCaoZahlart to the right index
-            //    int ZahlartId = 0;
-            //    ZahlartId = Convert.ToInt32(((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_ZAHLART"]);
-            //    cboCaoZahlart.SelectedIndex = ZahlartId - 1;
-            //    #endregion
-
-            //    /* Fills in all the textfield using databinding object casted into a datarowview */
-
-            //    cboAnrede.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["ANREDE"].ToString();
-            //    txtStrasse1.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["STRASSE"].ToString();
-            //    txtPLZ.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["PLZ"].ToString();
-            //    txtOrt.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["ORT"].ToString();
-            //    txtWebpage.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["INTERNET"].ToString();
-            //    txtEmail.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["EMAIL"].ToString();
-            //    txtFax.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["FAX"].ToString();
-            //    txtMobile.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["FUNK"].ToString();
-            //    txtPhon2.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["TELE2"].ToString();
-            //    txtPhone1.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["TELE1"].ToString();
-            //    cboCaoBriefanrede.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["BRIEFANREDE"].ToString();
-            //    txtCaoZahlungsziel.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["BRT_TAGE"].ToString();
-            //    txtCaoCustomerSince.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_SEIT"].ToString();
-            //    txtCaoGeb.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_GEBDATUM"].ToString();
-            //    txtBemerkung.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["INFO"].ToString();
-
-            //    //((DataRowView)m_BS_CaoSearchContacts.Current)["INFO"] = txtBemerkung.Text;
-
-            //    //txtSugarZugewiesenAn.Text = ((DataRowView)m_BS.Current)[].ToString();
-            //    txtSugarLand.Text = ((DataRowView)m_BS_SugarSearchContacts.Current)["primary_address_country"].ToString();
-            //    txtSugarLeadSource.Text = ((DataRowView)m_BS_SugarSearchContacts.Current)["lead_source"].ToString();
-            //    txtSugarAbteilung.Text = ((DataRowView)m_BS_SugarSearchContacts.Current)["department"].ToString();
-            //    txtSugarTitle.Text = ((DataRowView)m_BS_SugarSearchContacts.Current)["title"].ToString();
-            //}
-
-            ////((DataRowView)m_BS.Current)["NAME1"] = txtName.Text;
-            ////((DataRowView)m_BS_Sugar.Current)["last_name"] = 
-            ////m_BS.Current
-
-        }
-
-        private void UpdateContactSugar()
-        {
+            }
+            #endregion
         }
 
         private void druckenToolStripButton_Click(object sender, EventArgs e)

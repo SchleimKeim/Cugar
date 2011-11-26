@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Cugar.cCao" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>ARAAAAAAAgCAAAAAGJAMIgAAAKAwgAQASGQADGCgcAA=</HashCode>
+      <FileName>_Classes\cCao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cugar.cSugar" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>wVAAAAEQAAAAAEAAEICEAiABAIAQAQAACAQABACAYBA=</HashCode>
+      <FileName>_Classes\cSugar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cugar.cToolbox" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAQAIAQAAAAAAQABAACQAA=</HashCode>
+      <FileName>_Classes\CToolbox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cugar.frmChanges_new" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACQAACAAEACEICACAAABAAAAKAAAAHCkAAA=</HashCode>
+      <FileName>_Forms\frmChanges_new.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cugar.frmMain">
+    <Position X="8" Y="1" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>/8gMEUncSLDbjhCvW9KkP+3DAbKAk/+hSuygyGC5Tb0=</HashCode>
+      <FileName>_Forms\frmMain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cugar.frmSettings" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAEBAAACCEAAAKAIAIAAAiAWBBAgAAQAA=</HashCode>
+      <FileName>_Forms\frmSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cugar.frmSuche" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIQQgCCMVQBIEUACEISALEACCQAABiAgAAGWgBAE=</HashCode>
+      <FileName>_Forms\frmSuche.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cugar.CaoConnector_old" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>UAyAAABAEgABAAAACQEhAAAAAoBQAAABBERACAAASAA=</HashCode>
+      <FileName>_oldfiles\CaoConnector_old.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cugar.CDatabasecon" Collapsed="true">
+    <Position X="4" Y="0.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAQAAAAAAAAAAAAACAAAAAAAAAAAAgA=</HashCode>
+      <FileName>_oldfiles\CDatabasecon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cugar.frmNeu" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>/2gCAAkADDALQBABAEGkAAQCBTAACoIgACggBAAAQLQ=</HashCode>
+      <FileName>_oldfiles\frmNeu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cugar.SugarConnector_old" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>UACAAABAAgBAAACAAQFAAAgBQIAQAAgBBATAAAAQQBA=</HashCode>
+      <FileName>_oldfiles\SugarConnector_old.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cugar.Program" Collapsed="true">
+    <Position X="4" Y="2.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cugar.Properties.Resources" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAABEAAAAQAAAMEAAAgAAAAAAIQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cugar.Properties.Settings" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAQAAAAAAAEAoBIIAACAAABAAAAAAACAIEgCAA=</HashCode>
+      <FileName>Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

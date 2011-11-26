@@ -75,6 +75,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="_Forms\frmChanges_new.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_Forms\frmChanges_new.Designer.cs">
+      <DependentUpon>frmChanges_new.cs</DependentUpon>
+    </Compile>
     <Compile Include="_oldfiles\CaoConnector_old.cs" />
     <Content Include="_textfiles\CaoInsertFirma.txt" />
     <Compile Include="_Classes\cCao.cs" />
@@ -101,6 +107,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="_Forms\frmChanges_new.resx">
+      <DependentUpon>frmChanges_new.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="_Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +203,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="_textfiles\all_cao_params.txt" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
+    <None Include="ClassDiagram4.cd" />
     <None Include="Icons\industry-icon.png" />
     <None Include="Icons\User-Administrator-Blue-icon.png" />
     <Content Include="_textfiles\hiderows.txt" />

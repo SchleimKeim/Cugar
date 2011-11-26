@@ -447,7 +447,7 @@ namespace Cugar
             #endregion
 
             sbUpdate.Append("KUN_SEIT = ?, ");
-            sbUpdate.Append("KUN_GEBDATUM = ?, ");
+            sbUpdate.Append("KUN_GEBDATUM = ?");
 
             #region not in use
             //sbUpdate.Append("ENTFERNUNG = ?, ");
@@ -724,7 +724,7 @@ namespace Cugar
                 {
                     m_int_REC_ID = Convert.ToInt32(dr.GetValue(0)) + 1;
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     m_int_REC_ID = 1;
                 }
