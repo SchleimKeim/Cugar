@@ -57,14 +57,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cugar.exe" size="201728">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cugar.exe" size="209408">
       <assemblyIdentity name="Cugar" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>6plwq3SxGx/7iKv4JQz2ev+kVKM=</dsig:DigestValue>
+        <dsig:DigestValue>Nslxsgx4bRjbYfEizOFi312Sn2I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -93,6 +93,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>VhzvtUW7QBnHbOJo0qzz7tLnpR0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="_textfiles\hiderows.txt" size="90">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>wUMuX2eAStAD9e1N9URkAZ63Dmg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="_textfiles\Notes.txt" size="396">

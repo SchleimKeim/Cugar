@@ -45,25 +45,25 @@
             this.txtPLZ = new System.Windows.Forms.TextBox();
             this.lblComment = new System.Windows.Forms.Label();
             this.lblOrt = new System.Windows.Forms.Label();
-            this.txtStrasse3 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtStrasse2 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.txtWebpage = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtFax = new System.Windows.Forms.TextBox();
             this.txtMobile = new System.Windows.Forms.TextBox();
             this.txtStrasse1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.txtPhon2 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.txtName3 = new System.Windows.Forms.TextBox();
+            this.txtName2 = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPhone1 = new System.Windows.Forms.TextBox();
+            this.lblName3 = new System.Windows.Forms.Label();
             this.txtVorname = new System.Windows.Forms.TextBox();
+            this.lblName2 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -154,6 +154,8 @@
             this.dgvSugar = new System.Windows.Forms.DataGridView();
             this.cmdPrivatExit = new System.Windows.Forms.Button();
             this.cmdSave = new System.Windows.Forms.Button();
+            this.dtpGebDatum = new System.Windows.Forms.DateTimePicker();
+            this.dtpKunSeit = new System.Windows.Forms.DateTimePicker();
             this.mnuFrmMain.SuspendLayout();
             this.grpGenerell.SuspendLayout();
             this.grpCAO.SuspendLayout();
@@ -188,20 +190,20 @@
             this.neuToolStripMenuItem,
             this.beendenToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.fileToolStripMenuItem.Text = "&Datei";
             // 
             // neuToolStripMenuItem
             // 
             this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.neuToolStripMenuItem.Text = "Neu...";
             this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
             // 
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.beendenToolStripMenuItem.Text = "&Beenden";
             this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
@@ -211,13 +213,13 @@
             this.connectionToolStripMenuItem,
             this.toolStripMenuItem2});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.settingsToolStripMenuItem.Text = "&Bearbeiten";
             // 
             // connectionToolStripMenuItem
             // 
             this.connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
-            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.connectionToolStripMenuItem.Text = "&Einstellungen...";
             this.connectionToolStripMenuItem.Click += new System.EventHandler(this.connectionToolStripMenuItem_Click);
             // 
@@ -227,20 +229,20 @@
             this.standardToolStripMenuItem,
             this.gridViewToolStripMenuItem});
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(154, 22);
             this.toolStripMenuItem2.Text = "&Ansicht";
             // 
             // standardToolStripMenuItem
             // 
             this.standardToolStripMenuItem.Name = "standardToolStripMenuItem";
-            this.standardToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.standardToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.standardToolStripMenuItem.Text = "Standard";
             // 
             // gridViewToolStripMenuItem
             // 
             this.gridViewToolStripMenuItem.Enabled = false;
             this.gridViewToolStripMenuItem.Name = "gridViewToolStripMenuItem";
-            this.gridViewToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.gridViewToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.gridViewToolStripMenuItem.Text = "Grid View";
             // 
             // grpGenerell
@@ -251,25 +253,25 @@
             this.grpGenerell.Controls.Add(this.txtPLZ);
             this.grpGenerell.Controls.Add(this.lblComment);
             this.grpGenerell.Controls.Add(this.lblOrt);
-            this.grpGenerell.Controls.Add(this.txtStrasse3);
             this.grpGenerell.Controls.Add(this.label7);
-            this.grpGenerell.Controls.Add(this.txtStrasse2);
-            this.grpGenerell.Controls.Add(this.label6);
             this.grpGenerell.Controls.Add(this.txtWebpage);
             this.grpGenerell.Controls.Add(this.txtEmail);
             this.grpGenerell.Controls.Add(this.txtFax);
             this.grpGenerell.Controls.Add(this.txtMobile);
             this.grpGenerell.Controls.Add(this.txtStrasse1);
-            this.grpGenerell.Controls.Add(this.label5);
             this.grpGenerell.Controls.Add(this.label15);
             this.grpGenerell.Controls.Add(this.txtPhon2);
             this.grpGenerell.Controls.Add(this.label14);
+            this.grpGenerell.Controls.Add(this.txtName3);
+            this.grpGenerell.Controls.Add(this.txtName2);
             this.grpGenerell.Controls.Add(this.txtName);
             this.grpGenerell.Controls.Add(this.label13);
             this.grpGenerell.Controls.Add(this.label12);
             this.grpGenerell.Controls.Add(this.label4);
             this.grpGenerell.Controls.Add(this.txtPhone1);
+            this.grpGenerell.Controls.Add(this.lblName3);
             this.grpGenerell.Controls.Add(this.txtVorname);
+            this.grpGenerell.Controls.Add(this.lblName2);
             this.grpGenerell.Controls.Add(this.label11);
             this.grpGenerell.Controls.Add(this.label3);
             this.grpGenerell.Controls.Add(this.label10);
@@ -338,14 +340,6 @@
             this.lblOrt.TabIndex = 0;
             this.lblOrt.Text = "Ort:";
             // 
-            // txtStrasse3
-            // 
-            this.txtStrasse3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtStrasse3.Location = new System.Drawing.Point(70, 154);
-            this.txtStrasse3.Name = "txtStrasse3";
-            this.txtStrasse3.Size = new System.Drawing.Size(219, 20);
-            this.txtStrasse3.TabIndex = 99;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -354,23 +348,6 @@
             this.label7.Size = new System.Drawing.Size(30, 13);
             this.label7.TabIndex = 0;
             this.label7.Text = "PLZ:";
-            // 
-            // txtStrasse2
-            // 
-            this.txtStrasse2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtStrasse2.Location = new System.Drawing.Point(70, 128);
-            this.txtStrasse2.Name = "txtStrasse2";
-            this.txtStrasse2.Size = new System.Drawing.Size(219, 20);
-            this.txtStrasse2.TabIndex = 99;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 157);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Strasse 3:";
             // 
             // txtWebpage
             // 
@@ -407,19 +384,10 @@
             // txtStrasse1
             // 
             this.txtStrasse1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtStrasse1.Location = new System.Drawing.Point(70, 102);
+            this.txtStrasse1.Location = new System.Drawing.Point(70, 153);
             this.txtStrasse1.Name = "txtStrasse1";
             this.txtStrasse1.Size = new System.Drawing.Size(219, 20);
             this.txtStrasse1.TabIndex = 4;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 131);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Strasse 2:";
             // 
             // label15
             // 
@@ -446,6 +414,22 @@
             this.label14.Size = new System.Drawing.Size(35, 13);
             this.label14.TabIndex = 0;
             this.label14.Text = "Email:";
+            // 
+            // txtName3
+            // 
+            this.txtName3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtName3.Location = new System.Drawing.Point(70, 128);
+            this.txtName3.Name = "txtName3";
+            this.txtName3.Size = new System.Drawing.Size(219, 20);
+            this.txtName3.TabIndex = 98;
+            // 
+            // txtName2
+            // 
+            this.txtName2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtName2.Location = new System.Drawing.Point(70, 102);
+            this.txtName2.Name = "txtName2";
+            this.txtName2.Size = new System.Drawing.Size(219, 20);
+            this.txtName2.TabIndex = 99;
             // 
             // txtName
             // 
@@ -476,11 +460,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 105);
+            this.label4.Location = new System.Drawing.Point(6, 156);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 13);
+            this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Strasse 1:";
+            this.label4.Text = "Strasse:";
             // 
             // txtPhone1
             // 
@@ -490,6 +474,15 @@
             this.txtPhone1.Size = new System.Drawing.Size(225, 20);
             this.txtPhone1.TabIndex = 8;
             // 
+            // lblName3
+            // 
+            this.lblName3.AutoSize = true;
+            this.lblName3.Location = new System.Drawing.Point(6, 131);
+            this.lblName3.Name = "lblName3";
+            this.lblName3.Size = new System.Drawing.Size(47, 13);
+            this.lblName3.TabIndex = 0;
+            this.lblName3.Text = "Name 3:";
+            // 
             // txtVorname
             // 
             this.txtVorname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -497,6 +490,15 @@
             this.txtVorname.Name = "txtVorname";
             this.txtVorname.Size = new System.Drawing.Size(219, 20);
             this.txtVorname.TabIndex = 2;
+            // 
+            // lblName2
+            // 
+            this.lblName2.AutoSize = true;
+            this.lblName2.Location = new System.Drawing.Point(6, 105);
+            this.lblName2.Name = "lblName2";
+            this.lblName2.Size = new System.Drawing.Size(47, 13);
+            this.lblName2.TabIndex = 0;
+            this.lblName2.Text = "Name 2:";
             // 
             // label11
             // 
@@ -545,6 +547,8 @@
             // 
             // grpCAO
             // 
+            this.grpCAO.Controls.Add(this.dtpKunSeit);
+            this.grpCAO.Controls.Add(this.dtpGebDatum);
             this.grpCAO.Controls.Add(this.cboCaoBriefanrede);
             this.grpCAO.Controls.Add(this.cboCaoZahlart);
             this.grpCAO.Controls.Add(this.cboCaoVersand);
@@ -661,7 +665,7 @@
             // txtCaoCustomerSince
             // 
             this.txtCaoCustomerSince.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCaoCustomerSince.Location = new System.Drawing.Point(91, 74);
+            this.txtCaoCustomerSince.Location = new System.Drawing.Point(29, 145);
             this.txtCaoCustomerSince.Name = "txtCaoCustomerSince";
             this.txtCaoCustomerSince.Size = new System.Drawing.Size(215, 20);
             this.txtCaoCustomerSince.TabIndex = 17;
@@ -678,7 +682,7 @@
             // txtCaoGeb
             // 
             this.txtCaoGeb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCaoGeb.Location = new System.Drawing.Point(91, 50);
+            this.txtCaoGeb.Location = new System.Drawing.Point(29, 125);
             this.txtCaoGeb.Name = "txtCaoGeb";
             this.txtCaoGeb.Size = new System.Drawing.Size(215, 20);
             this.txtCaoGeb.TabIndex = 16;
@@ -1393,6 +1397,20 @@
             this.cmdSave.UseVisualStyleBackColor = true;
             this.cmdSave.Click += new System.EventHandler(this.cmdPrivatSave_Click);
             // 
+            // dtpGebDatum
+            // 
+            this.dtpGebDatum.Location = new System.Drawing.Point(91, 51);
+            this.dtpGebDatum.Name = "dtpGebDatum";
+            this.dtpGebDatum.Size = new System.Drawing.Size(215, 20);
+            this.dtpGebDatum.TabIndex = 21;
+            // 
+            // dtpKunSeit
+            // 
+            this.dtpKunSeit.Location = new System.Drawing.Point(91, 77);
+            this.dtpKunSeit.Name = "dtpKunSeit";
+            this.dtpKunSeit.Size = new System.Drawing.Size(215, 20);
+            this.dtpKunSeit.TabIndex = 21;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1452,12 +1470,8 @@
         private System.Windows.Forms.TextBox txtOrt;
         private System.Windows.Forms.TextBox txtPLZ;
         private System.Windows.Forms.Label lblOrt;
-        private System.Windows.Forms.TextBox txtStrasse3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtStrasse2;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtStrasse1;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtVorname;
@@ -1564,6 +1578,12 @@
         private System.Windows.Forms.TextBox txtFSugarMitarbeiter;
         private System.Windows.Forms.Label lblFSugarMitarbeiter;
         private System.Windows.Forms.ComboBox cboCaoBriefanrede;
+        private System.Windows.Forms.TextBox txtName3;
+        private System.Windows.Forms.TextBox txtName2;
+        private System.Windows.Forms.Label lblName3;
+        private System.Windows.Forms.Label lblName2;
+        private System.Windows.Forms.DateTimePicker dtpKunSeit;
+        private System.Windows.Forms.DateTimePicker dtpGebDatum;
 
 
 

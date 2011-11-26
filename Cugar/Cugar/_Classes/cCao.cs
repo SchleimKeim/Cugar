@@ -720,7 +720,14 @@ namespace Cugar
             int m_int_REC_ID = 1;
             if (dr.Read() == true)
             {
-                m_int_REC_ID = Convert.ToInt32(dr.GetValue(0)) + 1;
+                try
+                {
+                    m_int_REC_ID = Convert.ToInt32(dr.GetValue(0)) + 1;
+                }
+                catch (Exception e)
+                {
+                    m_int_REC_ID = 1;
+                }
             }
             dr.Close();
             return m_int_REC_ID;
