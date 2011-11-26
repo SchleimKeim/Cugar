@@ -482,9 +482,10 @@ namespace Cugar
                 cboCaoBriefanrede.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["BRIEFANREDE"].ToString();
                 txtCaoZahlungsziel.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["BRT_TAGE"].ToString();
 
-                txtCaoCustomerSince.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_SEIT"].ToString();
-                //dtpKunSeit.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_SEIT"].ToString();
-                txtCaoGeb.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_GEBDATUM"].ToString();
+                dtpKunSeit.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_SEIT"].ToString();
+
+                dtpGebDatum.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_GEBDATUM"].ToString();
+
                 txtBemerkung.Text = ((DataRowView)m_BS_CaoSearchContacts.Current)["INFO"].ToString();
 
                 //((DataRowView)m_BS_CaoSearchContacts.Current)["INFO"] = txtBemerkung.Text;
@@ -540,7 +541,7 @@ namespace Cugar
                 txtFPhone.Text = ((DataRowView)m_BS_CaoSearchFirma.Current)["TELE1"].ToString();
                 cboFCaoBriefanrede.Text = ((DataRowView)m_BS_CaoSearchFirma.Current)["BRIEFANREDE"].ToString();
                 txtFZahlungsziel.Text = ((DataRowView)m_BS_CaoSearchFirma.Current)["BRT_TAGE"].ToString();
-                txtFKunSeit.Text = ((DataRowView)m_BS_CaoSearchFirma.Current)["KUN_SEIT"].ToString();
+                dtpFKunSeit.Text = ((DataRowView)m_BS_CaoSearchFirma.Current)["KUN_SEIT"].ToString();
                 txtFBemerkung.Text = ((DataRowView)m_BS_CaoSearchFirma.Current)["INFO"].ToString();
 
                 if (m_DS.Tables.Contains(m_const_strSugarTableSearchAllCompanies) == true)
@@ -745,11 +746,12 @@ namespace Cugar
                 sb_CaoInsert.Append("BRT_TAGE, ");
                 sb_CaoInsert.Append("INFO, ");
                 sb_CaoInsert.Append("KUN_LIEFART, ");
+                sb_CaoInsert.Append("KUN_GEBDATUM, ");
                 sb_CaoInsert.Append("KUN_SEIT, ");
                 sb_CaoInsert.Append("GEAEND_NAME, ");
                 sb_CaoInsert.Append("KUN_ZAHLART, ");
                 sb_CaoInsert.Append(@"BRUTTO_FLAG)");
-                sb_CaoInsert.Append(@" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                sb_CaoInsert.Append(@" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 #endregion
                 OdbcCommand caoInsert = new OdbcCommand(sb_CaoInsert.ToString(), m_objCao.CaoConnection);
 
@@ -802,6 +804,10 @@ namespace Cugar
                 caoInsert.Parameters["@INFO"].Value = txtBemerkung.Text;
                 caoInsert.Parameters.Add("@KUN_LIEFART", OdbcType.Int, 11, "@KUN_LIEFART");
                 caoInsert.Parameters["@KUN_LIEFART"].Value = cboCaoVersand.SelectedIndex + 1;
+
+                caoInsert.Parameters.Add("@KUN_GEBDATUM", OdbcType.Date);
+                caoInsert.Parameters["@KUN_GEBDATUM"].Value = Convert.ToDateTime(dtpGebDatum.Text);
+
                 caoInsert.Parameters.Add("@KUN_SEIT", OdbcType.Date);
                 caoInsert.Parameters["@KUN_SEIT"].Value = DateTime.Today.ToShortDateString();
                 caoInsert.Parameters.Add("@GEAND_NAME", OdbcType.VarChar, 20, "@GEAND_NAME");
@@ -1019,8 +1025,7 @@ namespace Cugar
                 txtPhon2.Clear();
                 txtPhone1.Clear();
                 txtCaoZahlungsziel.Clear();
-                txtCaoCustomerSince.Clear();
-                txtCaoGeb.Clear();
+                
                 txtBemerkung.Clear();
                 #endregion
                 m_bNew = true;
@@ -1123,7 +1128,7 @@ namespace Cugar
                 caoInsert.Parameters.Add("@KUN_LIEFART", OdbcType.Int, 11, "@KUN_LIEFART");
                 caoInsert.Parameters["@KUN_LIEFART"].Value = cboFVersand.SelectedIndex + 1;
                 caoInsert.Parameters.Add("@KUN_SEIT", OdbcType.Date);
-                caoInsert.Parameters["@KUN_SEIT"].Value = DateTime.Today.ToShortDateString();
+                caoInsert.Parameters["@KUN_SEIT"].Value = Convert.ToDateTime(dtpFKunSeit.Text);
                 caoInsert.Parameters.Add("@GEAND_NAME", OdbcType.VarChar, 20, "@GEAND_NAME");
                 caoInsert.Parameters["@GEAND_NAME"].Value = "Cugar";
 
@@ -1373,13 +1378,13 @@ namespace Cugar
             ((DataRowView)m_BS_CaoSearchContacts.Current)["TELE1"] = txtPhone1.Text;
             ((DataRowView)m_BS_CaoSearchContacts.Current)["BRIEFANREDE"] = cboCaoBriefanrede.Text;
             ((DataRowView)m_BS_CaoSearchContacts.Current)["BRT_TAGE"] = txtCaoZahlungsziel.Text;
-            ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_SEIT"] = txtCaoCustomerSince.Text;
+            ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_SEIT"] = dtpKunSeit.Text;
 
-            if (txtCaoGeb.Text != "")
+            if (dtpGebDatum.Text != "")
             {
                 try
                 {
-                    ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_GEBDATUM"] = Convert.ToDateTime(txtCaoGeb.Text);
+                    ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_GEBDATUM"] = Convert.ToDateTime(dtpGebDatum.Text);
                 }
                 catch (Exception e)
                 {
@@ -1387,6 +1392,7 @@ namespace Cugar
                     ((DataRowView)m_BS_CaoSearchContacts.Current)["KUN_GEBDATUM"] = "01.01.1911";
                 }
             }
+
             
             ((DataRowView)m_BS_CaoSearchContacts.Current)["INFO"] = txtBemerkung.Text;
             ((DataRowView)m_BS_CaoSearchContacts.Current).EndEdit();

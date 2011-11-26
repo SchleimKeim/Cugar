@@ -70,6 +70,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grpCAO = new System.Windows.Forms.GroupBox();
+            this.dtpKunSeit = new System.Windows.Forms.DateTimePicker();
+            this.dtpGebDatum = new System.Windows.Forms.DateTimePicker();
             this.cboCaoBriefanrede = new System.Windows.Forms.ComboBox();
             this.cboCaoZahlart = new System.Windows.Forms.ComboBox();
             this.cboCaoVersand = new System.Windows.Forms.ComboBox();
@@ -80,9 +82,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.txtCaoCustomerSince = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.txtCaoGeb = new System.Windows.Forms.TextBox();
             this.grpSugar = new System.Windows.Forms.GroupBox();
             this.txtSugarLand = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
@@ -147,15 +147,13 @@
             this.lblFZahlart = new System.Windows.Forms.Label();
             this.lblFVersand = new System.Windows.Forms.Label();
             this.lblFKunSeit = new System.Windows.Forms.Label();
-            this.txtFKunSeit = new System.Windows.Forms.TextBox();
             this.tabDGVCao = new System.Windows.Forms.TabPage();
             this.dgvCao = new System.Windows.Forms.DataGridView();
             this.tabDGVSugar = new System.Windows.Forms.TabPage();
             this.dgvSugar = new System.Windows.Forms.DataGridView();
             this.cmdPrivatExit = new System.Windows.Forms.Button();
             this.cmdSave = new System.Windows.Forms.Button();
-            this.dtpGebDatum = new System.Windows.Forms.DateTimePicker();
-            this.dtpKunSeit = new System.Windows.Forms.DateTimePicker();
+            this.dtpFKunSeit = new System.Windows.Forms.DateTimePicker();
             this.mnuFrmMain.SuspendLayout();
             this.grpGenerell.SuspendLayout();
             this.grpCAO.SuspendLayout();
@@ -559,15 +557,27 @@
             this.grpCAO.Controls.Add(this.label22);
             this.grpCAO.Controls.Add(this.label21);
             this.grpCAO.Controls.Add(this.label18);
-            this.grpCAO.Controls.Add(this.txtCaoCustomerSince);
             this.grpCAO.Controls.Add(this.label17);
-            this.grpCAO.Controls.Add(this.txtCaoGeb);
             this.grpCAO.Location = new System.Drawing.Point(626, 6);
             this.grpCAO.Name = "grpCAO";
             this.grpCAO.Size = new System.Drawing.Size(316, 174);
             this.grpCAO.TabIndex = 2;
             this.grpCAO.TabStop = false;
             this.grpCAO.Text = "CAO options";
+            // 
+            // dtpKunSeit
+            // 
+            this.dtpKunSeit.Location = new System.Drawing.Point(91, 77);
+            this.dtpKunSeit.Name = "dtpKunSeit";
+            this.dtpKunSeit.Size = new System.Drawing.Size(215, 20);
+            this.dtpKunSeit.TabIndex = 21;
+            // 
+            // dtpGebDatum
+            // 
+            this.dtpGebDatum.Location = new System.Drawing.Point(91, 51);
+            this.dtpGebDatum.Name = "dtpGebDatum";
+            this.dtpGebDatum.Size = new System.Drawing.Size(215, 20);
+            this.dtpGebDatum.TabIndex = 21;
             // 
             // cboCaoBriefanrede
             // 
@@ -662,14 +672,6 @@
             this.label18.TabIndex = 0;
             this.label18.Text = "Kunde seit:";
             // 
-            // txtCaoCustomerSince
-            // 
-            this.txtCaoCustomerSince.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCaoCustomerSince.Location = new System.Drawing.Point(29, 145);
-            this.txtCaoCustomerSince.Name = "txtCaoCustomerSince";
-            this.txtCaoCustomerSince.Size = new System.Drawing.Size(215, 20);
-            this.txtCaoCustomerSince.TabIndex = 17;
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -678,14 +680,6 @@
             this.label17.Size = new System.Drawing.Size(79, 13);
             this.label17.TabIndex = 0;
             this.label17.Text = "Geburtstdatum:";
-            // 
-            // txtCaoGeb
-            // 
-            this.txtCaoGeb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCaoGeb.Location = new System.Drawing.Point(29, 125);
-            this.txtCaoGeb.Name = "txtCaoGeb";
-            this.txtCaoGeb.Size = new System.Drawing.Size(215, 20);
-            this.txtCaoGeb.TabIndex = 16;
             // 
             // grpSugar
             // 
@@ -1219,6 +1213,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.dtpFKunSeit);
             this.groupBox3.Controls.Add(this.cboFZahlart);
             this.groupBox3.Controls.Add(this.cboFVersand);
             this.groupBox3.Controls.Add(this.cboFCaoBriefanrede);
@@ -1229,7 +1224,6 @@
             this.groupBox3.Controls.Add(this.lblFZahlart);
             this.groupBox3.Controls.Add(this.lblFVersand);
             this.groupBox3.Controls.Add(this.lblFKunSeit);
-            this.groupBox3.Controls.Add(this.txtFKunSeit);
             this.groupBox3.Location = new System.Drawing.Point(626, 6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(316, 174);
@@ -1329,14 +1323,6 @@
             this.lblFKunSeit.TabIndex = 0;
             this.lblFKunSeit.Text = "Kunde seit:";
             // 
-            // txtFKunSeit
-            // 
-            this.txtFKunSeit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFKunSeit.Location = new System.Drawing.Point(91, 74);
-            this.txtFKunSeit.Name = "txtFKunSeit";
-            this.txtFKunSeit.Size = new System.Drawing.Size(215, 20);
-            this.txtFKunSeit.TabIndex = 12;
-            // 
             // tabDGVCao
             // 
             this.tabDGVCao.Controls.Add(this.dgvCao);
@@ -1397,19 +1383,12 @@
             this.cmdSave.UseVisualStyleBackColor = true;
             this.cmdSave.Click += new System.EventHandler(this.cmdPrivatSave_Click);
             // 
-            // dtpGebDatum
+            // dtpFKunSeit
             // 
-            this.dtpGebDatum.Location = new System.Drawing.Point(91, 51);
-            this.dtpGebDatum.Name = "dtpGebDatum";
-            this.dtpGebDatum.Size = new System.Drawing.Size(215, 20);
-            this.dtpGebDatum.TabIndex = 21;
-            // 
-            // dtpKunSeit
-            // 
-            this.dtpKunSeit.Location = new System.Drawing.Point(91, 77);
-            this.dtpKunSeit.Name = "dtpKunSeit";
-            this.dtpKunSeit.Size = new System.Drawing.Size(215, 20);
-            this.dtpKunSeit.TabIndex = 21;
+            this.dtpFKunSeit.Location = new System.Drawing.Point(91, 72);
+            this.dtpFKunSeit.Name = "dtpFKunSeit";
+            this.dtpFKunSeit.Size = new System.Drawing.Size(200, 20);
+            this.dtpFKunSeit.TabIndex = 16;
             // 
             // frmMain
             // 
@@ -1497,9 +1476,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtCaoZahlungsziel;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox txtCaoCustomerSince;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox txtCaoGeb;
         private System.Windows.Forms.ComboBox cboCaoZahlart;
         private System.Windows.Forms.ComboBox cboCaoVersand;
         private System.Windows.Forms.Label label22;
@@ -1558,7 +1535,6 @@
         private System.Windows.Forms.Label lblFZahlart;
         private System.Windows.Forms.Label lblFVersand;
         private System.Windows.Forms.Label lblFKunSeit;
-        private System.Windows.Forms.TextBox txtFKunSeit;
         private System.Windows.Forms.TabPage tabContacts;
         private System.Windows.Forms.TabPage tabDGVCao;
         private System.Windows.Forms.DataGridView dgvCao;
@@ -1584,6 +1560,7 @@
         private System.Windows.Forms.Label lblName2;
         private System.Windows.Forms.DateTimePicker dtpKunSeit;
         private System.Windows.Forms.DateTimePicker dtpGebDatum;
+        private System.Windows.Forms.DateTimePicker dtpFKunSeit;
 
 
 

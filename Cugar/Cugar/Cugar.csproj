@@ -204,6 +204,9 @@
     <Content Include="_textfiles\SugarInsertFirma_allerows.txt" />
     <Content Include="_textfiles\temp.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="_cs_snippets\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
