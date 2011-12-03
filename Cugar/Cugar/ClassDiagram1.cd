@@ -7,8 +7,8 @@
       <FileName>_Classes\cCao.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Cugar.cSugar" Collapsed="true">
-    <Position X="5.75" Y="0.5" Width="1.5" />
+  <Class Name="Cugar.cSugar">
+    <Position X="7.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>wVAAAAEQAAAAAEAAEICEAiABAIAQAQAACAQABACAYBA=</HashCode>
       <FileName>_Classes\cSugar.cs</FileName>
@@ -28,10 +28,10 @@
       <FileName>_Forms\frmChanges_new.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Cugar.frmMain">
-    <Position X="7.5" Y="0.5" Width="1.5" />
+  <Class Name="Cugar.frmMain" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>/8gMEUncSLDbjhCvW9KkP+3DAbKAk/+hSuygyGC5Tb0=</HashCode>
+      <HashCode>/8gMEUnMSLDbjhAnW9KkP+3CAbKAk/+hSuygyGKpTb0=</HashCode>
       <FileName>_Forms\frmMain.cs</FileName>
     </TypeIdentifier>
   </Class>

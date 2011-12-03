@@ -1384,7 +1384,7 @@ namespace Cugar
         }        
         
         /// <summary>
-        /// Updates the Current Contact in the Sugarcrm Contacts Table.
+        /// Updates the Current Contact in the Cao adressen Table.
         /// </summary>
         private void UpdateContactCao()
         {

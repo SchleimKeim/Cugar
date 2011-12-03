@@ -85,7 +85,6 @@ namespace Cugar
             }
         }
 
-        #region methods
         /// <summary>
         ///  Builds a Connection to the given Sugar Server
         ///  using the User Settings.
@@ -249,6 +248,7 @@ namespace Cugar
             //return m_dsSugar;
         }
 
+        #region obsolete, all of those methods were only written for debugging purpose
         public void SaveChanges()
         {
             m_daSugar = new MySqlDataAdapter();
@@ -300,8 +300,6 @@ namespace Cugar
                 return;
             }
         }
-
-
         /// <summary>
         /// Creates the InsertCommand
         /// </summary>
@@ -372,48 +370,6 @@ namespace Cugar
         /// <returns>MySqlCommand myUpdateCommand</returns>
         public MySqlCommand CreateUpdateCommand()
         {
-            //#region old
-            //#region parameters
-            //StringBuilder sbUpdate = new StringBuilder();
-            //sbUpdate.Append("UPDATE contacts SET id = ?, ");
-            //sbUpdate.Append("first_name = ?, ");
-            //sbUpdate.Append("salutation = ?, ");
-            //sbUpdate.Append("primary_address_street = ?, ");
-            //sbUpdate.Append("primary_address_postalcode = ?, ");
-            //sbUpdate.Append("primary_address_city = ?, ");
-            //sbUpdate.Append("phone_fax = ?, ");
-            //sbUpdate.Append("phone_mobile = ?, ");
-            //sbUpdate.Append("phone_work = ?, ");
-            //sbUpdate.Append("phone_home = ?, ");
-            //sbUpdate.Append("birthdate = ?, ");
-            //sbUpdate.Append("description = ?, ");
-            //sbUpdate.Append("primary_address_country = ?, ");
-            //sbUpdate.Append("lead_source = ?, ");
-            //sbUpdate.Append("department = ?, ");
-            //sbUpdate.Append("last_name = ?, ");
-            //sbUpdate.Append("title = ?");
-            //sbUpdate.Append(" WHERE id = ?");
-
-            //MySqlCommand myUpdateCommand = new MySqlCommand(sbUpdate.ToString(), m_cnSugar);
-            //myUpdateCommand.Parameters.Add("@id", MySqlDbType.VarChar, 36, "@id");
-            //myUpdateCommand.Parameters.Add("@first_name", MySqlDbType.VarChar, 100, "@first_name");
-            //myUpdateCommand.Parameters.Add("@last_name", MySqlDbType.VarChar, 100, "@last_name");
-            //myUpdateCommand.Parameters.Add("@salutation", MySqlDbType.VarChar, 255, "@salutation");
-            //myUpdateCommand.Parameters.Add("@primary_address_street", MySqlDbType.VarChar, 150, "@primary_address_street");
-            //myUpdateCommand.Parameters.Add("@primary_address_postalcode", MySqlDbType.VarChar, 20, "@primary_address_postalcode");
-            //myUpdateCommand.Parameters.Add("@primary_address_city", MySqlDbType.VarChar, 100, "@primary_address_city");
-            //myUpdateCommand.Parameters.Add("@phone_fax", MySqlDbType.VarChar, 100, "@phone_fax");
-            //myUpdateCommand.Parameters.Add("@phone_mobile", MySqlDbType.VarChar, 100, "@phone_mobile");
-            //myUpdateCommand.Parameters.Add("@phone_work", MySqlDbType.VarChar, 100, "@phone_work");
-            //myUpdateCommand.Parameters.Add("@phone_home", MySqlDbType.VarChar, 100, "@phone_home");
-            //myUpdateCommand.Parameters.Add("@birthdate", MySqlDbType.Date);
-            //myUpdateCommand.Parameters.Add("@description", MySqlDbType.Text);
-            //myUpdateCommand.Parameters.Add("@primary_address_country", MySqlDbType.VarChar, 255, "@primary_address_country");
-            //myUpdateCommand.Parameters.Add("@lead_source", MySqlDbType.VarChar, 255, "@lead_source");
-            //myUpdateCommand.Parameters.Add("@department", MySqlDbType.VarChar, 255, "@department");
-            //myUpdateCommand.Parameters.Add("@title", MySqlDbType.VarChar, 100, "@title");
-            //#endregion
-            //#endregion
             StringBuilder sbUpdate = new StringBuilder();
             sbUpdate.Append("UPDATE contacts SET ");
             sbUpdate.Append("first_name = @first_name, ");
@@ -484,7 +440,11 @@ namespace Cugar
             return mySelectCommand;
         }
 
-        #region obsolete
+
+        #endregion
+
+
+        #region obsolete, also just for debugging
         /// <summary>
         ///  Creates a New Contact
         /// </summary>
@@ -503,7 +463,6 @@ namespace Cugar
 
 
         }
-        #endregion
         #endregion
 
         #region propertys

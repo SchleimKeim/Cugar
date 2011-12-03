@@ -349,6 +349,8 @@ namespace Cugar
             m_daCao.Fill(m_dsCao, m_const_strCaoTableSearchAllCompanies);
         }
 
+
+        #region obsolete
         /// <summary>
         ///Updates the Database.
         ///</summary>
@@ -358,7 +360,7 @@ namespace Cugar
 
             //Update
             //OdbcCommand myUpdateCommand = new OdbcCommand("UPDATE adressen SET fldStudentNr = ?, fldName = ?, fldVorname = ?, fldKlassenNr = ?, fldKlassenBez = ?, fldNotenNr = ?, fldNote = ?, fldFachNr = ?, fldBezeichnung = ? WHERE fldStudentNr = ?", m_cnCao);            
-            
+
             #region string build for update commant
             StringBuilder sbUpdate = new StringBuilder();
             sbUpdate.Append("UPDATE adressen SET REC_ID = ?, ");
@@ -371,7 +373,7 @@ namespace Cugar
             //sbUpdate.Append("KUNNUM1 = ?, ");
             //sbUpdate.Append("KUNNUM2 = ?, ");
             #endregion
-             
+
             sbUpdate.Append("NAME1 = ?, ");
             sbUpdate.Append("PLZ = ?, ");
             sbUpdate.Append("ORT = ?, ");
@@ -476,7 +478,7 @@ namespace Cugar
 
             sbUpdate.Append(" WHERE REC_ID = ?");
             #endregion
-            
+
             OdbcCommand myUpdateCommand = new OdbcCommand(sbUpdate.ToString(), m_cnCao);
 
             #region parameters
@@ -559,8 +561,8 @@ namespace Cugar
             //myUpdateCommand.Parameters.Add(myParam2);
             #endregion
 
-            myUpdateCommand.Parameters.Add("@INFO", OdbcType.Text, 65537, "@INFO");   
-            
+            myUpdateCommand.Parameters.Add("@INFO", OdbcType.Text, 65537, "@INFO");
+
             #region not in use
             ////myUpdateCommand.Parameters.Add("@GRABATT", OdbcType.Decimal, 5, "@GRABATT");
             //OdbcParameter myParam3 = new OdbcParameter();
@@ -583,7 +585,7 @@ namespace Cugar
 
             myUpdateCommand.Parameters.Add("@KUN_LIEFART", OdbcType.Int, 11, "@KUN_LIEFART");
             myUpdateCommand.Parameters.Add("@KUN_ZAHLART", OdbcType.Int, 11, "@KUN_ZAHLART");
-            
+
             #region not in use
             ////myUpdateCommand.Parameters.Add("@KUN_PRLISTE", OdbcType.enum('N','Y'), "@KUN_PRLISTE");
             ////myUpdateCommand.Parameters.Add("@KUN_LIEFSPERRE", OdbcType.enum('N','Y'), , "@KUN_LIEFFSPERRE");
@@ -622,14 +624,14 @@ namespace Cugar
             OdbcParameter myParam7 = new OdbcParameter();
             myParam7.ParameterName = "@KUN_SEIT";
             myParam7.SourceColumn = "@KUN_SEIT";
-            myParam7.DbType = DbType.Date;            
+            myParam7.DbType = DbType.Date;
             myUpdateCommand.Parameters.Add(myParam7);
 
             //myUpdateCommand.Parameters.Add("@KUN_GEBDATUM", OdbcType.Date, , "@KUN_GEBDATUM");
             OdbcParameter myParam8 = new OdbcParameter();
             myParam8.ParameterName = "@KUN_GEBDATUM";
             myParam8.SourceColumn = "@KUN_GEBDATUM";
-            myParam8.DbType = DbType.Date;            
+            myParam8.DbType = DbType.Date;
             myUpdateCommand.Parameters.Add(myParam8);
 
             #region not in use
@@ -639,7 +641,7 @@ namespace Cugar
             //myParam9.SourceColumn = "@ERSTELLT";
             //myParam9.DbType = DbType.Date;
             //myUpdateCommand.Parameters.Add(myParam9);
-            
+
 
             //myUpdateCommand.Parameters.Add("@ERST_NAME", OdbcType.VarChar, 20, "@ERST_NAME"); 
             ////myUpdateCommand.Parameters.Add("@GEAEND", OdbcType.Date, , "@GEAND");
@@ -663,7 +665,7 @@ namespace Cugar
             //myUpdateCommand.Parameters.Add("@USERFELD_10", OdbcType.VarChar, 255, "@USERFELD_10");
             #endregion
             #endregion
-                        
+
             m_daCao.UpdateCommand = myUpdateCommand;
 
 
@@ -689,7 +691,6 @@ namespace Cugar
 
         }
 
-        #region obsolete
         /// <summary>
         ///  Creates a New Contact
         /// </summary>
@@ -707,7 +708,11 @@ namespace Cugar
             }
         }
         #endregion obsolete
-
+        
+        /// <summary>
+        /// Returns the lates REC_ID from cao.adressen.
+        /// </summary>
+        /// <returns>the Latest RecId</returns>
         private int GetLatestRecId()
         {
             OdbcCommand cmDB = new OdbcCommand("SELECT Max(REC_ID) as REC_ID FROM adressen;", m_cnCao);
