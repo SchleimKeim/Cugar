@@ -13,112 +13,6 @@ using MySql.Data;
 
 namespace Cugar
 {
-    /* **************************
-     * 14.11.2011 New ToDo list:
-     * **************************
-     * - Insert Companys (prepare @ school)
-     * - Update Records
-     * - clean up main.cs
-     * 
-     * 
-     * 3.11.2011
-     * *********************
-     * REMOVE TXTSTRASSE 2 UND 3
-     * add name 2 und 3
-     * clean up vorname, nachname!!
-     * 
-     * To Do HIGH PRIO:
-     * - Find out how to "Load" from frmSuche.cs
-     * current status of this issue:
-     * every search result gets loadet into the dataset m_DS under "tbl$DBNAMESearchAll" or "tbl$DBNAMESearchHuman"
-     * when using the update command i just have to pass the DataSet from main.cf with the corresponding Table Name!
-     * That means Updating the Databases shoudln't be a Problem anymore.
-     * Now i have to find out the following: 
-     * 
-     * ********************************
-     * cmdLoad in frmSearch:
-     * ********************************
-     * * What happens when the user loads two Corresponding Datasets into the main.cf?     *
-     *first: there should be a comparison and if to many attributes are different then there is an error.
-     * -> compare name AND Street, this should be save enough. -> CompareRows()
-     * -> 1. load the corresponding cao (or sugar, depends on the settings) dataset into main.cf -> LoadMainTexts()
-     * -> 2. fill out cao section -> fillCao();
-     * -> 3. fill out Sugar section -> fillSugar();
-     * 
-     * use onChange() events to recognise the changes
-     * When the user saves the record there has got to be a cCao.UpdateRecord() and a cSugar.UpdateRecord()
-     * 
-     * 
-     * *******************************
-     * Creating a new record
-     * *******************************
-     * -> user clicks toolStrip New()
-     * -> frmNeu Appears
-     * -> User edits the textfields and clicks "Save"
-     * -> use (and first: create) a cCao.Insert() and a cSugar.Inser() routine.
-     * 
-     * 
-     * ******************************
-     * Deleting a record
-     * ******************************
-     * This has the least priority due to the fact that practically no Record gets deleted at CalandaComp
-     * -> cCao.Delete() and cSugar.Delete()
-     * 
-     * 
-     * 
-     * 
-     * 
-     * - Implement searching by street or p phone number
-     * - Implement search for Companys
-     * note: cao = select * from Adressen where Kundengruppe=2;
-     * note: sugar = select * from accounts;
-     * 
-     * distinguish between company and private accounts
-     * - Create Property in both connectors: bool Firma, Privat
-     * - Create property in main.cs: bool Firma, Privat
-     * - in main.cs set the property depending on active tab (Privat, Firma)
-     * - implement main.cs cao sector
-     * - implement main.cs sugar sector
-     * 
-     * To Do low prio: 
-     * - implement Print function
-     * - clean up main.cs (remove the two dgv tabs)
-     * - set correct tabIndexes for usability
-     * - clean up main.cs in general, menus etc...
-     * 
-     * 
-     * To do very low prio:
-     * complete xml documentation on all classes
-     * 
-     * 
-     * **************
-     * IDEAS:
-     * **************
-     * - Set preferred database
-     * 
-     * **************
-     * CLEAN UP:
-     * **************
-     * - loading settings into members of main.cs because they are accessible by all classes in the project
-     * 
-     * 
-     * *******************
-     * READ ME ON SUNDAY!
-     * *******************
-     * - get loading out of frm search working!
-     * 
-     * 
-     * 
-     * 
-     * ********************
-     * QUESTIONS
-     * ********************
-     * how to public void DatensatzLaden()
-     * :(
-     * 
-     * 
-     */
-
     public partial class frmMain : Form
     {
         #region members
@@ -987,6 +881,10 @@ namespace Cugar
         /// Asks the User if he wants to clear all Textfields and
         /// enables the Save button.
         /// </summary>
+        /// <summary>
+        /// Asks the User if he wants to clear all Textfields and
+        /// enables the Save button.
+        /// </summary>
         private void PrepareNew()
         {
             // If the User clicks "yes" all the textfields get cleared.
@@ -995,25 +893,54 @@ namespace Cugar
             DialogResult dr = MessageBox.Show("Alle Textfelder clearen?", "Neuer Datensatz...", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (dr == DialogResult.Yes)
             {
-                #region 1. clear all textfields
-                txtVorname.Clear();
-                txtName.Clear();
-                cboAnrede.SelectedIndex = 0;
-                txtStrasse1.Clear();
-                txtPLZ.Clear();
-                txtOrt.Clear();
-                txtWebpage.Clear();
-                txtEmail.Clear();
-                txtFax.Clear();
-                txtMobile.Clear();
-                txtPhon2.Clear();
-                txtPhone1.Clear();
-                txtCaoZahlungsziel.Clear();
-                
-                txtBemerkung.Clear();
-                #endregion
-                m_bNew = true;
-                this.EnableSave();
+                if (tabMain.SelectedTab == tabCompanies)
+                {
+                    /* Group "Generell" */
+                    txtFName1.Clear();
+                    txtFName2.Clear();
+                    txtFStrasse.Clear();
+                    txtFPLZ.Clear();
+                    txtFOrt.Clear();
+                    txtFBemerkung.Clear();
+                    txtFPhone.Clear();
+                    txtFFax.Clear();
+                    txtFMail.Clear();
+                    txtFWeb.Clear();
+                    cboFAnrede.SelectedIndex = 0;
+
+                    /* Group "CAO Options" */
+                    cboFCaoBriefanrede.SelectedIndex = 0;
+                    txtFZahlungsziel.Text = "30";
+                    cboFVersand.SelectedIndex = 0;
+                    cboFZahlart.SelectedIndex = 0;
+
+                    /* Group "Sugar options" */
+                    cboFSugarType.SelectedIndex = 0;
+                    txtFSugarBranche.Clear();
+                    txtFSugarUmsatz.Clear();
+                    txtFSugarMitarbeiter.Clear();
+                    txtFSugarLand.Clear();
+                }
+                else
+                {
+                    txtVorname.Clear();
+                    txtName.Clear();
+                    cboAnrede.SelectedIndex = 0;
+                    txtStrasse1.Clear();
+                    txtPLZ.Clear();
+                    txtOrt.Clear();
+                    txtWebpage.Clear();
+                    txtEmail.Clear();
+                    txtFax.Clear();
+                    txtMobile.Clear();
+                    txtPhon2.Clear();
+                    txtPhone1.Clear();
+                    txtCaoZahlungsziel.Clear();
+
+                    txtBemerkung.Clear();
+                    m_bNew = true;
+                    this.EnableSave();
+                }
             }
             else
             {
@@ -1309,41 +1236,200 @@ namespace Cugar
 
         private void speichernToolStripButton_Click(object sender, EventArgs e)
         {
-            if (((DataRowView)m_BS_CaoSearchContacts.Current)["REC_ID"].ToString() != null)
+            if (tabMain.SelectedTab == tabCompanies)
             {
-                if (tabMain.SelectedTab == tabCompanies)
-                {
-                    //UpdateCompanyCao();
-                    //UpdateCompanySugar();
-                }
-                else if (tabMain.SelectedTab == tabContacts)
-                {
-
-                    UpdateContactCao();
-                    UpdateContactSugar();
-                }
+                UpdateCompanyCao();
+                UpdateCompanySugar();
+            }
+            else if (tabMain.SelectedTab == tabContacts)
+            {
+                UpdateContactCao();
+                UpdateContactSugar();
             }
         }
 
+        /// <summary>
+        /// Updates the Current Company in the Cao Contacts Table.
+        /// Using KUNDENGRUPPE=2
+        /// </summary>
         private void UpdateCompanyCao()
         {
+            cCao m_objUpdateSugar = new cCao(m_DS, m_BS_CaoSearchFirma);
+            OdbcConnection m_cnCao = new OdbcConnection();
+            m_cnCao = m_objCao.CaoConnection;
+
+            StringBuilder sb_UpdateCommand = new StringBuilder();
+            sb_UpdateCommand.Append("UPDATE adressen SET ");
+            sb_UpdateCommand.Append(@"KUNDENGRUPPE=2");
+            sb_UpdateCommand.Append(@", ");
+            sb_UpdateCommand.Append(@"NAME1='");
+            sb_UpdateCommand.Append(txtFName1.Text);
+            sb_UpdateCommand.Append(@"', ");
+
+            sb_UpdateCommand.Append(@"NAME2='");
+            sb_UpdateCommand.Append(txtFName2.Text);
+            sb_UpdateCommand.Append(@"', ");
+
+            sb_UpdateCommand.Append(@"PLZ='");
+            sb_UpdateCommand.Append(txtFPLZ.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"ORT='");
+            sb_UpdateCommand.Append(txtFOrt.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"ANREDE='");
+            sb_UpdateCommand.Append(cboFAnrede.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"STRASSE='");
+            sb_UpdateCommand.Append(txtFStrasse.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"TELE1='");
+            sb_UpdateCommand.Append(txtFPhone.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"FAX='");
+            sb_UpdateCommand.Append(txtFFax.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"EMAIL='");
+            sb_UpdateCommand.Append(txtFMail.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"INTERNET='");
+            sb_UpdateCommand.Append(txtFWeb.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"BRT_TAGE='");
+            sb_UpdateCommand.Append(txtFZahlungsziel.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"INFO='");
+            sb_UpdateCommand.Append(txtFBemerkung.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"KUN_LIEFART='");
+            sb_UpdateCommand.Append(cboFVersand.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"KUN_SEIT='");
+            sb_UpdateCommand.Append(dtpFKunSeit.Value.Year.ToString() + "-" + dtpFKunSeit.Value.Month.ToString() + "-" + dtpFKunSeit.Value.Day.ToString());
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"GEAEND_NAME='");
+            sb_UpdateCommand.Append("Cugar");
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"KUN_ZAHLART='");
+            sb_UpdateCommand.Append(cboFZahlart.Text);
+            sb_UpdateCommand.Append(@"'");
+            sb_UpdateCommand.Append(@" where REC_ID =");
+            sb_UpdateCommand.Append(((DataRowView)m_BS_CaoSearchFirma.Current)["REC_ID"].ToString());
+            sb_UpdateCommand.Append(@";");
+
+            OdbcCommand myUpdateCommand = new OdbcCommand(sb_UpdateCommand.ToString(), m_objCao.CaoConnection);
+
+
+            if (myUpdateCommand.Connection.State == ConnectionState.Closed)
+            {
+                myUpdateCommand.Connection.Open();
+            }
+            try
+            {
+                myUpdateCommand.ExecuteNonQuery();
+                myUpdateCommand.Connection.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
         }
 
+        /// <summary>
+        /// Updates the Current Company in the Sugar accounts table.
+        /// </summary>
         private void UpdateCompanySugar()
         {
-        }
+            cSugar m_objUpdateSugar = new cSugar(m_DS, m_BS_SugarSearchFirma);
+            MySqlConnection m_cnSugar = new MySqlConnection();
+            m_cnSugar = m_objUpdateSugar.SugarConnection;
+
+            StringBuilder sb_UpdateCommand = new StringBuilder();
+            sb_UpdateCommand.Append("UPDATE accounts SET ");
+            sb_UpdateCommand.Append(@"name='");
+            sb_UpdateCommand.Append(txtFName1.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"billing_address_street='");
+            sb_UpdateCommand.Append(txtFStrasse.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"billing_address_postalcode='");
+            sb_UpdateCommand.Append(txtFPLZ.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"billing_address_city='");
+            sb_UpdateCommand.Append(txtFOrt.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"billing_address_country='");
+            sb_UpdateCommand.Append(txtFSugarLand.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"phone_office='");
+            sb_UpdateCommand.Append(txtFPhone.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"phone_fax='");
+            sb_UpdateCommand.Append(txtFFax.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"description='");
+            sb_UpdateCommand.Append(txtFBemerkung.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"website='");
+            sb_UpdateCommand.Append(txtFWeb.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"account_type='");
+            sb_UpdateCommand.Append(cboFSugarType.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"industry='");
+            sb_UpdateCommand.Append(txtFSugarBranche.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"annual_revenue='");
+            sb_UpdateCommand.Append(txtFSugarUmsatz.Text);
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"employees='");
+            sb_UpdateCommand.Append(txtFSugarMitarbeiter.Text);
+            sb_UpdateCommand.Append(@"', ");
+
+            sb_UpdateCommand.Append(@"modified_user_id='");
+            sb_UpdateCommand.Append("ed2d04a5-8264-45e7-fbdb-4ebebdf8375a");
+            sb_UpdateCommand.Append(@"', ");
+
+            DateTime today = DateTime.Now;
+            sb_UpdateCommand.Append(@"date_modified='");
+            sb_UpdateCommand.Append(today.ToString("yyyy-MM-dd_HH:mm:ss"));
+            sb_UpdateCommand.Append(@"'");
+
+            sb_UpdateCommand.Append(@" where id = '");
+            sb_UpdateCommand.Append(((DataRowView)m_BS_SugarSearchFirma.Current)["id"].ToString());
+            sb_UpdateCommand.Append(@"';");
+
+            MySqlCommand myUpdateCommand = new MySqlCommand(sb_UpdateCommand.ToString(), m_objSugar.SugarConnection);
+
+
+            if (myUpdateCommand.Connection.State == ConnectionState.Closed)
+            {
+                myUpdateCommand.Connection.Open();
+            }
+            try
+            {
+                myUpdateCommand.ExecuteNonQuery();
+                myUpdateCommand.Connection.Clone();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+
+            }
+        }        
+        
         /// <summary>
         /// Updates the Current Contact in the Sugarcrm Contacts Table.
         /// </summary>
         private void UpdateContactCao()
         {
-            #region new 26.11.2011 try to create the update command with execute non query
             cCao m_objUpdateSugar = new cCao(m_DS, m_BS_CaoSearchContacts);
             OdbcConnection m_cnCao = new OdbcConnection();
             m_cnCao = m_objCao.CaoConnection;
 
             StringBuilder sb_UpdateCommand = new StringBuilder();
             sb_UpdateCommand.Append("UPDATE adressen SET ");
+            sb_UpdateCommand.Append(@"KUNDENGRUPPE=1");
+            sb_UpdateCommand.Append(@", ");
             sb_UpdateCommand.Append(@"NAME1='");
             sb_UpdateCommand.Append(txtVorname.Text + " " + txtName.Text);
             sb_UpdateCommand.Append(@"', ");
@@ -1376,8 +1462,8 @@ namespace Cugar
             sb_UpdateCommand.Append(@"', ");
             sb_UpdateCommand.Append(@"KUN_GEBDATUM='");
             sb_UpdateCommand.Append(dtpGebDatum.Value.Year.ToString() + "-" + dtpGebDatum.Value.Month.ToString() + "-" + dtpGebDatum.Value.Day.ToString());
-            sb_UpdateCommand.Append(@"'");
-
+            sb_UpdateCommand.Append(@"', ");
+            sb_UpdateCommand.Append(@"GEAEND_NAME='Cugar'");
             sb_UpdateCommand.Append(@" where REC_ID = '");
             sb_UpdateCommand.Append(((DataRowView)m_BS_CaoSearchContacts.Current)["REC_ID"].ToString());
             sb_UpdateCommand.Append(@"';");
@@ -1398,48 +1484,14 @@ namespace Cugar
             {
                 MessageBox.Show(e.ToString());
             }
-            #endregion
-
         }
+
 
         /// <summary>
         /// Updates the Current Contact in the Sugarcrm Contacts Table.
         /// </summary>
         private void UpdateContactSugar()
         {
-            #region oldstuff
-            //((DataRowView)m_BS_SugarSearchContacts.Current)["first_name"] = txtVorname.Text;
-            //((DataRowView)m_BS_SugarSearchContacts.Current)["last_name"] = txtVorname.Text;
-
-            //if (dtpGebDatum.Text != "")
-            //{
-            //    try
-            //    {
-            //        ((DataRowView)m_BS_SugarSearchContacts.Current)["birthdate"] = Convert.ToDateTime(dtpGebDatum.Text);
-            //    }
-            //    catch (Exception e)
-            //    {
-            //        MessageBox.Show(e.ToString());
-            //        ((DataRowView)m_BS_SugarSearchContacts.Current)["birthdate"] = "01.01.1911";
-            //    }
-            //}
-
-            //((DataRowView)m_BS_SugarSearchContacts.Current)["description"] = txtBemerkung.Text;
-            
-
-            //((DataRowView)m_BS_SugarSearchContacts.Current)["primary_address_country"] = txtSugarLand.Text;
-            //((DataRowView)m_BS_SugarSearchContacts.Current)["lead_source"] = txtSugarLeadSource.Text;
-            //((DataRowView)m_BS_SugarSearchContacts.Current)["department"] = txtSugarAbteilung.Text;
-            //((DataRowView)m_BS_SugarSearchContacts.Current)["title"] = txtSugarTitle.Text;
-            //((DataRowView)m_BS_SugarSearchContacts.Current).EndEdit();
-            //frmChanges_new m_objChanges = new frmChanges_new(m_DS, m_BS_SugarSearchContacts);
-            //m_objChanges.Show();
-
-            //cSugar m_objSugarUpdate = new cSugar(m_DS, m_BS_SugarSearchContacts);
-            ////m_objSugarUpdate.SaveChanges();
-            #endregion
-
-            #region new 26.11.2011 try to create the update command with execute non query
             cSugar m_objUpdateSugar = new cSugar(m_DS, m_BS_SugarSearchContacts);
             MySqlConnection m_cnSugar = new MySqlConnection();
             m_cnSugar = m_objUpdateSugar.SugarConnection;
@@ -1495,6 +1547,11 @@ namespace Cugar
             sb_UpdateCommand.Append(dtpGebDatum.Value.Year.ToString() + "-" + dtpGebDatum.Value.Month.ToString() + "-" + dtpGebDatum.Value.Day.ToString());
             sb_UpdateCommand.Append(@"'");
 
+            DateTime today = DateTime.Now;
+            sb_UpdateCommand.Append(@"date_modified='");
+            sb_UpdateCommand.Append(today.ToString("yyyy-MM-dd_HH:mm:ss"));
+            sb_UpdateCommand.Append(@"'");
+
             sb_UpdateCommand.Append(@" where id = '");
             sb_UpdateCommand.Append(((DataRowView)m_BS_SugarSearchContacts.Current)["id"].ToString());
             sb_UpdateCommand.Append(@"';");
@@ -1516,8 +1573,8 @@ namespace Cugar
                 MessageBox.Show(e.ToString());
 
             }
-            #endregion
         }
+
 
         private void druckenToolStripButton_Click(object sender, EventArgs e)
         {

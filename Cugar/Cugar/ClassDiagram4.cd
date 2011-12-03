@@ -29,7 +29,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Cugar.frmMain">
-    <Position X="8" Y="1" Width="3.5" />
+    <Position X="9.75" Y="0.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>/8gMEUncSLDbjhCvW9KkP+3DAbKAk/+hSuygyGC5Tb0=</HashCode>
       <FileName>_Forms\frmMain.cs</FileName>

@@ -538,40 +538,48 @@ namespace Cugar
         /// </summary>
         private void CompareContacts()
         {
-            cToolbox m_objTool = new cToolbox();                
-            string[] foo2;                
-            foo2 = m_objTool.SplitName(((DataRowView)m_BS_Cao.Current)["NAME1"].ToString());
-
-            if (foo2[1] != ((DataRowView)m_BS_Sugar.Current)["last_name"].ToString())
+            if (m_BS_Cao.Current != null)
             {
-                DialogResult dr = MessageBox.Show("Unterschiedliche Datensätze festgestellt (Nachname).\n Datensätze Konsolidieren?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if(dr == DialogResult.Yes)
+                cToolbox m_objTool = new cToolbox();
+                string[] foo2;
+                foo2 = m_objTool.SplitName(((DataRowView)m_BS_Cao.Current)["NAME1"].ToString());
+
+                if (foo2[1] != ((DataRowView)m_BS_Sugar.Current)["last_name"].ToString())
                 {
-                    this.frmMain.DatensatzLadenPrivate();
+                    DialogResult dr = MessageBox.Show("Unterschiedliche Datenstze festgestellt (Nachname).\n Datenstze Konsolidieren?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (dr == DialogResult.Yes)
+                    {
+                        this.frmMain.DatensatzLadenPrivate();
+                    }
                 }
-            }
 
-            else if (((DataRowView)m_BS_Cao.Current)["STRASSE"].ToString() != ((DataRowView)m_BS_Sugar.Current)["primary_address_street"].ToString())
-            {
-                DialogResult dr = MessageBox.Show("Unterschiedliche Datensätze festgestellt (Strasse).\n Datenstze Konsolidieren?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if(dr == DialogResult.Yes)
+                else if (((DataRowView)m_BS_Cao.Current)["STRASSE"].ToString() != ((DataRowView)m_BS_Sugar.Current)["primary_address_street"].ToString())
                 {
-                    this.frmMain.DatensatzLadenPrivate();
+                    DialogResult dr = MessageBox.Show("Unterschiedliche Datenstze festgestellt (Strasse).\n Datenstze Konsolidieren?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (dr == DialogResult.Yes)
+                    {
+                        this.frmMain.DatensatzLadenPrivate();
+                    }
                 }
-            }
 
-            else if (((DataRowView)m_BS_Cao.Current)["TELE1"].ToString() != ((DataRowView)m_BS_Sugar.Current)["phone_home"].ToString())
-            {
-                DialogResult dr = MessageBox.Show("Unterschiedliche Datensätze festgestellt (Telefon).\n Datenstze Konsolidieren?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (dr == DialogResult.Yes)
+                else if (((DataRowView)m_BS_Cao.Current)["TELE1"].ToString() != ((DataRowView)m_BS_Sugar.Current)["phone_home"].ToString())
+                {
+                    DialogResult dr = MessageBox.Show("Unterschiedliche Datenstze festgestellt (Telefon).\n Datenstze Konsolidieren?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (dr == DialogResult.Yes)
+                    {
+                        this.frmMain.DatensatzLadenPrivate();
+                    }
+                }
+                else
                 {
                     this.frmMain.DatensatzLadenPrivate();
                 }
             }
             else
             {
-                this.frmMain.DatensatzLadenPrivate();
+                MessageBox.Show("Es muss mindestens ein Cao Datensatz ausgewhlt sein!");
             }
+
         }
 
         /// <summary>
@@ -580,35 +588,43 @@ namespace Cugar
         /// </summary>
         private void CompareCompanies()
         {
-            if (((DataRowView)m_BS_Cao.Current)["NAME1"].ToString() != ((DataRowView)m_BS_Sugar.Current)["name"].ToString())
+            if (m_BS_Cao.Current != null)
             {
-                DialogResult dr = MessageBox.Show("Unterschiedliche Datensätze festgestellt (Nachname).\n Datenstze Konsolidieren?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if(dr == DialogResult.Yes)
+                if (((DataRowView)m_BS_Cao.Current)["NAME1"].ToString() != ((DataRowView)m_BS_Sugar.Current)["name"].ToString())
                 {
-                    this.frmMain.DatensatzLadenCompany();
+                    DialogResult dr = MessageBox.Show("Unterschiedliche Datenstze festgestellt (Nachname).\n Datenstze Konsolidieren?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (dr == DialogResult.Yes)
+                    {
+                        this.frmMain.DatensatzLadenCompany();
+                    }
                 }
-            }
 
-            else if (((DataRowView)m_BS_Cao.Current)["STRASSE"].ToString() != ((DataRowView)m_BS_Sugar.Current)["billing_address_street"].ToString())
-            {
-                DialogResult dr = MessageBox.Show("Unterschiedliche Datensätze festgestellt (Strasse).\n Datenstze Konsolidieren?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if(dr == DialogResult.Yes)
+                else if (((DataRowView)m_BS_Cao.Current)["STRASSE"].ToString() != ((DataRowView)m_BS_Sugar.Current)["billing_address_street"].ToString())
                 {
-                    this.frmMain.DatensatzLadenCompany();
+                    DialogResult dr = MessageBox.Show("Unterschiedliche Datenstze festgestellt (Strasse).\n Datenstze Konsolidieren?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (dr == DialogResult.Yes)
+                    {
+                        this.frmMain.DatensatzLadenCompany();
+                    }
                 }
-            }
 
-            else if (((DataRowView)m_BS_Cao.Current)["TELE1"].ToString() != ((DataRowView)m_BS_Sugar.Current)["phone_office"].ToString())
-            {
-                DialogResult dr = MessageBox.Show("Unterschiedliche Datensätze festgestellt (Telefon).\n Datenstze Konsolidieren?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (dr == DialogResult.Yes)
+                else if (((DataRowView)m_BS_Cao.Current)["TELE1"].ToString() != ((DataRowView)m_BS_Sugar.Current)["phone_office"].ToString())
+                {
+                    DialogResult dr = MessageBox.Show("Unterschiedliche Datenstze festgestellt (Telefon).\n Datenstze Konsolidieren?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (dr == DialogResult.Yes)
+                    {
+                        this.frmMain.DatensatzLadenCompany();
+                    }
+                }
+                else
                 {
                     this.frmMain.DatensatzLadenCompany();
                 }
+
             }
             else
             {
-                this.frmMain.DatensatzLadenCompany();
+                MessageBox.Show("Es muss mindestens ein Cao Datensatz angewählt sein!");
             }
         }
     }
