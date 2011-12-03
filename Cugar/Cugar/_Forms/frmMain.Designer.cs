@@ -35,9 +35,8 @@
             this.beendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.standardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gridViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.überCougarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grpGenerell = new System.Windows.Forms.GroupBox();
             this.cboAnrede = new System.Windows.Forms.ComboBox();
             this.txtBemerkung = new System.Windows.Forms.TextBox();
@@ -137,6 +136,7 @@
             this.lblFSugarBranche = new System.Windows.Forms.Label();
             this.lblFSugarType = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dtpFKunSeit = new System.Windows.Forms.DateTimePicker();
             this.cboFZahlart = new System.Windows.Forms.ComboBox();
             this.cboFVersand = new System.Windows.Forms.ComboBox();
             this.cboFCaoBriefanrede = new System.Windows.Forms.ComboBox();
@@ -147,13 +147,8 @@
             this.lblFZahlart = new System.Windows.Forms.Label();
             this.lblFVersand = new System.Windows.Forms.Label();
             this.lblFKunSeit = new System.Windows.Forms.Label();
-            this.tabDGVCao = new System.Windows.Forms.TabPage();
-            this.dgvCao = new System.Windows.Forms.DataGridView();
-            this.tabDGVSugar = new System.Windows.Forms.TabPage();
-            this.dgvSugar = new System.Windows.Forms.DataGridView();
             this.cmdPrivatExit = new System.Windows.Forms.Button();
             this.cmdSave = new System.Windows.Forms.Button();
-            this.dtpFKunSeit = new System.Windows.Forms.DateTimePicker();
             this.mnuFrmMain.SuspendLayout();
             this.grpGenerell.SuspendLayout();
             this.grpCAO.SuspendLayout();
@@ -165,17 +160,14 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.tabDGVCao.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCao)).BeginInit();
-            this.tabDGVSugar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSugar)).BeginInit();
             this.SuspendLayout();
             // 
             // mnuFrmMain
             // 
             this.mnuFrmMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.settingsToolStripMenuItem});
+            this.settingsToolStripMenuItem,
+            this.toolStripMenuItem1});
             this.mnuFrmMain.Location = new System.Drawing.Point(0, 0);
             this.mnuFrmMain.Name = "mnuFrmMain";
             this.mnuFrmMain.Size = new System.Drawing.Size(959, 24);
@@ -208,8 +200,7 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.connectionToolStripMenuItem,
-            this.toolStripMenuItem2});
+            this.connectionToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.settingsToolStripMenuItem.Text = "&Bearbeiten";
@@ -221,27 +212,19 @@
             this.connectionToolStripMenuItem.Text = "&Einstellungen...";
             this.connectionToolStripMenuItem.Click += new System.EventHandler(this.connectionToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem2
+            // toolStripMenuItem1
             // 
-            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.standardToolStripMenuItem,
-            this.gridViewToolStripMenuItem});
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(154, 22);
-            this.toolStripMenuItem2.Text = "&Ansicht";
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.überCougarToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(24, 20);
+            this.toolStripMenuItem1.Text = "?";
             // 
-            // standardToolStripMenuItem
+            // überCougarToolStripMenuItem
             // 
-            this.standardToolStripMenuItem.Name = "standardToolStripMenuItem";
-            this.standardToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.standardToolStripMenuItem.Text = "Standard";
-            // 
-            // gridViewToolStripMenuItem
-            // 
-            this.gridViewToolStripMenuItem.Enabled = false;
-            this.gridViewToolStripMenuItem.Name = "gridViewToolStripMenuItem";
-            this.gridViewToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.gridViewToolStripMenuItem.Text = "Grid View";
+            this.überCougarToolStripMenuItem.Name = "überCougarToolStripMenuItem";
+            this.überCougarToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.überCougarToolStripMenuItem.Text = "Über Cougar...";
             // 
             // grpGenerell
             // 
@@ -606,7 +589,6 @@
             this.cboCaoVersand.Name = "cboCaoVersand";
             this.cboCaoVersand.Size = new System.Drawing.Size(215, 21);
             this.cboCaoVersand.TabIndex = 19;
-            this.cboCaoVersand.SelectedIndexChanged += new System.EventHandler(this.txtCaoVersand_SelectedIndexChanged);
             // 
             // label16
             // 
@@ -814,7 +796,7 @@
             this.speichernToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.speichernToolStripButton.Name = "speichernToolStripButton";
             this.speichernToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.speichernToolStripButton.Text = "&Speichern";
+            this.speichernToolStripButton.Text = "Änderungen &speichern";
             this.speichernToolStripButton.Click += new System.EventHandler(this.speichernToolStripButton_Click);
             // 
             // druckenToolStripButton
@@ -834,7 +816,7 @@
             this.hilfeToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.hilfeToolStripButton.Name = "hilfeToolStripButton";
             this.hilfeToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.hilfeToolStripButton.Text = "Hi&lfe";
+            this.hilfeToolStripButton.Text = "Debug informationen.";
             this.hilfeToolStripButton.Click += new System.EventHandler(this.hilfeToolStripButton_Click);
             // 
             // tabMain
@@ -843,8 +825,6 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.tabMain.Controls.Add(this.tabContacts);
             this.tabMain.Controls.Add(this.tabCompanies);
-            this.tabMain.Controls.Add(this.tabDGVCao);
-            this.tabMain.Controls.Add(this.tabDGVSugar);
             this.tabMain.Location = new System.Drawing.Point(0, 52);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
@@ -1231,6 +1211,13 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "CAO options";
             // 
+            // dtpFKunSeit
+            // 
+            this.dtpFKunSeit.Location = new System.Drawing.Point(91, 72);
+            this.dtpFKunSeit.Name = "dtpFKunSeit";
+            this.dtpFKunSeit.Size = new System.Drawing.Size(200, 20);
+            this.dtpFKunSeit.TabIndex = 16;
+            // 
             // cboFZahlart
             // 
             this.cboFZahlart.FormattingEnabled = true;
@@ -1323,43 +1310,6 @@
             this.lblFKunSeit.TabIndex = 0;
             this.lblFKunSeit.Text = "Kunde seit:";
             // 
-            // tabDGVCao
-            // 
-            this.tabDGVCao.Controls.Add(this.dgvCao);
-            this.tabDGVCao.Location = new System.Drawing.Point(4, 22);
-            this.tabDGVCao.Name = "tabDGVCao";
-            this.tabDGVCao.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDGVCao.Size = new System.Drawing.Size(951, 372);
-            this.tabDGVCao.TabIndex = 2;
-            this.tabDGVCao.Text = "dgvCao";
-            this.tabDGVCao.UseVisualStyleBackColor = true;
-            // 
-            // dgvCao
-            // 
-            this.dgvCao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCao.Location = new System.Drawing.Point(9, 7);
-            this.dgvCao.Name = "dgvCao";
-            this.dgvCao.Size = new System.Drawing.Size(934, 363);
-            this.dgvCao.TabIndex = 0;
-            // 
-            // tabDGVSugar
-            // 
-            this.tabDGVSugar.Controls.Add(this.dgvSugar);
-            this.tabDGVSugar.Location = new System.Drawing.Point(4, 22);
-            this.tabDGVSugar.Name = "tabDGVSugar";
-            this.tabDGVSugar.Size = new System.Drawing.Size(951, 372);
-            this.tabDGVSugar.TabIndex = 3;
-            this.tabDGVSugar.Text = "dgvSugar";
-            this.tabDGVSugar.UseVisualStyleBackColor = true;
-            // 
-            // dgvSugar
-            // 
-            this.dgvSugar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSugar.Location = new System.Drawing.Point(8, 7);
-            this.dgvSugar.Name = "dgvSugar";
-            this.dgvSugar.Size = new System.Drawing.Size(934, 363);
-            this.dgvSugar.TabIndex = 1;
-            // 
             // cmdPrivatExit
             // 
             this.cmdPrivatExit.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -1382,13 +1332,6 @@
             this.cmdSave.Text = "&Save";
             this.cmdSave.UseVisualStyleBackColor = true;
             this.cmdSave.Click += new System.EventHandler(this.cmdPrivatSave_Click);
-            // 
-            // dtpFKunSeit
-            // 
-            this.dtpFKunSeit.Location = new System.Drawing.Point(91, 72);
-            this.dtpFKunSeit.Name = "dtpFKunSeit";
-            this.dtpFKunSeit.Size = new System.Drawing.Size(200, 20);
-            this.dtpFKunSeit.TabIndex = 16;
             // 
             // frmMain
             // 
@@ -1425,10 +1368,6 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.tabDGVCao.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCao)).EndInit();
-            this.tabDGVSugar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSugar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1441,7 +1380,6 @@
         private System.Windows.Forms.ToolStripMenuItem beendenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem connectionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem;
         private System.Windows.Forms.GroupBox grpGenerell;
         private System.Windows.Forms.GroupBox grpCAO;
@@ -1495,8 +1433,6 @@
         private System.Windows.Forms.ToolStripButton druckenToolStripButton;
         private System.Windows.Forms.ToolStripButton hilfeToolStripButton;
         private System.Windows.Forms.ToolStripTextBox tstxtSuchePrivat;
-        private System.Windows.Forms.ToolStripMenuItem standardToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gridViewToolStripMenuItem;
         private System.Windows.Forms.TabControl tabMain;
         private System.Windows.Forms.TabPage tabCompanies;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -1536,10 +1472,6 @@
         private System.Windows.Forms.Label lblFVersand;
         private System.Windows.Forms.Label lblFKunSeit;
         private System.Windows.Forms.TabPage tabContacts;
-        private System.Windows.Forms.TabPage tabDGVCao;
-        private System.Windows.Forms.DataGridView dgvCao;
-        private System.Windows.Forms.TabPage tabDGVSugar;
-        private System.Windows.Forms.DataGridView dgvSugar;
         private System.Windows.Forms.ToolStripTextBox tstxtSucheFirma;
         private System.Windows.Forms.Button cmdPrivatExit;
         private System.Windows.Forms.Button cmdSave;
@@ -1561,6 +1493,8 @@
         private System.Windows.Forms.DateTimePicker dtpKunSeit;
         private System.Windows.Forms.DateTimePicker dtpGebDatum;
         private System.Windows.Forms.DateTimePicker dtpFKunSeit;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem überCougarToolStripMenuItem;
 
 
 

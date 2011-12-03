@@ -194,7 +194,6 @@
     <None Include="Icons\png\16\Modern3D\computers\floppy_35inch_blue.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
     <None Include="Icons\png\16\Modern3D\geometry\triangle_red.png" />
     <None Include="_sql_snippets\sugarcrm.accounts.rows.sql" />
   </ItemGroup>
@@ -203,9 +202,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="_textfiles\all_cao_params.txt" />
-    <None Include="ClassDiagram2.cd" />
-    <None Include="ClassDiagram3.cd" />
-    <None Include="ClassDiagram4.cd" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Icons\industry-icon.png" />
     <None Include="Icons\User-Administrator-Blue-icon.png" />
     <Content Include="_textfiles\hiderows.txt" />

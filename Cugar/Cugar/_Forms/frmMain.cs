@@ -16,10 +16,6 @@ namespace Cugar
     public partial class frmMain : Form
     {
         #region members
-
-        private DataView m_dvCao;
-        private DataView m_dvSugar;
-
         private DataSet m_DS = new DataSet();
         private cCao m_objCao;
         private cSugar m_objSugar;
@@ -53,11 +49,7 @@ namespace Cugar
         private BindingSource m_BS_SugarSearchContacts = new BindingSource();
         private BindingSource m_BS_SugarSearchFirma = new BindingSource();
         
-        //private BindingSource m_BS_CaoZahlarten = new BindingSource();
-        //private BindingSource m_BS_CaoVersandarten = new BindingSource();
-
         private bool m_bNew = false;
-
         #endregion
 
 
@@ -82,30 +74,6 @@ namespace Cugar
                 try
                 {
                     m_objCao = new cCao(m_DS);
-
-                    #region obsolete
-                    /* vorgang:
-                     * neues cao objekt wird erstellt mit dem DataSet der main.cf
-                     * die methode LoadDataSet() fllt das DataSet mit informationen 
-                     * aus der Cao Datenbank
-                     * das DataView der main.cf wird mit den tables aus dem DataSet der main.cf gefllt
-                     * dgv kriegt als source das DataView der main.cf
-                     */
-
-                    //m_objCao = new cCao(m_DS);
-
-                    //searchme
-                    //m_objCao = new cCao(m_DS, m_BS_CaoSearchContacts);
-                    //m_objCao = new cCao(m_DS);
-                    
-
-                    //load all private customers, propably obsolete but good
-                    //m_objCao.LoadPrivateCustomers();
-                    //m_dvCao = m_DS.Tables[m_const_strCaoTablePrivate].DefaultView;
-                    //dgvCao.DataSource = m_dvCao;
-
-                    //load cbo Versandarten, currently not working :(
-                    #endregion
                 }
                 catch (Exception asdf)
                 {
@@ -208,33 +176,36 @@ namespace Cugar
             cboFZahlart.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Creates a new frmSearch
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void connectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmSettings m_SubForm_Settings = new frmSettings();
             m_SubForm_Settings.ShowDialog();
         }
 
+        /// <summary>
+        /// Closes Cugar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void beendenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Starts the PrepareNew Routine.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void neuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PrepareNew();
         }
-
-        #region obsolete
-        //private void tstxtSuche_Click(object sender, EventArgs e)
-        //{
-        //    tstxtSuchePrivat.Clear();
-        //}
-
-        //private void tsCmdSearch_Click(object sender, EventArgs e)
-        //{
-        //    SearchPrivat();
-        //}
-        #endregion
 
         /// <summary>
         /// Creates a new frmSuche and starts a new 
@@ -242,22 +213,10 @@ namespace Cugar
         /// </summary>
         private void SearchPrivat()
         {
-            //frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text);
             frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuchePrivat.Text, m_objCao, m_objSugar, this, m_BS_CaoSearchContacts, m_BS_SugarSearchContacts);
             m_objSuche.Privat = true;
-            //m_objSuche.StartSearchPrivat(tstxtSuchePrivat.Text);
-            //frmSuche m_objSuche = new frmSuche(m_DS, tstxtSuche.Text, m_objCao, m_objSugar);            
             m_objSuche.ShowDialog();      
         }
-
-        //private void tstxtSuche_KeyDown(object sender, KeyEventArgs e)
-        //{
-        //    if (e.KeyCode == Keys.Enter)
-        //    {
-        //        SearchPrivat();
-        //    }
-
-        //}
 
         /// <summary>
         /// This Action is just implemented for debugging.
@@ -294,6 +253,7 @@ namespace Cugar
                 MessageBox.Show(foo.ToString());
             }
         }
+
         /// <summary>
         /// Fills all the textfields with values from the current
         /// selected DataRow out of the BindingSource. (tblSearch*Contacts)
@@ -407,6 +367,7 @@ namespace Cugar
 
                 cboFAnrede.Text = ((DataRowView)m_BS_CaoSearchFirma.Current)["ANREDE"].ToString();
                 txtFName1.Text = ((DataRowView)m_BS_CaoSearchFirma.Current)["NAME1"].ToString();
+                txtFName2.Text = ((DataRowView)m_BS_CaoSearchFirma.Current)["NAME2"].ToString();
                 txtFStrasse.Text = ((DataRowView)m_BS_CaoSearchFirma.Current)["STRASSE"].ToString();
                 txtFPLZ.Text = ((DataRowView)m_BS_CaoSearchFirma.Current)["PLZ"].ToString();
                 txtFOrt.Text = ((DataRowView)m_BS_CaoSearchFirma.Current)["ORT"].ToString();
@@ -427,55 +388,9 @@ namespace Cugar
                     txtFSugarMitarbeiter.Text = ((DataRowView)m_BS_SugarSearchFirma.Current)["employees"].ToString();
                     txtFSugarLand.Text = ((DataRowView)m_BS_SugarSearchFirma.Current)["billing_address_country"].ToString();
                 }
-                //((DataRowView)m_BS_CaoSearchFirma.Current)["INFO"] = txtBemerkung.Text;
-
-            }
-
-            //((DataRowView)m_BS.Current)["NAME1"] = txtName.Text;
-            //((DataRowView)m_BS_Sugar.Current)["last_name"] = 
-            //m_BS.Current
-
-        }
-
-        //private void tstxtSuche_Enter(object sender, EventArgs e)
-        //{
-        //    Search();
-        //}
-
-        //private void tstxtSuche_TextChanged(object sender, EventArgs e)
-        //{
-
-        //}
-        #region propertys
-
-        /* both dtDatensatz* propertys aren't finished! */
-        public DataTable dtDatensatzCao
-        {
-            get
-            {
-                return m_dtDatensatzCao;
-            }
-            set
-            {
-                m_dtDatensatzCao = value;
-            }
-        }
-        public DataTable dtDatensatzSugar
-        {
-            get
-            {
-                return m_dtDatensatzSugar;
-            }
-            set
-            {
-                m_dtDatensatzSugar = value;
             }
         }
 
-        private void txtCaoVersand_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         /// <summary>
         ///Enables the Save Button on the "Privat" tab</summary>
@@ -487,37 +402,10 @@ namespace Cugar
             }
         }
 
-        private void cmdPrivatExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-
-        
-        //public DataTable dtDatensatzSugar
-        //{
-        //    get
-        //    {
-        //        return m_dtDatensatzSugar;
-        //    }
-        //    set
-        //    {
-        //        m_dtDatensatzSugar = value;
-        //    }
-        //}
-
-        //public DataTable dtDatensatzSugar
-        //{
-        //    get
-        //    {
-        //        return m_dtDatensatzSugar;
-        //    }
-        //    set
-        //    {
-        //        m_dtDatensatzSugar = value;
-        //    }
-        //}
-
+        /// <summary>
+        /// Returns weither the SaveButton is enabled or not.
+        /// </summary>
+        /// <value>bool enabled</value>
         public bool SaveButtonEnabled
         {
             get
@@ -530,8 +418,23 @@ namespace Cugar
             }
         }
 
-        #endregion
 
+        /// <summary>
+        /// Closes Cugar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmdPrivatExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+
+        /// <summary>
+        /// Checks if the Programm should create a new record or update an existing.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdPrivatSave_Click(object sender, EventArgs e)
         {
             if (m_bNew == true)
@@ -566,28 +469,13 @@ namespace Cugar
                 }
                 else if (tabMain.SelectedTab == tabCompanies)
                 {
-                    //UpdateCompanyCao();
-                    //UpdateCompanySugar();
+                    UpdateCompanyCao();
+                    UpdateCompanySugar();
                 }
                 else
                 {
                 }
             }
-
-    
-            ////Routine für Update vorgang
-            //m_DS.AcceptChanges();
-            //if (m_DS.HasChanges())
-            //{
-            //    MessageBox.Show("Änderungen :D");
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Keine Änderungen :(");
-            //}
-            //cCao m_objCao = new cCao(m_DS, m_BS_CaoSearchContacts);
-            //m_objCao.UpdateAll();
-
         }
 
         /// <summary>
@@ -607,6 +495,8 @@ namespace Cugar
                 sb_CaoInsert.Append("REC_ID, ");
                 sb_CaoInsert.Append("KUNDENGRUPPE, ");
                 sb_CaoInsert.Append("NAME1, ");
+                sb_CaoInsert.Append("NAME2, ");
+                sb_CaoInsert.Append("NAME3, ");
                 sb_CaoInsert.Append("PLZ, ");
                 sb_CaoInsert.Append("ORT, ");
                 sb_CaoInsert.Append("LAND, ");
@@ -627,7 +517,7 @@ namespace Cugar
                 sb_CaoInsert.Append("GEAEND_NAME, ");
                 sb_CaoInsert.Append("KUN_ZAHLART, ");
                 sb_CaoInsert.Append(@"BRUTTO_FLAG)");
-                sb_CaoInsert.Append(@" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                sb_CaoInsert.Append(@" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 #endregion
                 OdbcCommand caoInsert = new OdbcCommand(sb_CaoInsert.ToString(), m_objCao.CaoConnection);
 
@@ -640,6 +530,12 @@ namespace Cugar
                 caoInsert.Parameters.Add("@NAME1", OdbcType.VarChar, 40, "@NAME1");
                 cToolbox tool = new cToolbox();
                 caoInsert.Parameters["@NAME1"].Value = tool.UniteName(txtVorname.Text, txtName.Text);
+
+                caoInsert.Parameters.Add("@NAME2", OdbcType.VarChar, 40, "@NAME2");
+                caoInsert.Parameters["@NAME2"].Value = txtName2.Text;
+
+                caoInsert.Parameters.Add("@NAME3", OdbcType.VarChar, 40, "@NAME3");
+                caoInsert.Parameters["@NAME3"].Value = txtName3.Text;
 
                 caoInsert.Parameters.Add("@PLZ", OdbcType.VarChar, 10, "@PLZ");
                 caoInsert.Parameters["@PLZ"].Value = txtPLZ.Text;
@@ -872,15 +768,16 @@ namespace Cugar
             }
         }
 
-
+        /// <summary>
+        /// Starts PrepareNew()
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void neuToolStripButton_Click(object sender, EventArgs e)
         {
             PrepareNew();
         }
-        /// <summary>
-        /// Asks the User if he wants to clear all Textfields and
-        /// enables the Save button.
-        /// </summary>
+
         /// <summary>
         /// Asks the User if he wants to clear all Textfields and
         /// enables the Save button.
@@ -890,7 +787,7 @@ namespace Cugar
             // If the User clicks "yes" all the textfields get cleared.
             // If he clicks "no" the Text stays there, handy if the User
             // forgot to click "add new".
-            DialogResult dr = MessageBox.Show("Alle Textfelder clearen?", "Neuer Datensatz...", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            DialogResult dr = MessageBox.Show("Alle Textfelder löschen?", "Neuer Datensatz...", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
                 if (tabMain.SelectedTab == tabCompanies)
@@ -923,8 +820,11 @@ namespace Cugar
                 }
                 else
                 {
+                    /* Group "Generell" */
                     txtVorname.Clear();
                     txtName.Clear();
+                    txtName2.Clear();
+                    txtName3.Clear();
                     cboAnrede.SelectedIndex = 0;
                     txtStrasse1.Clear();
                     txtPLZ.Clear();
@@ -935,9 +835,27 @@ namespace Cugar
                     txtMobile.Clear();
                     txtPhon2.Clear();
                     txtPhone1.Clear();
-                    txtCaoZahlungsziel.Clear();
-
                     txtBemerkung.Clear();
+
+                    /* Group "Cao options" */
+                    cboCaoBriefanrede.SelectedIndex = 0;
+                    txtCaoZahlungsziel.Clear();
+                    cboCaoVersand.SelectedIndex = 0;
+                    cboCaoZahlart.SelectedIndex = 0;
+                    dtpGebDatum.Value = DateTime.Today;
+                    dtpKunSeit.Value = DateTime.Today;
+
+                    /* Group "Sugar options" */
+                    txtSugarTitle.Clear();
+                    txtSugarAbteilung.Clear();
+                    txtSugarLand.Clear();
+                    txtSugarLeadSource.Clear();
+                    txtSugarTitle.Clear();
+                    txtSugarAbteilung.Clear();
+                    txtSugarLand.Clear();
+                    txtSugarLeadSource.Clear();
+
+
                     m_bNew = true;
                     this.EnableSave();
                 }
@@ -949,21 +867,9 @@ namespace Cugar
             }
         }
 
-        #region obsolete
-        //private void button2_Click(object sender, EventArgs e)
-        //{
-        //    CaoInsertFirma();
-        //    //SugarInsertFirma();
-        //}
-        #endregion
-
-        #region obsolete
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    Application.Exit();
-        //}
-        #endregion
-
+        /// <summary>
+        /// Inserts a new Company into the Cao Database.
+        /// </summary>
         private void CaoInsertFirma()
         {
             if (m_bNew == true)
@@ -1060,6 +966,9 @@ namespace Cugar
             }
         }
 
+        /// <summary>
+        /// Inserts a new Company into the Sugar Database.
+        /// </summary>
         private void SugarInsertFirma()
         {
             if (m_bNew == true)
@@ -1175,14 +1084,23 @@ namespace Cugar
                     throw;
                 }
             }
-            //...
         }
 
+        /// <summary>
+        /// Clears tstxtSucheFirma.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tstxtSucheFirma_Click(object sender, EventArgs e)
         {
             tstxtSucheFirma.Clear();
         }
 
+        /// <summary>
+        /// Starts the search when enter is pressed inside tstxtSucheFirma
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tstxtSucheFirma_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -1192,19 +1110,31 @@ namespace Cugar
 
         }
 
+        /// <summary>
+        /// Creates a new Search for a Company and displays frmSearch.
+        /// </summary>
         private void SearchFirma()
         {
             frmSuche m_objSuche = new frmSuche(m_DS, tstxtSucheFirma.Text, m_objCao, m_objSugar, this, m_BS_CaoSearchFirma, m_BS_SugarSearchFirma);
             m_objSuche.Privat = false;
-            //m_objSuche.StartSearchFirma(tstxtSucheFirma.Text);
             m_objSuche.ShowDialog();
         }
 
+        /// <summary>
+        /// Clears tstxtSuchePrivat.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tstxtSuchePrivat_Click(object sender, EventArgs e)
         {
             tstxtSuchePrivat.Clear();
         }
 
+        /// <summary>
+        /// Starts the search when enter is pressed inside tstxtSuchePrivat. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tstxtSuchePrivat_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -1212,7 +1142,13 @@ namespace Cugar
                 SearchPrivat();
             }
         }
-        #region keyboard shortcuts
+
+
+        /// <summary>
+        /// Sets tstxtSuchePrivat focused when ctrl-f is pressed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmMain_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F && e.Control)
@@ -1220,32 +1156,62 @@ namespace Cugar
                 tstxtSuchePrivat.Focus();
             }
         }
-        #endregion
 
-        #region unused
-        //private void mnuFrmMain_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        //{
-
-        //}
-
-        //private void cboFZahlart_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-
-        //}
-        #endregion
-
+        /// <summary>
+        /// Checks which tab is selected and starts the
+        /// according UpdateCommand.
+        /// If no row is selected it will ask the user to insert a new one.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void speichernToolStripButton_Click(object sender, EventArgs e)
         {
-            if (tabMain.SelectedTab == tabCompanies)
+            if (m_BS_CaoSearchContacts.Current != null)
             {
-                UpdateCompanyCao();
-                UpdateCompanySugar();
+                if (tabMain.SelectedTab == tabCompanies)
+                {
+                    UpdateCompanyCao();
+                    UpdateCompanySugar();
+                }
+                else if (tabMain.SelectedTab == tabContacts)
+                {
+                    UpdateContactCao();
+                    UpdateContactSugar();
+                }
             }
-            else if (tabMain.SelectedTab == tabContacts)
+            else if (m_BS_CaoSearchFirma.Current != null)
             {
-                UpdateContactCao();
-                UpdateContactSugar();
+                if (tabMain.SelectedTab == tabCompanies)
+                {
+                    UpdateCompanyCao();
+                    UpdateCompanySugar();
+                }
+                else if (tabMain.SelectedTab == tabContacts)
+                {
+                    UpdateContactCao();
+                    UpdateContactSugar();
+                }
             }
+            else
+            {
+                DialogResult dr = MessageBox.Show("Die eingegeben Daten als neuen Datensatz speichern?", "Neuer Datensatz...", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    if (tabMain.SelectedTab == tabCompanies)
+                    {
+                        m_bNew = true;
+                        CaoInsertFirma();
+                        SugarInsertFirma();
+                    }
+                    else if (tabMain.SelectedTab == tabContacts)
+                    {
+                        m_bNew = true;
+                        CaoInsertPrivat();
+                        SugarInsertPrivat();
+                    }
+                }
+            }
+
         }
 
         /// <summary>
@@ -1301,7 +1267,7 @@ namespace Cugar
             sb_UpdateCommand.Append(txtFBemerkung.Text);
             sb_UpdateCommand.Append(@"', ");
             sb_UpdateCommand.Append(@"KUN_LIEFART='");
-            sb_UpdateCommand.Append(cboFVersand.Text);
+            sb_UpdateCommand.Append(cboFVersand.SelectedIndex + 1);
             sb_UpdateCommand.Append(@"', ");
             sb_UpdateCommand.Append(@"KUN_SEIT='");
             sb_UpdateCommand.Append(dtpFKunSeit.Value.Year.ToString() + "-" + dtpFKunSeit.Value.Month.ToString() + "-" + dtpFKunSeit.Value.Day.ToString());
@@ -1310,7 +1276,7 @@ namespace Cugar
             sb_UpdateCommand.Append("Cugar");
             sb_UpdateCommand.Append(@"', ");
             sb_UpdateCommand.Append(@"KUN_ZAHLART='");
-            sb_UpdateCommand.Append(cboFZahlart.Text);
+            sb_UpdateCommand.Append(cboFZahlart.SelectedIndex + 1);
             sb_UpdateCommand.Append(@"'");
             sb_UpdateCommand.Append(@" where REC_ID =");
             sb_UpdateCommand.Append(((DataRowView)m_BS_CaoSearchFirma.Current)["REC_ID"].ToString());
@@ -1433,6 +1399,32 @@ namespace Cugar
             sb_UpdateCommand.Append(@"NAME1='");
             sb_UpdateCommand.Append(txtVorname.Text + " " + txtName.Text);
             sb_UpdateCommand.Append(@"', ");
+
+
+            sb_UpdateCommand.Append(@"NAME2='");
+            sb_UpdateCommand.Append(txtName2.Text);
+            sb_UpdateCommand.Append(@"', ");
+
+            sb_UpdateCommand.Append(@"NAME3='");
+            sb_UpdateCommand.Append(txtName3.Text);
+            sb_UpdateCommand.Append(@"', ");
+
+            sb_UpdateCommand.Append(@"EMAIL='");
+            sb_UpdateCommand.Append(txtEmail.Text);
+            sb_UpdateCommand.Append(@"', ");
+
+            sb_UpdateCommand.Append(@"INTERNET='");
+            sb_UpdateCommand.Append(txtWebpage.Text);
+            sb_UpdateCommand.Append(@"', ");
+
+            sb_UpdateCommand.Append(@"KUN_ZAHLART='");
+            sb_UpdateCommand.Append(cboCaoZahlart.SelectedIndex + 1);
+            sb_UpdateCommand.Append(@"', ");
+
+            sb_UpdateCommand.Append(@"KUN_LIEFART='");
+            sb_UpdateCommand.Append(cboCaoVersand.SelectedIndex + 1);
+            sb_UpdateCommand.Append(@"', ");
+
             sb_UpdateCommand.Append(@"ANREDE='");
             sb_UpdateCommand.Append(cboAnrede.Text);
             sb_UpdateCommand.Append(@"', ");
@@ -1545,11 +1537,11 @@ namespace Cugar
             sb_UpdateCommand.Append(@"', ");
             sb_UpdateCommand.Append(@"birthdate='");
             sb_UpdateCommand.Append(dtpGebDatum.Value.Year.ToString() + "-" + dtpGebDatum.Value.Month.ToString() + "-" + dtpGebDatum.Value.Day.ToString());
-            sb_UpdateCommand.Append(@"'");
+            sb_UpdateCommand.Append(@"', ");
 
             DateTime today = DateTime.Now;
             sb_UpdateCommand.Append(@"date_modified='");
-            sb_UpdateCommand.Append(today.ToString("yyyy-MM-dd_HH:mm:ss"));
+            sb_UpdateCommand.Append(today.ToString("yyyy-MM-dd"));
             sb_UpdateCommand.Append(@"'");
 
             sb_UpdateCommand.Append(@" where id = '");
@@ -1575,7 +1567,11 @@ namespace Cugar
             }
         }
 
-
+        /// <summary>
+        /// I plan to implement a print method :)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void druckenToolStripButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Drucken wird leider noch nicht unterstützt.");
