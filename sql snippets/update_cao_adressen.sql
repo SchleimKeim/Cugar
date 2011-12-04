@@ -1,1 +1,1 @@
-update adressen set KUNDENGRUPPE='1' where REC_ID=7;
+UPDATE adressen SET KUNDENGRUPPE=2, NAME1='CalandaComp GmbH', NAME2='', PLZ='7302', ORT='Landquart', ANREDE='Firma', STRASSE='Bahnhofstrasse 1', TELE1='081 330 85 25', FAX='081 330 85 35', EMAIL='info@calandacomp.ch', INTERNET='http://www.calandacomp.ch', BRT_TAGE='30', INFO='', KUN_LIEFART='Heimlieferung', KUN_SEIT='2011-12-3', GEAEND_NAME='Cugar', KUN_ZAHLART='Rechnung' where REC_ID =55;

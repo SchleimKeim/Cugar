@@ -223,8 +223,9 @@
             // überCougarToolStripMenuItem
             // 
             this.überCougarToolStripMenuItem.Name = "überCougarToolStripMenuItem";
-            this.überCougarToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.überCougarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.überCougarToolStripMenuItem.Text = "Über Cougar...";
+            this.überCougarToolStripMenuItem.Click += new System.EventHandler(this.überCougarToolStripMenuItem_Click);
             // 
             // grpGenerell
             // 

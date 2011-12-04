@@ -1576,5 +1576,11 @@ namespace Cugar
         {
             MessageBox.Show("Drucken wird leider noch nicht unterstützt.");
         }
+
+        private void überCougarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbout myAbout = new frmAbout();
+            myAbout.ShowDialog();
+        }
     }
 }

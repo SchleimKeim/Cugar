@@ -34,6 +34,11 @@ namespace Cugar
             this.Close();
         }
 
+        /// <summary>
+        /// Saves the necessary connection information into AppData.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdSave_Click(object sender, EventArgs e)
         {           
             Cugar.Properties.Settings.Default.caohost = txtCaoHost.Text;

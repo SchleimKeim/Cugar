@@ -6,19 +6,20 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace Cugar._Forms
+namespace Cugar
 {
     partial class frmAbout : Form
     {
         public frmAbout()
         {
             InitializeComponent();
-            this.Text = String.Format("Info über {0} {0}", AssemblyTitle);
+            this.Text = String.Format("Info über {0}", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
-            this.labelVersion.Text = String.Format("Version {0} {0}", AssemblyVersion);
+            this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
-            this.textBoxDescription.Text = AssemblyDescription;
+            //this.textBoxDescription.Text = AssemblyDescription;
+            this.textBoxDescription.Text = "Cugar is a frontend for CAO-Faktura and Sugarcrm. \n For more information mail me:\n skull@darktemple.ch";
         }
 
         #region Assemblyattributaccessoren
@@ -100,5 +101,10 @@ namespace Cugar._Forms
             }
         }
         #endregion
+
+        private void frmAbout_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Cugar._Forms
+﻿namespace Cugar
 {
     partial class frmAbout
     {
@@ -165,6 +165,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmAbout";
+            this.Load += new System.EventHandler(this.frmAbout_Load);
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
