@@ -15,11 +15,11 @@ namespace Cugar
             InitializeComponent();
             this.Text = String.Format("Info über {0}", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
-            this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
+            this.labelVersion.Text = String.Format("Version v0.9");
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
             //this.textBoxDescription.Text = AssemblyDescription;
-            this.textBoxDescription.Text = "Cugar is a frontend for CAO-Faktura and Sugarcrm. \n For more information mail me:\n skull@darktemple.ch";
+            //this.textBoxDescription.Text = "Cugar is a frontend for CAO-Faktura and Sugarcrm. \n For more information mail me:\n skull@darktemple.ch";
         }
 
         #region Assemblyattributaccessoren

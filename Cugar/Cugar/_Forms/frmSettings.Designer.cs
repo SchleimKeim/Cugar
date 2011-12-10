@@ -48,6 +48,7 @@
             this.grpSettingsSugar = new System.Windows.Forms.GroupBox();
             this.txtSugarDBName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.cmdTest = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.grpSettingsSugar.SuspendLayout();
             this.SuspendLayout();
@@ -69,7 +70,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(277, 146);
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button1.Location = new System.Drawing.Point(154, 146);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 8;
@@ -104,7 +106,8 @@
             // 
             // cmdSave
             // 
-            this.cmdSave.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cmdSave.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.cmdSave.Enabled = false;
             this.cmdSave.Location = new System.Drawing.Point(358, 146);
             this.cmdSave.Name = "cmdSave";
             this.cmdSave.Size = new System.Drawing.Size(75, 23);
@@ -237,11 +240,22 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "DB Name:";
             // 
+            // cmdTest
+            // 
+            this.cmdTest.Location = new System.Drawing.Point(235, 146);
+            this.cmdTest.Name = "cmdTest";
+            this.cmdTest.Size = new System.Drawing.Size(117, 23);
+            this.cmdTest.TabIndex = 8;
+            this.cmdTest.Text = "Verbindungen &testen";
+            this.cmdTest.UseVisualStyleBackColor = true;
+            this.cmdTest.Click += new System.EventHandler(this.cmdTest_Click);
+            // 
             // frmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(442, 181);
+            this.Controls.Add(this.cmdTest);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cmdSave);
             this.Controls.Add(this.groupBox1);
@@ -279,5 +293,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtSugarDBName;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button cmdTest;
     }
 }

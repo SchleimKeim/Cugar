@@ -19,6 +19,27 @@
             <setting name="caoip" serializeAs="String">
                 <value>127.0.0.1</value>
             </setting>
+            <setting name="caouser" serializeAs="String">
+                <value>root</value>
+            </setting>
+            <setting name="caopw" serializeAs="String">
+                <value>00mysql00</value>
+            </setting>
+            <setting name="sugaruser" serializeAs="String">
+                <value>root</value>
+            </setting>
+            <setting name="sugarpw" serializeAs="String">
+                <value>00mysql00</value>
+            </setting>
+            <setting name="first_start" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="caodb" serializeAs="String">
+                <value>caofaktura</value>
+            </setting>
+            <setting name="sugardb" serializeAs="String">
+                <value>sugarcrm</value>
+            </setting>
         </Cugar.Properties.Settings>
     </userSettings>
 </configuration>

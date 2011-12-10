@@ -65,7 +65,6 @@ namespace Cugar
             {                
                 frmSettings m_SubForm_Settings = new frmSettings();
                 m_SubForm_Settings.ShowDialog();
-                MessageBox.Show("Please Restart Cugar to load the mew settings.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);             
             }
 
             if (m_DS.Tables.Count == 0)
@@ -102,12 +101,19 @@ namespace Cugar
                 #endregion
 
                 /* Versandarten ausfüllen */
-                LoadCaoVersandArten();                
-                cboCaoVersand.SelectedIndex = 0;
+                if (m_objCao.testConnection == true)
+                {
+                    LoadCaoVersandArten();
+                    cboCaoVersand.SelectedIndex = 0;
+                }
 
                 /* zahlunggsarten ausfüllen */
-                LoadCaoZahlungsarten();                
-                cboCaoZahlart.SelectedIndex = 0;                
+
+                if (m_objCao.testConnection == true)
+                {
+                    LoadCaoZahlungsarten();
+                    cboCaoZahlart.SelectedIndex = 0;
+                }
 
             }
             // Prepare cbos

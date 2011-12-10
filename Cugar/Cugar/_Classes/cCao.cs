@@ -761,6 +761,25 @@ namespace Cugar
                 return m_cnCao;
             }
         }
+        /// <summary>
+        /// Returns if the connection can be tested successfully or not.
+        /// </summary>
+        public Boolean testConnection
+        {
+            get
+            {
+                try
+                {
+                    m_cnCao.Open();
+                    m_cnCao.Close();
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+        }
         #endregion
     }
 }

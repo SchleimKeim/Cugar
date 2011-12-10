@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1">
-  <asmv1:assemblyIdentity name="Cugar.exe" version="0.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Cugar.exe" version="0.0.0.10" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
     <assemblyIdentity name="Cugar" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -57,98 +57,17 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cugar.exe" size="256000">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cugar.exe" size="258048">
       <assemblyIdentity name="Cugar" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>C+WBYx9wce5sotJHUX5WlqxiBwM=</dsig:DigestValue>
+        <dsig:DigestValue>oXoc9gleaXloNmBNGGs082MjNvc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="_textfiles\all_cao_params.txt" size="13715">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>3PmxBGZKVe823rA+lk2bpZ1mIJ8=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="_textfiles\all_sugar_params.txt" size="6950">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>lrVMlmrzEPEaFPEHHnNC3ppOx3c=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="_textfiles\CaoInsertFirma.txt" size="1211">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>VhzvtUW7QBnHbOJo0qzz7tLnpR0=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="_textfiles\hiderows.txt" size="90">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>wUMuX2eAStAD9e1N9URkAZ63Dmg=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="_textfiles\Notes.txt" size="396">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>ThOY2aD7npcaF5uPY7k6wO0VwWI=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="_textfiles\searchcontactsbyname_sicherung.txt" size="1211">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>+fslvH9rSA2L6xttp0pNWxcTXM0=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="_textfiles\SugarInsertFirma.txt" size="8505">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>39tw1ZpRf0+KKowRJsmuuiXEYNw=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="_textfiles\SugarInsertFirma_allerows.txt" size="2352">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Rm3JoIaHyQl53A9VhhWe2EmrzeY=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="_textfiles\temp.txt" size="68">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>caKlKZJnD7Ohdnu3uAoFgIdhpPQ=</dsig:DigestValue>
-    </hash>
-  </file>
   <file name="Cugar.exe.config" size="2062">
     <hash>
       <dsig:Transforms>

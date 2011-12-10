@@ -606,4 +606,7 @@
         YfTPdbrBL/xC/9v89/9h9H8Y/esi+38Y/R9G/7oY/f8DPTxUq2GibSkAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="textBoxDescription.Text" xml:space="preserve">
+    <value>Cugar ist ein Frontend fr CAO-Faktura und SugarCRM. Das Projekt wurde im Rahmen einer Semesterarbeit fr den Lehrgang HIF 09 des IBW Churs erstellt. Fr mehr Informationen schicken Sie mir einfach eine E-Mail an: skull@darktemple.ch</value>
+  </data>
 </root>

@@ -477,6 +477,27 @@ namespace Cugar
                 return m_cnSugar;
             }
         }
+
+        /// <summary>
+        /// Returns if the connection can be tested successfully or not.
+        /// </summary>
+        public Boolean testConnection
+        {
+            get
+            {
+                try
+                {
+                    m_cnSugar.Open();
+                    m_cnSugar.Close();
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+        }
+
         #endregion
     }
 }
