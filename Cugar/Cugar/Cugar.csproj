@@ -29,9 +29,9 @@
     <MapFileExtensions>true</MapFileExtensions>
     <SupportUrl>http://www.darktemple.ch/wiki/doku.php%3fid=projects:cugar</SupportUrl>
     <ProductName>Cugar</ProductName>
-    <PublisherName>Mathias Mader</PublisherName>
-    <ApplicationRevision>10</ApplicationRevision>
-    <ApplicationVersion>0.0.0.%2a</ApplicationVersion>
+    <PublisherName>Project Cugar</PublisherName>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>0.0.0.1</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
