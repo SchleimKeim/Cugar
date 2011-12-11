@@ -64,10 +64,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>UAG5NsJd9fYreEWTWXi7n192s7k=</dsig:DigestValue>
+        <dsig:DigestValue>gcIXpbN9LShpCkGmJNn8suHEYtk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
+  <file name="_textfiles\README.txt" size="884">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>cMt9jI9Xlc00CmR18aVzQQ5K7xE=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Cugar.exe.config" size="2062">
     <hash>
       <dsig:Transforms>

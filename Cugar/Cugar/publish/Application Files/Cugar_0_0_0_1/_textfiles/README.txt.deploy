@@ -1,4 +1,4 @@
-Cugar v 0.9 (first release)
+﻿Cugar v 0.9 (first release)
 ===========================
 Frontend for SugarCRM and CAO-Faktura.
 
