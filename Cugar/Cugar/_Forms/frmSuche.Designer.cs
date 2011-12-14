@@ -40,6 +40,8 @@
             this.cmdClear = new System.Windows.Forms.Button();
             this.cmdLoad = new System.Windows.Forms.Button();
             this.cmdExit = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.grpSuche.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSugarSuche)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCaoSuche)).BeginInit();
@@ -97,11 +99,13 @@
             // 
             // grpSuche
             // 
+            this.grpSuche.Controls.Add(this.label3);
+            this.grpSuche.Controls.Add(this.label2);
             this.grpSuche.Controls.Add(this.dgvSugarSuche);
             this.grpSuche.Controls.Add(this.dgvCaoSuche);
             this.grpSuche.Location = new System.Drawing.Point(12, 80);
             this.grpSuche.Name = "grpSuche";
-            this.grpSuche.Size = new System.Drawing.Size(879, 307);
+            this.grpSuche.Size = new System.Drawing.Size(879, 335);
             this.grpSuche.TabIndex = 5;
             this.grpSuche.TabStop = false;
             this.grpSuche.Text = "Resultate:";
@@ -109,7 +113,7 @@
             // dgvSugarSuche
             // 
             this.dgvSugarSuche.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSugarSuche.Location = new System.Drawing.Point(6, 162);
+            this.dgvSugarSuche.Location = new System.Drawing.Point(7, 188);
             this.dgvSugarSuche.Name = "dgvSugarSuche";
             this.dgvSugarSuche.Size = new System.Drawing.Size(867, 137);
             this.dgvSugarSuche.TabIndex = 0;
@@ -117,7 +121,7 @@
             // dgvCaoSuche
             // 
             this.dgvCaoSuche.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCaoSuche.Location = new System.Drawing.Point(6, 19);
+            this.dgvCaoSuche.Location = new System.Drawing.Point(7, 32);
             this.dgvCaoSuche.Name = "dgvCaoSuche";
             this.dgvCaoSuche.Size = new System.Drawing.Size(867, 137);
             this.dgvCaoSuche.TabIndex = 0;
@@ -128,7 +132,7 @@
             this.cmdSuche.Name = "cmdSuche";
             this.cmdSuche.Size = new System.Drawing.Size(75, 23);
             this.cmdSuche.TabIndex = 6;
-            this.cmdSuche.Text = "&Suche...";
+            this.cmdSuche.Text = "&Suche";
             this.cmdSuche.UseVisualStyleBackColor = true;
             this.cmdSuche.Click += new System.EventHandler(this.cmdSuche_Click);
             // 
@@ -162,12 +166,30 @@
             this.cmdExit.UseVisualStyleBackColor = true;
             this.cmdExit.Click += new System.EventHandler(this.cmdExit_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 172);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "SugarCRM:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "CAO-Faktura:";
+            // 
             // frmSuche
             // 
             this.AcceptButton = this.cmdSuche;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(903, 398);
+            this.ClientSize = new System.Drawing.Size(898, 425);
             this.Controls.Add(this.cmdExit);
             this.Controls.Add(this.cmdLoad);
             this.Controls.Add(this.cmdClear);
@@ -182,6 +204,7 @@
             this.Text = "Suche...";
             this.Load += new System.EventHandler(this.frmSuche_Load);
             this.grpSuche.ResumeLayout(false);
+            this.grpSuche.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSugarSuche)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCaoSuche)).EndInit();
             this.ResumeLayout(false);
@@ -203,5 +226,7 @@
         private System.Windows.Forms.Button cmdClear;
         private System.Windows.Forms.Button cmdLoad;
         private System.Windows.Forms.Button cmdExit;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }

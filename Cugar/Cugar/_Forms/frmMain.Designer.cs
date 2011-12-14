@@ -97,7 +97,6 @@
             this.tstxtSucheFirma = new System.Windows.Forms.ToolStripTextBox();
             this.speichernToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.druckenToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.hilfeToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabContacts = new System.Windows.Forms.TabPage();
             this.tabCompanies = new System.Windows.Forms.TabPage();
@@ -186,14 +185,14 @@
             // neuToolStripMenuItem
             // 
             this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.neuToolStripMenuItem.Text = "Neu...";
             this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
             // 
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.beendenToolStripMenuItem.Text = "&Beenden";
             this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
@@ -223,7 +222,7 @@
             // überCougarToolStripMenuItem
             // 
             this.überCougarToolStripMenuItem.Name = "überCougarToolStripMenuItem";
-            this.überCougarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.überCougarToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.überCougarToolStripMenuItem.Text = "Über Cougar...";
             this.überCougarToolStripMenuItem.Click += new System.EventHandler(this.überCougarToolStripMenuItem_Click);
             // 
@@ -756,8 +755,7 @@
             this.tstxtSuchePrivat,
             this.tstxtSucheFirma,
             this.speichernToolStripButton,
-            this.druckenToolStripButton,
-            this.hilfeToolStripButton});
+            this.druckenToolStripButton});
             this.tsToolStipMain.Location = new System.Drawing.Point(0, 24);
             this.tsToolStipMain.Name = "tsToolStipMain";
             this.tsToolStipMain.Size = new System.Drawing.Size(959, 25);
@@ -771,7 +769,7 @@
             this.neuToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.neuToolStripButton.Name = "neuToolStripButton";
             this.neuToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.neuToolStripButton.Text = "&Neu";
+            this.neuToolStripButton.Text = "&Neuen Datensatz erstellen";
             this.neuToolStripButton.Click += new System.EventHandler(this.neuToolStripButton_Click);
             // 
             // tstxtSuchePrivat
@@ -809,16 +807,6 @@
             this.druckenToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.druckenToolStripButton.Text = "&Drucken";
             this.druckenToolStripButton.Click += new System.EventHandler(this.druckenToolStripButton_Click);
-            // 
-            // hilfeToolStripButton
-            // 
-            this.hilfeToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.hilfeToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("hilfeToolStripButton.Image")));
-            this.hilfeToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.hilfeToolStripButton.Name = "hilfeToolStripButton";
-            this.hilfeToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.hilfeToolStripButton.Text = "Debug informationen.";
-            this.hilfeToolStripButton.Click += new System.EventHandler(this.hilfeToolStripButton_Click);
             // 
             // tabMain
             // 
@@ -1432,7 +1420,6 @@
         private System.Windows.Forms.ToolStripButton neuToolStripButton;
         private System.Windows.Forms.ToolStripButton speichernToolStripButton;
         private System.Windows.Forms.ToolStripButton druckenToolStripButton;
-        private System.Windows.Forms.ToolStripButton hilfeToolStripButton;
         private System.Windows.Forms.ToolStripTextBox tstxtSuchePrivat;
         private System.Windows.Forms.TabControl tabMain;
         private System.Windows.Forms.TabPage tabCompanies;
