@@ -89,7 +89,7 @@ namespace Cugar
             }
             else
             {
-                MessageBox.Show("Fehler in Cao Verbindung. \n Bitte berprfen Sie die Einstellungen!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Fehler in Cao Verbindung. \n Bitte überprüfen Sie die Einstellungen!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             /* Test Sugar Connection */
@@ -102,7 +102,7 @@ namespace Cugar
             }
             else
             {
-                MessageBox.Show("Fehler in Sugar Verbindung. \n Bitte berprfen Sie die Einstellungen!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Fehler in Sugar Verbindung. \n Bitte überprüfen Sie die Einstellungen!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             if (caook == true && sugarok == true)

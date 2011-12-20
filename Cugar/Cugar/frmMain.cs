@@ -94,7 +94,7 @@ namespace Cugar
                 }
                 catch (Exception asdf)
                 {
-                    MessageBox.Show("Ein Fehler ist aufgetreten!\n Bitte berprfen Sie die Einstellungen!");
+                    MessageBox.Show("Ein Fehler ist aufgetreten!\n Bitte überprüfen Sie die Einstellungen!");
                     MessageBox.Show(asdf.ToString());
                     Application.Exit();
                 }
@@ -123,6 +123,7 @@ namespace Cugar
             cboFCaoBriefanrede.SelectedIndex = 0;
             cboFSugarType.SelectedIndex = 0;
             cboCaoBriefanrede.SelectedIndex = 0;
+            cboFSugarIndustry.SelectedIndex = 0;
         }
         /// <summary>
         /// Loads "Cao Versandarten" in the cbos
@@ -389,7 +390,7 @@ namespace Cugar
                 if (m_DS.Tables.Contains(m_const_strSugarTableSearchAllCompanies) == true)
                 {
                     cboFSugarType.Text = ((DataRowView)m_BS_SugarSearchFirma.Current)["account_type"].ToString();
-                    txtFSugarBranche.Text = ((DataRowView)m_BS_SugarSearchFirma.Current)["industry"].ToString();
+                    cboFSugarIndustry.Text = ((DataRowView)m_BS_SugarSearchFirma.Current)["industry"].ToString();
                     txtFSugarUmsatz.Text = ((DataRowView)m_BS_SugarSearchFirma.Current)["annual_revenue"].ToString();
                     txtFSugarMitarbeiter.Text = ((DataRowView)m_BS_SugarSearchFirma.Current)["employees"].ToString();
                     txtFSugarLand.Text = ((DataRowView)m_BS_SugarSearchFirma.Current)["billing_address_country"].ToString();
@@ -819,10 +820,13 @@ namespace Cugar
 
                     /* Group "Sugar options" */
                     cboFSugarType.SelectedIndex = 0;
-                    txtFSugarBranche.Clear();
+                    cboFSugarIndustry.SelectedIndex = 0;
                     txtFSugarUmsatz.Clear();
                     txtFSugarMitarbeiter.Clear();
                     txtFSugarLand.Clear();
+
+                    m_bNew = true;
+                    this.EnableSave();
                 }
                 else
                 {
@@ -1057,7 +1061,7 @@ namespace Cugar
                 cmSugarInsert.Parameters.Add("@account_type", MySqlDbType.VarChar, 50, "@account_type");
                 cmSugarInsert.Parameters["@account_type"].Value = cboFSugarType.Text;
                 cmSugarInsert.Parameters.Add("@industry", MySqlDbType.VarChar, 50, "@industry");
-                cmSugarInsert.Parameters["@industry"].Value = txtFSugarBranche.Text;
+                cmSugarInsert.Parameters["@industry"].Value = cboFSugarIndustry.Text;
                 cmSugarInsert.Parameters.Add("@annual_revenue", MySqlDbType.VarChar, 100, "@annual_revenue");
                 cmSugarInsert.Parameters["@annual_revenue"].Value = txtFSugarUmsatz.Text;
                 cmSugarInsert.Parameters.Add("@phone_fax", MySqlDbType.VarChar, 100, "@phone_fax");
@@ -1348,7 +1352,7 @@ namespace Cugar
             sb_UpdateCommand.Append(cboFSugarType.Text);
             sb_UpdateCommand.Append(@"', ");
             sb_UpdateCommand.Append(@"industry='");
-            sb_UpdateCommand.Append(txtFSugarBranche.Text);
+            sb_UpdateCommand.Append(cboFSugarIndustry.Text);
             sb_UpdateCommand.Append(@"', ");
             sb_UpdateCommand.Append(@"annual_revenue='");
             sb_UpdateCommand.Append(txtFSugarUmsatz.Text);

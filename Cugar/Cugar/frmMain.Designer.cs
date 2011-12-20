@@ -131,7 +131,6 @@
             this.txtFSugarUmsatz = new System.Windows.Forms.TextBox();
             this.lblFSugarMitarbeiter = new System.Windows.Forms.Label();
             this.lblFSugarUmsatz = new System.Windows.Forms.Label();
-            this.txtFSugarBranche = new System.Windows.Forms.TextBox();
             this.lblFSugarBranche = new System.Windows.Forms.Label();
             this.lblFSugarType = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -148,6 +147,7 @@
             this.lblFKunSeit = new System.Windows.Forms.Label();
             this.cmdPrivatExit = new System.Windows.Forms.Button();
             this.cmdSave = new System.Windows.Forms.Button();
+            this.cboFSugarIndustry = new System.Windows.Forms.ComboBox();
             this.mnuFrmMain.SuspendLayout();
             this.grpGenerell.SuspendLayout();
             this.grpCAO.SuspendLayout();
@@ -185,14 +185,14 @@
             // neuToolStripMenuItem
             // 
             this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.neuToolStripMenuItem.Text = "Neu...";
             this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
             // 
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.beendenToolStripMenuItem.Text = "&Beenden";
             this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
@@ -546,7 +546,7 @@
             this.grpCAO.Size = new System.Drawing.Size(316, 174);
             this.grpCAO.TabIndex = 2;
             this.grpCAO.TabStop = false;
-            this.grpCAO.Text = "CAO options";
+            this.grpCAO.Text = "CAO Optionen:";
             // 
             // dtpKunSeit
             // 
@@ -678,7 +678,7 @@
             this.grpSugar.Size = new System.Drawing.Size(316, 179);
             this.grpSugar.TabIndex = 3;
             this.grpSugar.TabStop = false;
-            this.grpSugar.Text = "Sugar options";
+            this.grpSugar.Text = "Sugar Optionen:";
             // 
             // txtSugarLand
             // 
@@ -1070,6 +1070,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cboFSugarIndustry);
             this.groupBox2.Controls.Add(this.cboFSugarType);
             this.groupBox2.Controls.Add(this.txtFSugarLand);
             this.groupBox2.Controls.Add(this.lblFSugarLand);
@@ -1077,7 +1078,6 @@
             this.groupBox2.Controls.Add(this.txtFSugarUmsatz);
             this.groupBox2.Controls.Add(this.lblFSugarMitarbeiter);
             this.groupBox2.Controls.Add(this.lblFSugarUmsatz);
-            this.groupBox2.Controls.Add(this.txtFSugarBranche);
             this.groupBox2.Controls.Add(this.lblFSugarBranche);
             this.groupBox2.Controls.Add(this.lblFSugarType);
             this.groupBox2.Location = new System.Drawing.Point(626, 189);
@@ -1152,15 +1152,6 @@
             this.lblFSugarUmsatz.Size = new System.Drawing.Size(45, 13);
             this.lblFSugarUmsatz.TabIndex = 0;
             this.lblFSugarUmsatz.Text = "Umsatz:";
-            // 
-            // txtFSugarBranche
-            // 
-            this.txtFSugarBranche.AcceptsReturn = true;
-            this.txtFSugarBranche.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFSugarBranche.Location = new System.Drawing.Point(93, 45);
-            this.txtFSugarBranche.Name = "txtFSugarBranche";
-            this.txtFSugarBranche.Size = new System.Drawing.Size(215, 20);
-            this.txtFSugarBranche.TabIndex = 17;
             // 
             // lblFSugarBranche
             // 
@@ -1322,6 +1313,22 @@
             this.cmdSave.UseVisualStyleBackColor = true;
             this.cmdSave.Click += new System.EventHandler(this.cmdPrivatSave_Click);
             // 
+            // cboFSugarIndustry
+            // 
+            this.cboFSugarIndustry.FormattingEnabled = true;
+            this.cboFSugarIndustry.Items.AddRange(new object[] {
+            "Andere",
+            "IT",
+            "Produktionsbetrieb",
+            "Baubranche",
+            "Stahlindustrie",
+            "Autoindustrie",
+            "Dienstleistungen"});
+            this.cboFSugarIndustry.Location = new System.Drawing.Point(93, 45);
+            this.cboFSugarIndustry.Name = "cboFSugarIndustry";
+            this.cboFSugarIndustry.Size = new System.Drawing.Size(215, 21);
+            this.cboFSugarIndustry.TabIndex = 16;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1445,7 +1452,6 @@
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtFSugarBranche;
         private System.Windows.Forms.Label lblFSugarBranche;
         private System.Windows.Forms.Label lblFSugarType;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -1483,6 +1489,7 @@
         private System.Windows.Forms.DateTimePicker dtpFKunSeit;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem überCougarToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cboFSugarIndustry;
 
 
 
