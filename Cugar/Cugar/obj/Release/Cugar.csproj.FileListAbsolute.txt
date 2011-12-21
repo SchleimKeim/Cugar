@@ -48,3 +48,21 @@ C:\Users\skull\Documents\Project\Cugar\Cugar\Cugar\obj\Release\Cugar.exe.manifes
 C:\Users\skull\Documents\Project\Cugar\Cugar\Cugar\obj\Release\Cugar.application
 C:\Users\skull\Documents\Project\Cugar\Cugar\Cugar\obj\Release\Cugar.exe
 C:\Users\skull\Documents\Project\Cugar\Cugar\Cugar\obj\Release\Cugar.pdb
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Project\Cugar\Cugar\Cugar\bin\Release\Cugar.exe.config
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Project\Cugar\Cugar\Cugar\obj\Release\Cugar.exe
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Project\Cugar\Cugar\Cugar\obj\Release\Cugar.pdb
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Project\Cugar\Cugar\Cugar\bin\Release\Cugar.exe.manifest
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Project\Cugar\Cugar\Cugar\bin\Release\Cugar.application
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Project\Cugar\Cugar\Cugar\bin\Release\Cugar.exe
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Project\Cugar\Cugar\Cugar\bin\Release\Cugar.pdb
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Project\Cugar\Cugar\Cugar\obj\Release\ResolveAssemblyReference.cache
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Project\Cugar\Cugar\Cugar\obj\Release\Cugar.frmAbout.resources
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Project\Cugar\Cugar\Cugar\obj\Release\Cugar.frmChanges_new.resources
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Project\Cugar\Cugar\Cugar\obj\Release\Cugar.frmMain.resources
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Project\Cugar\Cugar\Cugar\obj\Release\Cugar.frmNeu.resources
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Project\Cugar\Cugar\Cugar\obj\Release\Cugar.frmSettings.resources
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Project\Cugar\Cugar\Cugar\obj\Release\Cugar.Properties.Resources.resources
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Project\Cugar\Cugar\Cugar\obj\Release\Cugar.frmSuche.resources
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Project\Cugar\Cugar\Cugar\obj\Release\Cugar.csproj.GenerateResource.Cache
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Project\Cugar\Cugar\Cugar\obj\Release\Cugar.exe.manifest
+C:\Dokumente und Einstellungen\SKull\Eigene Dateien\Project\Cugar\Cugar\Cugar\obj\Release\Cugar.application

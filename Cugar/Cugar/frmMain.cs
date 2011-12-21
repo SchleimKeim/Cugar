@@ -1592,5 +1592,10 @@ namespace Cugar
             frmAbout myAbout = new frmAbout();
             myAbout.ShowDialog();
         }
+
+        private void cboCaoZahlart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
